@@ -1,46 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".item");
-    const collectedCountSpan = document.getElementById("collected-count");
-    const totalCountSpan = document.getElementById("total-count");
+/* --- 分類標題設計 --- */
 
-    // 1. 自動把「總數量」設定為你新增的娃娃數量
-    totalCountSpan.textContent = items.length;
+/* 大分類 (娃娃 / 其他) */
+.major-title {
+    background-color: #ffb6c1; /* 較深的粉紅色 */
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
 
-    // 2. 建立一個計算打勾數量的功能
-    function updateProgress() {
-        let currentCount = 0;
-        items.forEach(item => {
-            const checkbox = item.querySelector(".collect-checkbox");
-            if (checkbox.checked) {
-                currentCount++;
-            }
-        });
-        // 更新畫面上的已收集數字
-        collectedCountSpan.textContent = currentCount;
-    }
+/* 細分類 (吊飾 / 立牌等) */
+.sub-title {
+    border-left: 5px solid #ffb6c1;
+    padding-left: 10px;
+    text-align: left;
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    // 3. 讀取記憶與監聽打勾動作
-    items.forEach(item => {
-        const checkbox = item.querySelector(".collect-checkbox");
-        const itemId = item.getAttribute("data-id");
-
-        // 讀取紀錄
-        if (localStorage.getItem(itemId) === "true") {
-            checkbox.checked = true;
-        }
-
-        // 當你打勾或取消打勾時
-        checkbox.addEventListener("change", (e) => {
-            if (e.target.checked) {
-                localStorage.setItem(itemId, "true");
-            } else {
-                localStorage.removeItem(itemId); 
-            }
-            // 每次打勾都重新計算一次進度
-            updateProgress();
-        });
-    });
-
-    // 網頁剛打開時，先算一次目前的進度
-    updateProgress();
-});
+/* 地區分類 (日本 / 中國等) */
+.region-title {
+    text-align: left;
+    color: #777;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.region-title::before {
+    content: "📍";
+    margin-right: 5px;
+}

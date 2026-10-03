@@ -9,54 +9,49 @@
 <body>
     <h1>🌟 小桃圖鑑</h1>
 
-    <!-- 頂部進度區塊 (維持不變) -->
+    <!-- 進度區塊-->
     <div class="progress-section">
         <div class="character-progress">
             <div class="avatar">
                 <img src="momo_head.jpg" alt="小桃">
             </div>
-            <div class="name">小桃</div>
+            <div class="name">娃娃</div>
+            <div class="count">
+                <span id="collected-count">0</span> / <span id="total-count">0</span>
+                <div class="name">其他</div>
             <div class="count">
                 <span id="collected-count">0</span> / <span id="total-count">0</span>
             </div>
         </div>
     </div>
     
-    <!-- =========================
-         大分類：娃娃 
-    ========================= -->
-    <h2 class="major-title">🧸 娃娃系列</h2>
-
-    <!-- 娃娃細分類：吊飾 -->
-    <h3 class="sub-title">吊飾</h3>
-    
-        <!-- 吊飾 / 產地：日本 -->
+<!-- 吊飾 / 產地：日本 -->
         <h4 class="region-title">日本</h4>
         <div class="catalog-grid">
             <div class="item" data-id="momo_plush_keychain_jp_01">
-                <img src="你的圖片1.jpg" alt="初代睡衣小桃">
+                <img src="momo1.jpg" alt="初代睡衣小桃">
                 <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
             </div>
             <div class="item" data-id="momo_plush_keychain_jp_02">
-                <img src="你的圖片2.jpg" alt="魔法少女小桃">
+                <img src="momo2.jpg" alt="魔法少女小桃">
                 <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
             </div>
         </div>
 
-        <!-- 吊飾 / 產地：中國 -->
+<!-- 吊飾 / 產地：中國 -->
         <h4 class="region-title">中國</h4>
         <div class="catalog-grid">
             <!-- 如果中國區有買吊飾，就把 <div class="item">...</div> 放在這個框框裡 -->
         </div>
 
-    <!-- 娃娃細分類：S娃 -->
+<!-- 娃娃細分類：S娃 -->
     <h3 class="sub-title">S娃</h3>
         <h4 class="region-title">日本</h4>
         <div class="catalog-grid">
             <!-- 娃娃放這裡 -->
         </div>
         
-    <!-- 娃娃細分類：景品 -->
+<!-- 娃娃細分類：景品 -->
     <h3 class="sub-title">景品</h3>
         <h4 class="region-title">日本</h4>
         <div class="catalog-grid">
@@ -64,12 +59,9 @@
         </div>
 
 
-    <!-- =========================
-         大分類：其他 
-    ========================= -->
-    <h2 class="major-title">✨ 其他周邊</h2>
+    <h2 class="major-title">其他</h2>
 
-    <!-- 其他細分類：立牌 -->
+ <!-- 其他細分類：立牌 -->
     <h3 class="sub-title">立牌</h3>
         <h4 class="region-title">日本</h4>
         <div class="catalog-grid">
@@ -81,14 +73,12 @@
             <!-- 台灣立牌放這裡 -->
         </div>
 
-    <!-- 其他細分類：徽章 -->
+   <!-- 其他細分類：徽章 -->
     <h3 class="sub-title">徽章</h3>
         <h4 class="region-title">日本</h4>
         <div class="catalog-grid">
             <!-- 徽章放這裡 -->
         </div>
-
-    <!-- 💡 未來要新增其他分類 (磁鐵/御守/手帕...)，只要複製上面這段 <h3> 和 <h4> 的結構往下貼就可以了！ -->
 
     <script src="script.js"></script>
 </body>

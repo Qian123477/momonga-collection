@@ -1,25 +1,46 @@
-body {
-    font-family: "微軟正黑體", sans-serif;
-    background-color: #fdf5f6;
-    text-align: center;
-    padding: 20px;
-}
-.catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.item {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.item img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".item");
+    const collectedCountSpan = document.getElementById("collected-count");
+    const totalCountSpan = document.getElementById("total-count");
+
+    // 1. 自動把「總數量」設定為你新增的娃娃數量
+    totalCountSpan.textContent = items.length;
+
+    // 2. 建立一個計算打勾數量的功能
+    function updateProgress() {
+        let currentCount = 0;
+        items.forEach(item => {
+            const checkbox = item.querySelector(".collect-checkbox");
+            if (checkbox.checked) {
+                currentCount++;
+            }
+        });
+        // 更新畫面上的已收集數字
+        collectedCountSpan.textContent = currentCount;
+    }
+
+    // 3. 讀取記憶與監聽打勾動作
+    items.forEach(item => {
+        const checkbox = item.querySelector(".collect-checkbox");
+        const itemId = item.getAttribute("data-id");
+
+        // 讀取紀錄
+        if (localStorage.getItem(itemId) === "true") {
+            checkbox.checked = true;
+        }
+
+        // 當你打勾或取消打勾時
+        checkbox.addEventListener("change", (e) => {
+            if (e.target.checked) {
+                localStorage.setItem(itemId, "true");
+            } else {
+                localStorage.removeItem(itemId); 
+            }
+            // 每次打勾都重新計算一次進度
+            updateProgress();
+        });
+    });
+
+    // 網頁剛打開時，先算一次目前的進度
+    updateProgress();
+});

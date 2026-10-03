@@ -1,8 +1,14 @@
-/* --- 分類標題設計 --- */
+body {
+    font-family: "微軟正黑體", sans-serif;
+    background-color: #F8F7FC
+    text-align: center;
+    padding: 20px;
+}
+
 
 /* 大分類 (娃娃 / 其他) */
 .major-title {
-    background-color: #ffb6c1; /* 較深的粉紅色 */
+    background-color: #EADBFF
     color: white;
     padding: 10px;
     border-radius: 8px;

@@ -1,59 +1,65 @@
-body {
-    font-family: "微軟正黑體", sans-serif;
-    background-color: #F8F7FC
-    text-align: center;
-    padding: 20px;
+/* ==================================
+   卡片新設計：白底灰框、隱藏預設勾勾
+   ================================== */
+
+/* 1. 隱藏原本醜醜的方形核取方塊 */
+.collect-checkbox {
+    display: none; 
 }
 
-
-/* 大分類 (娃娃 / 其他) */
-.major-title {
-    background-color: #EADBFF
-    color: white;
+/* 2. 每一格娃娃的卡片外觀 */
+.item {
+    background: white;
     padding: 10px;
-    border-radius: 8px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 24px;
+    border-radius: 6px;
+    border: 1px solid #ddd; /* 預設的灰色細框 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* 為了放右上角的打勾圖示作準備 */
+    cursor: pointer;    /* 滑鼠移過去會變成手指圖示 */
+    box-shadow: none;   /* 移除陰影，看起來更乾淨 */
+    transition: 0.1s;
 }
 
-/* 細分類 (吊飾 / 立牌等) */
-.sub-title {
-    border-left: 5px solid #ffb6c1;
-    padding-left: 10px;
-    text-align: left;
-    color: #444;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* 3. 圖片微調，讓它完整顯示不被切掉 */
+.item img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain; 
+    margin-bottom: 8px;
 }
 
-/* 地區分類 (日本 / 中國等) */
-.region-title {
-    text-align: left;
-    color: #777;
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* 4. 下方的名字文字 */
+.item label {
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* ==================================
+   勾選後的變身樣式 (紫色外框 + 勾勾)
+   ================================== */
+
+/* 當卡片被勾選時，外框變成紫藍色 */
+.item.selected {
+    border: 2px solid #8e8cdc; 
+}
+
+/* 在卡片的右上角長出一個紫色的圓形打勾標籤 */
+.item.selected::after {
+    content: "✔";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #8e8cdc;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
     display: flex;
     align-items: center;
-}
-.region-title::before {
-    content:<img src="小桃圖鑑images/momo1.jpg">;
-    margin-right: 5px;
-}
-
-/* 控制娃娃圖片的大小與形狀 */
-.item img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover; /* 讓圖片填滿正方形且不變形 */
-    border-radius: 8px; /* 圓角邊緣 */
-    margin-bottom: 10px;
+    justify-content: center;
 }

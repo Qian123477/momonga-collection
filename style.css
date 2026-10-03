@@ -45,7 +45,7 @@ body {
     align-items: center;
 }
 .region-title::before {
-    content: "📍";
+    content:"momo-01.jpg";
     margin-right: 5px;
 }
 

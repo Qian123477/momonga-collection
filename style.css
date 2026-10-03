@@ -42,3 +42,12 @@
     content: "📍";
     margin-right: 5px;
 }
+
+/* 控制娃娃圖片的大小與形狀 */
+.item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover; /* 讓圖片填滿正方形且不變形 */
+    border-radius: 8px; /* 圓角邊緣 */
+    margin-bottom: 10px;
+}

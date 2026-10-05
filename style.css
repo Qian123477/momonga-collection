@@ -1,22 +1,22 @@
-/* ==================================
-   卡片新設計：白底灰框、隱藏預設勾勾
-   ================================== */
+/* 1. 隱藏原本醜醜的藍色核取方塊 (這三行一定要有，藍色方塊才會消失！) */
+.collect-checkbox {
+    display: none !important; 
+}
 
-/* 1. 隱藏原本醜醜的方形核取方塊 */
+/* 2. 排版：讓一排可以塞很多隻娃娃 */
 .catalog-grid {
     display: grid;
-    /* 把最小寬度從 150px 縮小到 90px，這樣一排就能塞更多隻 */
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px; /* 縮小卡片之間的空隙 */
-    max-width: 1200px; /* 把網頁最大寬度放寬，讓電腦版可以排很長 */
+    gap: 10px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
 }
 
-/* 2. 每一格娃娃的卡片外觀 */
+/* 3. 每一格娃娃的卡片外觀 */
 .item {
     background: white;
-    padding: 8px; /* 稍微縮小內縮的邊距 */
+    padding: 8px;
     border-radius: 6px;
     border: 1px solid #ddd;
     display: flex;
@@ -30,29 +30,25 @@
 }
 
 .item img {
-    width: 100%; /* 讓圖片寬度自動跟著格子縮放 */
-    aspect-ratio: 1 / 1; /* 強制保持正方形比例 */
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: contain; 
     margin-bottom: 5px;
 }
 
 .item label {
-    font-size: 12px; /* 字體稍微縮小一點點才塞得下 */
+    font-size: 12px;
     color: #333;
     cursor: pointer;
     width: 100%;
     line-height: 1.2;
 }
-/* ==================================
-   勾選後的變身樣式 (紫色外框 + 勾勾)
-   ================================== */
 
-/* 當卡片被勾選時，外框變成紫藍色 */
+/* 4. 勾選後的變身樣式 (紫色外框 + 勾勾) */
 .item.selected {
     border: 2px solid #8e8cdc; 
 }
 
-/* 在卡片的右上角長出一個紫色的圓形打勾標籤 */
 .item.selected::after {
     content: "✔";
     position: absolute;

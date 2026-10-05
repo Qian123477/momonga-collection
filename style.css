@@ -66,16 +66,18 @@
 }
 
 /* ==================================
-   頂部橫幅設計 (完美融合滿版)
+   頂部橫幅設計 (無邊際完全滿版長條)
    ================================== */
 .top-banner {
-    width: 100%;
-    max-width: 1200px; /* 讓它跟下方的娃娃卡片一樣寬 */
-    height: 120px;     /* 稍微把高度拉高一點點，小桃才不會太迷你 */
-    margin: 0 auto 20px auto;
-    border-radius: 10px;
+    width: 100vw; /* 🌟 魔法 1：強制寬度等於 100% 的螢幕視窗寬度 */
+    margin-left: calc(-50vw + 50%); /* 🌟 魔法 2：突破網頁原本左右留白的限制，向兩邊無限延伸 */
+    height: 100px; /* 高度縮小，變成俐落的長條形 */
+    background-color: #efe6f9; /* 跟小桃圖片一樣的淡紫色底色 */
     overflow: hidden;
-    background-color: #efe6f9; /* 🌟 關鍵魔法：填上跟原圖一模一樣的淡紫色底色 */
+    margin-bottom: 20px;
+    
+    /* 💡 如果你想讓它連「最上方」都完全貼齊（不要有上面那條白邊），就把下面那行的 // 刪掉 */
+    /* margin-top: -20px; */ 
 }
 
 .top-banner img {

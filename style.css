@@ -64,3 +64,23 @@
     align-items: center;
     justify-content: center;
 }
+
+/* ==================================
+   頂部橫幅設計 (細長版)
+   ================================== */
+.top-banner {
+    width: 100%;
+    max-width: 1200px; /* 讓橫幅寬度跟底下的娃娃卡片對齊 */
+    height: 150px; /* 🌟 這裡控制橫幅的高度！覺得太高就改小(例如100px)，太扁就改大(例如200px) */
+    margin: 0 auto 20px auto; /* 置中對齊，並和下方保持距離 */
+    border-radius: 10px; /* 邊緣圓角，看起來比較柔和 */
+    overflow: hidden; /* 隱藏超出相框的部分 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 微微的陰影增加質感 */
+}
+
+.top-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 這個屬性是魔法！它會讓圖片填滿相框，自動裁切掉上下多餘的空白，且絕對不會變形 */
+    object-position: center; /* 確保小桃和文字永遠保持在正中間不被切掉 */
+}

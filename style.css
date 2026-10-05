@@ -66,21 +66,21 @@
 }
 
 /* ==================================
-   頂部橫幅設計 (細長版)
+   頂部橫幅設計 (防切頭微調版)
    ================================== */
 .top-banner {
     width: 100%;
-    max-width: 1200px; /* 讓橫幅寬度跟底下的娃娃卡片對齊 */
-    height: 150px; /* 🌟 這裡控制橫幅的高度！覺得太高就改小(例如100px)，太扁就改大(例如200px) */
-    margin: 0 auto 20px auto; /* 置中對齊，並和下方保持距離 */
-    border-radius: 10px; /* 邊緣圓角，看起來比較柔和 */
-    overflow: hidden; /* 隱藏超出相框的部分 */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 微微的陰影增加質感 */
+    max-width: 600px; /* 🌟 秘訣 1：寬度縮小一半，圖片才不會被放大成巨無霸 */
+    height: 160px;    /* 🌟 秘訣 2：高度稍微拉高 10px，給小桃跟字一點呼吸空間 */
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .top-banner img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 這個屬性是魔法！它會讓圖片填滿相框，自動裁切掉上下多餘的空白，且絕對不會變形 */
-    object-position: center; /* 確保小桃和文字永遠保持在正中間不被切掉 */
+    object-fit: cover; 
+    object-position: center 60%; /* 🌟 秘訣 3：預設是置中，改寫成 60% 代表把鏡頭稍微「往下移」一點點，這樣小桃的耳朵絕對不會被切到！ */
 }

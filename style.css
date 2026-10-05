@@ -3,41 +3,46 @@
    ================================== */
 
 /* 1. 隱藏原本醜醜的方形核取方塊 */
-.collect-checkbox {
-    display: none; 
+.catalog-grid {
+    display: grid;
+    /* 把最小寬度從 150px 縮小到 90px，這樣一排就能塞更多隻 */
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px; /* 縮小卡片之間的空隙 */
+    max-width: 1200px; /* 把網頁最大寬度放寬，讓電腦版可以排很長 */
+    margin: 0 auto;
+    padding: 10px;
 }
 
 /* 2. 每一格娃娃的卡片外觀 */
 .item {
     background: white;
-    padding: 10px;
+    padding: 8px; /* 稍微縮小內縮的邊距 */
     border-radius: 6px;
-    border: 1px solid #ddd; /* 預設的灰色細框 */
+    border: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* 為了放右上角的打勾圖示作準備 */
-    cursor: pointer;    /* 滑鼠移過去會變成手指圖示 */
-    box-shadow: none;   /* 移除陰影，看起來更乾淨 */
+    position: relative;
+    cursor: pointer;
+    box-shadow: none;
     transition: 0.1s;
+    text-align: center;
 }
 
-/* 3. 圖片微調，讓它完整顯示不被切掉 */
 .item img {
-    width: 110px;
-    height: 110px;
+    width: 100%; /* 讓圖片寬度自動跟著格子縮放 */
+    aspect-ratio: 1 / 1; /* 強制保持正方形比例 */
     object-fit: contain; 
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
-/* 4. 下方的名字文字 */
 .item label {
-    font-size: 13px;
+    font-size: 12px; /* 字體稍微縮小一點點才塞得下 */
     color: #333;
     cursor: pointer;
     width: 100%;
+    line-height: 1.2;
 }
-
 /* ==================================
    勾選後的變身樣式 (紫色外框 + 勾勾)
    ================================== */

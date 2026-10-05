@@ -66,21 +66,23 @@
 }
 
 /* ==================================
-   頂部橫幅設計 (防切頭微調版)
+   頂部橫幅設計 (滿版細長 + 不裁切版)
    ================================== */
 .top-banner {
     width: 100%;
-    max-width: 600px; /* 🌟 秘訣 1：寬度縮小一半，圖片才不會被放大成巨無霸 */
-    height: 160px;    /* 🌟 秘訣 2：高度稍微拉高 10px，給小桃跟字一點呼吸空間 */
+    max-width: 1200px; /* 寬度拉到滿版，跟下方的娃娃展示櫃一樣寬 */
+    height: 90px;      /* 高度縮小，變成非常細長的橫幅 */
     margin: 0 auto 20px auto;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+    /* 💡 如果你的橫幅原圖有底色，為了不讓左右兩邊空空的，你可以設定跟原圖一樣的背景色 */
+    /* background-color: #f2ebfa; */ 
 }
 
 .top-banner img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    object-position: center 60%; /* 🌟 秘訣 3：預設是置中，改寫成 60% 代表把鏡頭稍微「往下移」一點點，這樣小桃的耳朵絕對不會被切到！ */
+    object-fit: contain; /* 🌟 關鍵魔法：改成 contain，保證圖案完整不變形、不切頭 */
+    object-position: center; 
 }

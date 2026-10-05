@@ -66,23 +66,21 @@
 }
 
 /* ==================================
-   頂部橫幅設計 (滿版細長 + 不裁切版)
+   頂部橫幅設計 (完美融合滿版)
    ================================== */
 .top-banner {
     width: 100%;
-    max-width: 1200px; /* 寬度拉到滿版，跟下方的娃娃展示櫃一樣寬 */
-    height: 90px;      /* 高度縮小，變成非常細長的橫幅 */
+    max-width: 1200px; /* 讓它跟下方的娃娃卡片一樣寬 */
+    height: 120px;     /* 稍微把高度拉高一點點，小桃才不會太迷你 */
     margin: 0 auto 20px auto;
     border-radius: 10px;
     overflow: hidden;
-    
-    /* 💡 如果你的橫幅原圖有底色，為了不讓左右兩邊空空的，你可以設定跟原圖一樣的背景色 */
-    /* background-color: #f2ebfa; */ 
+    background-color: #efe6f9; /* 🌟 關鍵魔法：填上跟原圖一模一樣的淡紫色底色 */
 }
 
 .top-banner img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 🌟 關鍵魔法：改成 contain，保證圖案完整不變形、不切頭 */
+    object-fit: contain; 
     object-position: center; 
 }

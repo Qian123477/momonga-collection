@@ -2,19 +2,16 @@ document.addEventListener(
     "DOMContentLoaded",
     async () => {
 
-
         // =========================================================
         // 1. 商品資料
         // =========================================================
 
         let products = [];
 
-
         try {
 
             const response =
                 await fetch("products.json");
-
 
             if (!response.ok) {
 
@@ -24,21 +21,17 @@ document.addEventListener(
 
             }
 
-
             products =
                 await response.json();
-
 
         } catch (error) {
 
             console.error(error);
 
-
             const container =
                 document.getElementById(
                     "catalog-container"
                 );
-
 
             if (container) {
 
@@ -55,7 +48,6 @@ document.addEventListener(
 
             }
 
-
             return;
 
         }
@@ -70,7 +62,6 @@ document.addEventListener(
             document.getElementById(
                 "catalog-container"
             );
-
 
         if (!catalogContainer) {
 
@@ -117,7 +108,6 @@ document.addEventListener(
 
             ],
 
-
             "其他周邊": [
 
                 "立牌",
@@ -162,6 +152,19 @@ document.addEventListener(
         }
 
 
+        // 新版：總價
+        function getTotalPriceKey(id) {
+
+            return (
+                "momo_total_price_" +
+                id
+            );
+
+        }
+
+
+        // 舊版：均價
+        // 保留它是為了相容你之前已經輸入的資料
         function getPriceKey(id) {
 
             return (
@@ -172,7 +175,7 @@ document.addEventListener(
         }
 
 
-        // 新增：收藏數量
+        // 收藏數量
         function getQuantityKey(id) {
 
             return (
@@ -201,24 +204,19 @@ document.addEventListener(
 
         function createProductCard(product) {
 
-
             const item =
                 document.createElement(
                     "div"
                 );
 
-
             item.className =
                 "item";
-
 
             item.dataset.id =
                 product.id;
 
-
             item.dataset.category =
                 product.category;
-
 
             item.dataset.subcategory =
                 product.subcategory;
@@ -234,18 +232,14 @@ document.addEventListener(
                     "img"
                 );
 
-
             image.src =
                 product.image;
-
 
             image.alt =
                 product.name;
 
-
             image.loading =
                 "lazy";
-
 
             item.appendChild(
                 image
@@ -262,7 +256,6 @@ document.addEventListener(
                     "label"
                 );
 
-
             label.className =
                 "item-name";
 
@@ -272,10 +265,8 @@ document.addEventListener(
                     "input"
                 );
 
-
             checkbox.type =
                 "checkbox";
-
 
             checkbox.className =
                 "collect-checkbox";
@@ -300,14 +291,13 @@ document.addEventListener(
 
 
             // =====================================================
-            // 價格 / 數量區
+            // 數量 / 總價 / 均價
             // =====================================================
 
             const priceArea =
                 document.createElement(
                     "div"
                 );
-
 
             priceArea.className =
                 "price-area";
@@ -323,7 +313,6 @@ document.addEventListener(
                     "div"
                 );
 
-
             quantityRow.className =
                 "collection-input-row";
 
@@ -333,10 +322,8 @@ document.addEventListener(
                     "span"
                 );
 
-
             quantityLabel.className =
                 "collection-input-label";
-
 
             quantityLabel.textContent =
                 "數量";
@@ -347,26 +334,20 @@ document.addEventListener(
                     "input"
                 );
 
-
             quantityField.type =
                 "number";
-
 
             quantityField.className =
                 "quantity-input-field";
 
-
             quantityField.min =
                 "1";
-
 
             quantityField.step =
                 "1";
 
-
             quantityField.value =
                 "1";
-
 
             quantityField.placeholder =
                 "1";
@@ -376,11 +357,9 @@ document.addEventListener(
                 quantityLabel
             );
 
-
             quantityRow.appendChild(
                 quantityField
             );
-
 
             priceArea.appendChild(
                 quantityRow
@@ -389,14 +368,102 @@ document.addEventListener(
 
 
             // -----------------------------------------------------
-            // 均價
+            // 總價
+            // -----------------------------------------------------
+
+            const totalPriceInputRow =
+                document.createElement(
+                    "div"
+                );
+
+            totalPriceInputRow.className =
+                "collection-input-row";
+
+
+            const totalPriceInputLabel =
+                document.createElement(
+                    "span"
+                );
+
+            totalPriceInputLabel.className =
+                "collection-input-label";
+
+            totalPriceInputLabel.textContent =
+                "總價";
+
+
+            const totalPriceInput =
+                document.createElement(
+                    "div"
+                );
+
+            totalPriceInput.className =
+                "price-input";
+
+
+            const totalCurrency =
+                document.createElement(
+                    "span"
+                );
+
+            totalCurrency.textContent =
+                "NT$";
+
+
+            totalPriceInput.appendChild(
+                totalCurrency
+            );
+
+
+            const totalPriceField =
+                document.createElement(
+                    "input"
+                );
+
+            totalPriceField.type =
+                "number";
+
+            totalPriceField.className =
+                "total-price-input-field";
+
+            totalPriceField.min =
+                "0";
+
+            totalPriceField.step =
+                "1";
+
+            totalPriceField.placeholder =
+                "總價";
+
+
+            totalPriceInput.appendChild(
+                totalPriceField
+            );
+
+
+            totalPriceInputRow.appendChild(
+                totalPriceInputLabel
+            );
+
+            totalPriceInputRow.appendChild(
+                totalPriceInput
+            );
+
+
+            priceArea.appendChild(
+                totalPriceInputRow
+            );
+
+
+
+            // -----------------------------------------------------
+            // 自動計算均價
             // -----------------------------------------------------
 
             const averagePriceRow =
                 document.createElement(
                     "div"
                 );
-
 
             averagePriceRow.className =
                 "collection-input-row";
@@ -407,137 +474,37 @@ document.addEventListener(
                     "span"
                 );
 
-
             averagePriceLabel.className =
                 "collection-input-label";
-
 
             averagePriceLabel.textContent =
                 "均價";
 
 
-            const priceInput =
+            const averagePriceValue =
                 document.createElement(
                     "div"
                 );
 
-
-            priceInput.className =
-                "price-input";
-
-
-            const currency =
-                document.createElement(
-                    "span"
-                );
+            averagePriceValue.className =
+                "collection-average-price";
 
 
-            currency.textContent =
-                "NT$";
-
-
-            priceInput.appendChild(
-                currency
-            );
-
-
-            const priceField =
-                document.createElement(
-                    "input"
-                );
-
-
-            priceField.type =
-                "number";
-
-
-            priceField.className =
-                "price-input-field";
-
-
-            priceField.min =
-                "0";
-
-
-            priceField.step =
-                "1";
-
-
-            priceField.placeholder =
-                "價格";
-
-
-            priceInput.appendChild(
-                priceField
-            );
+            averagePriceValue.textContent =
+                "NT$ 0";
 
 
             averagePriceRow.appendChild(
                 averagePriceLabel
             );
 
-
             averagePriceRow.appendChild(
-                priceInput
+                averagePriceValue
             );
 
 
             priceArea.appendChild(
                 averagePriceRow
-            );
-
-
-
-            // -----------------------------------------------------
-            // 該款總價
-            // -----------------------------------------------------
-
-            const totalPriceRow =
-                document.createElement(
-                    "div"
-                );
-
-
-            totalPriceRow.className =
-                "collection-total-price";
-
-
-            const totalPriceLabel =
-                document.createElement(
-                    "span"
-                );
-
-
-            totalPriceLabel.textContent =
-                "總價";
-
-
-            const totalPriceValue =
-                document.createElement(
-                    "span"
-                );
-
-
-            totalPriceValue.className =
-                "collection-total-price-value";
-
-
-            totalPriceValue.textContent =
-                "NT$ 0";
-
-
-            totalPriceRow.appendChild(
-                totalPriceLabel
-            );
-
-
-            totalPriceRow.appendChild(
-                totalPriceValue
-            );
-
-
-            priceArea.appendChild(
-                totalPriceRow
             );
 
 
@@ -548,7 +515,7 @@ document.addEventListener(
 
 
             // =====================================================
-            // 點擊 checkbox
+            // 收藏 checkbox
             // =====================================================
 
             checkbox.addEventListener(
@@ -560,9 +527,9 @@ document.addEventListener(
                         item,
                         checkbox,
                         priceArea,
-                        priceField,
+                        totalPriceField,
                         quantityField,
-                        totalPriceValue
+                        averagePriceValue
                     );
 
                 }
@@ -578,7 +545,6 @@ document.addEventListener(
                 "click",
                 event => {
 
-
                     if (
 
                         event.target ===
@@ -587,7 +553,7 @@ document.addEventListener(
                         ||
 
                         event.target ===
-                        priceField
+                        totalPriceField
 
                         ||
 
@@ -629,24 +595,23 @@ document.addEventListener(
 
 
             // =====================================================
-            // 均價輸入
+            // 總價輸入
             // =====================================================
 
-            priceField.addEventListener(
+            totalPriceField.addEventListener(
                 "input",
                 () => {
 
-
-                    savePrice(
+                    saveTotalPrice(
                         product.id,
-                        priceField.value
+                        totalPriceField.value
                     );
 
 
-                    updateProductTotalPrice(
+                    updateAveragePrice(
                         quantityField,
-                        priceField,
-                        totalPriceValue
+                        totalPriceField,
+                        averagePriceValue
                     );
 
 
@@ -656,7 +621,7 @@ document.addEventListener(
             );
 
 
-            priceField.addEventListener(
+            totalPriceField.addEventListener(
                 "click",
                 event => {
 
@@ -675,17 +640,16 @@ document.addEventListener(
                 "input",
                 () => {
 
-
                     saveQuantity(
                         product.id,
                         quantityField.value
                     );
 
 
-                    updateProductTotalPrice(
+                    updateAveragePrice(
                         quantityField,
-                        priceField,
-                        totalPriceValue
+                        totalPriceField,
+                        averagePriceValue
                     );
 
 
@@ -719,14 +683,12 @@ document.addEventListener(
 
         function renderCatalog() {
 
-
             catalogContainer.innerHTML =
                 "";
 
 
             categoryOrder.forEach(
                 category => {
-
 
                     const categoryProducts =
                         products.filter(
@@ -744,7 +706,6 @@ document.addEventListener(
                         return;
 
                     }
-
 
 
                     const section =
@@ -795,7 +756,6 @@ document.addEventListener(
 
                     subcategories.forEach(
                         subcategory => {
-
 
                             const subProducts =
                                 products.filter(
@@ -904,7 +864,6 @@ document.addEventListener(
 
             initializeCollectionState();
 
-
             updateAllStatistics();
 
         }
@@ -917,7 +876,6 @@ document.addEventListener(
 
         function initializeCollectionState() {
 
-
             const items =
                 document.querySelectorAll(
                     ".item"
@@ -926,7 +884,6 @@ document.addEventListener(
 
             items.forEach(
                 item => {
-
 
                     const id =
                         item.dataset.id;
@@ -944,9 +901,9 @@ document.addEventListener(
                         );
 
 
-                    const priceField =
+                    const totalPriceField =
                         item.querySelector(
-                            ".price-input-field"
+                            ".total-price-input-field"
                         );
 
 
@@ -956,9 +913,9 @@ document.addEventListener(
                         );
 
 
-                    const totalPriceValue =
+                    const averagePriceValue =
                         item.querySelector(
-                            ".collection-total-price-value"
+                            ".collection-average-price"
                         );
 
 
@@ -972,22 +929,127 @@ document.addEventListener(
 
 
                     // -------------------------------------------------
-                    // 讀取原本的均價
+                    // 讀取新版總價
                     // -------------------------------------------------
 
-                    const savedPrice =
+                    let savedTotalPrice =
                         localStorage.getItem(
-                            getPriceKey(id)
+                            getTotalPriceKey(id)
                         );
 
 
+
+                    // -------------------------------------------------
+                    // 相容舊版均價資料
+                    //
+                    // 如果之前有：
+                    // 均價 × 數量
+                    //
+                    // 自動轉換成新版總價
+                    // -------------------------------------------------
+
                     if (
-                        savedPrice !==
+                        savedTotalPrice ===
                         null
                     ) {
 
-                        priceField.value =
-                            savedPrice;
+                        const oldPrice =
+                            localStorage.getItem(
+                                getPriceKey(id)
+                            );
+
+
+                        const oldQuantity =
+                            localStorage.getItem(
+                                getQuantityKey(id)
+                            );
+
+
+                        if (
+                            oldPrice !==
+                            null
+                        ) {
+
+                            const price =
+                                Number(
+                                    oldPrice
+                                );
+
+
+                            let quantity =
+                                1;
+
+
+                            if (
+                                oldQuantity !==
+                                null
+                            ) {
+
+                                const parsedQuantity =
+                                    Number(
+                                        oldQuantity
+                                    );
+
+
+                                if (
+                                    Number.isFinite(
+                                        parsedQuantity
+                                    ) &&
+                                    parsedQuantity >= 1
+                                ) {
+
+                                    quantity =
+                                        Math.floor(
+                                            parsedQuantity
+                                        );
+
+                                }
+
+                            }
+
+
+                            if (
+                                Number.isFinite(
+                                    price
+                                ) &&
+                                price >= 0
+                            ) {
+
+                                const convertedTotal =
+                                    price *
+                                    quantity;
+
+
+                                savedTotalPrice =
+                                    String(
+                                        convertedTotal
+                                    );
+
+
+                                localStorage.setItem(
+                                    getTotalPriceKey(id),
+                                    savedTotalPrice
+                                );
+
+                            }
+
+                        }
+
+                    }
+
+
+
+                    // -------------------------------------------------
+                    // 顯示總價
+                    // -------------------------------------------------
+
+                    if (
+                        savedTotalPrice !==
+                        null
+                    ) {
+
+                        totalPriceField.value =
+                            savedTotalPrice;
 
                     }
 
@@ -995,8 +1057,6 @@ document.addEventListener(
 
                     // -------------------------------------------------
                     // 讀取數量
-                    //
-                    // 舊資料沒有數量時，自動視為 1 件
                     // -------------------------------------------------
 
                     const savedQuantity =
@@ -1045,13 +1105,13 @@ document.addEventListener(
 
 
                     // -------------------------------------------------
-                    // 更新該商品總價
+                    // 計算均價
                     // -------------------------------------------------
 
-                    updateProductTotalPrice(
+                    updateAveragePrice(
                         quantityField,
-                        priceField,
-                        totalPriceValue
+                        totalPriceField,
+                        averagePriceValue
                     );
 
 
@@ -1098,16 +1158,14 @@ document.addEventListener(
             item,
             checkbox,
             priceArea,
-            priceField,
+            totalPriceField,
             quantityField,
-            totalPriceValue
+            averagePriceValue
         ) {
-
 
             if (
                 checkbox.checked
             ) {
-
 
                 localStorage.setItem(
                     getCollectionKey(
@@ -1127,7 +1185,7 @@ document.addEventListener(
                 );
 
 
-                // 沒有數量時預設為 1
+                // 沒有數量時預設 1
                 if (
                     !quantityField.value ||
                     Number(
@@ -1147,17 +1205,17 @@ document.addEventListener(
                 );
 
 
-                updateProductTotalPrice(
+                updateAveragePrice(
                     quantityField,
-                    priceField,
-                    totalPriceValue
+                    totalPriceField,
+                    averagePriceValue
                 );
 
 
                 setTimeout(
                     () => {
 
-                        priceField.focus();
+                        totalPriceField.focus();
 
                     },
                     50
@@ -1165,7 +1223,6 @@ document.addEventListener(
 
 
             } else {
-
 
                 localStorage.removeItem(
                     getCollectionKey(
@@ -1184,14 +1241,13 @@ document.addEventListener(
                 );
 
                 // 注意：
-                // 取消收藏不刪除價格與數量
-                // 之後重新收藏時資料還會保留
+                // 取消收藏不刪除總價與數量
+                // 重新收藏後資料仍會保留
 
             }
 
 
             updateAllStatistics();
-
 
             applyFilters();
 
@@ -1200,14 +1256,13 @@ document.addEventListener(
 
 
         // =========================================================
-        // 9. 儲存均價
+        // 9. 儲存總價
         // =========================================================
 
-        function savePrice(
+        function saveTotalPrice(
             id,
             value
         ) {
-
 
             if (
                 value === "" ||
@@ -1216,7 +1271,7 @@ document.addEventListener(
             ) {
 
                 localStorage.removeItem(
-                    getPriceKey(id)
+                    getTotalPriceKey(id)
                 );
 
                 return;
@@ -1229,7 +1284,7 @@ document.addEventListener(
 
 
             if (
-                Number.isNaN(price) ||
+                !Number.isFinite(price) ||
                 price < 0
             ) {
 
@@ -1239,7 +1294,7 @@ document.addEventListener(
 
 
             localStorage.setItem(
-                getPriceKey(id),
+                getTotalPriceKey(id),
                 String(price)
             );
 
@@ -1255,7 +1310,6 @@ document.addEventListener(
             id,
             value
         ) {
-
 
             if (
                 value === "" ||
@@ -1301,18 +1355,19 @@ document.addEventListener(
 
 
         // =========================================================
-        // 11. 計算單一商品總價
+        // 11. 計算均價
+        //
+        // 總價 ÷ 數量
         // =========================================================
 
-        function updateProductTotalPrice(
+        function updateAveragePrice(
             quantityField,
-            priceField,
-            totalPriceValue
+            totalPriceField,
+            averagePriceValue
         ) {
 
-
             if (
-                !totalPriceValue
+                !averagePriceValue
             ) {
 
                 return;
@@ -1326,9 +1381,9 @@ document.addEventListener(
                 );
 
 
-            const price =
+            const totalPrice =
                 Number(
-                    priceField.value
+                    totalPriceField.value
                 );
 
 
@@ -1336,14 +1391,10 @@ document.addEventListener(
                 !Number.isFinite(
                     quantity
                 ) ||
-                quantity < 1 ||
-                !Number.isFinite(
-                    price
-                ) ||
-                price < 0
+                quantity < 1
             ) {
 
-                totalPriceValue.textContent =
+                averagePriceValue.textContent =
                     "NT$ 0";
 
                 return;
@@ -1351,17 +1402,35 @@ document.addEventListener(
             }
 
 
-            const total =
+            if (
+                !Number.isFinite(
+                    totalPrice
+                ) ||
+                totalPrice < 0
+            ) {
+
+                averagePriceValue.textContent =
+                    "NT$ 0";
+
+                return;
+
+            }
+
+
+            const average =
+                totalPrice /
                 Math.floor(
                     quantity
-                ) *
-                price;
+                );
 
 
-            totalPriceValue.textContent =
+            averagePriceValue.textContent =
                 "NT$ " +
-                total.toLocaleString(
-                    "zh-TW"
+                average.toLocaleString(
+                    "zh-TW",
+                    {
+                        maximumFractionDigits: 2
+                    }
                 );
 
         }
@@ -1375,7 +1444,6 @@ document.addEventListener(
         function countCollected(
             productList
         ) {
-
 
             let count = 0;
 
@@ -1406,7 +1474,6 @@ document.addEventListener(
         function formatPercentage(
             value
         ) {
-
 
             if (
                 value === 0
@@ -1439,7 +1506,6 @@ document.addEventListener(
             collected,
             total
         ) {
-
 
             const collectedElement =
                 document.getElementById(
@@ -1486,7 +1552,6 @@ document.addEventListener(
                 percentageElement
             ) {
 
-
                 const percentage =
                     total > 0
                         ? (
@@ -1510,7 +1575,6 @@ document.addEventListener(
 
 
         function updateCategoryStatistics() {
-
 
             const plushProducts =
                 products.filter(
@@ -1552,15 +1616,10 @@ document.addEventListener(
         // =========================================================
         // 13. 收藏總數
         //
-        // 顯示：
         // XX 款 · XX 件
-        //
-        // XX 款 = 收藏了幾種不同商品
-        // XX 件 = 所有收藏數量加總
         // =========================================================
 
         function updateTotalCollected() {
-
 
             let totalStyles = 0;
 
@@ -1569,7 +1628,6 @@ document.addEventListener(
 
             products.forEach(
                 product => {
-
 
                     if (
                         !isCollected(
@@ -1582,17 +1640,8 @@ document.addEventListener(
                     }
 
 
-                    // ---------------------------------------------
-                    // 收藏款式 +1
-                    // ---------------------------------------------
-
                     totalStyles++;
 
-
-                    // ---------------------------------------------
-                    // 取得數量
-                    // 舊資料沒有數量時 = 1
-                    // ---------------------------------------------
 
                     const savedQuantity =
                         localStorage.getItem(
@@ -1602,7 +1651,8 @@ document.addEventListener(
                         );
 
 
-                    let quantity = 1;
+                    let quantity =
+                        1;
 
 
                     if (
@@ -1640,10 +1690,6 @@ document.addEventListener(
             );
 
 
-            // -----------------------------------------------------
-            // 款式
-            // -----------------------------------------------------
-
             const styleElement =
                 document.getElementById(
                     "total-collected"
@@ -1657,10 +1703,6 @@ document.addEventListener(
 
             }
 
-
-            // -----------------------------------------------------
-            // 件數
-            // -----------------------------------------------------
 
             const itemElement =
                 document.getElementById(
@@ -1682,18 +1724,16 @@ document.addEventListener(
         // =========================================================
         // 14. 收藏總花費
         //
-        // 均價 × 數量
+        // 現在直接累計「每款總價」
         // =========================================================
 
         function updateTotalSpent() {
-
 
             let totalSpent = 0;
 
 
             products.forEach(
                 product => {
-
 
                     if (
                         !isCollected(
@@ -1706,11 +1746,55 @@ document.addEventListener(
                     }
 
 
-                    // ---------------------------------------------
-                    // 取得均價
-                    // ---------------------------------------------
+                    const savedTotalPrice =
+                        localStorage.getItem(
+                            getTotalPriceKey(
+                                product.id
+                            )
+                        );
 
-                    const savedPrice =
+
+                    // -------------------------------------------------
+                    // 新版總價
+                    // -------------------------------------------------
+
+                    if (
+                        savedTotalPrice !==
+                        null
+                    ) {
+
+                        const totalPrice =
+                            Number(
+                                savedTotalPrice
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                totalPrice
+                            ) &&
+                            totalPrice >= 0
+                        ) {
+
+                            totalSpent +=
+                                totalPrice;
+
+                        }
+
+
+                        return;
+
+                    }
+
+
+
+                    // -------------------------------------------------
+                    // 舊版資料相容
+                    // 如果還沒有新版總價，
+                    // 使用舊的「均價 × 數量」
+                    // -------------------------------------------------
+
+                    const oldPrice =
                         localStorage.getItem(
                             getPriceKey(
                                 product.id
@@ -1719,7 +1803,7 @@ document.addEventListener(
 
 
                     if (
-                        savedPrice ===
+                        oldPrice ===
                         null
                     ) {
 
@@ -1730,7 +1814,7 @@ document.addEventListener(
 
                     const price =
                         Number(
-                            savedPrice
+                            oldPrice
                         );
 
 
@@ -1746,10 +1830,6 @@ document.addEventListener(
                     }
 
 
-                    // ---------------------------------------------
-                    // 取得數量
-                    // ---------------------------------------------
-
                     const savedQuantity =
                         localStorage.getItem(
                             getQuantityKey(
@@ -1758,7 +1838,8 @@ document.addEventListener(
                         );
 
 
-                    let quantity = 1;
+                    let quantity =
+                        1;
 
 
                     if (
@@ -1788,10 +1869,6 @@ document.addEventListener(
 
                     }
 
-
-                    // ---------------------------------------------
-                    // 均價 × 數量
-                    // ---------------------------------------------
 
                     totalSpent +=
                         price *
@@ -1872,7 +1949,6 @@ document.addEventListener(
 
         function applyFilters() {
 
-
             const searchText =
                 currentSearch
                     .trim()
@@ -1889,10 +1965,8 @@ document.addEventListener(
                 0;
 
 
-
             items.forEach(
                 item => {
-
 
                     const id =
                         item.dataset.id;
@@ -2013,7 +2087,6 @@ document.addEventListener(
                 .forEach(
                     section => {
 
-
                         const grids =
                             section.querySelectorAll(
                                 ".catalog-grid"
@@ -2026,7 +2099,6 @@ document.addEventListener(
 
                         grids.forEach(
                             grid => {
-
 
                                 const visibleItems =
                                     grid.querySelectorAll(
@@ -2093,7 +2165,6 @@ document.addEventListener(
                                     : "none";
 
                         }
-
 
                     }
                 );
@@ -2166,7 +2237,6 @@ document.addEventListener(
         );
 
 
-
         clearSearchButton.addEventListener(
             "click",
             () => {
@@ -2193,11 +2263,9 @@ document.addEventListener(
         filterButtons.forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
                     () => {
-
 
                         currentFilter =
                             button.dataset.filter;
@@ -2251,9 +2319,7 @@ document.addEventListener(
             );
 
 
-
         function updateThemeButton() {
-
 
             const isDark =
                 document.body.classList.contains(
@@ -2284,9 +2350,7 @@ document.addEventListener(
         }
 
 
-
         function loadTheme() {
-
 
             const savedTheme =
                 localStorage.getItem(
@@ -2317,11 +2381,9 @@ document.addEventListener(
         }
 
 
-
         themeToggle.addEventListener(
             "click",
             () => {
-
 
                 const isDark =
                     document.body.classList.toggle(
@@ -2366,7 +2428,6 @@ document.addEventListener(
             );
 
 
-
         function openSettings() {
 
             settingsOverlay.classList.add(
@@ -2400,7 +2461,6 @@ document.addEventListener(
         settingsOverlay.addEventListener(
             "click",
             event => {
-
 
                 if (
                     event.target ===
@@ -2444,11 +2504,9 @@ document.addEventListener(
             );
 
 
-
         clearDataButton.addEventListener(
             "click",
             () => {
-
 
                 confirmOverlay.classList.add(
                     "show"
@@ -2458,11 +2516,9 @@ document.addEventListener(
         );
 
 
-
         cancelClear.addEventListener(
             "click",
             () => {
-
 
                 confirmOverlay.classList.remove(
                     "show"
@@ -2472,22 +2528,26 @@ document.addEventListener(
         );
 
 
-
         confirmClear.addEventListener(
             "click",
             () => {
 
-
                 // --------------------------------------------------
-                // 清除收藏、均價、數量
+                // 清除收藏、總價、數量
                 // --------------------------------------------------
 
                 products.forEach(
                     product => {
 
-
                         localStorage.removeItem(
                             getCollectionKey(
+                                product.id
+                            )
+                        );
+
+
+                        localStorage.removeItem(
+                            getTotalPriceKey(
                                 product.id
                             )
                         );
@@ -2527,9 +2587,7 @@ document.addEventListener(
 
                 initializeCollectionState();
 
-
                 updateAllStatistics();
-
 
                 applyFilters();
 
@@ -2556,11 +2614,9 @@ document.addEventListener(
         );
 
 
-
         confirmOverlay.addEventListener(
             "click",
             event => {
-
 
                 if (
                     event.target ===
@@ -2585,7 +2641,6 @@ document.addEventListener(
         document.addEventListener(
             "keydown",
             event => {
-
 
                 if (
                     event.key !==
@@ -2617,12 +2672,9 @@ document.addEventListener(
 
         loadTheme();
 
-
         renderCatalog();
 
-
         applyFilters();
-
 
     }
 );

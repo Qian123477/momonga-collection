@@ -1,611 +1,983 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
-    const items = document.querySelectorAll(".item");
-
-
-    /* ==================================
-       取得統計元素
-       ================================== */
-
-    const plushCollected =
-        document.getElementById("plush-collected");
-
-    const plushTotal =
-        document.getElementById("plush-total");
-
-    const plushPercentage =
-        document.getElementById("plush-percentage");
+    /*
+    ============================================================
+    小桃圖鑑
+    商品資料由 products.json 提供
+    ============================================================
+    */
 
 
-    const otherCollected =
-        document.getElementById("other-collected");
+    // ============================================================
+    // 1. 讀取商品資料
+    // ============================================================
 
-    const otherTotal =
-        document.getElementById("other-total");
+    let products = [];
 
-    const otherPercentage =
-        document.getElementById("other-percentage");
+    try {
 
+        const response = await fetch("products.json");
 
-    const totalCollected =
-        document.getElementById("total-collected");
-
-    const totalSpent =
-        document.getElementById("total-spent");
-
-
-    /* ==================================
-       判斷商品屬於哪個大分類
-       ================================== */
-
-    function getMainCategory(item) {
-
-        /*
-         * 找商品前面的 major-title。
-         *
-         * 例如：
-         *
-         * 娃娃
-         *   └ 吊飾
-         *      └ 商品
-         *
-         * 其他周邊
-         *   └ 立牌
-         *      └ 商品
-         */
-
-        let element = item;
-
-        while (element) {
-
-            element = element.previousElementSibling;
-
-            if (
-                element &&
-                element.classList.contains("major-title")
-            ) {
-                return element.textContent.trim();
-            }
+        if (!response.ok) {
+            throw new Error("無法讀取 products.json");
         }
 
+        products = await response.json();
 
-        /*
-         * 如果上面的方式找不到，
-         * 再往父層尋找。
-         */
+    } catch (error) {
 
-        const parent = item.closest(".category-section");
+        console.error(error);
 
-        if (parent) {
+        const container =
+            document.getElementById("catalog-container");
 
-            const title =
-                parent.querySelector(".major-title");
+        if (container) {
 
-            if (title) {
-                return title.textContent.trim();
-            }
+            container.innerHTML = `
+                <p style="
+                    text-align:center;
+                    color:#999;
+                    padding:40px;
+                ">
+                    商品資料讀取失敗，請確認 products.json 是否存在。
+                </p>
+            `;
+
         }
 
-
-        return "娃娃";
+        return;
     }
 
 
-    /* ==================================
-       儲存單一商品
-       ================================== */
 
-    function saveItem(item) {
+    // ============================================================
+    // 2. 取得主要容器
+    // ============================================================
 
-        const checkbox =
-            item.querySelector(".collect-checkbox");
-
-        const priceInput =
-            item.querySelector(".price-input-field");
-
-        const itemId =
-            item.getAttribute("data-id");
+    const catalogContainer =
+        document.getElementById("catalog-container");
 
 
-        if (!checkbox || !itemId) {
-            return;
-        }
+
+    // ============================================================
+    // 3. 建立商品分類
+    // ============================================================
+
+    const categoryOrder = [
+        "娃娃",
+        "其他周邊"
+    ];
 
 
-        const data = {
+    const subcategoryOrder = {
 
-            collected: checkbox.checked,
+        "娃娃": [
+            "吊飾",
+            "S娃",
+            "景品",
+            "中國",
+            "香港",
+            "台灣",
+            "其他海外"
+        ],
 
-            price: priceInput
-                ? priceInput.value
-                : ""
+        "其他周邊": [
+            "立牌",
+            "徽章"
+        ]
 
-        };
-
-
-        /*
-         * 只要收藏或有價格，
-         * 就保存資料。
-         */
-
-        if (
-            checkbox.checked ||
-            data.price !== ""
-        ) {
-
-            localStorage.setItem(
-                itemId,
-                JSON.stringify(data)
-            );
-
-        } else {
-
-            localStorage.removeItem(itemId);
-
-        }
-    }
+    };
 
 
-    /* ==================================
-       讀取單一商品
-       ================================== */
 
-    function loadItem(item) {
+    // ============================================================
+    // 4. 產生整個圖鑑
+    // ============================================================
 
-        const checkbox =
-            item.querySelector(".collect-checkbox");
+    function renderCatalog() {
 
-        const priceInput =
-            item.querySelector(".price-input-field");
-
-        const itemId =
-            item.getAttribute("data-id");
+        catalogContainer.innerHTML = "";
 
 
-        if (!checkbox || !itemId) {
-            return;
-        }
+        categoryOrder.forEach(category => {
+
+            const categoryProducts =
+                products.filter(
+                    product => product.category === category
+                );
 
 
-        const saved =
-            localStorage.getItem(itemId);
-
-
-        if (!saved) {
-            return;
-        }
-
-
-        /*
-         * 新版本資料
-         */
-
-        try {
-
-            const data = JSON.parse(saved);
-
-
-            if (typeof data === "object") {
-
-                checkbox.checked =
-                    data.collected === true;
-
-
-                if (
-                    priceInput &&
-                    data.price !== undefined
-                ) {
-
-                    priceInput.value =
-                        data.price;
-
-                }
-
+            if (categoryProducts.length === 0) {
                 return;
             }
 
-        } catch (error) {
 
-            /*
-             * 如果不是 JSON，
-             * 就可能是你舊版存的 true。
-             */
 
-            if (saved === "true") {
+            // ----------------------------------------------------
+            // 大分類 section
+            // ----------------------------------------------------
 
-                checkbox.checked = true;
+            const section =
+                document.createElement("section");
 
-            }
+            section.className = "category-section";
 
-        }
+
+
+            // ----------------------------------------------------
+            // 大分類標題
+            // ----------------------------------------------------
+
+            const majorTitle =
+                document.createElement("h2");
+
+            majorTitle.className = "major-title";
+
+            majorTitle.textContent = category;
+
+            section.appendChild(majorTitle);
+
+
+
+            // ----------------------------------------------------
+            // 小分類
+            // ----------------------------------------------------
+
+            const subcategories =
+                subcategoryOrder[category] || [];
+
+
+            subcategories.forEach(subcategory => {
+
+                const subProducts =
+                    products.filter(product =>
+                        product.category === category &&
+                        product.subcategory === subcategory
+                    );
+
+
+                if (subProducts.length === 0) {
+                    return;
+                }
+
+
+
+                // ------------------------------------------------
+                // 小分類標題
+                // ------------------------------------------------
+
+                const subTitle =
+                    document.createElement("h3");
+
+                subTitle.className = "sub-title";
+
+                subTitle.textContent = subcategory;
+
+                section.appendChild(subTitle);
+
+
+
+                // ------------------------------------------------
+                // 商品網格
+                // ------------------------------------------------
+
+                const grid =
+                    document.createElement("div");
+
+                grid.className = "catalog-grid";
+
+
+
+                // ------------------------------------------------
+                // 產生商品
+                // ------------------------------------------------
+
+                subProducts.forEach(product => {
+
+                    const item =
+                        createProductCard(product);
+
+                    grid.appendChild(item);
+
+                });
+
+
+
+                section.appendChild(grid);
+
+            });
+
+
+
+            catalogContainer.appendChild(section);
+
+        });
+
+
+
+        // 商品產生完成後
+        // 初始化所有收藏狀態
+
+        initializeCollectionState();
+
+        updateAllStatistics();
 
     }
 
 
-    /* ==================================
-       更新商品外觀
-       ================================== */
 
-    function updateItemAppearance(item) {
+    // ============================================================
+    // 5. 建立單一商品卡片
+    // ============================================================
+
+    function createProductCard(product) {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "item";
+
+        item.dataset.id = product.id;
+
+        item.dataset.category = product.category;
+
+
+
+        // --------------------------------------------------------
+        // 商品圖片
+        // --------------------------------------------------------
+
+        const image =
+            document.createElement("img");
+
+        image.src = product.image;
+
+        image.alt = product.name;
+
+        image.loading = "lazy";
+
+        item.appendChild(image);
+
+
+
+        // --------------------------------------------------------
+        // 商品名稱
+        // --------------------------------------------------------
+
+        const label =
+            document.createElement("label");
+
+        label.className = "item-name";
+
 
         const checkbox =
-            item.querySelector(".collect-checkbox");
+            document.createElement("input");
+
+        checkbox.type = "checkbox";
+
+        checkbox.className = "collect-checkbox";
+
+
+        label.appendChild(checkbox);
+
+
+        label.appendChild(
+            document.createTextNode(product.name)
+        );
+
+
+        item.appendChild(label);
+
+
+
+        // --------------------------------------------------------
+        // 價格區域
+        // --------------------------------------------------------
 
         const priceArea =
-            item.querySelector(".price-area");
+            document.createElement("div");
+
+        priceArea.className = "price-area";
 
 
-        if (!checkbox) {
-            return;
-        }
+        const purchaseText =
+            document.createElement("span");
+
+        purchaseText.textContent = "購入";
 
 
-        if (checkbox.checked) {
-
-            item.classList.add("selected");
+        priceArea.appendChild(purchaseText);
 
 
-            if (priceArea) {
-                priceArea.classList.add("show");
+
+        const priceInput =
+            document.createElement("div");
+
+        priceInput.className = "price-input";
+
+
+
+        const currency =
+            document.createElement("span");
+
+        currency.textContent = "NT$";
+
+
+        priceInput.appendChild(currency);
+
+
+
+        const priceField =
+            document.createElement("input");
+
+        priceField.type = "number";
+
+        priceField.className =
+            "price-input-field";
+
+        priceField.min = "0";
+
+        priceField.step = "1";
+
+        priceField.placeholder = "價格";
+
+
+        priceInput.appendChild(priceField);
+
+
+        priceArea.appendChild(priceInput);
+
+        item.appendChild(priceArea);
+
+
+
+        // --------------------------------------------------------
+        // 收藏 checkbox
+        // --------------------------------------------------------
+
+        checkbox.addEventListener(
+            "change",
+            () => {
+
+                handleCollectionChange(
+                    product,
+                    item,
+                    checkbox,
+                    priceArea,
+                    priceField
+                );
+
+            }
+        );
+
+
+
+        // --------------------------------------------------------
+        // 點整張卡片也可以收藏
+        // --------------------------------------------------------
+
+        item.addEventListener("click", event => {
+
+            /*
+            如果點的是：
+
+            checkbox
+            input
+            price input
+
+            就不要再次觸發收藏
+            */
+
+            if (
+                event.target === checkbox ||
+                event.target === priceField ||
+                event.target.closest(".price-input")
+            ) {
+                return;
             }
 
-        } else {
 
-            item.classList.remove("selected");
+            checkbox.checked =
+                !checkbox.checked;
 
 
-            if (priceArea) {
-                priceArea.classList.remove("show");
+            checkbox.dispatchEvent(
+                new Event("change")
+            );
+
+        });
+
+
+
+        // --------------------------------------------------------
+        // 價格輸入
+        // --------------------------------------------------------
+
+        priceField.addEventListener(
+            "input",
+            () => {
+
+                savePrice(
+                    product.id,
+                    priceField.value
+                );
+
+                updateTotalSpent();
+
             }
+        );
 
-        }
 
+
+        // 防止點價格時觸發商品收藏
+
+        priceField.addEventListener(
+            "click",
+            event => {
+                event.stopPropagation();
+            }
+        );
+
+
+
+        return item;
     }
 
 
-    /* ==================================
-       計算百分比
-       ================================== */
 
-    function calculatePercentage(
-        collected,
-        total
-    ) {
+    // ============================================================
+    // 6. 初始化收藏狀態
+    // ============================================================
 
-        if (total === 0) {
-            return 0;
-        }
+    function initializeCollectionState() {
 
-
-        return Math.round(
-            (collected / total) * 1000
-        ) / 10;
-
-    }
-
-
-    /* ==================================
-       更新全部統計
-       ================================== */
-
-    function updateProgress() {
-
-        let plushCount = 0;
-        let plushTotalCount = 0;
-
-        let otherCount = 0;
-        let otherTotalCount = 0;
-
-        let allCollected = 0;
-        let allSpent = 0;
+        const items =
+            document.querySelectorAll(".item");
 
 
         items.forEach(item => {
 
+            const id =
+                item.dataset.id;
+
+
             const checkbox =
-                item.querySelector(".collect-checkbox");
+                item.querySelector(
+                    ".collect-checkbox"
+                );
 
-            const priceInput =
-                item.querySelector(".price-input-field");
+
+            const priceArea =
+                item.querySelector(
+                    ".price-area"
+                );
 
 
-            if (!checkbox) {
-                return;
+            const priceField =
+                item.querySelector(
+                    ".price-input-field"
+                );
+
+
+
+            // ----------------------------------------------------
+            // 讀取收藏狀態
+            // ----------------------------------------------------
+
+            const collected =
+                localStorage.getItem(
+                    getCollectionKey(id)
+                ) === "true";
+
+
+            checkbox.checked =
+                collected;
+
+
+
+            // ----------------------------------------------------
+            // 讀取價格
+            // ----------------------------------------------------
+
+            const savedPrice =
+                localStorage.getItem(
+                    getPriceKey(id)
+                );
+
+
+            if (savedPrice !== null) {
+
+                priceField.value =
+                    savedPrice;
+
             }
 
 
-            /*
-             * 判斷大分類
-             */
 
-            const mainCategory =
-                getMainCategory(item);
+            // ----------------------------------------------------
+            // 套用外觀
+            // ----------------------------------------------------
 
+            if (collected) {
 
-            const isOther =
-                mainCategory === "其他周邊";
+                item.classList.add(
+                    "selected"
+                );
 
-
-            /*
-             * 計算總數
-             */
-
-            if (isOther) {
-
-                otherTotalCount++;
+                priceArea.classList.add(
+                    "show"
+                );
 
             } else {
 
-                plushTotalCount++;
+                item.classList.remove(
+                    "selected"
+                );
+
+                priceArea.classList.remove(
+                    "show"
+                );
 
             }
 
+        });
 
-            /*
-             * 計算收藏數
-             */
-
-            if (checkbox.checked) {
-
-                allCollected++;
+    }
 
 
-                if (isOther) {
 
-                    otherCount++;
+    // ============================================================
+    // 7. 收藏狀態改變
+    // ============================================================
 
-                } else {
+    function handleCollectionChange(
+        product,
+        item,
+        checkbox,
+        priceArea,
+        priceField
+    ) {
 
-                    plushCount++;
+        if (checkbox.checked) {
 
-                }
+            // ----------------------------------------------------
+            // 收藏
+            // ----------------------------------------------------
 
-
-                /*
-                 * 計算價格
-                 */
-
-                if (
-                    priceInput &&
-                    priceInput.value !== ""
-                ) {
-
-                    const price =
-                        Number(priceInput.value);
+            localStorage.setItem(
+                getCollectionKey(product.id),
+                "true"
+            );
 
 
-                    if (
-                        !isNaN(price) &&
-                        price >= 0
-                    ) {
+            item.classList.add(
+                "selected"
+            );
 
-                        allSpent += price;
 
-                    }
+            priceArea.classList.add(
+                "show"
+            );
 
-                }
+
+            // 讓價格欄位方便輸入
+
+            setTimeout(() => {
+
+                priceField.focus();
+
+            }, 50);
+
+
+        } else {
+
+            // ----------------------------------------------------
+            // 取消收藏
+            // ----------------------------------------------------
+
+            localStorage.removeItem(
+                getCollectionKey(product.id)
+            );
+
+
+            item.classList.remove(
+                "selected"
+            );
+
+
+            priceArea.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        updateAllStatistics();
+
+    }
+
+
+
+    // ============================================================
+    // 8. LocalStorage Key
+    // ============================================================
+
+    function getCollectionKey(id) {
+
+        return "momo_collection_" + id;
+
+    }
+
+
+    function getPriceKey(id) {
+
+        return "momo_price_" + id;
+
+    }
+
+
+
+    // ============================================================
+    // 9. 儲存價格
+    // ============================================================
+
+    function savePrice(id, value) {
+
+        if (
+            value === "" ||
+            value === null ||
+            value === undefined
+        ) {
+
+            localStorage.removeItem(
+                getPriceKey(id)
+            );
+
+            return;
+        }
+
+
+        const price =
+            Number(value);
+
+
+        if (
+            Number.isNaN(price) ||
+            price < 0
+        ) {
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            getPriceKey(id),
+            String(price)
+        );
+
+    }
+
+
+
+    // ============================================================
+    // 10. 更新所有統計
+    // ============================================================
+
+    function updateAllStatistics() {
+
+        updateCategoryStatistics();
+
+        updateTotalCollected();
+
+        updateTotalSpent();
+
+    }
+
+
+
+    // ============================================================
+    // 11. 娃娃 / 其他周邊統計
+    // ============================================================
+
+    function updateCategoryStatistics() {
+
+        const plushProducts =
+            products.filter(
+                product =>
+                    product.category === "娃娃"
+            );
+
+
+        const otherProducts =
+            products.filter(
+                product =>
+                    product.category === "其他周邊"
+            );
+
+
+
+        const plushCollected =
+            countCollected(
+                plushProducts
+            );
+
+
+        const otherCollected =
+            countCollected(
+                otherProducts
+            );
+
+
+
+        updateCategoryCard(
+            "plush",
+            plushCollected,
+            plushProducts.length
+        );
+
+
+        updateCategoryCard(
+            "other",
+            otherCollected,
+            otherProducts.length
+        );
+
+    }
+
+
+
+    // ============================================================
+    // 12. 計算某分類收藏數
+    // ============================================================
+
+    function countCollected(productList) {
+
+        let count = 0;
+
+
+        productList.forEach(product => {
+
+            if (
+                localStorage.getItem(
+                    getCollectionKey(product.id)
+                ) === "true"
+            ) {
+
+                count++;
 
             }
 
         });
 
 
-        /* ==================================
-           娃娃
-           ================================== */
+        return count;
 
-        if (plushCollected) {
-
-            plushCollected.textContent =
-                plushCount;
-
-        }
+    }
 
 
-        if (plushTotal) {
 
-            plushTotal.textContent =
-                plushTotalCount;
+    // ============================================================
+    // 13. 更新分類統計卡
+    // ============================================================
 
-        }
+    function updateCategoryCard(
+        type,
+        collected,
+        total
+    ) {
 
-
-        if (plushPercentage) {
-
-            plushPercentage.textContent =
-                calculatePercentage(
-                    plushCount,
-                    plushTotalCount
-                ) + "%";
-
-        }
+        const collectedElement =
+            document.getElementById(
+                type + "-collected"
+            );
 
 
-        /* ==================================
-           其他周邊
-           ================================== */
-
-        if (otherCollected) {
-
-            otherCollected.textContent =
-                otherCount;
-
-        }
+        const totalElement =
+            document.getElementById(
+                type + "-total"
+            );
 
 
-        if (otherTotal) {
+        const percentageElement =
+            document.getElementById(
+                type + "-percentage"
+            );
 
-            otherTotal.textContent =
-                otherTotalCount;
+
+
+        if (collectedElement) {
+
+            collectedElement.textContent =
+                collected;
 
         }
 
 
-        if (otherPercentage) {
+        if (totalElement) {
 
-            otherPercentage.textContent =
-                calculatePercentage(
-                    otherCount,
-                    otherTotalCount
-                ) + "%";
+            totalElement.textContent =
+                total;
 
         }
 
 
-        /* ==================================
-           全部收藏
-           ================================== */
+        if (percentageElement) {
 
-        if (totalCollected) {
-
-            totalCollected.textContent =
-                allCollected;
-
-        }
+            let percentage = 0;
 
 
-        /* ==================================
-           全部花費
-           ================================== */
+            if (total > 0) {
 
-        if (totalSpent) {
+                percentage =
+                    (collected / total) * 100;
 
-            totalSpent.textContent =
-                "NT$ " +
-                allSpent.toLocaleString("zh-TW");
+            }
+
+
+            percentageElement.textContent =
+                formatPercentage(percentage) + "%";
 
         }
 
     }
 
 
-    /* ==================================
-       初始化商品
-       ================================== */
 
-    items.forEach(item => {
+    // ============================================================
+    // 14. 收藏總數
+    // ============================================================
 
-        const checkbox =
-            item.querySelector(".collect-checkbox");
+    function updateTotalCollected() {
 
-        const priceInput =
-            item.querySelector(".price-input-field");
+        let total = 0;
 
 
-        if (!checkbox) {
-            return;
-        }
+        products.forEach(product => {
 
+            if (
+                localStorage.getItem(
+                    getCollectionKey(product.id)
+                ) === "true"
+            ) {
 
-        /*
-         * 讀取記憶
-         */
-
-        loadItem(item);
-
-
-        /*
-         * 更新外觀
-         */
-
-        updateItemAppearance(item);
-
-
-        /* ==================================
-           收藏狀態改變
-           ================================== */
-
-        checkbox.addEventListener(
-            "change",
-            () => {
-
-                saveItem(item);
-
-                updateItemAppearance(item);
-
-                updateProgress();
+                total++;
 
             }
-        );
+
+        });
 
 
-        /* ==================================
-           價格改變
-           ================================== */
-
-        if (priceInput) {
-
-            priceInput.addEventListener(
-                "input",
-                () => {
-
-                    saveItem(item);
-
-                    updateProgress();
-
-                }
+        const totalElement =
+            document.getElementById(
+                "total-collected"
             );
 
+
+        if (totalElement) {
+
+            totalElement.textContent =
+                total;
+
+        }
+
+    }
+
+
+
+    // ============================================================
+    // 15. 收藏總花費
+    // ============================================================
+
+    function updateTotalSpent() {
+
+        let totalSpent = 0;
+
+
+        products.forEach(product => {
+
+            const collected =
+                localStorage.getItem(
+                    getCollectionKey(product.id)
+                ) === "true";
+
+
+            if (!collected) {
+                return;
+            }
+
+
+            const savedPrice =
+                localStorage.getItem(
+                    getPriceKey(product.id)
+                );
+
+
+            if (savedPrice === null) {
+                return;
+            }
+
+
+            const price =
+                Number(savedPrice);
+
+
+            if (
+                !Number.isNaN(price) &&
+                price >= 0
+            ) {
+
+                totalSpent += price;
+
+            }
+
+        });
+
+
+        const totalSpentElement =
+            document.getElementById(
+                "total-spent"
+            );
+
+
+        if (totalSpentElement) {
+
+            totalSpentElement.textContent =
+                "NT$ " +
+                totalSpent.toLocaleString("zh-TW");
+
+        }
+
+    }
+
+
+
+    // ============================================================
+    // 16. 百分比格式
+    // ============================================================
+
+    function formatPercentage(value) {
+
+        if (value === 0) {
+            return "0";
         }
 
 
-        /* ==================================
-           點擊整張卡片
-           ================================== */
-
-        item.addEventListener(
-            "click",
-            (event) => {
-
-                /*
-                 * 點到輸入框時，
-                 * 不要觸發收藏。
-                 */
-
-                if (
-                    event.target.tagName === "INPUT"
-                ) {
-
-                    return;
-
-                }
+        if (value === 100) {
+            return "100";
+        }
 
 
-                /*
-                 * 點 label 時，
-                 * 瀏覽器本身會處理 checkbox，
-                 * 所以不要再手動切換。
-                 */
+        return value.toFixed(1);
 
-                if (
-                    event.target.tagName === "LABEL"
-                ) {
-
-                    return;
-
-                }
+    }
 
 
-                checkbox.checked =
-                    !checkbox.checked;
 
+    // ============================================================
+    // 17. 啟動圖鑑
+    // ============================================================
 
-                saveItem(item);
-
-                updateItemAppearance(item);
-
-                updateProgress();
-
-            }
-        );
-
-    });
-
-
-    /* ==================================
-       第一次載入
-       ================================== */
-
-    updateProgress();
+    renderCatalog();
 
 });

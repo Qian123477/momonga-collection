@@ -86,3 +86,154 @@
     object-fit: contain; 
     object-position: center; 
 }
+
+/* ==================================
+   收藏進度百分比
+   ================================== */
+
+.percentage {
+    color: #8e8cdc;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+/* ==================================
+   收藏統計區
+   ================================== */
+
+.total-summary {
+    max-width: 1200px;
+    margin: 10px auto 20px;
+    padding: 0 10px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.summary-item {
+    background: #f7f1fc;
+    border: 1px solid #e4d8f0;
+    border-radius: 10px;
+
+    padding: 10px 20px;
+    min-width: 130px;
+
+    text-align: center;
+}
+
+.summary-label {
+    display: block;
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.summary-item strong {
+    color: #6f6bb5;
+    font-size: 17px;
+}
+
+
+/* ==================================
+   商品價格區
+   ================================== */
+
+.price-area {
+    width: 100%;
+    margin-top: 7px;
+
+    font-size: 11px;
+    color: #777;
+
+    display: none;
+}
+
+.price-area.show {
+    display: block;
+}
+
+.price-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3px;
+    gap: 2px;
+}
+
+.price-input-field {
+    width: 65px;
+    height: 24px;
+
+    padding: 2px 5px;
+
+    border: 1px solid #d6cde0;
+    border-radius: 5px;
+
+    background: #fff;
+
+    font-size: 11px;
+    text-align: center;
+
+    outline: none;
+}
+
+.price-input-field:focus {
+    border-color: #8e8cdc;
+    box-shadow: 0 0 0 2px rgba(142, 140, 220, 0.15);
+}
+
+
+/* ==================================
+   商品名稱
+   ================================== */
+
+.item-name {
+    font-size: 12px;
+    color: #333;
+
+    cursor: pointer;
+
+    width: 100%;
+    line-height: 1.2;
+}
+
+
+/* ==================================
+   手機版
+   ================================== */
+
+@media (max-width: 600px) {
+
+    .catalog-grid {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(80px, 1fr)
+        );
+
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .item {
+        padding: 6px;
+    }
+
+    .item-name {
+        font-size: 11px;
+    }
+
+    .total-summary {
+        gap: 8px;
+    }
+
+    .summary-item {
+        padding: 8px 12px;
+        min-width: 110px;
+    }
+
+}

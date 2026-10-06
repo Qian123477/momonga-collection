@@ -172,6 +172,17 @@ document.addEventListener(
         }
 
 
+        // 新增：收藏數量
+        function getQuantityKey(id) {
+
+            return (
+                "momo_quantity_" +
+                id
+            );
+
+        }
+
+
         function isCollected(id) {
 
             return (
@@ -256,7 +267,6 @@ document.addEventListener(
                 "item-name";
 
 
-
             const checkbox =
                 document.createElement(
                     "input"
@@ -289,9 +299,9 @@ document.addEventListener(
 
 
 
-            // -----------------------------------------------------
-            // 價格區
-            // -----------------------------------------------------
+            // =====================================================
+            // 價格 / 數量區
+            // =====================================================
 
             const priceArea =
                 document.createElement(
@@ -304,6 +314,108 @@ document.addEventListener(
 
 
 
+            // -----------------------------------------------------
+            // 數量
+            // -----------------------------------------------------
+
+            const quantityRow =
+                document.createElement(
+                    "div"
+                );
+
+
+            quantityRow.className =
+                "collection-input-row";
+
+
+            const quantityLabel =
+                document.createElement(
+                    "span"
+                );
+
+
+            quantityLabel.className =
+                "collection-input-label";
+
+
+            quantityLabel.textContent =
+                "數量";
+
+
+            const quantityField =
+                document.createElement(
+                    "input"
+                );
+
+
+            quantityField.type =
+                "number";
+
+
+            quantityField.className =
+                "quantity-input-field";
+
+
+            quantityField.min =
+                "1";
+
+
+            quantityField.step =
+                "1";
+
+
+            quantityField.value =
+                "1";
+
+
+            quantityField.placeholder =
+                "1";
+
+
+            quantityRow.appendChild(
+                quantityLabel
+            );
+
+
+            quantityRow.appendChild(
+                quantityField
+            );
+
+
+            priceArea.appendChild(
+                quantityRow
+            );
+
+
+
+            // -----------------------------------------------------
+            // 均價
+            // -----------------------------------------------------
+
+            const averagePriceRow =
+                document.createElement(
+                    "div"
+                );
+
+
+            averagePriceRow.className =
+                "collection-input-row";
+
+
+            const averagePriceLabel =
+                document.createElement(
+                    "span"
+                );
+
+
+            averagePriceLabel.className =
+                "collection-input-label";
+
+
+            averagePriceLabel.textContent =
+                "均價";
+
+
             const priceInput =
                 document.createElement(
                     "div"
@@ -312,7 +424,6 @@ document.addEventListener(
 
             priceInput.className =
                 "price-input";
-
 
 
             const currency =
@@ -328,7 +439,6 @@ document.addEventListener(
             priceInput.appendChild(
                 currency
             );
-
 
 
             const priceField =
@@ -362,8 +472,72 @@ document.addEventListener(
             );
 
 
-            priceArea.appendChild(
+            averagePriceRow.appendChild(
+                averagePriceLabel
+            );
+
+
+            averagePriceRow.appendChild(
                 priceInput
+            );
+
+
+            priceArea.appendChild(
+                averagePriceRow
+            );
+
+
+
+            // -----------------------------------------------------
+            // 該款總價
+            // -----------------------------------------------------
+
+            const totalPriceRow =
+                document.createElement(
+                    "div"
+                );
+
+
+            totalPriceRow.className =
+                "collection-total-price";
+
+
+            const totalPriceLabel =
+                document.createElement(
+                    "span"
+                );
+
+
+            totalPriceLabel.textContent =
+                "總價";
+
+
+            const totalPriceValue =
+                document.createElement(
+                    "span"
+                );
+
+
+            totalPriceValue.className =
+                "collection-total-price-value";
+
+
+            totalPriceValue.textContent =
+                "NT$ 0";
+
+
+            totalPriceRow.appendChild(
+                totalPriceLabel
+            );
+
+
+            totalPriceRow.appendChild(
+                totalPriceValue
+            );
+
+
+            priceArea.appendChild(
+                totalPriceRow
             );
 
 
@@ -373,9 +547,9 @@ document.addEventListener(
 
 
 
-            // -----------------------------------------------------
+            // =====================================================
             // 點擊 checkbox
-            // -----------------------------------------------------
+            // =====================================================
 
             checkbox.addEventListener(
                 "change",
@@ -386,7 +560,9 @@ document.addEventListener(
                         item,
                         checkbox,
                         priceArea,
-                        priceField
+                        priceField,
+                        quantityField,
+                        totalPriceValue
                     );
 
                 }
@@ -394,9 +570,9 @@ document.addEventListener(
 
 
 
-            // -----------------------------------------------------
+            // =====================================================
             // 點擊整張商品卡
-            // -----------------------------------------------------
+            // =====================================================
 
             item.addEventListener(
                 "click",
@@ -415,8 +591,19 @@ document.addEventListener(
 
                         ||
 
+                        event.target ===
+                        quantityField
+
+                        ||
+
                         event.target.closest(
                             ".price-input"
+                        )
+
+                        ||
+
+                        event.target.closest(
+                            ".quantity-input-field"
                         )
 
                     ) {
@@ -441,9 +628,9 @@ document.addEventListener(
 
 
 
-            // -----------------------------------------------------
-            // 價格
-            // -----------------------------------------------------
+            // =====================================================
+            // 均價輸入
+            // =====================================================
 
             priceField.addEventListener(
                 "input",
@@ -456,14 +643,61 @@ document.addEventListener(
                     );
 
 
+                    updateProductTotalPrice(
+                        quantityField,
+                        priceField,
+                        totalPriceValue
+                    );
+
+
                     updateTotalSpent();
 
                 }
             );
 
 
-
             priceField.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                }
+            );
+
+
+
+            // =====================================================
+            // 數量輸入
+            // =====================================================
+
+            quantityField.addEventListener(
+                "input",
+                () => {
+
+
+                    saveQuantity(
+                        product.id,
+                        quantityField.value
+                    );
+
+
+                    updateProductTotalPrice(
+                        quantityField,
+                        priceField,
+                        totalPriceValue
+                    );
+
+
+                    updateTotalCollected();
+
+                    updateTotalSpent();
+
+                }
+            );
+
+
+            quantityField.addEventListener(
                 "click",
                 event => {
 
@@ -716,6 +950,18 @@ document.addEventListener(
                         );
 
 
+                    const quantityField =
+                        item.querySelector(
+                            ".quantity-input-field"
+                        );
+
+
+                    const totalPriceValue =
+                        item.querySelector(
+                            ".collection-total-price-value"
+                        );
+
+
                     const collected =
                         isCollected(id);
 
@@ -724,6 +970,10 @@ document.addEventListener(
                         collected;
 
 
+
+                    // -------------------------------------------------
+                    // 讀取原本的均價
+                    // -------------------------------------------------
 
                     const savedPrice =
                         localStorage.getItem(
@@ -742,6 +992,73 @@ document.addEventListener(
                     }
 
 
+
+                    // -------------------------------------------------
+                    // 讀取數量
+                    //
+                    // 舊資料沒有數量時，自動視為 1 件
+                    // -------------------------------------------------
+
+                    const savedQuantity =
+                        localStorage.getItem(
+                            getQuantityKey(id)
+                        );
+
+
+                    if (
+                        savedQuantity !==
+                        null
+                    ) {
+
+                        const parsedQuantity =
+                            Number(
+                                savedQuantity
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                parsedQuantity
+                            ) &&
+                            parsedQuantity >= 1
+                        ) {
+
+                            quantityField.value =
+                                Math.floor(
+                                    parsedQuantity
+                                );
+
+                        } else {
+
+                            quantityField.value =
+                                "1";
+
+                        }
+
+                    } else {
+
+                        quantityField.value =
+                            "1";
+
+                    }
+
+
+
+                    // -------------------------------------------------
+                    // 更新該商品總價
+                    // -------------------------------------------------
+
+                    updateProductTotalPrice(
+                        quantityField,
+                        priceField,
+                        totalPriceValue
+                    );
+
+
+
+                    // -------------------------------------------------
+                    // 收藏狀態
+                    // -------------------------------------------------
 
                     if (collected) {
 
@@ -781,7 +1098,9 @@ document.addEventListener(
             item,
             checkbox,
             priceArea,
-            priceField
+            priceField,
+            quantityField,
+            totalPriceValue
         ) {
 
 
@@ -805,6 +1124,33 @@ document.addEventListener(
 
                 priceArea.classList.add(
                     "show"
+                );
+
+
+                // 沒有數量時預設為 1
+                if (
+                    !quantityField.value ||
+                    Number(
+                        quantityField.value
+                    ) < 1
+                ) {
+
+                    quantityField.value =
+                        "1";
+
+                }
+
+
+                saveQuantity(
+                    product.id,
+                    quantityField.value
+                );
+
+
+                updateProductTotalPrice(
+                    quantityField,
+                    priceField,
+                    totalPriceValue
                 );
 
 
@@ -837,6 +1183,10 @@ document.addEventListener(
                     "show"
                 );
 
+                // 注意：
+                // 取消收藏不刪除價格與數量
+                // 之後重新收藏時資料還會保留
+
             }
 
 
@@ -850,7 +1200,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 9. 儲存價格
+        // 9. 儲存均價
         // =========================================================
 
         function savePrice(
@@ -898,7 +1248,128 @@ document.addEventListener(
 
 
         // =========================================================
-        // 10. 統計
+        // 10. 儲存數量
+        // =========================================================
+
+        function saveQuantity(
+            id,
+            value
+        ) {
+
+
+            if (
+                value === "" ||
+                value === null ||
+                value === undefined
+            ) {
+
+                localStorage.setItem(
+                    getQuantityKey(id),
+                    "1"
+                );
+
+                return;
+
+            }
+
+
+            const quantity =
+                Number(value);
+
+
+            if (
+                !Number.isFinite(
+                    quantity
+                ) ||
+                quantity < 1
+            ) {
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                getQuantityKey(id),
+                String(
+                    Math.floor(quantity)
+                )
+            );
+
+        }
+
+
+
+        // =========================================================
+        // 11. 計算單一商品總價
+        // =========================================================
+
+        function updateProductTotalPrice(
+            quantityField,
+            priceField,
+            totalPriceValue
+        ) {
+
+
+            if (
+                !totalPriceValue
+            ) {
+
+                return;
+
+            }
+
+
+            const quantity =
+                Number(
+                    quantityField.value
+                );
+
+
+            const price =
+                Number(
+                    priceField.value
+                );
+
+
+            if (
+                !Number.isFinite(
+                    quantity
+                ) ||
+                quantity < 1 ||
+                !Number.isFinite(
+                    price
+                ) ||
+                price < 0
+            ) {
+
+                totalPriceValue.textContent =
+                    "NT$ 0";
+
+                return;
+
+            }
+
+
+            const total =
+                Math.floor(
+                    quantity
+                ) *
+                price;
+
+
+            totalPriceValue.textContent =
+                "NT$ " +
+                total.toLocaleString(
+                    "zh-TW"
+                );
+
+        }
+
+
+
+        // =========================================================
+        // 12. 統計
         // =========================================================
 
         function countCollected(
@@ -1078,45 +1549,141 @@ document.addEventListener(
 
 
 
+        // =========================================================
+        // 13. 收藏總數
+        //
+        // 顯示：
+        // XX 款 · XX 件
+        //
+        // XX 款 = 收藏了幾種不同商品
+        // XX 件 = 所有收藏數量加總
+        // =========================================================
+
         function updateTotalCollected() {
 
 
-            let total = 0;
+            let totalStyles = 0;
+
+            let totalItems = 0;
 
 
             products.forEach(
                 product => {
 
+
                     if (
-                        isCollected(
+                        !isCollected(
                             product.id
                         )
                     ) {
 
-                        total++;
+                        return;
 
                     }
+
+
+                    // ---------------------------------------------
+                    // 收藏款式 +1
+                    // ---------------------------------------------
+
+                    totalStyles++;
+
+
+                    // ---------------------------------------------
+                    // 取得數量
+                    // 舊資料沒有數量時 = 1
+                    // ---------------------------------------------
+
+                    const savedQuantity =
+                        localStorage.getItem(
+                            getQuantityKey(
+                                product.id
+                            )
+                        );
+
+
+                    let quantity = 1;
+
+
+                    if (
+                        savedQuantity !==
+                        null
+                    ) {
+
+                        const parsedQuantity =
+                            Number(
+                                savedQuantity
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                parsedQuantity
+                            ) &&
+                            parsedQuantity >= 1
+                        ) {
+
+                            quantity =
+                                Math.floor(
+                                    parsedQuantity
+                                );
+
+                        }
+
+                    }
+
+
+                    totalItems +=
+                        quantity;
 
                 }
             );
 
 
-            const element =
+            // -----------------------------------------------------
+            // 款式
+            // -----------------------------------------------------
+
+            const styleElement =
                 document.getElementById(
                     "total-collected"
                 );
 
 
-            if (element) {
+            if (styleElement) {
 
-                element.textContent =
-                    total;
+                styleElement.textContent =
+                    totalStyles;
+
+            }
+
+
+            // -----------------------------------------------------
+            // 件數
+            // -----------------------------------------------------
+
+            const itemElement =
+                document.getElementById(
+                    "total-items"
+                );
+
+
+            if (itemElement) {
+
+                itemElement.textContent =
+                    totalItems;
 
             }
 
         }
 
 
+
+        // =========================================================
+        // 14. 收藏總花費
+        //
+        // 均價 × 數量
+        // =========================================================
 
         function updateTotalSpent() {
 
@@ -1138,6 +1705,10 @@ document.addEventListener(
 
                     }
 
+
+                    // ---------------------------------------------
+                    // 取得均價
+                    // ---------------------------------------------
 
                     const savedPrice =
                         localStorage.getItem(
@@ -1164,16 +1735,67 @@ document.addEventListener(
 
 
                     if (
-                        !Number.isNaN(
+                        !Number.isFinite(
                             price
-                        ) &&
-                        price >= 0
+                        ) ||
+                        price < 0
                     ) {
 
-                        totalSpent +=
-                            price;
+                        return;
 
                     }
+
+
+                    // ---------------------------------------------
+                    // 取得數量
+                    // ---------------------------------------------
+
+                    const savedQuantity =
+                        localStorage.getItem(
+                            getQuantityKey(
+                                product.id
+                            )
+                        );
+
+
+                    let quantity = 1;
+
+
+                    if (
+                        savedQuantity !==
+                        null
+                    ) {
+
+                        const parsedQuantity =
+                            Number(
+                                savedQuantity
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                parsedQuantity
+                            ) &&
+                            parsedQuantity >= 1
+                        ) {
+
+                            quantity =
+                                Math.floor(
+                                    parsedQuantity
+                                );
+
+                        }
+
+                    }
+
+
+                    // ---------------------------------------------
+                    // 均價 × 數量
+                    // ---------------------------------------------
+
+                    totalSpent +=
+                        price *
+                        quantity;
 
                 }
             );
@@ -1212,7 +1834,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 11. 搜尋與篩選
+        // 15. 搜尋與篩選
         // =========================================================
 
         let currentFilter =
@@ -1528,7 +2150,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 12. 搜尋事件
+        // 16. 搜尋事件
         // =========================================================
 
         searchInput.addEventListener(
@@ -1565,7 +2187,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 13. 篩選按鈕
+        // 17. 篩選按鈕
         // =========================================================
 
         filterButtons.forEach(
@@ -1608,7 +2230,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 14. 深色模式
+        // 18. 深色模式
         // =========================================================
 
         const themeToggle =
@@ -1723,7 +2345,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 15. 設定面板
+        // 19. 設定面板
         // =========================================================
 
         const settingsButton =
@@ -1795,40 +2417,7 @@ document.addEventListener(
 
 
         // =========================================================
-        // 16. ESC 關閉設定 / 視窗
-        // =========================================================
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-
-                if (
-                    event.key !==
-                    "Escape"
-                ) {
-
-                    return;
-
-                }
-
-
-                settingsOverlay.classList.remove(
-                    "show"
-                );
-
-
-                confirmOverlay.classList.remove(
-                    "show"
-                );
-
-            }
-        );
-
-
-
-        // =========================================================
-        // 17. 清除收藏資料
+        // 20. 清除收藏資料
         // =========================================================
 
         const clearDataButton =
@@ -1890,7 +2479,7 @@ document.addEventListener(
 
 
                 // --------------------------------------------------
-                // 只清除本網站自己的收藏資料
+                // 清除收藏、均價、數量
                 // --------------------------------------------------
 
                 products.forEach(
@@ -1906,6 +2495,13 @@ document.addEventListener(
 
                         localStorage.removeItem(
                             getPriceKey(
+                                product.id
+                            )
+                        );
+
+
+                        localStorage.removeItem(
+                            getQuantityKey(
                                 product.id
                             )
                         );
@@ -1983,7 +2579,40 @@ document.addEventListener(
 
 
         // =========================================================
-        // 18. 啟動
+        // 21. ESC 關閉設定 / 視窗
+        // =========================================================
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+
+                if (
+                    event.key !==
+                    "Escape"
+                ) {
+
+                    return;
+
+                }
+
+
+                settingsOverlay.classList.remove(
+                    "show"
+                );
+
+
+                confirmOverlay.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+
+        // =========================================================
+        // 22. 啟動
         // =========================================================
 
         loadTheme();

@@ -1624,3 +1624,177 @@ body.dark-mode .search-result-message {
     }
 
 }
+
+/* =========================================================
+   統計格 → 搜尋區：增加間距
+   ========================================================= */
+
+.search-section {
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   商品卡：數量 / 均價 / 總價
+   ========================================================= */
+
+/* 確保收藏資訊區可以正常顯示 */
+.price-area {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* 數量、均價每一列 */
+.collection-input-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+
+/* 「數量」「均價」文字 */
+.collection-input-label {
+    width: 28px;
+    flex-shrink: 0;
+    color: #888;
+    font-size: 10px;
+    line-height: 24px;
+    text-align: right;
+}
+
+
+/* 數量欄位 */
+.quantity-input-field {
+    display: block !important;
+    width: 48px;
+    height: 25px;
+    padding: 2px 5px;
+    box-sizing: border-box;
+
+    border: 1px solid #d6cde0;
+    border-radius: 6px;
+
+    background: #fff;
+    color: #333;
+
+    font-size: 11px;
+    text-align: center;
+
+    outline: none;
+    appearance: textfield;
+    -moz-appearance: textfield;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* 隱藏數量欄位上下箭頭 */
+.quantity-input-field::-webkit-inner-spin-button,
+.quantity-input-field::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* 數量欄位 focus */
+.quantity-input-field:focus {
+    border-color: #8e8cdc;
+    box-shadow:
+        0 0 0 2px rgba(142, 140, 220, 0.15);
+}
+
+
+/* 均價外框 */
+.price-input {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+
+/* 均價欄位 */
+.price-input-field {
+    width: 58px;
+    height: 25px;
+    padding: 2px 5px;
+    box-sizing: border-box;
+
+    border: 1px solid #d6cde0;
+    border-radius: 6px;
+
+    background: #fff;
+    color: #333;
+
+    font-size: 11px;
+    text-align: center;
+
+    outline: none;
+}
+
+
+/* 均價 focus */
+.price-input-field:focus {
+    border-color: #8e8cdc;
+    box-shadow:
+        0 0 0 2px rgba(142, 140, 220, 0.15);
+}
+
+
+/* 總價 */
+.collection-total-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 100%;
+    margin-top: 5px;
+
+    color: #999;
+    font-size: 10px;
+}
+
+
+/* 總價數字 */
+.collection-total-price-value {
+    color: #6f6bb5;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   深色模式
+   ========================================================= */
+
+body.dark-mode .quantity-input-field,
+body.dark-mode .price-input-field {
+    background: #292632;
+    border-color: #514b5e;
+    color: #eeeeee;
+}
+
+
+body.dark-mode .collection-input-label {
+    color: #aaa5b5;
+}
+
+
+body.dark-mode .collection-total-price {
+    color: #aaa5b5;
+}
+
+
+body.dark-mode .collection-total-price-value {
+    color: #aaa6e5;
+}
+

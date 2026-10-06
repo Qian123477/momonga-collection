@@ -300,11 +300,6 @@ body {
     background: #e1dced;
 }
 
-
-/* =========================================
-   篩選按鈕
-   ========================================= */
-
 .filter-buttons {
     display: flex;
 
@@ -435,16 +430,6 @@ body {
    8. 商品網格
    ========================================= */
 
-/*
-   重要修正：
-
-   minmax(90px, 1fr) 會受到卡片內容的
-   minimum content size 影響。
-
-   改成 minmax(0, 1fr)，讓 Grid 欄位
-   不會因為勾選後增加總價欄位而被撐寬。
-*/
-
 .catalog-grid {
     display: grid;
 
@@ -461,8 +446,6 @@ body {
     margin: 0 auto;
 
     padding: 10px;
-
-    width: 100%;
 }
 
 
@@ -471,12 +454,11 @@ body {
    ========================================= */
 
 .item {
+    min-width: 0;
+    width: 100%;
+
     background: #ffffff;
 
-    /*
-       固定 box sizing。
-       padding 不會影響 Grid 欄位寬度。
-    */
     padding: 8px;
 
     border-radius: 8px;
@@ -504,26 +486,8 @@ body {
 
     text-align: center;
 
-    /*
-       ★ 核心修正
-       */
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-
     overflow: hidden;
 }
-
-
-/*
-   卡片裡面的內容不能反過來撐大卡片
-*/
-
-.item > * {
-    min-width: 0;
-    max-width: 100%;
-}
-
 
 .item:hover {
     transform:
@@ -549,7 +513,6 @@ body {
 
 .item img {
     width: 100%;
-
     max-width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -559,8 +522,6 @@ body {
     margin-bottom: 5px;
 
     display: block;
-
-    min-width: 0;
 }
 
 
@@ -576,18 +537,16 @@ body {
     cursor: pointer;
 
     width: 100%;
-    max-width: 100%;
-
     min-width: 0;
 
     line-height: 1.2;
 
     text-align: center;
 
+    overflow-wrap: anywhere;
+
     transition:
         color 0.25s ease;
-
-    overflow: hidden;
 }
 
 
@@ -595,34 +554,11 @@ body {
    12. 收藏狀態
    ========================================= */
 
-/*
-   ★ 非常重要
-
-   原本：
-       padding: 8px
-
-   selected：
-       padding: 7px
-
-   這會讓選取前後內容尺寸重新計算。
-
-   現在兩邊 padding 完全相同，
-   只改 border 顏色 / 寬度。
-*/
-
 .item.selected {
     border:
         2px solid #8e8cdc;
 
     padding: 7px;
-
-    /*
-       8px padding + 1px border
-       =
-       7px padding + 2px border
-
-       因此外部總尺寸完全一樣。
-    */
 
     box-shadow:
         0 2px 8px
@@ -632,12 +568,7 @@ body {
             220,
             0.08
         );
-
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
 }
-
 
 .item.selected:hover {
     transform:
@@ -696,7 +627,7 @@ body {
 
 
 /* =========================================
-   13. 價格區域
+   13. 收藏資訊區
    ========================================= */
 
 .price-area {
@@ -720,76 +651,65 @@ body {
     display: block;
 }
 
-.price-area > span {
-    display: none;
-}
-
 
 /* =========================================
-   數量 / 均價列
+   14. 數量 / 總價 / 均價 共用列
    ========================================= */
 
 .collection-input-row {
-    display: flex;
+    display: grid;
+
+    grid-template-columns:
+        28px 48px;
 
     align-items: center;
 
     justify-content: center;
 
-    gap: 6px;
+    column-gap: 5px;
 
     width: 100%;
-    max-width: 100%;
+    max-width: 81px;
 
-    min-width: 0;
-
-    margin-top: 4px;
+    margin: 4px auto 0;
 
     box-sizing: border-box;
-
-    overflow: hidden;
 }
 
 
-/* 「數量」「均價」文字 */
+/* 「數量」「總價」「均價」文字 */
 
 .collection-input-label {
     width: 28px;
 
-    min-width: 28px;
-    max-width: 28px;
-
-    flex:
-        0 0 28px;
+    flex-shrink: 0;
 
     color: #888;
 
     font-size: 10px;
 
-    line-height: 24px;
+    line-height: 25px;
 
     text-align: right;
+
+    white-space: nowrap;
 }
 
 
 /* =========================================
-   數量欄位
+   15. 數量欄位
    ========================================= */
 
 .quantity-input-field {
     display: block !important;
 
-    width: 48px !important;
-    min-width: 48px !important;
-    max-width: 48px !important;
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
 
     height: 25px;
 
-    flex:
-        0 0 48px;
-
-    padding:
-        2px 5px;
+    padding: 2px 4px;
 
     box-sizing: border-box;
 
@@ -817,9 +737,6 @@ body {
         background-color 0.2s ease;
 }
 
-
-/* 隱藏數量欄位上下箭頭 */
-
 .quantity-input-field::-webkit-inner-spin-button,
 .quantity-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -827,159 +744,38 @@ body {
     margin: 0;
 }
 
-
-/* 數量欄位 focus */
-
 .quantity-input-field:focus {
-    border-color:
-        #8e8cdc;
+    border-color: #8e8cdc;
 
     box-shadow:
         0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
+        rgba(142, 140, 220, 0.15);
 }
 
 
 /* =========================================
-   均價
+   16. 總價欄位
    ========================================= */
-
-.price-input {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 2px;
-
-    min-width: 0;
-
-    max-width: 100%;
-}
-
-
-.price-input-field {
-    width: 58px !important;
-
-    min-width: 58px !important;
-    max-width: 58px !important;
-
-    height: 25px;
-
-    flex:
-        0 0 58px;
-
-    padding:
-        2px 5px;
-
-    box-sizing: border-box;
-
-    border:
-        1px solid #d6cde0;
-
-    border-radius: 6px;
-
-    background: #fff;
-
-    color: #333;
-
-    font-size: 11px;
-
-    text-align: center;
-
-    outline: none;
-
-    appearance: textfield;
-    -moz-appearance: textfield;
-}
-
-
-/* 均價 focus */
-
-.price-input-field:focus {
-    border-color:
-        #8e8cdc;
-
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
-}
-
-
-/* =========================================
-   總價
-   ========================================= */
-
-.collection-total-price {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 6px;
-
-    width: 100%;
-    max-width: 100%;
-
-    min-width: 0;
-
-    margin-top: 5px;
-
-    color: #999;
-
-    font-size: 10px;
-
-    overflow: hidden;
-}
-
 
 /*
-   ★ 總價的 label
+   重要：
+   總價不再放 NT$ + input。
 
-   跟「數量」label 一樣寬。
+   直接讓總價 input 跟數量 input
+   完全相同：
+   48px × 25px
 */
-
-.collection-total-price .collection-input-label {
-    width: 28px;
-
-    min-width: 28px;
-    max-width: 28px;
-
-    flex:
-        0 0 28px;
-}
-
-
-/* =========================================
-   總價 input
-   ========================================= */
 
 .total-price-input-field {
     display: block !important;
 
-    width: 48px !important;
-    min-width: 48px !important;
-    max-width: 48px !important;
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
 
     height: 25px;
 
-    flex:
-        0 0 48px;
-
-    padding:
-        2px 5px;
+    padding: 2px 4px;
 
     box-sizing: border-box;
 
@@ -1007,26 +803,6 @@ body {
         background-color 0.25s ease;
 }
 
-
-/* 總價 focus */
-
-.total-price-input-field:focus {
-    border-color:
-        #8e8cdc;
-
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
-}
-
-
-/* 隱藏總價上下箭頭 */
-
 .total-price-input-field::-webkit-inner-spin-button,
 .total-price-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -1034,25 +810,45 @@ body {
     margin: 0;
 }
 
+.total-price-input-field:focus {
+    border-color: #8e8cdc;
 
-/* =========================================
-   總價數字
-   ========================================= */
-
-.collection-total-price-value {
-    color:
-        #6f6bb5;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    white-space: nowrap;
+    box-shadow:
+        0 0 0 2px
+        rgba(142, 140, 220, 0.15);
 }
 
 
 /* =========================================
-   14. 分類
+   17. 均價
+   ========================================= */
+
+.collection-average-price {
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #6f6bb5;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   18. 分類
    ========================================= */
 
 .category-section {
@@ -1061,7 +857,7 @@ body {
 
 
 /* =========================================
-   15. 設定按鈕
+   19. 設定按鈕
    ========================================= */
 
 .settings-button {
@@ -1111,7 +907,7 @@ body {
 
 
 /* =========================================
-   16. 設定遮罩
+   20. 設定遮罩
    ========================================= */
 
 .settings-overlay,
@@ -1145,7 +941,7 @@ body {
 
 
 /* =========================================
-   17. 設定面板
+   21. 設定面板
    ========================================= */
 
 .settings-panel {
@@ -1189,12 +985,11 @@ body {
             scale(1)
             translateY(0);
     }
-
 }
 
 
 /* =========================================
-   18. 設定標題
+   22. 設定標題
    ========================================= */
 
 .settings-header {
@@ -1238,7 +1033,7 @@ body {
 
 
 /* =========================================
-   19. 設定項目
+   23. 設定項目
    ========================================= */
 
 .settings-item {
@@ -1283,7 +1078,7 @@ body {
 
 
 /* =========================================
-   20. 深色模式按鈕
+   24. 深色模式按鈕
    ========================================= */
 
 .theme-toggle {
@@ -1315,7 +1110,7 @@ body {
 
 
 /* =========================================
-   21. 清除資料
+   25. 清除資料
    ========================================= */
 
 .clear-data-button {
@@ -1347,7 +1142,7 @@ body {
 
 
 /* =========================================
-   22. 確認視窗
+   26. 確認視窗
    ========================================= */
 
 .confirm-panel {
@@ -1440,13 +1235,12 @@ body {
     background:
         #d96873;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 }
 
 
 /* =========================================
-   23. 深色模式
+   27. 深色模式
    ========================================= */
 
 body.dark-mode {
@@ -1550,32 +1344,26 @@ body.dark-mode .item.selected {
         #aaa6ed;
 }
 
-body.dark-mode .price-input-field,
 body.dark-mode .quantity-input-field,
 body.dark-mode .total-price-input-field {
-    background-color:
-        #211f27;
+    background:
+        #292632;
 
     border-color:
-        #51495e;
+        #514b5e;
 
     color:
         #eeeeee;
 }
 
+body.dark-mode .collection-average-price {
+    color:
+        #aaa6e5;
+}
+
 body.dark-mode .collection-input-label {
     color:
         #aaa5b5;
-}
-
-body.dark-mode .collection-total-price {
-    color:
-        #aaa5b5;
-}
-
-body.dark-mode .collection-total-price-value {
-    color:
-        #aaa6e5;
 }
 
 body.dark-mode .search-box input {
@@ -1732,7 +1520,16 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   24. 手機版
+   28. 搜尋區間距
+   ========================================= */
+
+.search-section {
+    margin-top: 24px;
+}
+
+
+/* =========================================
+   29. 手機版
    ========================================= */
 
 @media (max-width: 600px) {
@@ -1787,10 +1584,6 @@ body.dark-mode .search-result-message {
             7px 14px;
     }
 
-    /*
-       ★ 手機商品欄位固定比例
-    */
-
     .catalog-grid {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
@@ -1801,46 +1594,17 @@ body.dark-mode .search-result-message {
     }
 
     .item {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-
         padding: 6px;
+
+        border-radius: 8px;
     }
 
     .item.selected {
-        /*
-           外部尺寸與未選取完全相同
-        */
         padding: 5px;
     }
 
     .item-name {
         font-size: 11px;
-    }
-
-    /*
-       數量與總價都固定 48px
-    */
-
-    .quantity-input-field,
-    .total-price-input-field {
-        width: 48px !important;
-        min-width: 48px !important;
-        max-width: 48px !important;
-
-        flex:
-            0 0 48px !important;
-    }
-
-    .price-input-field {
-        width: 58px !important;
-
-        min-width: 58px !important;
-        max-width: 58px !important;
-
-        flex:
-            0 0 58px !important;
     }
 
     .settings-button {
@@ -1859,7 +1623,7 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   25. 更小手機
+   30. 更小手機
    ========================================= */
 
 @media (max-width: 380px) {
@@ -1899,27 +1663,4 @@ body.dark-mode .search-result-message {
         padding:
             15px;
     }
-
-    /*
-       小手機依然保持固定 input 尺寸
-    */
-
-    .quantity-input-field,
-    .total-price-input-field {
-        width: 48px !important;
-        min-width: 48px !important;
-        max-width: 48px !important;
-
-        flex:
-            0 0 48px !important;
-    }
-}
-
-
-/* =========================================================
-   26. 搜尋區額外間距
-   ========================================================= */
-
-.search-section {
-    margin-top: 24px;
 }

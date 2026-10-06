@@ -616,6 +616,12 @@ body {
         font-size: 10px;
     }
 
+   /* 隱藏舊版小桃進度區 */
+.character-progress {
+    display: none !important;
+}
+
+
 
     .progress-card-count,
     .progress-card-price {

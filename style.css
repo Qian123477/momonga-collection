@@ -118,8 +118,7 @@ body {
 
     background-color: #fdfbff;
 
-    transform:
-        translateY(-1px);
+    transform: translateY(-1px);
 }
 
 .progress-card-title {
@@ -352,8 +351,7 @@ body {
 }
 
 .filter-button:active {
-    transform:
-        scale(0.97);
+    transform: scale(0.97);
 }
 
 .filter-button.active {
@@ -447,13 +445,19 @@ body {
 .catalog-grid {
     display: grid;
 
+    /*
+     * 電腦版：
+     * 不讓商品卡小到被數量 / 總價 / 均價擠扁。
+     */
     grid-template-columns:
         repeat(
             auto-fill,
-            minmax(90px, 1fr)
+            minmax(130px, 1fr)
         );
 
-    gap: 10px;
+    gap: 12px;
+
+    width: 100%;
 
     max-width: 1200px;
 
@@ -462,8 +466,7 @@ body {
     padding: 10px;
 
     /*
-     * 留一點空間給右上角勾勾，
-     * 避免勾勾貼到整個網格邊界時被裁掉。
+     * 讓右上角收藏勾勾可以超出卡片。
      */
     overflow: visible;
 }
@@ -475,6 +478,9 @@ body {
 
 .item {
     background: #ffffff;
+
+    width: 100%;
+    min-width: 0;
 
     padding: 8px;
 
@@ -504,18 +510,10 @@ body {
     text-align: center;
 
     /*
-     * 重要：
-     * 不可以 hidden，
-     * 否則右上角勾勾會被卡片裁掉。
+     * 非常重要：
+     * 不要讓卡片裁切右上角的勾勾。
      */
     overflow: visible;
-
-    /*
-     * 防止內容把 grid 欄位撐寬。
-     */
-    min-width: 0;
-
-    width: 100%;
 }
 
 .item:hover {
@@ -541,17 +539,23 @@ body {
    ========================================= */
 
 .item img {
+    display: block;
+
     width: 100%;
 
+    /*
+     * 圖片固定正方形，
+     * 不會被下面的輸入區拉扁。
+     */
     aspect-ratio: 1 / 1;
+
+    height: auto;
 
     object-fit: contain;
 
     margin-bottom: 5px;
 
-    display: block;
-
-    min-width: 0;
+    flex-shrink: 0;
 }
 
 
@@ -574,10 +578,13 @@ body {
 
     text-align: center;
 
-    overflow-wrap: anywhere;
-
     transition:
         color 0.25s ease;
+
+    /*
+     * 避免商品名稱撐開卡片。
+     */
+    overflow-wrap: anywhere;
 }
 
 
@@ -586,21 +593,12 @@ body {
    ========================================= */
 
 .item.selected {
-    /*
-     * 原本是 2px border + padding 7px，
-     * 容易讓卡片尺寸產生變化。
-     *
-     * 改成維持 1px 邊框，
-     * 用 inset shadow 表現選取狀態，
-     * 這樣卡片不會突然縮放。
-     */
     border:
-        1px solid #8e8cdc;
+        2px solid #8e8cdc;
 
-    padding: 8px;
+    padding: 7px;
 
     box-shadow:
-        inset 0 0 0 1px #8e8cdc,
         0 2px 8px
         rgba(
             142,
@@ -608,6 +606,11 @@ body {
             220,
             0.08
         );
+
+    /*
+     * 保持勾勾可以超出卡片。
+     */
+    overflow: visible;
 }
 
 .item.selected:hover {
@@ -620,43 +623,37 @@ body {
 
 
 /* =========================================
-   收藏勾勾
+   13. 收藏勾勾
    ========================================= */
 
-/*
- * 改成「卡片右上角的小徽章」
- *
- * 不再用太大的負值，
- * 讓它保持大部分位於卡片範圍內。
- */
-
 .item.selected::after {
-    content: "✓";
+    content: "✔";
 
     position: absolute;
 
-    top: -6px;
-    right: -6px;
-
-    width: 21px;
-    height: 21px;
-
-    border-radius: 50%;
+    /*
+     * 放在卡片右上角外側，
+     * 不會被卡片切掉。
+     */
+    top: -9px;
+    right: -9px;
 
     background-color:
         #8e8cdc;
 
     color: #ffffff;
 
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
     font-size: 12px;
 
-    font-weight: 700;
+    display: flex;
 
-    line-height: 21px;
-
-    text-align: center;
-
-    display: block;
+    align-items: center;
+    justify-content: center;
 
     z-index: 20;
 
@@ -669,15 +666,7 @@ body {
             0.22
         );
 
-    /*
-     * 防止勾勾被任何文字樣式影響。
-     */
     pointer-events: none;
-
-    /*
-     * 讓勾勾看起來更圓滑。
-     */
-    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -689,13 +678,13 @@ body {
 
 
 /* =========================================
-   13. 價格區
+   14. 價格區域
    ========================================= */
 
 .price-area {
     width: 100%;
 
-    max-width: 100%;
+    box-sizing: border-box;
 
     margin-top: 7px;
 
@@ -704,10 +693,6 @@ body {
     color: #777;
 
     display: none;
-
-    box-sizing: border-box;
-
-    min-width: 0;
 }
 
 .price-area.show {
@@ -720,7 +705,7 @@ body {
 
 
 /* =========================================
-   數量 / 總價 / 均價 共用列
+   15. 數量 / 總價 / 均價每一列
    ========================================= */
 
 .collection-input-row {
@@ -730,11 +715,9 @@ body {
 
     justify-content: center;
 
-    gap: 5px;
+    gap: 4px;
 
     width: 100%;
-
-    max-width: 100%;
 
     margin-top: 4px;
 
@@ -744,18 +727,12 @@ body {
 }
 
 
-/* =========================================
-   「數量」「總價」「均價」文字
-   ========================================= */
+/* 「數量」「總價」「均價」文字 */
 
 .collection-input-label {
     width: 28px;
 
-    min-width: 28px;
-
-    max-width: 28px;
-
-    flex: 0 0 28px;
+    flex-shrink: 0;
 
     color: #888;
 
@@ -764,28 +741,22 @@ body {
     line-height: 25px;
 
     text-align: right;
-
-    white-space: nowrap;
 }
 
 
 /* =========================================
-   數量欄位
+   16. 數量欄位
    ========================================= */
 
 .quantity-input-field {
     display: block !important;
 
     width: 48px;
-
-    min-width: 48px;
-
-    max-width: 48px;
-
     height: 25px;
 
-    padding:
-        2px 5px;
+    flex: 0 0 48px;
+
+    padding: 2px 5px;
 
     box-sizing: border-box;
 
@@ -807,8 +778,6 @@ body {
     appearance: textfield;
 
     -moz-appearance: textfield;
-
-    flex: 0 0 48px;
 
     transition:
         border-color 0.2s ease,
@@ -827,11 +796,10 @@ body {
 }
 
 
-/* 數量欄位 focus */
+/* 數量 focus */
 
 .quantity-input-field:focus {
-    border-color:
-        #8e8cdc;
+    border-color: #8e8cdc;
 
     box-shadow:
         0 0 0 2px
@@ -845,7 +813,7 @@ body {
 
 
 /* =========================================
-   總價外框
+   17. 總價輸入外框
    ========================================= */
 
 .price-input {
@@ -857,35 +825,80 @@ body {
 
     gap: 2px;
 
-    /*
-     * 關鍵：
-     * 不允許 NT$ + input 把商品卡撐寬。
-     */
+    min-width: 0;
+}
+
+
+/* NT$ */
+
+.price-input > span {
+    flex-shrink: 0;
+
+    font-size: 9px;
+
+    color: #888;
+}
+
+
+/* =========================================
+   18. 均價欄位
+   ========================================= */
+
+.price-input-field {
     width: 48px;
 
-    min-width: 48px;
-
-    max-width: 48px;
+    height: 25px;
 
     flex: 0 0 48px;
 
+    padding: 2px 5px;
+
     box-sizing: border-box;
 
-    overflow: hidden;
+    border:
+        1px solid #d6cde0;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    outline: none;
+
+    appearance: textfield;
+
+    -moz-appearance: textfield;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.25s ease;
+}
+
+
+/* 均價 focus */
+
+.price-input-field:focus {
+    border-color: #8e8cdc;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(
+            142,
+            140,
+            220,
+            0.15
+        );
 }
 
 
 /* =========================================
-   總價 NT$ 文字
-   ========================================= */
-
-.price-input span {
-    display: none;
-}
-
-
-/* =========================================
-   總價輸入框
+   19. 總價輸入框
    ========================================= */
 
 .total-price-input-field {
@@ -893,14 +906,11 @@ body {
 
     width: 48px;
 
-    min-width: 48px;
-
-    max-width: 48px;
-
     height: 25px;
 
-    padding:
-        2px 5px;
+    flex: 0 0 48px;
+
+    padding: 2px 5px;
 
     box-sizing: border-box;
 
@@ -923,8 +933,6 @@ body {
 
     -moz-appearance: textfield;
 
-    flex: 0 0 48px;
-
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
@@ -935,8 +943,7 @@ body {
 /* 總價 focus */
 
 .total-price-input-field:focus {
-    border-color:
-        #8e8cdc;
+    border-color: #8e8cdc;
 
     box-shadow:
         0 0 0 2px
@@ -949,7 +956,7 @@ body {
 }
 
 
-/* 隱藏總價欄位上下箭頭 */
+/* 隱藏總價上下箭頭 */
 
 .total-price-input-field::-webkit-inner-spin-button,
 .total-price-input-field::-webkit-outer-spin-button {
@@ -960,17 +967,13 @@ body {
 
 
 /* =========================================
-   均價
+   20. 均價顯示
    ========================================= */
 
 .collection-average-price {
-    width: 48px;
-
     min-width: 48px;
 
-    max-width: 48px;
-
-    flex: 0 0 48px;
+    width: 48px;
 
     height: 25px;
 
@@ -980,9 +983,7 @@ body {
 
     justify-content: center;
 
-    overflow: hidden;
-
-    white-space: nowrap;
+    flex: 0 0 48px;
 
     color: #6f6bb5;
 
@@ -990,12 +991,45 @@ body {
 
     font-weight: 600;
 
-    box-sizing: border-box;
+    white-space: nowrap;
+
+    overflow: hidden;
 }
 
 
 /* =========================================
-   14. 分類
+   21. 舊版總價顯示區
+   ========================================= */
+
+.collection-total-price {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+.collection-total-price-value {
+    color: #6f6bb5;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   22. 分類
    ========================================= */
 
 .category-section {
@@ -1004,7 +1038,7 @@ body {
 
 
 /* =========================================
-   15. 設定按鈕
+   23. 設定按鈕
    ========================================= */
 
 .settings-button {
@@ -1022,12 +1056,7 @@ body {
     border-radius: 50%;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.95
-        );
+        rgba(255, 255, 255, 0.95);
 
     color: #6f6bb5;
 
@@ -1059,7 +1088,7 @@ body {
 
 
 /* =========================================
-   16. 設定遮罩
+   24. 設定遮罩
    ========================================= */
 
 .settings-overlay,
@@ -1093,7 +1122,7 @@ body {
 
 
 /* =========================================
-   17. 設定面板
+   25. 設定面板
    ========================================= */
 
 .settings-panel {
@@ -1120,7 +1149,6 @@ body {
         panel-in 0.18s ease;
 }
 
-
 @keyframes panel-in {
 
     from {
@@ -1143,7 +1171,7 @@ body {
 
 
 /* =========================================
-   18. 設定標題
+   26. 設定標題
    ========================================= */
 
 .settings-header {
@@ -1187,7 +1215,7 @@ body {
 
 
 /* =========================================
-   19. 設定項目
+   27. 設定項目
    ========================================= */
 
 .settings-item {
@@ -1232,7 +1260,7 @@ body {
 
 
 /* =========================================
-   20. 深色模式按鈕
+   28. 深色模式按鈕
    ========================================= */
 
 .theme-toggle {
@@ -1264,7 +1292,7 @@ body {
 
 
 /* =========================================
-   21. 清除資料
+   29. 清除資料
    ========================================= */
 
 .clear-data-button {
@@ -1296,7 +1324,7 @@ body {
 
 
 /* =========================================
-   22. 確認視窗
+   30. 確認視窗
    ========================================= */
 
 .confirm-panel {
@@ -1394,7 +1422,7 @@ body {
 
 
 /* =========================================
-   23. 深色模式
+   31. 深色模式
    ========================================= */
 
 body.dark-mode {
@@ -1496,44 +1524,16 @@ body.dark-mode .item-name {
 body.dark-mode .item.selected {
     border-color:
         #aaa6ed;
-
-    box-shadow:
-        inset 0 0 0 1px #aaa6ed,
-        0 2px 8px
-        rgba(
-            142,
-            140,
-            220,
-            0.08
-        );
 }
 
-body.dark-mode .item.selected::after {
-    background-color:
-        #8e8cdc;
-
-    color:
-        #ffffff;
-}
-
-body.dark-mode .price-input-field {
+body.dark-mode .price-input-field,
+body.dark-mode .quantity-input-field,
+body.dark-mode .total-price-input-field {
     background-color:
         #211f27;
 
     border-color:
         #51495e;
-
-    color:
-        #eeeeee;
-}
-
-body.dark-mode .quantity-input-field,
-body.dark-mode .total-price-input-field {
-    background:
-        #292632;
-
-    border-color:
-        #514b5e;
 
     color:
         #eeeeee;
@@ -1545,6 +1545,21 @@ body.dark-mode .collection-average-price {
 }
 
 body.dark-mode .collection-input-label {
+    color:
+        #aaa5b5;
+}
+
+body.dark-mode .collection-total-price {
+    color:
+        #aaa5b5;
+}
+
+body.dark-mode .collection-total-price-value {
+    color:
+        #aaa6e5;
+}
+
+body.dark-mode .price-input > span {
     color:
         #aaa5b5;
 }
@@ -1703,7 +1718,7 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   24. 搜尋區額外間距
+   32. 搜尋區與統計格間距
    ========================================= */
 
 .search-section {
@@ -1712,7 +1727,7 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   25. 手機版
+   33. 手機版
    ========================================= */
 
 @media (max-width: 600px) {
@@ -1777,11 +1792,14 @@ body.dark-mode .search-result-message {
     }
 
 
+    /*
+     * 手機改成一列 4 隻
+     */
     .catalog-grid {
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(4, minmax(0, 1fr));
 
-        gap: 8px;
+        gap: 7px;
 
         padding: 8px;
 
@@ -1790,74 +1808,103 @@ body.dark-mode .search-result-message {
 
 
     .item {
-        padding: 6px;
+        padding: 5px;
 
         border-radius: 8px;
+
+        min-width: 0;
 
         overflow: visible;
     }
 
 
     .item.selected {
-        padding: 6px;
+        padding: 4px;
+
+        overflow: visible;
     }
 
 
     .item-name {
-        font-size: 11px;
-    }
+        font-size: 10px;
 
-
-    .quantity-input-field,
-    .total-price-input-field {
-        width: 48px;
-
-        min-width: 48px;
-
-        max-width: 48px;
-    }
-
-
-    .collection-input-label {
-        width: 28px;
-
-        min-width: 28px;
-
-        max-width: 28px;
-    }
-
-
-    .collection-input-row {
-        gap: 4px;
-    }
-
-
-    .collection-average-price {
-        width: 48px;
-
-        min-width: 48px;
-
-        max-width: 48px;
-
-        font-size: 9px;
+        line-height: 1.2;
     }
 
 
     /*
-     * 手機版勾勾稍微縮小，
-     * 避免佔掉太多圖片空間。
+     * 手機的輸入欄位維持小巧，
+     * 避免把 4 欄商品卡撐壞。
      */
+    .collection-input-row {
+        gap: 2px;
 
-    .item.selected::after {
+        margin-top: 3px;
+    }
+
+
+    .collection-input-label {
         width: 20px;
-        height: 20px;
 
-        top: -5px;
-        right: -5px;
+        font-size: 8px;
 
-        font-size: 11px;
+        line-height: 22px;
+    }
 
-        line-height: 20px;
+
+    .quantity-input-field,
+    .total-price-input-field,
+    .price-input-field {
+        width: 42px;
+
+        flex-basis: 42px;
+
+        height: 22px;
+
+        padding:
+            2px 3px;
+
+        font-size: 10px;
+
+        border-radius: 5px;
+    }
+
+
+    .price-input {
+        gap: 1px;
+    }
+
+
+    .price-input > span {
+        font-size: 7px;
+    }
+
+
+    .collection-average-price {
+        width: 42px;
+
+        flex-basis: 42px;
+
+        height: 22px;
+
+        font-size: 8px;
+    }
+
+
+    /*
+     * 手機收藏勾勾稍微縮小，
+     * 但仍然完整浮在卡片外。
+     */
+    .item.selected::after {
+        top: -8px;
+
+        right: -8px;
+
+        width: 19px;
+
+        height: 19px;
+
+        font-size: 10px;
     }
 
 
@@ -1879,37 +1926,44 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   26. 更小手機
+   34. 更小手機
    ========================================= */
 
 @media (max-width: 380px) {
 
+    /*
+     * 仍然維持一列 4 隻
+     */
     .catalog-grid {
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(4, minmax(0, 1fr));
 
-        gap: 6px;
+        gap: 5px;
 
-        padding: 7px;
+        padding: 6px;
 
         overflow: visible;
     }
 
 
     .item {
-        padding: 5px;
+        padding: 4px;
+
+        min-width: 0;
 
         overflow: visible;
     }
 
 
     .item.selected {
-        padding: 5px;
+        padding: 3px;
+
+        overflow: visible;
     }
 
 
     .item-name {
-        font-size: 10px;
+        font-size: 9px;
     }
 
 
@@ -1933,42 +1987,57 @@ body.dark-mode .search-result-message {
     }
 
 
+    .collection-input-row {
+        gap: 1px;
+    }
+
+
     .collection-input-label {
-        width: 27px;
+        width: 18px;
 
-        min-width: 27px;
+        font-size: 7px;
+    }
 
-        max-width: 27px;
+
+    .quantity-input-field,
+    .total-price-input-field,
+    .price-input-field {
+        width: 38px;
+
+        flex-basis: 38px;
+
+        height: 21px;
 
         font-size: 9px;
     }
 
 
-    .collection-input-row {
-        gap: 3px;
+    .collection-average-price {
+        width: 38px;
+
+        flex-basis: 38px;
+
+        height: 21px;
+
+        font-size: 7px;
     }
 
 
-    .quantity-input-field,
-    .total-price-input-field {
-        width: 48px;
-
-        min-width: 48px;
-
-        max-width: 48px;
+    .price-input > span {
+        font-size: 6px;
     }
 
 
     .item.selected::after {
-        width: 19px;
-        height: 19px;
+        top: -7px;
 
-        top: -5px;
-        right: -5px;
+        right: -7px;
 
-        font-size: 10px;
+        width: 18px;
 
-        line-height: 19px;
+        height: 18px;
+
+        font-size: 9px;
     }
 
 }

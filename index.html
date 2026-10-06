@@ -1,157 +1,1287 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>小桃圖鑑</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
+
 <body>
-    <!-- 頂部專屬橫幅 (細長型) -->
+
+
+    <!-- =========================================
+         頂部橫幅
+         ========================================= -->
+
     <div class="top-banner">
-        <img src="小桃圖鑑image/モモンガ.png" alt="小桃橫幅">
+
+        <img
+            src="小桃圖鑑image/モモンガ.png"
+            alt="小桃橫幅"
+        >
+
     </div>
 
-<!-- 分類進度區塊 -->
+
+
+    <!-- =========================================
+         收藏進度區
+         ========================================= -->
+
     <div class="progress-section">
+
+
         <div class="character-progress">
+
+
+            <!-- 小桃頭像 -->
+
             <div class="avatar">
-                <img src="momo_head.jpg" alt="小桃">
+
+                <img
+                    src="momo_head.jpg"
+                    alt="小桃"
+                >
+
             </div>
+
+
+
+            <!-- 分類進度 -->
+
             <div class="progress-details">
+
+
+                <!-- 娃娃 -->
+
                 <div class="progress-row">
-                    <div class="name">娃娃</div>
-                    <div class="count"><span id="plush-collected">0</span> / <span id="plush-total">0</span></div>
+
+                    <div class="name">
+                        娃娃
+                    </div>
+
+                    <div class="count">
+
+                        <span id="plush-collected">
+                            0
+                        </span>
+
+                        /
+
+                        <span id="plush-total">
+                            0
+                        </span>
+
+                        <span
+                            class="percentage"
+                            id="plush-percentage"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
                 </div>
+
+
+
+                <!-- 其他周邊 -->
+
                 <div class="progress-row">
-                    <div class="name">其他周邊</div>
-                    <div class="count"><span id="other-collected">0</span> / <span id="other-total">0</span></div>
+
+                    <div class="name">
+                        其他周邊
+                    </div>
+
+                    <div class="count">
+
+                        <span id="other-collected">
+                            0
+                        </span>
+
+                        /
+
+                        <span id="other-total">
+                            0
+                        </span>
+
+                        <span
+                            class="percentage"
+                            id="other-percentage"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
                 </div>
+
+
             </div>
+
         </div>
+
+
+
+        <!-- =====================================
+             總收藏統計
+             ===================================== -->
+
+        <div class="total-summary">
+
+
+            <!-- 收藏總數 -->
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    收藏總數
+                </span>
+
+                <strong>
+
+                    <span id="total-collected">
+                        0
+                    </span>
+
+                    件
+
+                </strong>
+
+            </div>
+
+
+
+            <!-- 收藏總花費 -->
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    收藏總花費
+                </span>
+
+                <strong id="total-spent">
+                    NT$ 0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
     </div>
-    
-    <h2 class="major-title">娃娃</h2>
 
-    <!-- 吊飾 -->
-    <h3 class="sub-title">吊飾</h3>
+
+
+    <!-- =====================================================
+         娃娃
+         ===================================================== -->
+
+    <section class="category-section">
+
+
+        <h2 class="major-title">
+            娃娃
+        </h2>
+
+
+
+        <!-- =====================================
+             吊飾
+             ===================================== -->
+
+        <h3 class="sub-title">
+            吊飾
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_plush_jp_01">
-                <img src="小桃圖鑑image/momo1.webp" alt="可動坐姿">
-                <label><input type="checkbox" class="collect-checkbox"> 可動坐姿</label>
+
+
+            <!-- 可動坐姿 -->
+
+            <div
+                class="item"
+                data-id="momo_plush_jp_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo1.webp"
+                    alt="可動坐姿"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    可動坐姿
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_plush_jp_02">
-                <img src="小桃圖鑑image/momo2.webp" alt="草裙">
-                <label><input type="checkbox" class="collect-checkbox"> 草裙</label>
+
+
+
+            <!-- 草裙 -->
+
+            <div
+                class="item"
+                data-id="momo_plush_jp_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo2.webp"
+                    alt="草裙"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    草裙
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
+
+
         </div>
 
-    <!-- S娃 -->
-    <h3 class="sub-title">S娃</h3>
+
+
+        <!-- =====================================
+             S娃
+             ===================================== -->
+
+        <h3 class="sub-title">
+            S娃
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_s_jp_01">
-                <img src="小桃圖鑑image/momo3.webp" alt="圓軟小腳">
-                <label><input type="checkbox" class="collect-checkbox"> 圓軟小腳</label>
+
+
+            <!-- 圓軟小腳 -->
+
+            <div
+                class="item"
+                data-id="momo_s_jp_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo3.webp"
+                    alt="圓軟小腳"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    圓軟小腳
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_s_jp_02">
-                <img src="小桃圖鑑image/momo4.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
+
+
+
+            <!-- 魔法少女小桃 -->
+
+            <div
+                class="item"
+                data-id="momo_s_jp_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo4.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-        
-    <!-- 景品 -->
-    <h3 class="sub-title">景品</h3>
-        <div class="catalog-grid">
-            <div class="item" data-id="momo_prize_jp_01">
-                <img src="小桃圖鑑image/momo5.webp" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
-            </div>
-            <div class="item" data-id="momo_prize_jp_02">
-                <img src="小桃圖鑑image/momo6.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
-            </div>
+
+
         </div>
 
-    <!-- 中國 -->
-    <h3 class="sub-title">中國</h3>
+
+
+        <!-- =====================================
+             景品
+             ===================================== -->
+
+        <h3 class="sub-title">
+            景品
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_cn_01">
-                <img src="小桃圖鑑image/momo7.webp" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
+
+
+            <!-- 初代睡衣小桃 -->
+
+            <div
+                class="item"
+                data-id="momo_prize_jp_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo5.webp"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_cn_02">
-                <img src="小桃圖鑑image/momo8.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
+
+
+
+            <!-- 魔法少女小桃 -->
+
+            <div
+                class="item"
+                data-id="momo_prize_jp_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo6.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-    
-     <!-- 香港 -->
-    <h3 class="sub-title">香港</h3>
-        <div class="catalog-grid">
-            <div class="item" data-id="momo_cn_01">
-                <img src="小桃圖鑑image/momo7.webp" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
-            </div>
-            <div class="item" data-id="momo_cn_02">
-                <img src="小桃圖鑑image/momo8.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
-            </div>
+
+
         </div>
 
-     <!-- 台灣 -->
-    <h3 class="sub-title">台灣</h3>
+
+
+        <!-- =====================================
+             中國
+             ===================================== -->
+
+        <h3 class="sub-title">
+            中國
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_cn_01">
-                <img src="小桃圖鑑image/momo7.webp" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
+
+
+            <div
+                class="item"
+                data-id="momo_cn_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo7.webp"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_cn_02">
-                <img src="小桃圖鑑image/momo8.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
+
+
+
+            <div
+                class="item"
+                data-id="momo_cn_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo8.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-        </div> 
-    
-    <!-- 其他海外 -->
-    <h3 class="sub-title">其他海外</h3>
-        <div class="catalog-grid">
-            <div class="item" data-id="momo_cn_01">
-                <img src="小桃圖鑑image/momo7.webp" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
-            </div>
-            <div class="item" data-id="momo_cn_02">
-                <img src="小桃圖鑑image/momo8.webp" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
-            </div>
+
+
         </div>
 
-    <h2 class="major-title">其他周邊</h2>
 
-    <!-- 立牌 -->
-    <h3 class="sub-title">立牌</h3>
+
+        <!-- =====================================
+             香港
+             ===================================== -->
+
+        <h3 class="sub-title">
+            香港
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_stand_jp_01">
-                <img src="小桃圖鑑image/momo9.jpg" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
+
+
+            <div
+                class="item"
+                data-id="momo_hk_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo7.webp"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_stand_jp_02">
-                <img src="小桃圖鑑image/momo10.jpg" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
+
+
+
+            <div
+                class="item"
+                data-id="momo_hk_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo8.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
+
+
         </div>
 
-    <!-- 徽章 -->
-    <h3 class="sub-title">徽章</h3>
+
+
+        <!-- =====================================
+             台灣
+             ===================================== -->
+
+        <h3 class="sub-title">
+            台灣
+        </h3>
+
+
         <div class="catalog-grid">
-            <div class="item" data-id="momo_badge_jp_01">
-                <img src="小桃圖鑑image/momo11.jpg" alt="初代睡衣小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 初代睡衣小桃</label>
+
+
+            <div
+                class="item"
+                data-id="momo_tw_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo7.webp"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="item" data-id="momo_badge_jp_02">
-                <img src="小桃圖鑑image/momo12.jpg" alt="魔法少女小桃">
-                <label><input type="checkbox" class="collect-checkbox"> 魔法少女小桃</label>
+
+
+
+            <div
+                class="item"
+                data-id="momo_tw_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo8.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
+
+
         </div>
 
-    <script src="script.js?v=4"></script>
+
+
+        <!-- =====================================
+             其他海外
+             ===================================== -->
+
+        <h3 class="sub-title">
+            其他海外
+        </h3>
+
+
+        <div class="catalog-grid">
+
+
+            <div
+                class="item"
+                data-id="momo_overseas_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo7.webp"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="item"
+                data-id="momo_overseas_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo8.webp"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <input
+                        type="number"
+                        class="price-input-field"
+                        min="0"
+                        step="1"
+                        placeholder="價格"
+                    >
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         其他周邊
+         ===================================================== -->
+
+    <section class="category-section">
+
+
+        <h2 class="major-title">
+            其他周邊
+        </h2>
+
+
+
+        <!-- =====================================
+             立牌
+             ===================================== -->
+
+        <h3 class="sub-title">
+            立牌
+        </h3>
+
+
+        <div class="catalog-grid">
+
+
+            <div
+                class="item"
+                data-id="momo_stand_jp_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo9.jpg"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="item"
+                data-id="momo_stand_jp_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo10.jpg"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             徽章
+             ===================================== -->
+
+        <h3 class="sub-title">
+            徽章
+        </h3>
+
+
+        <div class="catalog-grid">
+
+
+            <div
+                class="item"
+                data-id="momo_badge_jp_01"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo11.jpg"
+                    alt="初代睡衣小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    初代睡衣小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="item"
+                data-id="momo_badge_jp_02"
+            >
+
+                <img
+                    src="小桃圖鑑image/momo12.jpg"
+                    alt="魔法少女小桃"
+                >
+
+
+                <label class="item-name">
+
+                    <input
+                        type="checkbox"
+                        class="collect-checkbox"
+                    >
+
+                    魔法少女小桃
+
+                </label>
+
+
+                <div class="price-area">
+
+                    <span>
+                        購入
+                    </span>
+
+                    <div class="price-input">
+
+                        <span>
+                            NT$
+                        </span>
+
+                        <input
+                            type="number"
+                            class="price-input-field"
+                            min="0"
+                            step="1"
+                            placeholder="價格"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         JavaScript
+         ========================================= -->
+
+    <script src="script.js?v=5"></script>
+
+
 </body>
+
 </html>

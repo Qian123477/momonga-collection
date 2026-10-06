@@ -49,9 +49,7 @@ document.addEventListener(
             }
 
             return;
-
         }
-
 
 
         // =========================================================
@@ -70,9 +68,7 @@ document.addEventListener(
             );
 
             return;
-
         }
-
 
 
         // =========================================================
@@ -80,62 +76,36 @@ document.addEventListener(
         // =========================================================
 
         const categoryOrder = [
-
             "娃娃",
-
             "其他周邊"
-
         ];
-
 
         const subcategoryOrder = {
 
             "娃娃": [
-
                 "吊飾",
-
                 "S娃",
-
                 "景品",
-
                 "中國",
-
                 "香港",
-
                 "台灣",
-
                 "其他海外"
-
             ],
 
             "其他周邊": [
-
                 "立牌",
-
                 "徽章",
-
                 "公仔",
-
                 "鑰匙圈",
-
                 "磁鐵",
-
                 "包包",
-
                 "衣物",
-
                 "手帕",
-
                 "貼紙",
-
                 "生活用品",
-
                 "其他"
-
             ]
-
         };
-
 
 
         // =========================================================
@@ -148,43 +118,32 @@ document.addEventListener(
                 "momo_collection_" +
                 id
             );
-
         }
 
-
-        // 新版：總價
         function getTotalPriceKey(id) {
 
             return (
                 "momo_total_price_" +
                 id
             );
-
         }
 
-
-        // 舊版：均價
-        // 保留它是為了相容你之前已經輸入的資料
+        // 舊版均價資料
         function getPriceKey(id) {
 
             return (
                 "momo_price_" +
                 id
             );
-
         }
 
-
-        // 收藏數量
         function getQuantityKey(id) {
 
             return (
                 "momo_quantity_" +
                 id
             );
-
         }
-
 
         function isCollected(id) {
 
@@ -193,9 +152,7 @@ document.addEventListener(
                     getCollectionKey(id)
                 ) === "true"
             );
-
         }
-
 
 
         // =========================================================
@@ -222,7 +179,6 @@ document.addEventListener(
                 product.subcategory;
 
 
-
             // -----------------------------------------------------
             // 圖片
             // -----------------------------------------------------
@@ -244,7 +200,6 @@ document.addEventListener(
             item.appendChild(
                 image
             );
-
 
 
             // -----------------------------------------------------
@@ -276,22 +231,19 @@ document.addEventListener(
                 checkbox
             );
 
-
             label.appendChild(
                 document.createTextNode(
                     product.name
                 )
             );
 
-
             item.appendChild(
                 label
             );
 
 
-
             // =====================================================
-            // 數量 / 總價 / 均價
+            // 收藏資訊區
             // =====================================================
 
             const priceArea =
@@ -303,10 +255,9 @@ document.addEventListener(
                 "price-area";
 
 
-
-            // -----------------------------------------------------
+            // =====================================================
             // 數量
-            // -----------------------------------------------------
+            // =====================================================
 
             const quantityRow =
                 document.createElement(
@@ -366,53 +317,38 @@ document.addEventListener(
             );
 
 
-
-            // -----------------------------------------------------
+            // =====================================================
             // 總價
-            // -----------------------------------------------------
+            //
+            // ★ 這裡是這次最重要的修改
+            //
+            // 不再建立：
+            //
+            // NT$ + input
+            //
+            // 而是直接讓總價 input
+            // 跟數量 input 一樣都是 48px。
+            // =====================================================
 
-            const totalPriceInputRow =
+            const totalPriceRow =
                 document.createElement(
                     "div"
                 );
 
-            totalPriceInputRow.className =
+            totalPriceRow.className =
                 "collection-input-row";
 
 
-            const totalPriceInputLabel =
+            const totalPriceLabel =
                 document.createElement(
                     "span"
                 );
 
-            totalPriceInputLabel.className =
+            totalPriceLabel.className =
                 "collection-input-label";
 
-            totalPriceInputLabel.textContent =
+            totalPriceLabel.textContent =
                 "總價";
-
-
-            const totalPriceInput =
-                document.createElement(
-                    "div"
-                );
-
-            totalPriceInput.className =
-                "price-input";
-
-
-            const totalCurrency =
-                document.createElement(
-                    "span"
-                );
-
-            totalCurrency.textContent =
-                "NT$";
-
-
-            totalPriceInput.appendChild(
-                totalCurrency
-            );
 
 
             const totalPriceField =
@@ -436,29 +372,22 @@ document.addEventListener(
                 "總價";
 
 
-            totalPriceInput.appendChild(
+            totalPriceRow.appendChild(
+                totalPriceLabel
+            );
+
+            totalPriceRow.appendChild(
                 totalPriceField
             );
 
-
-            totalPriceInputRow.appendChild(
-                totalPriceInputLabel
-            );
-
-            totalPriceInputRow.appendChild(
-                totalPriceInput
-            );
-
-
             priceArea.appendChild(
-                totalPriceInputRow
+                totalPriceRow
             );
 
 
-
-            // -----------------------------------------------------
-            // 自動計算均價
-            // -----------------------------------------------------
+            // =====================================================
+            // 均價
+            // =====================================================
 
             const averagePriceRow =
                 document.createElement(
@@ -489,7 +418,6 @@ document.addEventListener(
             averagePriceValue.className =
                 "collection-average-price";
 
-
             averagePriceValue.textContent =
                 "NT$ 0";
 
@@ -502,7 +430,6 @@ document.addEventListener(
                 averagePriceValue
             );
 
-
             priceArea.appendChild(
                 averagePriceRow
             );
@@ -511,7 +438,6 @@ document.addEventListener(
             item.appendChild(
                 priceArea
             );
-
 
 
             // =====================================================
@@ -534,7 +460,6 @@ document.addEventListener(
 
                 }
             );
-
 
 
             // =====================================================
@@ -563,19 +488,12 @@ document.addEventListener(
                         ||
 
                         event.target.closest(
-                            ".price-input"
-                        )
-
-                        ||
-
-                        event.target.closest(
-                            ".quantity-input-field"
+                            ".collection-input-row"
                         )
 
                     ) {
 
                         return;
-
                     }
 
 
@@ -591,7 +509,6 @@ document.addEventListener(
 
                 }
             );
-
 
 
             // =====================================================
@@ -629,7 +546,6 @@ document.addEventListener(
 
                 }
             );
-
 
 
             // =====================================================
@@ -672,9 +588,7 @@ document.addEventListener(
 
 
             return item;
-
         }
-
 
 
         // =========================================================
@@ -704,7 +618,6 @@ document.addEventListener(
                     ) {
 
                         return;
-
                     }
 
 
@@ -713,14 +626,11 @@ document.addEventListener(
                             "section"
                         );
 
-
                     section.className =
                         "category-section";
 
-
                     section.dataset.category =
                         category;
-
 
 
                     // ------------------------------------------------
@@ -732,26 +642,21 @@ document.addEventListener(
                             "h2"
                         );
 
-
                     majorTitle.className =
                         "major-title";
 
-
                     majorTitle.textContent =
                         category;
-
 
                     section.appendChild(
                         majorTitle
                     );
 
 
-
                     const subcategories =
                         subcategoryOrder[
                             category
                         ] || [];
-
 
 
                     subcategories.forEach(
@@ -777,9 +682,7 @@ document.addEventListener(
                             ) {
 
                                 return;
-
                             }
-
 
 
                             // -----------------------------------------
@@ -791,19 +694,15 @@ document.addEventListener(
                                     "h3"
                                 );
 
-
                             subTitle.className =
                                 "sub-title";
-
 
                             subTitle.textContent =
                                 subcategory;
 
-
                             section.appendChild(
                                 subTitle
                             );
-
 
 
                             // -----------------------------------------
@@ -815,18 +714,14 @@ document.addEventListener(
                                     "div"
                                 );
 
-
                             grid.className =
                                 "catalog-grid";
-
 
                             grid.dataset.category =
                                 category;
 
-
                             grid.dataset.subcategory =
                                 subcategory;
-
 
 
                             subProducts.forEach(
@@ -836,7 +731,6 @@ document.addEventListener(
                                         createProductCard(
                                             product
                                         );
-
 
                                     grid.appendChild(
                                         item
@@ -865,9 +759,7 @@ document.addEventListener(
             initializeCollectionState();
 
             updateAllStatistics();
-
         }
-
 
 
         // =========================================================
@@ -927,7 +819,6 @@ document.addEventListener(
                         collected;
 
 
-
                     // -------------------------------------------------
                     // 讀取新版總價
                     // -------------------------------------------------
@@ -938,14 +829,8 @@ document.addEventListener(
                         );
 
 
-
                     // -------------------------------------------------
                     // 相容舊版均價資料
-                    //
-                    // 如果之前有：
-                    // 均價 × 數量
-                    //
-                    // 自動轉換成新版總價
                     // -------------------------------------------------
 
                     if (
@@ -1004,7 +889,6 @@ document.addEventListener(
                                         );
 
                                 }
-
                             }
 
 
@@ -1038,7 +922,6 @@ document.addEventListener(
                     }
 
 
-
                     // -------------------------------------------------
                     // 顯示總價
                     // -------------------------------------------------
@@ -1052,7 +935,6 @@ document.addEventListener(
                             savedTotalPrice;
 
                     }
-
 
 
                     // -------------------------------------------------
@@ -1103,7 +985,6 @@ document.addEventListener(
                     }
 
 
-
                     // -------------------------------------------------
                     // 計算均價
                     // -------------------------------------------------
@@ -1113,7 +994,6 @@ document.addEventListener(
                         totalPriceField,
                         averagePriceValue
                     );
-
 
 
                     // -------------------------------------------------
@@ -1144,9 +1024,7 @@ document.addEventListener(
 
                 }
             );
-
         }
-
 
 
         // =========================================================
@@ -1221,7 +1099,6 @@ document.addEventListener(
                     50
                 );
 
-
             } else {
 
                 localStorage.removeItem(
@@ -1240,9 +1117,7 @@ document.addEventListener(
                     "show"
                 );
 
-                // 注意：
                 // 取消收藏不刪除總價與數量
-                // 重新收藏後資料仍會保留
 
             }
 
@@ -1250,9 +1125,7 @@ document.addEventListener(
             updateAllStatistics();
 
             applyFilters();
-
         }
-
 
 
         // =========================================================
@@ -1275,7 +1148,6 @@ document.addEventListener(
                 );
 
                 return;
-
             }
 
 
@@ -1289,7 +1161,6 @@ document.addEventListener(
             ) {
 
                 return;
-
             }
 
 
@@ -1297,9 +1168,7 @@ document.addEventListener(
                 getTotalPriceKey(id),
                 String(price)
             );
-
         }
-
 
 
         // =========================================================
@@ -1323,7 +1192,6 @@ document.addEventListener(
                 );
 
                 return;
-
             }
 
 
@@ -1339,7 +1207,6 @@ document.addEventListener(
             ) {
 
                 return;
-
             }
 
 
@@ -1349,9 +1216,7 @@ document.addEventListener(
                     Math.floor(quantity)
                 )
             );
-
         }
-
 
 
         // =========================================================
@@ -1371,7 +1236,6 @@ document.addEventListener(
             ) {
 
                 return;
-
             }
 
 
@@ -1398,7 +1262,6 @@ document.addEventListener(
                     "NT$ 0";
 
                 return;
-
             }
 
 
@@ -1413,7 +1276,6 @@ document.addEventListener(
                     "NT$ 0";
 
                 return;
-
             }
 
 
@@ -1432,9 +1294,7 @@ document.addEventListener(
                         maximumFractionDigits: 2
                     }
                 );
-
         }
-
 
 
         // =========================================================
@@ -1466,9 +1326,7 @@ document.addEventListener(
 
 
             return count;
-
         }
-
 
 
         function formatPercentage(
@@ -1480,7 +1338,6 @@ document.addEventListener(
             ) {
 
                 return "0";
-
             }
 
 
@@ -1489,16 +1346,13 @@ document.addEventListener(
             ) {
 
                 return "100";
-
             }
 
 
             return value.toFixed(
                 1
             );
-
         }
-
 
 
         function updateCategoryCard(
@@ -1534,7 +1388,6 @@ document.addEventListener(
 
                 collectedElement.textContent =
                     collected;
-
             }
 
 
@@ -1544,7 +1397,6 @@ document.addEventListener(
 
                 totalElement.textContent =
                     total;
-
             }
 
 
@@ -1567,11 +1419,8 @@ document.addEventListener(
                         percentage
                     ) +
                     "%";
-
             }
-
         }
-
 
 
         function updateCategoryStatistics() {
@@ -1608,9 +1457,7 @@ document.addEventListener(
                 ),
                 otherProducts.length
             );
-
         }
-
 
 
         // =========================================================
@@ -1636,7 +1483,6 @@ document.addEventListener(
                     ) {
 
                         return;
-
                     }
 
 
@@ -1700,7 +1546,6 @@ document.addEventListener(
 
                 styleElement.textContent =
                     totalStyles;
-
             }
 
 
@@ -1714,17 +1559,12 @@ document.addEventListener(
 
                 itemElement.textContent =
                     totalItems;
-
             }
-
         }
-
 
 
         // =========================================================
         // 14. 收藏總花費
-        //
-        // 現在直接累計「每款總價」
         // =========================================================
 
         function updateTotalSpent() {
@@ -1742,7 +1582,6 @@ document.addEventListener(
                     ) {
 
                         return;
-
                     }
 
 
@@ -1754,10 +1593,7 @@ document.addEventListener(
                         );
 
 
-                    // -------------------------------------------------
                     // 新版總價
-                    // -------------------------------------------------
-
                     if (
                         savedTotalPrice !==
                         null
@@ -1778,22 +1614,14 @@ document.addEventListener(
 
                             totalSpent +=
                                 totalPrice;
-
                         }
 
 
                         return;
-
                     }
 
 
-
-                    // -------------------------------------------------
-                    // 舊版資料相容
-                    // 如果還沒有新版總價，
-                    // 使用舊的「均價 × 數量」
-                    // -------------------------------------------------
-
+                    // 舊版均價 × 數量
                     const oldPrice =
                         localStorage.getItem(
                             getPriceKey(
@@ -1808,7 +1636,6 @@ document.addEventListener(
                     ) {
 
                         return;
-
                     }
 
 
@@ -1826,7 +1653,6 @@ document.addEventListener(
                     ) {
 
                         return;
-
                     }
 
 
@@ -1891,11 +1717,8 @@ document.addEventListener(
                     totalSpent.toLocaleString(
                         "zh-TW"
                     );
-
             }
-
         }
-
 
 
         function updateAllStatistics() {
@@ -1905,9 +1728,7 @@ document.addEventListener(
             updateTotalCollected();
 
             updateTotalSpent();
-
         }
-
 
 
         // =========================================================
@@ -1916,7 +1737,6 @@ document.addEventListener(
 
         let currentFilter =
             "all";
-
 
         let currentSearch =
             "";
@@ -1944,7 +1764,6 @@ document.addEventListener(
             document.getElementById(
                 "search-result-message"
             );
-
 
 
         function applyFilters() {
@@ -1982,14 +1801,8 @@ document.addEventListener(
                     if (!product) {
 
                         return;
-
                     }
 
-
-
-                    // ----------------------------------------------
-                    // 搜尋
-                    // ----------------------------------------------
 
                     const searchableText = [
 
@@ -2012,11 +1825,6 @@ document.addEventListener(
                         );
 
 
-
-                    // ----------------------------------------------
-                    // 收藏篩選
-                    // ----------------------------------------------
-
                     const collected =
                         isCollected(id);
 
@@ -2032,7 +1840,6 @@ document.addEventListener(
 
                         matchesFilter =
                             collected;
-
                     }
 
 
@@ -2043,14 +1850,8 @@ document.addEventListener(
 
                         matchesFilter =
                             !collected;
-
                     }
 
-
-
-                    // ----------------------------------------------
-                    // 顯示
-                    // ----------------------------------------------
 
                     if (
                         matchesSearch &&
@@ -2068,12 +1869,10 @@ document.addEventListener(
                         item.classList.add(
                             "filter-hidden"
                         );
-
                     }
 
                 }
             );
-
 
 
             // =====================================================
@@ -2132,7 +1931,6 @@ document.addEventListener(
                                         hasVisible
                                             ? ""
                                             : "none";
-
                                 }
 
 
@@ -2142,7 +1940,6 @@ document.addEventListener(
 
                                     sectionHasVisible =
                                         true;
-
                                 }
 
                             }
@@ -2163,12 +1960,10 @@ document.addEventListener(
                                 sectionHasVisible
                                     ? ""
                                     : "none";
-
                         }
 
                     }
                 );
-
 
 
             // =====================================================
@@ -2202,22 +1997,14 @@ document.addEventListener(
 
                 searchResultMessage.textContent =
                     "";
-
             }
 
-
-
-            // =====================================================
-            // 搜尋 X
-            // =====================================================
 
             clearSearchButton.style.display =
                 searchText !== ""
                     ? "flex"
                     : "none";
-
         }
-
 
 
         // =========================================================
@@ -2232,7 +2019,6 @@ document.addEventListener(
                     searchInput.value;
 
                 applyFilters();
-
             }
         );
 
@@ -2250,10 +2036,8 @@ document.addEventListener(
                 searchInput.focus();
 
                 applyFilters();
-
             }
         );
-
 
 
         // =========================================================
@@ -2296,7 +2080,6 @@ document.addEventListener(
         );
 
 
-
         // =========================================================
         // 18. 深色模式
         // =========================================================
@@ -2332,7 +2115,6 @@ document.addEventListener(
                 themeToggleIcon.textContent =
                     "☀️";
 
-
                 themeToggleText.textContent =
                     "淺色";
 
@@ -2341,12 +2123,9 @@ document.addEventListener(
                 themeToggleIcon.textContent =
                     "🌙";
 
-
                 themeToggleText.textContent =
                     "深色";
-
             }
-
         }
 
 
@@ -2372,12 +2151,10 @@ document.addEventListener(
                 document.body.classList.remove(
                     "dark-mode"
                 );
-
             }
 
 
             updateThemeButton();
-
         }
 
 
@@ -2403,7 +2180,6 @@ document.addEventListener(
 
             }
         );
-
 
 
         // =========================================================
@@ -2433,7 +2209,6 @@ document.addEventListener(
             settingsOverlay.classList.add(
                 "show"
             );
-
         }
 
 
@@ -2442,7 +2217,6 @@ document.addEventListener(
             settingsOverlay.classList.remove(
                 "show"
             );
-
         }
 
 
@@ -2468,12 +2242,10 @@ document.addEventListener(
                 ) {
 
                     closeSettingsPanel();
-
                 }
 
             }
         );
-
 
 
         // =========================================================
@@ -2532,10 +2304,6 @@ document.addEventListener(
             "click",
             () => {
 
-                // --------------------------------------------------
-                // 清除收藏、總價、數量
-                // --------------------------------------------------
-
                 products.forEach(
                     product => {
 
@@ -2570,20 +2338,10 @@ document.addEventListener(
                 );
 
 
-
-                // --------------------------------------------------
-                // 關閉確認視窗
-                // --------------------------------------------------
-
                 confirmOverlay.classList.remove(
                     "show"
                 );
 
-
-
-                // --------------------------------------------------
-                // 更新商品
-                // --------------------------------------------------
 
                 initializeCollectionState();
 
@@ -2591,11 +2349,6 @@ document.addEventListener(
 
                 applyFilters();
 
-
-
-                // --------------------------------------------------
-                // 顯示提示
-                // --------------------------------------------------
 
                 searchResultMessage.textContent =
                     "已清除所有收藏資料";
@@ -2633,9 +2386,8 @@ document.addEventListener(
         );
 
 
-
         // =========================================================
-        // 21. ESC 關閉設定 / 視窗
+        // 21. ESC
         // =========================================================
 
         document.addEventListener(
@@ -2648,7 +2400,6 @@ document.addEventListener(
                 ) {
 
                     return;
-
                 }
 
 
@@ -2663,7 +2414,6 @@ document.addEventListener(
 
             }
         );
-
 
 
         // =========================================================

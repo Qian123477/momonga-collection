@@ -1,22 +1,22 @@
-/* ==================================
-   1. 隱藏原本的核取方塊
-   ================================== */
+/* =========================================
+   1. 基本設定
+   ========================================= */
 
-.collect-checkbox {
-    display: none !important;
+* {
+    box-sizing: border-box;
 }
 
 
-/* ==================================
-   2. 整體頁面
-   ================================== */
+html {
+    min-height: 100%;
+}
+
 
 body {
     margin: 0;
     padding: 0;
 
     background-color: #faf8fc;
-
     color: #333;
 
     font-family:
@@ -25,17 +25,31 @@ body {
         "Noto Sans TC",
         "Microsoft JhengHei",
         sans-serif;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
 
 
-/* ==================================
+/* =========================================
+   2. 隱藏原本 checkbox
+   ========================================= */
+
+.collect-checkbox {
+    display: none !important;
+}
+
+
+/* =========================================
    3. 頂部橫幅
-   ================================== */
+   ========================================= */
 
 .top-banner {
     width: 100vw;
 
-    margin-left: calc(-50vw + 50%);
+    margin-left:
+        calc(-50vw + 50%);
 
     height: 100px;
 
@@ -44,53 +58,36 @@ body {
     overflow: hidden;
 
     margin-bottom: 20px;
+
+    transition:
+        background-color 0.25s ease;
 }
 
 
 .top-banner img {
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
-
     object-position: center;
+
+    display: block;
 }
 
 
-/* ==================================
-   4. 收藏統計區
-   ================================== */
+/* =========================================
+   4. 收藏統計
+   ========================================= */
 
 .progress-section {
     width: 100%;
-
     max-width: 1200px;
 
-    margin: 0 auto 28px;
+    margin: 0 auto 25px;
 
     padding: 10px;
-
-    box-sizing: border-box;
 }
 
-
-/* ==================================
-   5. 舊版進度區隱藏
-   ================================== */
-
-.character-progress {
-    display: none !important;
-}
-
-.total-summary {
-    display: none !important;
-}
-
-
-/* ==================================
-   6. 四格統計排版
-   ================================== */
 
 .progress-grid {
     display: grid;
@@ -104,10 +101,6 @@ body {
 }
 
 
-/* ==================================
-   7. 統計卡片
-   ================================== */
-
 .progress-card {
     background: #ffffff;
 
@@ -119,11 +112,9 @@ body {
 
     text-align: center;
 
-    box-sizing: border-box;
-
     transition:
-        border-color 0.15s ease,
-        background-color 0.15s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
         transform 0.15s ease;
 }
 
@@ -137,10 +128,6 @@ body {
 }
 
 
-/* ==================================
-   8. 統計卡片標題
-   ================================== */
-
 .progress-card-title {
     font-size: 12px;
 
@@ -151,10 +138,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-
-/* ==================================
-   9. 收藏數字
-   ================================== */
 
 .progress-card-count {
     font-size: 17px;
@@ -172,10 +155,6 @@ body {
 }
 
 
-/* ==================================
-   10. 百分比
-   ================================== */
-
 .progress-card-percentage {
     margin-top: 4px;
 
@@ -186,24 +165,6 @@ body {
     line-height: 1.2;
 }
 
-
-/*
-   收藏總數 / 總花費卡片
-   不需要顯示輔助文字
-*/
-
-.progress-card:has(.progress-card-count .unit)
-.progress-card-percentage,
-
-.progress-card:has(.progress-card-price)
-.progress-card-percentage {
-    display: none;
-}
-
-
-/* ==================================
-   11. 總花費金額
-   ================================== */
 
 .progress-card-price {
     font-size: 17px;
@@ -218,10 +179,6 @@ body {
 }
 
 
-/* ==================================
-   12. 單位
-   ================================== */
-
 .progress-card .unit {
     font-size: 12px;
 
@@ -231,16 +188,230 @@ body {
 }
 
 
-/* ==================================
-   13. 大分類標題
-   ================================== */
+/* 不顯示總數 / 花費卡片的輔助文字 */
+
+.progress-card:has(
+    .progress-card-count .unit
+)
+.progress-card-percentage,
+
+.progress-card:has(
+    .progress-card-price
+)
+.progress-card-percentage {
+    display: none;
+}
+
+
+/* =========================================
+   5. 搜尋與篩選
+   ========================================= */
+
+.catalog-tools {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto 18px;
+
+    padding: 0 10px;
+}
+
+
+/* 搜尋框 */
+
+.search-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto 12px;
+}
+
+
+.search-box input {
+    width: 100%;
+
+    height: 42px;
+
+    padding:
+        0 42px;
+
+    border:
+        1px solid #ddd6e8;
+
+    border-radius: 21px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.search-box input::placeholder {
+    color: #aaa5b5;
+}
+
+
+.search-box input:focus {
+    border-color: #8e8cdc;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(142, 140, 220, 0.12);
+}
+
+
+.search-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    font-size: 16px;
+
+    pointer-events: none;
+}
+
+
+.clear-search {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 25px;
+    height: 25px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eeeaf3;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    line-height: 1;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.clear-search:hover {
+    background: #e1dced;
+}
+
+
+/* 篩選按鈕 */
+
+.filter-buttons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+
+.filter-button {
+    border:
+        1px solid #ddd6e8;
+
+    background: #ffffff;
+
+    color: #777;
+
+    border-radius: 18px;
+
+    padding:
+        7px 17px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+
+.filter-button:hover {
+    border-color: #aaa6d5;
+
+    color: #6f6bb5;
+}
+
+
+.filter-button:active {
+    transform: scale(0.97);
+}
+
+
+.filter-button.active {
+    background: #8e8cdc;
+
+    border-color: #8e8cdc;
+
+    color: #ffffff;
+}
+
+
+/* 搜尋結果 */
+
+.search-result-message {
+    min-height: 18px;
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   6. 大分類標題
+   ========================================= */
 
 .major-title {
     max-width: 1200px;
 
-    margin: 30px auto 14px;
+    margin:
+        30px auto 14px;
 
-    padding: 0 10px;
+    padding:
+        0 10px;
 
     color: #6f6bb5;
 
@@ -252,16 +423,18 @@ body {
 }
 
 
-/* ==================================
-   14. 小分類標題
-   ================================== */
+/* =========================================
+   7. 小分類標題
+   ========================================= */
 
 .sub-title {
     max-width: 1200px;
 
-    margin: 22px auto 7px;
+    margin:
+        22px auto 7px;
 
-    padding: 0 10px;
+    padding:
+        0 10px;
 
     color: #777;
 
@@ -277,10 +450,6 @@ body {
 }
 
 
-/*
-   小分類後面的淡紫色分隔線
-*/
-
 .sub-title::after {
     content: "";
 
@@ -292,15 +461,18 @@ body {
 }
 
 
-/* ==================================
-   15. 商品網格
-   ================================== */
+/* =========================================
+   8. 商品網格
+   ========================================= */
 
 .catalog-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fill, minmax(90px, 1fr));
+        repeat(
+            auto-fill,
+            minmax(90px, 1fr)
+        );
 
     gap: 10px;
 
@@ -309,23 +481,22 @@ body {
     margin: 0 auto;
 
     padding: 10px;
-
-    box-sizing: border-box;
 }
 
 
-/* ==================================
-   16. 商品卡片
-   ================================== */
+/* =========================================
+   9. 商品卡片
+   ========================================= */
 
 .item {
-    background: white;
+    background: #ffffff;
 
     padding: 8px;
 
     border-radius: 8px;
 
-    border: 1px solid #e1e1e1;
+    border:
+        1px solid #e1e1e1;
 
     display: flex;
 
@@ -340,32 +511,36 @@ body {
     box-shadow: none;
 
     transition:
-        0.15s ease;
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background-color 0.25s ease,
+        box-shadow 0.15s ease;
 
     text-align: center;
-
-    box-sizing: border-box;
 }
 
 
-/*
-   滑鼠移上商品時
-*/
-
 .item:hover {
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
-    border-color: #d4d1e7;
+    border-color:
+        #d4d1e7;
 
     box-shadow:
         0 3px 10px
-        rgba(120, 110, 150, 0.08);
+        rgba(
+            120,
+            110,
+            150,
+            0.08
+        );
 }
 
 
-/* ==================================
-   17. 商品圖片
-   ================================== */
+/* =========================================
+   10. 商品圖片
+   ========================================= */
 
 .item img {
     width: 100%;
@@ -380,9 +555,9 @@ body {
 }
 
 
-/* ==================================
-   18. 商品名稱
-   ================================== */
+/* =========================================
+   11. 商品名稱
+   ========================================= */
 
 .item-name {
     font-size: 12px;
@@ -396,38 +571,43 @@ body {
     line-height: 1.2;
 
     text-align: center;
+
+    transition:
+        color 0.25s ease;
 }
 
 
-/* ==================================
-   19. 收藏後的紫色外框
-   ================================== */
+/* =========================================
+   12. 收藏狀態
+   ========================================= */
 
 .item.selected {
-    border: 2px solid #8e8cdc;
+    border:
+        2px solid #8e8cdc;
 
     padding: 7px;
 
     box-shadow:
         0 2px 8px
-        rgba(142, 140, 220, 0.08);
+        rgba(
+            142,
+            140,
+            220,
+            0.08
+        );
 }
 
-
-/*
-   收藏後不要讓 hover 太誇張
-*/
 
 .item.selected:hover {
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
-    border-color: #8e8cdc;
+    border-color:
+        #8e8cdc;
 }
 
 
-/* ==================================
-   20. 收藏後的勾勾
-   ================================== */
+/* 收藏勾勾 */
 
 .item.selected::after {
     content: "✔";
@@ -435,15 +615,14 @@ body {
     position: absolute;
 
     top: -8px;
-
     right: -8px;
 
-    background-color: #8e8cdc;
+    background-color:
+        #8e8cdc;
 
-    color: white;
+    color: #ffffff;
 
     width: 20px;
-
     height: 20px;
 
     border-radius: 50%;
@@ -453,20 +632,31 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     z-index: 2;
 
     box-shadow:
         0 2px 5px
-        rgba(100, 95, 160, 0.18);
+        rgba(
+            100,
+            95,
+            160,
+            0.18
+        );
 }
 
 
-/* ==================================
-   21. 價格區域
-   ================================== */
+/* 篩選隱藏 */
+
+.item.filter-hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   13. 價格
+   ========================================= */
 
 .price-area {
     width: 100%;
@@ -486,9 +676,10 @@ body {
 }
 
 
-/* ==================================
-   22. 價格輸入
-   ================================== */
+.price-area > span {
+    display: none;
+}
+
 
 .price-input {
     display: flex;
@@ -503,32 +694,22 @@ body {
 }
 
 
-/*
-   不顯示「購入」
-   只留下 NT$ 和輸入框
-*/
-
-.price-area > span {
-    display: none;
-}
-
-
-/* ==================================
-   23. 價格輸入框
-   ================================== */
-
 .price-input-field {
     width: 65px;
 
     height: 24px;
 
-    padding: 2px 5px;
+    padding:
+        2px 5px;
 
-    border: 1px solid #d6cde0;
+    border:
+        1px solid #d6cde0;
 
     border-radius: 5px;
 
-    background: #fff;
+    background: #ffffff;
+
+    color: #333;
 
     font-size: 11px;
 
@@ -536,22 +717,27 @@ body {
 
     outline: none;
 
-    box-sizing: border-box;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.2s ease;
 }
 
 
 .price-input-field:focus {
-    border-color: #8e8cdc;
+    border-color:
+        #8e8cdc;
 
     box-shadow:
         0 0 0 2px
-        rgba(142, 140, 220, 0.15);
+        rgba(
+            142,
+            140,
+            220,
+            0.15
+        );
 }
 
-
-/* ==================================
-   24. 移除數字輸入框上下箭頭
-   ================================== */
 
 .price-input-field::-webkit-inner-spin-button,
 .price-input-field::-webkit-outer-spin-button {
@@ -561,22 +747,724 @@ body {
 }
 
 
-/* ==================================
-   25. 分類區域
-   ================================== */
+/* =========================================
+   14. 分類
+   ========================================= */
 
 .category-section {
     width: 100%;
 }
 
 
-/* ==================================
-   26. 手機版
-   ================================== */
+/* =========================================
+   15. 設定按鈕
+   ========================================= */
+
+.settings-button {
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    border:
+        1px solid #ddd6e8;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    color: #6f6bb5;
+
+    box-shadow:
+        0 4px 14px
+        rgba(
+            80,
+            70,
+            110,
+            0.15
+        );
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.settings-button:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   16. 設定遮罩
+   ========================================= */
+
+.settings-overlay,
+.confirm-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            30,
+            25,
+            45,
+            0.38
+        );
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+}
+
+
+.settings-overlay.show,
+.confirm-overlay.show {
+    display: flex;
+}
+
+
+/* =========================================
+   17. 設定面板
+   ========================================= */
+
+.settings-panel {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 40px
+        rgba(
+            50,
+            40,
+            70,
+            0.2
+        );
+
+    overflow: hidden;
+
+    animation:
+        panel-in 0.18s ease;
+}
+
+
+@keyframes panel-in {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(0.96)
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   18. 設定標題
+   ========================================= */
+
+.settings-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        17px 18px;
+
+    border-bottom:
+        1px solid #eeeaf3;
+}
+
+
+.settings-header h2 {
+    margin: 0;
+
+    color: #6f6bb5;
+
+    font-size: 18px;
+}
+
+
+.close-settings {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        #f3f0f6;
+
+    color: #777;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   19. 設定項目
+   ========================================= */
+
+.settings-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border-bottom:
+        1px solid #f0edf4;
+}
+
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+
+.settings-item-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    min-width: 0;
+}
+
+
+.settings-item-text strong {
+    color: #444;
+
+    font-size: 14px;
+}
+
+
+.settings-item-text span {
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   20. 深色模式按鈕
+   ========================================= */
+
+.theme-toggle {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    border:
+        1px solid #d9d3e3;
+
+    border-radius: 16px;
+
+    padding:
+        6px 11px;
+
+    background:
+        #f8f6fa;
+
+    color: #666;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   21. 清除資料
+   ========================================= */
+
+.clear-data-button {
+    border:
+        1px solid #e6b7bd;
+
+    border-radius: 16px;
+
+    padding:
+        6px 12px;
+
+    background:
+        #fff5f6;
+
+    color:
+        #c35e68;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+.clear-data-button:hover {
+    background:
+        #ffe9eb;
+}
+
+
+/* =========================================
+   22. 確認視窗
+   ========================================= */
+
+.confirm-panel {
+    width: 100%;
+
+    max-width: 360px;
+
+    padding:
+        25px 20px;
+
+    background:
+        #ffffff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 40px
+        rgba(
+            50,
+            40,
+            70,
+            0.2
+        );
+
+    animation:
+        panel-in 0.18s ease;
+}
+
+
+.confirm-icon {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+
+.confirm-panel h2 {
+    margin:
+        0 0 9px;
+
+    color: #444;
+
+    font-size: 18px;
+}
+
+
+.confirm-panel p {
+    margin:
+        0 0 20px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.confirm-buttons {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.cancel-button,
+.confirm-clear-button {
+    flex: 1;
+
+    height: 38px;
+
+    border-radius: 19px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.cancel-button {
+    border:
+        1px solid #ddd6e8;
+
+    background:
+        #ffffff;
+
+    color: #777;
+}
+
+
+.confirm-clear-button {
+    border:
+        1px solid #d96873;
+
+    background:
+        #d96873;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   23. 深色模式
+   ========================================= */
+
+body.dark-mode {
+    background-color:
+        #1d1b23;
+
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .top-banner {
+    background-color:
+        #2b2735;
+}
+
+
+body.dark-mode .progress-card {
+    background-color:
+        #292631;
+
+    border-color:
+        #403a4b;
+}
+
+
+body.dark-mode .progress-card:hover {
+    background-color:
+        #302c39;
+
+    border-color:
+        #5b536b;
+}
+
+
+body.dark-mode .progress-card-title {
+    color:
+        #aaa4b5;
+}
+
+
+body.dark-mode .progress-card-count {
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .progress-card-count span {
+    color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .progress-card .unit {
+    color:
+        #aaa4b5;
+}
+
+
+body.dark-mode .progress-card-price {
+    color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .major-title {
+    color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .sub-title {
+    color:
+        #aaa4b5;
+}
+
+
+body.dark-mode .sub-title::after {
+    background:
+        #403a4b;
+}
+
+
+body.dark-mode .item {
+    background-color:
+        #292631;
+
+    border-color:
+        #403a4b;
+}
+
+
+body.dark-mode .item:hover {
+    border-color:
+        #625a73;
+
+    box-shadow:
+        0 3px 12px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+}
+
+
+body.dark-mode .item-name {
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .item.selected {
+    border-color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .price-input-field {
+    background-color:
+        #211f27;
+
+    border-color:
+        #51495e;
+
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .search-box input {
+    background-color:
+        #292631;
+
+    border-color:
+        #4a4355;
+
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .search-box input::placeholder {
+    color:
+        #817b8b;
+}
+
+
+body.dark-mode .clear-search {
+    background-color:
+        #403a49;
+
+    color:
+        #bbb4c5;
+}
+
+
+body.dark-mode .filter-button {
+    background-color:
+        #292631;
+
+    border-color:
+        #4a4355;
+
+    color:
+        #aaa4b5;
+}
+
+
+body.dark-mode .filter-button:hover {
+    border-color:
+        #6b6380;
+
+    color:
+        #c0bdf0;
+}
+
+
+body.dark-mode .filter-button.active {
+    background-color:
+        #8e8cdc;
+
+    border-color:
+        #8e8cdc;
+
+    color:
+        #ffffff;
+}
+
+
+body.dark-mode .settings-button {
+    background-color:
+        #292631;
+
+    border-color:
+        #4a4355;
+
+    color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .settings-panel,
+body.dark-mode .confirm-panel {
+    background-color:
+        #292631;
+}
+
+
+body.dark-mode .settings-header {
+    border-color:
+        #403a4b;
+}
+
+
+body.dark-mode .settings-header h2 {
+    color:
+        #aaa6ed;
+}
+
+
+body.dark-mode .close-settings {
+    background-color:
+        #403a49;
+
+    color:
+        #ccc;
+}
+
+
+body.dark-mode .settings-item {
+    border-color:
+        #403a4b;
+}
+
+
+body.dark-mode .settings-item-text strong {
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .settings-item-text span {
+    color:
+        #9992a5;
+}
+
+
+body.dark-mode .theme-toggle {
+    background-color:
+        #35303e;
+
+    border-color:
+        #51495e;
+
+    color:
+        #ddd;
+}
+
+
+body.dark-mode .clear-data-button {
+    background-color:
+        #3a282c;
+
+    border-color:
+        #70444a;
+
+    color:
+        #e9959d;
+}
+
+
+body.dark-mode .confirm-panel h2 {
+    color:
+        #eeeeee;
+}
+
+
+body.dark-mode .confirm-panel p {
+    color:
+        #aaa4b5;
+}
+
+
+body.dark-mode .cancel-button {
+    background-color:
+        #35303e;
+
+    border-color:
+        #51495e;
+
+    color:
+        #ddd;
+}
+
+
+body.dark-mode .search-result-message {
+    color:
+        #8f8999;
+}
+
+
+/* =========================================
+   24. 手機版
+   ========================================= */
 
 @media (max-width: 600px) {
-
-    /* ---------- Banner ---------- */
 
     .top-banner {
         height: 80px;
@@ -585,16 +1473,12 @@ body {
     }
 
 
-    /* ---------- 統計區 ---------- */
-
     .progress-section {
         padding: 8px;
 
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
 
-
-    /* ---------- 四格變成兩欄 ---------- */
 
     .progress-grid {
         grid-template-columns:
@@ -605,7 +1489,8 @@ body {
 
 
     .progress-card {
-        padding: 10px 5px;
+        padding:
+            10px 5px;
     }
 
 
@@ -624,39 +1509,26 @@ body {
     }
 
 
-    .progress-card-percentage {
-        font-size: 10px;
+    .catalog-tools {
+        padding:
+            0 8px;
     }
 
 
-    /* ---------- 大分類 ---------- */
-
-    .major-title {
-        font-size: 19px;
-
-        margin-top: 25px;
+    .search-box {
+        max-width: none;
     }
 
 
-    /* ---------- 小分類 ---------- */
-
-    .sub-title {
-        font-size: 14px;
-
-        margin-top: 18px;
-
-        gap: 7px;
+    .filter-button {
+        padding:
+            7px 14px;
     }
 
-
-    /* ---------- 商品 ---------- */
 
     .catalog-grid {
         grid-template-columns:
-            repeat(
-                auto-fill,
-                minmax(80px, 1fr)
-            );
+            repeat(3, 1fr);
 
         gap: 8px;
 
@@ -685,12 +1557,27 @@ body {
         width: 60px;
     }
 
+
+    .settings-button {
+        right: 14px;
+
+        bottom: 14px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .settings-panel {
+        max-width: 100%;
+    }
+
 }
 
 
-/* ==================================
-   27. 更小的手機
-   ================================== */
+/* =========================================
+   25. 更小手機
+   ========================================= */
 
 @media (max-width: 380px) {
 
@@ -720,6 +1607,20 @@ body {
     .progress-card-count,
     .progress-card-price {
         font-size: 14px;
+    }
+
+
+    .filter-button {
+        padding:
+            6px 11px;
+
+        font-size: 12px;
+    }
+
+
+    .settings-item {
+        padding:
+            15px;
     }
 
 }

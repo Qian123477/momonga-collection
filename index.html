@@ -168,10 +168,86 @@
 
 
     <!-- =========================================
+         搜尋與篩選
+         ========================================= -->
+
+    <div class="catalog-tools">
+
+
+        <!-- 搜尋 -->
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="search"
+                id="search-input"
+                placeholder="搜尋小桃………………"
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="clear-search"
+                class="clear-search"
+                aria-label="清除搜尋"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- 篩選 -->
+
+        <div class="filter-buttons">
+
+            <button
+                type="button"
+                class="filter-button active"
+                data-filter="all"
+            >
+                全部
+            </button>
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="collected"
+            >
+                已收藏
+            </button>
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="uncollected"
+            >
+                未收藏
+            </button>
+
+        </div>
+
+
+
+        <!-- 搜尋結果 -->
+
+        <div
+            id="search-result-message"
+            class="search-result-message"
+        ></div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
          商品圖鑑
-         
-         JavaScript 會自動把 products.json
-         裡面的商品產生在這裡
          ========================================= -->
 
     <main id="catalog-container"></main>
@@ -179,10 +255,182 @@
 
 
     <!-- =========================================
+         設定按鈕
+         ========================================= -->
+
+    <button
+        type="button"
+        id="settings-button"
+        class="settings-button"
+        aria-label="開啟設定"
+    >
+        ⚙️
+    </button>
+
+
+
+    <!-- =========================================
+         設定視窗
+         ========================================= -->
+
+    <div
+        id="settings-overlay"
+        class="settings-overlay"
+    >
+
+        <div
+            class="settings-panel"
+            role="dialog"
+            aria-modal="true"
+        >
+
+
+            <div class="settings-header">
+
+                <h2>
+                    ⚙️ 設定
+                </h2>
+
+                <button
+                    type="button"
+                    id="close-settings"
+                    class="close-settings"
+                    aria-label="關閉設定"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- 深色模式 -->
+
+            <div class="settings-item">
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        🌙 深色模式
+                    </strong>
+
+                    <span>
+                        切換網站顏色
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="theme-toggle"
+                    class="theme-toggle"
+                >
+
+                    <span class="theme-toggle-icon">
+                        🌙
+                    </span>
+
+                    <span class="theme-toggle-text">
+                        深色
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- 清除收藏 -->
+
+            <div class="settings-item danger-item">
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        🗑 清除收藏資料
+                    </strong>
+
+                    <span>
+                        清除所有收藏與購入價格
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="clear-data-button"
+                    class="clear-data-button"
+                >
+                    清除
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         清除資料確認視窗
+         ========================================= -->
+
+    <div
+        id="confirm-overlay"
+        class="confirm-overlay"
+    >
+
+        <div class="confirm-panel">
+
+            <div class="confirm-icon">
+                ⚠️
+            </div>
+
+            <h2>
+                確定要清除嗎？
+            </h2>
+
+            <p>
+                這會清除所有收藏狀態與購入價格。<br>
+                商品圖鑑本身不會被刪除。
+            </p>
+
+
+            <div class="confirm-buttons">
+
+                <button
+                    type="button"
+                    id="cancel-clear"
+                    class="cancel-button"
+                >
+                    取消
+                </button>
+
+                <button
+                    type="button"
+                    id="confirm-clear"
+                    class="confirm-clear-button"
+                >
+                    確定清除
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
          JavaScript
          ========================================= -->
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
 
 
 </body>

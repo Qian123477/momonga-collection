@@ -24,6 +24,15 @@ document.addEventListener(
             products =
                 await response.json();
 
+            // 防止 products.json 不是陣列
+            if (!Array.isArray(products)) {
+
+                throw new Error(
+                    "products.json 格式錯誤，必須是陣列"
+                );
+
+            }
+
         } catch (error) {
 
             console.error(error);
@@ -121,6 +130,7 @@ document.addEventListener(
             );
         }
 
+
         function getTotalPriceKey(id) {
 
             return (
@@ -128,6 +138,7 @@ document.addEventListener(
                 id
             );
         }
+
 
         // 舊版均價資料
         function getPriceKey(id) {
@@ -138,6 +149,7 @@ document.addEventListener(
             );
         }
 
+
         function getQuantityKey(id) {
 
             return (
@@ -145,6 +157,7 @@ document.addEventListener(
                 id
             );
         }
+
 
         function isCollected(id) {
 
@@ -320,15 +333,6 @@ document.addEventListener(
 
             // =====================================================
             // 總價
-            //
-            // ★ 這裡是這次最重要的修改
-            //
-            // 不再建立：
-            //
-            // NT$ + input
-            //
-            // 而是直接讓總價 input
-            // 跟數量 input 一樣都是 48px。
             // =====================================================
 
             const totalPriceRow =
@@ -601,6 +605,48 @@ document.addEventListener(
             catalogContainer.innerHTML =
                 "";
 
+
+            // -----------------------------------------------------
+            // 商品完全為 0 時
+            // -----------------------------------------------------
+
+            if (
+                products.length ===
+                0
+            ) {
+
+                catalogContainer.innerHTML = `
+                    <div style="
+                        text-align:center;
+                        color:#999;
+                        padding:60px 20px;
+                    ">
+                        <div style="
+                            font-size:40px;
+                            margin-bottom:12px;
+                        ">
+                            📦
+                        </div>
+
+                        <div style="
+                            font-size:16px;
+                        ">
+                            目前沒有商品
+                        </div>
+                    </div>
+                `;
+
+                initializeCollectionState();
+
+                updateAllStatistics();
+
+                return;
+            }
+
+
+            // -----------------------------------------------------
+            // 依分類產生商品
+            // -----------------------------------------------------
 
             categoryOrder.forEach(
                 category => {
@@ -890,6 +936,7 @@ document.addEventListener(
                                         );
 
                                 }
+
                             }
 
 
@@ -1222,8 +1269,6 @@ document.addEventListener(
 
         // =========================================================
         // 11. 計算均價
-        //
-        // 總價 ÷ 數量
         // =========================================================
 
         function updateAveragePrice(
@@ -1463,8 +1508,6 @@ document.addEventListener(
 
         // =========================================================
         // 13. 收藏總數
-        //
-        // XX 款 · XX 件
         // =========================================================
 
         function updateTotalCollected() {
@@ -2012,33 +2055,41 @@ document.addEventListener(
         // 16. 搜尋事件
         // =========================================================
 
-        searchInput.addEventListener(
-            "input",
-            () => {
+        if (searchInput) {
 
-                currentSearch =
-                    searchInput.value;
+            searchInput.addEventListener(
+                "input",
+                () => {
 
-                applyFilters();
-            }
-        );
+                    currentSearch =
+                        searchInput.value;
+
+                    applyFilters();
+                }
+            );
+
+        }
 
 
-        clearSearchButton.addEventListener(
-            "click",
-            () => {
+        if (clearSearchButton) {
 
-                searchInput.value =
-                    "";
+            clearSearchButton.addEventListener(
+                "click",
+                () => {
 
-                currentSearch =
-                    "";
+                    searchInput.value =
+                        "";
 
-                searchInput.focus();
+                    currentSearch =
+                        "";
 
-                applyFilters();
-            }
-        );
+                    searchInput.focus();
+
+                    applyFilters();
+                }
+            );
+
+        }
 
 
         // =========================================================
@@ -2105,6 +2156,15 @@ document.addEventListener(
 
         function updateThemeButton() {
 
+            if (
+                !themeToggleIcon ||
+                !themeToggleText
+            ) {
+
+                return;
+            }
+
+
             const isDark =
                 document.body.classList.contains(
                     "dark-mode"
@@ -2159,28 +2219,32 @@ document.addEventListener(
         }
 
 
-        themeToggle.addEventListener(
-            "click",
-            () => {
+        if (themeToggle) {
 
-                const isDark =
-                    document.body.classList.toggle(
-                        "dark-mode"
+            themeToggle.addEventListener(
+                "click",
+                () => {
+
+                    const isDark =
+                        document.body.classList.toggle(
+                            "dark-mode"
+                        );
+
+
+                    localStorage.setItem(
+                        "momo_theme",
+                        isDark
+                            ? "dark"
+                            : "light"
                     );
 
 
-                localStorage.setItem(
-                    "momo_theme",
-                    isDark
-                        ? "dark"
-                        : "light"
-                );
+                    updateThemeButton();
 
+                }
+            );
 
-                updateThemeButton();
-
-            }
-        );
+        }
 
 
         // =========================================================
@@ -2207,46 +2271,71 @@ document.addEventListener(
 
         function openSettings() {
 
-            settingsOverlay.classList.add(
-                "show"
-            );
+            if (
+                settingsOverlay
+            ) {
+
+                settingsOverlay.classList.add(
+                    "show"
+                );
+
+            }
         }
 
 
         function closeSettingsPanel() {
 
-            settingsOverlay.classList.remove(
-                "show"
-            );
+            if (
+                settingsOverlay
+            ) {
+
+                settingsOverlay.classList.remove(
+                    "show"
+                );
+
+            }
         }
 
 
-        settingsButton.addEventListener(
-            "click",
-            openSettings
-        );
+        if (settingsButton) {
+
+            settingsButton.addEventListener(
+                "click",
+                openSettings
+            );
+
+        }
 
 
-        closeSettings.addEventListener(
-            "click",
-            closeSettingsPanel
-        );
+        if (closeSettings) {
+
+            closeSettings.addEventListener(
+                "click",
+                closeSettingsPanel
+            );
+
+        }
 
 
-        settingsOverlay.addEventListener(
-            "click",
-            event => {
+        if (settingsOverlay) {
 
-                if (
-                    event.target ===
-                    settingsOverlay
-                ) {
+            settingsOverlay.addEventListener(
+                "click",
+                event => {
 
-                    closeSettingsPanel();
+                    if (
+                        event.target ===
+                        settingsOverlay
+                    ) {
+
+                        closeSettingsPanel();
+
+                    }
+
                 }
+            );
 
-            }
-        );
+        }
 
 
         // =========================================================
@@ -2277,114 +2366,150 @@ document.addEventListener(
             );
 
 
-        clearDataButton.addEventListener(
-            "click",
-            () => {
+        if (clearDataButton) {
 
-                confirmOverlay.classList.add(
-                    "show"
-                );
+            clearDataButton.addEventListener(
+                "click",
+                () => {
 
-            }
-        );
+                    if (confirmOverlay) {
 
-
-        cancelClear.addEventListener(
-            "click",
-            () => {
-
-                confirmOverlay.classList.remove(
-                    "show"
-                );
-
-            }
-        );
-
-
-        confirmClear.addEventListener(
-            "click",
-            () => {
-
-                products.forEach(
-                    product => {
-
-                        localStorage.removeItem(
-                            getCollectionKey(
-                                product.id
-                            )
-                        );
-
-
-                        localStorage.removeItem(
-                            getTotalPriceKey(
-                                product.id
-                            )
-                        );
-
-
-                        localStorage.removeItem(
-                            getPriceKey(
-                                product.id
-                            )
-                        );
-
-
-                        localStorage.removeItem(
-                            getQuantityKey(
-                                product.id
-                            )
+                        confirmOverlay.classList.add(
+                            "show"
                         );
 
                     }
-                );
+
+                }
+            );
+
+        }
 
 
-                confirmOverlay.classList.remove(
-                    "show"
-                );
+        if (cancelClear) {
+
+            cancelClear.addEventListener(
+                "click",
+                () => {
+
+                    if (confirmOverlay) {
+
+                        confirmOverlay.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
 
 
-                initializeCollectionState();
+        if (confirmClear) {
 
-                updateAllStatistics();
+            confirmClear.addEventListener(
+                "click",
+                () => {
 
-                applyFilters();
+                    // =================================================
+                    // 重要修正
+                    //
+                    // 不再只清除 products.json 裡的商品。
+                    //
+                    // 直接清除所有 momo_ 開頭的資料，
+                    // 因此以前刪掉的商品留下的資料也會被清除。
+                    // =================================================
+
+                    for (
+                        let i =
+                            localStorage.length - 1;
+                        i >= 0;
+                        i--
+                    ) {
+
+                        const key =
+                            localStorage.key(i);
 
 
-                searchResultMessage.textContent =
-                    "已清除所有收藏資料";
+                        if (
+                            key &&
+                            key.startsWith(
+                                "momo_"
+                            )
+                        ) {
+
+                            localStorage.removeItem(
+                                key
+                            );
+
+                        }
+
+                    }
 
 
-                setTimeout(
-                    () => {
+                    if (confirmOverlay) {
 
-                        applyFilters();
+                        confirmOverlay.classList.remove(
+                            "show"
+                        );
 
-                    },
-                    1800
-                );
-
-            }
-        );
+                    }
 
 
-        confirmOverlay.addEventListener(
-            "click",
-            event => {
+                    initializeCollectionState();
 
-                if (
-                    event.target ===
-                    confirmOverlay
-                ) {
+                    updateAllStatistics();
 
-                    confirmOverlay.classList.remove(
-                        "show"
+                    applyFilters();
+
+
+                    if (
+                        searchResultMessage
+                    ) {
+
+                        searchResultMessage.textContent =
+                            "已清除所有收藏資料";
+
+                    }
+
+
+                    setTimeout(
+                        () => {
+
+                            applyFilters();
+
+                        },
+                        1800
                     );
 
                 }
+            );
 
-            }
-        );
+        }
+
+
+        if (confirmOverlay) {
+
+            confirmOverlay.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target ===
+                        confirmOverlay
+                    ) {
+
+                        confirmOverlay.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
 
 
         // =========================================================
@@ -2404,14 +2529,22 @@ document.addEventListener(
                 }
 
 
-                settingsOverlay.classList.remove(
-                    "show"
-                );
+                if (settingsOverlay) {
+
+                    settingsOverlay.classList.remove(
+                        "show"
+                    );
+
+                }
 
 
-                confirmOverlay.classList.remove(
-                    "show"
-                );
+                if (confirmOverlay) {
+
+                    confirmOverlay.classList.remove(
+                        "show"
+                    );
+
+                }
 
             }
         );

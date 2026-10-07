@@ -2,21 +2,21 @@
     {
         "id": "ac01",
         "name": "麵包捲",
-        "image": "image/1.ac/ac1.jpg",
+        "image": "image/1.ac/ac1.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
         "id": "ac02",
         "name": "肉包",
-        "image": "image/1.ac/ac2.jpg",
+        "image": "image/1.ac/ac1.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
         "id": "ac03",
         "name": "麵包店員",
-        "image": "image/1.ac/ac3.jpg",
+        "image": "image/1.ac/ac1.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     }

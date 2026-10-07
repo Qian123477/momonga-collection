@@ -406,6 +406,13 @@
         "subcategory": "S娃"
     },
     {
+        "id": "pr1",
+        "name": "超BIG魔法少女",
+        "image": "image/3.pr/pr1.JPG",
+        "category": "娃娃",
+        "subcategory": "景品/大娃/抱枕"
+    },
+    {
         "id": "hn1",
         "name": "",
         "image": "image/16.hn/hn1.JPG",

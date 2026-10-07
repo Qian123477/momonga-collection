@@ -1,15 +1,15 @@
 [
     {
-        "id": "momo_plush_jp_01",
-        "name": "可動坐姿",
-        "image": "小桃圖鑑image/momo1.webp",
+        "id": "ac01",
+        "name": "麵包捲",
+        "image": "image/1.ac/ac1.jpg",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
-        "id": "momo_plush_jp_02",
-        "name": "草裙",
-        "image": "小桃圖鑑image/momo2.webp",
+        "id": "ac02",
+        "name": "肉包",
+        "image": "image/1.ac/ac2.jpg",
         "category": "娃娃",
         "subcategory": "吊飾"
     }

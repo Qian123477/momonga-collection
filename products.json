@@ -591,35 +591,35 @@
     {
         "id": "hk1",
         "name": "珍珠雞",
-        "image": "image/3.pr/hk1.JPG",
+        "image": "image/4.hk/hk1.JPG",
         "category": "娃娃",
         "subcategory": "香港"
     },
     {
         "id": "hk2",
         "name": "珍珠雞S",
-        "image": "image/3.pr/hk2.JPG",
+        "image": "image/4.hk/hk2.JPG",
         "category": "娃娃",
         "subcategory": "香港"
     },
     {
         "id": "hk3",
         "name": "紅白籃",
-        "image": "image/3.pr/hk3.JPG",
+        "image": "image/4.hk/hk3.JPG",
         "category": "娃娃",
         "subcategory": "香港"
     },
     {
         "id": "hk4",
         "name": "豆豆眼",
-        "image": "image/3.pr/hk4.JPG",
+        "image": "image/4.hk/hk4.JPG",
         "category": "娃娃",
         "subcategory": "香港"
     },
     {
         "id": "ov1",
         "name": "美國-花圈",
-        "image": "image/3.pr/ov1.JPG",
+        "image": "image/8.ov/ov1.JPG",
         "category": "娃娃",
         "subcategory": "其他海外"
     },

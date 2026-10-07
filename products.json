@@ -413,6 +413,13 @@
         "subcategory": "景品/大娃/抱枕"
     },
     {
+        "id": "pr2",
+        "name": "A賞",
+        "image": "image/3.pr/pr2.JPG",
+        "category": "娃娃",
+        "subcategory": "景品/大娃/抱枕"
+    },
+    {
         "id": "st1",
         "name": "",
         "image": "image/9.st/st1.JPG",

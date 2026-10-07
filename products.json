@@ -589,6 +589,34 @@
         "subcategory": "景品/大娃/抱枕"
     },
     {
+        "id": "hk1",
+        "name": "珍珠雞",
+        "image": "image/3.pr/hk1.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
+        "id": "hk2",
+        "name": "珍珠雞S",
+        "image": "image/3.pr/hk2.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
+        "id": "hk3",
+        "name": "紅白籃",
+        "image": "image/3.pr/hk3.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
+        "id": "hk4",
+        "name": "豆豆眼",
+        "image": "image/3.pr/hk4.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
         "id": "st1",
         "name": "",
         "image": "image/9.st/st1.JPG",

@@ -553,6 +553,48 @@
         "subcategory": "S娃"
     },
     {
+        "id": "pl10",
+        "name": "酷洛米四代",
+        "image": "image/2.pl/pl10.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl11",
+        "name": "稻荷達摩",
+        "image": "image/2.pl/pl11.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl12",
+        "name": "稻荷坐姿",
+        "image": "image/2.pl/pl12.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl13",
+        "name": "C賞 寶寶",
+        "image": "image/2.pl/pl13.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl14",
+        "name": "C賞 夏日",
+        "image": "image/2.pl/pl14.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl15",
+        "name": "會講話的",
+        "image": "image/2.pl/pl15.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
         "id": "pr1",
         "name": "超BIG魔法少女",
         "image": "image/3.pr/pr1.JPG",

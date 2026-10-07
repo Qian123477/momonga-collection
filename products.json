@@ -452,35 +452,35 @@
         "name": "E賞 最棒的!!",
         "image": "image/1.ac/ac69.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"  
+        "subcategory": "吊飾"
     },
     {
         "id": "ac71",
         "name": "酷洛米四代",
         "image": "image/1.ac/ac71.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"  
+        "subcategory": "吊飾"
     },
     {
         "id": "ac70",
         "name": "酷洛米 四代",
         "image": "image/1.ac/ac70.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"  
+        "subcategory": "吊飾"
     },
     {
         "id": "ac72",
         "name": "豹紋",
         "image": "image/1.ac/ac72.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"  
+        "subcategory": "吊飾"
     },
     {
         "id": "ac73",
         "name": "豹紋 唐吉 ",
         "image": "image/1.ac/ac73.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"  
+        "subcategory": "吊飾"
     },
     {
         "id": "ac51",
@@ -488,7 +488,6 @@
         "image": "image/1.ac/ac51.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
-        
     },
     {
         "id": "pl1",
@@ -622,22 +621,25 @@
         "image": "image/8.ov/ov1.JPG",
         "category": "娃娃",
         "subcategory": "其他海外"
+    },
     {
-        "id": "ov1",
+        "id": "ov2",
         "name": "美國-零錢包",
-        "image": "image/8.ov/ov1.JPG",
+        "image": "image/8.ov/ov2.JPG",
         "category": "娃娃",
         "subcategory": "其他海外"
+    },
     {
-        "id": "ov1",
+        "id": "ov3",
         "name": "美國-冬日",
-        "image": "image/8.ov/ov1.JPG",
+        "image": "image/8.ov/ov3.JPG",
         "category": "娃娃",
         "subcategory": "其他海外"
+    },
     {
-        "id": "ov1",
+        "id": "ov4",
         "name": "美國-聖誕襪電腦掛",
-        "image": "image/8.ov/ov1.JPG",
+        "image": "image/8.ov/ov4.JPG",
         "category": "娃娃",
         "subcategory": "其他海外"
     },

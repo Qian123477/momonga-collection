@@ -43,32 +43,29 @@ body {
    3. 頂部橫幅
    ========================================= */
 
+/*
+ * 橫幅使用圖片本身。
+ *
+ * 圖片比例會自動維持，
+ * 不裁切、不變形、不使用背景色填充。
+ */
+
 .top-banner {
     width: 100vw;
 
     margin-left:
         calc(-50vw + 50%);
 
-    height: 100px;
-
-    background-color: #efe6f9;
-
     overflow: hidden;
 
     margin-bottom: 20px;
-
-    transition:
-        background-color 0.25s ease;
 }
 
 .top-banner img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    object-position: center;
-
     display: block;
+
+    width: 100%;
+    height: auto;
 }
 
 
@@ -1433,10 +1430,12 @@ body.dark-mode {
         #eeeeee;
 }
 
-body.dark-mode .top-banner {
-    background-color:
-        #2b2735;
-}
+
+/*
+ * 橫幅現在完全由圖片構成，
+ * 所以深色模式不再設定背景色。
+ */
+
 
 body.dark-mode .progress-card {
     background-color:
@@ -1732,9 +1731,11 @@ body.dark-mode .search-result-message {
 
 @media (max-width: 600px) {
 
+    /*
+     * 橫幅不設定固定高度，
+     * 讓圖片按照原始比例縮放。
+     */
     .top-banner {
-        height: 80px;
-
         margin-bottom: 15px;
     }
 

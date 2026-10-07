@@ -1,22 +1,57 @@
 [
     {
-        "id": "ac01",
+        "id": "ac1",
         "name": "麵包捲",
         "image": "image/1.ac/ac1.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
-        "id": "ac02",
+        "id": "ac2",
         "name": "肉包",
-        "image": "image/1.ac/ac1.JPG",
+        "image": "image/1.ac/ac2.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
-        "id": "ac03",
+        "id": "ac3",
         "name": "麵包店員",
-        "image": "image/1.ac/ac1.JPG",
+        "image": "image/1.ac/ac3.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac4",
+        "name": "草裙",
+        "image": "image/1.ac/ac4.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac5",
+        "name": "蝙蝠",
+        "image": "image/1.ac/ac5.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac6",
+        "name": "糖膠寶寶",
+        "image": "image/1.ac/ac6.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac7",
+        "name": "樂園毛絨",
+        "image": "image/1.ac/ac7.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac8",
+        "name": "圓軟小腳",
+        "image": "image/1.ac/ac8.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     }

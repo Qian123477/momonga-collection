@@ -1,4 +1,6 @@
-
+    <!-- =========================================
+         吊飾
+         ========================================= -->
 [
     {
         "id": "ac1",
@@ -342,4 +344,73 @@
         "image": "image/1.ac/ac51.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
+    }
+]
+    <!-- =========================================
+         S娃
+         ========================================= -->
+[
+    {
+        "id": "pl1",
+        "name": "可動姿勢",
+        "image": "image/2.pl/pl1.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl2",
+        "name": "樂園毛茸茸",
+        "image": "image/2.pl/pl2.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl3",
+        "name": "圓滾蓬鬆坐姿",
+        "image": "image/2.pl/pl3.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl4",
+        "name": "委屈",
+        "image": "image/2.pl/pl4.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl5",
+        "name": "貝雷帽",
+        "image": "image/2.pl/pl5.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl6",
+        "name": "毛茸茸",
+        "image": "image/2.pl/pl6.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl7",
+        "name": "惡魔",
+        "image": "image/2.pl/pl7.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl8",
+        "name": "魔法",
+        "image": "image/2.pl/pl8.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl9",
+        "name": "小腳",
+        "image": "image/2.pl/pl9.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    }
 ]

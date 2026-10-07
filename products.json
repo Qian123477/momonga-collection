@@ -1,3 +1,4 @@
+
 [
     {
         "id": "ac1",
@@ -54,5 +55,291 @@
         "image": "image/1.ac/ac8.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
-    }
+    },
+    {
+        "id": "ac9",
+        "name": "寶寶趴娃",
+        "image": "image/1.ac/ac9.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac10",
+        "name": "快遞",
+        "image": "image/1.ac/ac10.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac11",
+        "name": "糖膠酷洛米",
+        "image": "image/1.ac/ac11.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac12",
+        "name": "糖膠泰迪熊",
+        "image": "image/1.ac/ac12.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac13",
+        "name": "應援電腦掛",
+        "image": "image/1.ac/ac13.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾" 
+    },
+    {
+        "id": "ac15",
+        "name": "手卷",
+        "image": "image/1.ac/ac15.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac16",
+        "name": "魔法少女",
+        "image": "image/1.ac/ac16.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac18",
+        "name": "披薩",
+        "image": "image/1.ac/ac18.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac19",
+        "name": "棒球",
+        "image": "image/1.ac/ac19.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac20",
+        "name": "趴趴",
+        "image": "image/1.ac/ac20.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac21",
+        "name": "蓬鬆尾巴",
+        "image": "image/1.ac/ac21.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac22",
+        "name": "寶寶",
+        "image": "image/1.ac/ac22.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac23",
+        "name": "星星",
+        "image": "image/1.ac/ac23.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac24",
+        "name": "魔法趴娃",
+        "image": "image/1.ac/ac24.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac25",
+        "name": "哭哭",
+        "image": "image/1.ac/ac25.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac26",
+        "name": "麵包",
+        "image": "image/1.ac/ac26.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac27",
+        "name": "手機支架",
+        "image": "image/1.ac/ac27.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac28",
+        "name": "餐廳",
+        "image": "image/1.ac/ac28.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac29",
+        "name": "寄生",
+        "image": "image/1.ac/ac29.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac30",
+        "name": "飛天",
+        "image": "image/1.ac/ac30.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac31",
+        "name": "手捧",
+        "image": "image/1.ac/ac31.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac32",
+        "name": "南瓜",
+        "image": "image/1.ac/ac32.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac33",
+        "name": "糖果",
+        "image": "image/1.ac/ac33.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac34",
+        "name": "魔法二代",
+        "image": "image/1.ac/ac34.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac35",
+        "name": "版急",
+        "image": "image/1.ac/ac35.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac36",
+        "name": "沙包",
+        "image": "image/1.ac/ac36.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac37",
+        "name": "螃蟹",
+        "image": "image/1.ac/ac37.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac38",
+        "name": "手牽手磁吸",
+        "image": "image/1.ac/ac38.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac39",
+        "name": "襁褓",
+        "image": "image/1.ac/ac39.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac40",
+        "name": "惡",
+        "image": "image/1.ac/ac40.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac41",
+        "name": "海天使",
+        "image": "image/1.ac/ac41.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac42",
+        "name": "菠羅電腦掛",
+        "image": "image/1.ac/ac42.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac43",
+        "name": "睡衣",
+        "image": "image/1.ac/ac43.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac44",
+        "name": "惡魔",
+        "image": "image/1.ac/ac44.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac45",
+        "name": "酷洛米電腦掛",
+        "image": "image/1.ac/ac45.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac46",
+        "name": "小腳",
+        "image": "image/1.ac/ac46.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac47",
+        "name": "來來",
+        "image": "image/1.ac/ac47.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac48",
+        "name": "魔法一代",
+        "image": "image/1.ac/ac48.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac49",
+        "name": "酷洛米初代",
+        "image": "image/1.ac/ac49.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac50",
+        "name": "初代鈴鐺",
+        "image": "image/1.ac/ac50.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac51",
+        "name": "樂園",
+        "image": "image/1.ac/ac51.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
 ]

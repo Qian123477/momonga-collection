@@ -83,7 +83,7 @@ document.addEventListener(
         const subcategoryOrder = {
 
             "娃娃": [
-                "吊娃",
+                "吊飾",
                 "S娃",
                 "景品/大娃/抱枕",
                 "其他",

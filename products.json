@@ -630,6 +630,27 @@
         "subcategory": "景品/大娃/抱枕"
     },
     {
+        "id": "ot1",
+        "name": "大頭購物袋",
+        "image": "image/4.ot/ot1.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot2",
+        "name": "鯊魚夾",
+        "image": "image/4.ot/ot2.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot3",
+        "name": "毛巾捲捲",
+        "image": "image/4.ot/ot3.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
         "id": "hk1",
         "name": "珍珠雞",
         "image": "image/6.hk/hk1.JPG",

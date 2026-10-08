@@ -490,6 +490,48 @@
         "subcategory": "吊飾"
     },
     {
+        "id": "ac74",
+        "name": "海盜",
+        "image": "image/1.ac/ac74.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac75",
+        "name": "2025萬聖節",
+        "image": "image/1.ac/ac75.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac76",
+        "name": "幽靈",
+        "image": "image/1.ac/ac76.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac77",
+        "name": "D賞 雪人",
+        "image": "image/1.ac/ac77.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac78",
+        "name": "D賞 魷魚",
+        "image": "image/1.ac/ac78.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac79",
+        "name": "小樽",
+        "image": "image/1.ac/ac79.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
         "id": "pl1",
         "name": "可動姿勢",
         "image": "image/2.pl/pl1.JPG",

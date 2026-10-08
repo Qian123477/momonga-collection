@@ -336,6 +336,13 @@
         "subcategory": "吊飾"
     },
     {
+        "id": "ac51",
+        "name": "樂園",
+        "image": "image/1.ac/ac51.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
         "id": "ac52",
         "name": "初代站姿",
         "image": "image/1.ac/ac52.JPG",
@@ -479,13 +486,6 @@
         "id": "ac73",
         "name": "豹紋 唐吉 ",
         "image": "image/1.ac/ac73.JPG",
-        "category": "娃娃",
-        "subcategory": "吊飾"
-    },
-    {
-        "id": "ac51",
-        "name": "樂園",
-        "image": "image/1.ac/ac51.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },

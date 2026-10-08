@@ -599,35 +599,35 @@
         "name": "超BIG魔法少女",
         "image": "image/3.pr/pr1.JPG",
         "category": "娃娃",
-        "subcategory": "景品/大娃/抱枕"
+        "subcategory": "大娃/抱枕"
     },
     {
         "id": "pr2",
         "name": "A賞",
         "image": "image/3.pr/pr2.JPG",
         "category": "娃娃",
-        "subcategory": "景品/大娃/抱枕"
+        "subcategory": "大娃/抱枕"
     },
     {
         "id": "pr3",
         "name": "B賞",
         "image": "image/3.pr/pr3.JPG",
         "category": "娃娃",
-        "subcategory": "景品/大娃/抱枕"
+        "subcategory": "大娃/抱枕"
     },
     {
         "id": "pr4",
         "name": "C賞 一般",
         "image": "image/3.pr/pr4.JPG",
         "category": "娃娃",
-        "subcategory": "景品/大娃/抱枕"
+        "subcategory": "大娃/抱枕"
     },
     {
         "id": "pr5",
         "name": "C賞 微笑",
         "image": "image/3.pr/pr5.JPG",
         "category": "娃娃",
-        "subcategory": "景品/大娃/抱枕"
+        "subcategory": "大娃/抱枕"
     },
     {
         "id": "ot1",

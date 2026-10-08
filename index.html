@@ -79,67 +79,6 @@
     >
 
 
-    <!--
-        =====================================================
-        防止深色模式重新整理時閃白
-        =====================================================
-
-        這段一定要放在 style.css 前面。
-
-        網頁還沒開始畫面之前，
-        先讀取之前記住的深色模式。
-
-        這樣重新整理時就會直接以深色開始，
-        不會先出現白色再變黑。
-    -->
-
-    <script>
-        (function () {
-
-            try {
-
-                /*
-                 * 你的網站原本如果使用 theme = dark，
-                 * 這裡會直接讀取。
-                 */
-                const theme =
-                    localStorage.getItem("theme");
-
-                if (theme === "dark") {
-
-                    document.documentElement.classList.add(
-                        "dark-mode"
-                    );
-
-                }
-
-            } catch (error) {
-
-                /*
-                 * 如果瀏覽器禁止 localStorage，
-                 * 不影響網站正常運作。
-                 */
-                console.warn(
-                    "無法讀取主題設定",
-                    error
-                );
-
-            }
-
-        })();
-    </script>
-
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-</head>
-
-
-<body>
-
 
     <!-- =========================================
          頂部橫幅

@@ -94,7 +94,6 @@ document.addEventListener(
             "娃娃": [
                 "吊飾",
                 "S娃",
-                "景品",
                 "大娃/抱枕",
                 "其他",
                 "中國",

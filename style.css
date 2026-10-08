@@ -1,18 +1,20 @@
-/* =========================================
-   1. 基本設定
-   ========================================= */
-
 * {
     box-sizing: border-box;
 }
 
 html {
     min-height: 100%;
+    background-color: #faf8fc;
+}
+
+html.dark-mode {
+    background-color: #1d1b23;
 }
 
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 
     background-color: #faf8fc;
     color: #333;
@@ -31,7 +33,7 @@ body {
 
 
 /* =========================================
-   2. 隱藏原本 checkbox
+   checkbox
    ========================================= */
 
 .collect-checkbox {
@@ -40,15 +42,8 @@ body {
 
 
 /* =========================================
-   3. 頂部橫幅
+   頂部橫幅
    ========================================= */
-
-/*
- * 橫幅使用圖片本身。
- *
- * 圖片比例會自動維持，
- * 不裁切、不變形、不使用背景色填充。
- */
 
 .top-banner {
     width: 100vw;
@@ -70,7 +65,7 @@ body {
 
 
 /* =========================================
-   4. 收藏統計
+   收藏統計
    ========================================= */
 
 .progress-section {
@@ -172,9 +167,6 @@ body {
     font-weight: normal;
 }
 
-
-/* 不顯示總數 / 花費卡片的輔助文字 */
-
 .progress-card:has(
     .progress-card-count .unit
 )
@@ -189,7 +181,7 @@ body {
 
 
 /* =========================================
-   5. 搜尋與篩選
+   搜尋與篩選
    ========================================= */
 
 .catalog-tools {
@@ -200,9 +192,6 @@ body {
 
     padding: 0 10px;
 }
-
-
-/* 搜尋框 */
 
 .search-box {
     position: relative;
@@ -218,8 +207,7 @@ body {
 
     height: 42px;
 
-    padding:
-        0 42px;
+    padding: 0 42px;
 
     border:
         1px solid #ddd6e8;
@@ -303,9 +291,6 @@ body {
     background: #e1dced;
 }
 
-
-/* 篩選按鈕 */
-
 .filter-buttons {
     display: flex;
 
@@ -327,8 +312,7 @@ body {
 
     border-radius: 18px;
 
-    padding:
-        7px 17px;
+    padding: 7px 17px;
 
     font-size: 13px;
 
@@ -359,9 +343,6 @@ body {
     color: #ffffff;
 }
 
-
-/* 搜尋結果 */
-
 .search-result-message {
     min-height: 18px;
 
@@ -376,7 +357,7 @@ body {
 
 
 /* =========================================
-   6. 大分類標題
+   大分類
    ========================================= */
 
 .major-title {
@@ -399,7 +380,7 @@ body {
 
 
 /* =========================================
-   7. 小分類標題
+   小分類
    ========================================= */
 
 .sub-title {
@@ -436,16 +417,12 @@ body {
 
 
 /* =========================================
-   8. 商品網格
+   商品網格
    ========================================= */
 
 .catalog-grid {
     display: grid;
 
-    /*
-     * 電腦版：
-     * 不讓商品卡小到被數量 / 總價 / 均價擠扁。
-     */
     grid-template-columns:
         repeat(
             auto-fill,
@@ -462,15 +439,12 @@ body {
 
     padding: 10px;
 
-    /*
-     * 讓右上角收藏勾勾可以超出卡片。
-     */
     overflow: visible;
 }
 
 
 /* =========================================
-   9. 商品卡片
+   商品卡片
    ========================================= */
 
 .item {
@@ -506,10 +480,6 @@ body {
 
     text-align: center;
 
-    /*
-     * 非常重要：
-     * 不要讓卡片裁切右上角的勾勾。
-     */
     overflow: visible;
 }
 
@@ -532,7 +502,7 @@ body {
 
 
 /* =========================================
-   10. 商品圖片
+   商品圖片
    ========================================= */
 
 .item img {
@@ -540,10 +510,6 @@ body {
 
     width: 100%;
 
-    /*
-     * 圖片固定正方形，
-     * 不會被下面的輸入區拉扁。
-     */
     aspect-ratio: 1 / 1;
 
     height: auto;
@@ -557,7 +523,7 @@ body {
 
 
 /* =========================================
-   11. 商品名稱
+   商品名稱
    ========================================= */
 
 .item-name {
@@ -578,15 +544,12 @@ body {
     transition:
         color 0.25s ease;
 
-    /*
-     * 避免商品名稱撐開卡片。
-     */
     overflow-wrap: anywhere;
 }
 
 
 /* =========================================
-   12. 收藏狀態
+   收藏
    ========================================= */
 
 .item.selected {
@@ -604,9 +567,6 @@ body {
             0.08
         );
 
-    /*
-     * 保持勾勾可以超出卡片。
-     */
     overflow: visible;
 }
 
@@ -618,20 +578,11 @@ body {
         #8e8cdc;
 }
 
-
-/* =========================================
-   13. 收藏勾勾
-   ========================================= */
-
 .item.selected::after {
     content: "✔";
 
     position: absolute;
 
-    /*
-     * 放在卡片右上角外側，
-     * 不會被卡片切掉。
-     */
     top: -9px;
     right: -9px;
 
@@ -666,16 +617,13 @@ body {
     pointer-events: none;
 }
 
-
-/* 篩選隱藏 */
-
 .item.filter-hidden {
     display: none !important;
 }
 
 
 /* =========================================
-   14. 價格區域
+   價格區域
    ========================================= */
 
 .price-area {
@@ -702,7 +650,7 @@ body {
 
 
 /* =========================================
-   15. 數量 / 總價 / 均價每一列
+   數量 / 總價 / 均價
    ========================================= */
 
 .collection-input-row {
@@ -723,9 +671,6 @@ body {
     min-width: 0;
 }
 
-
-/* 「數量」「總價」「均價」文字 */
-
 .collection-input-label {
     width: 28px;
 
@@ -742,7 +687,7 @@ body {
 
 
 /* =========================================
-   16. 數量欄位
+   數量
    ========================================= */
 
 .quantity-input-field {
@@ -782,18 +727,12 @@ body {
         background-color 0.2s ease;
 }
 
-
-/* 隱藏數量欄位上下箭頭 */
-
 .quantity-input-field::-webkit-inner-spin-button,
 .quantity-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
 
     margin: 0;
 }
-
-
-/* 數量 focus */
 
 .quantity-input-field:focus {
     border-color: #8e8cdc;
@@ -810,7 +749,7 @@ body {
 
 
 /* =========================================
-   17. 總價輸入外框
+   總價外框
    ========================================= */
 
 .price-input {
@@ -825,9 +764,6 @@ body {
     min-width: 0;
 }
 
-
-/* NT$ */
-
 .price-input > span {
     flex-shrink: 0;
 
@@ -838,7 +774,7 @@ body {
 
 
 /* =========================================
-   18. 均價欄位
+   均價欄位
    ========================================= */
 
 .price-input-field {
@@ -877,9 +813,6 @@ body {
         background-color 0.25s ease;
 }
 
-
-/* 均價 focus */
-
 .price-input-field:focus {
     border-color: #8e8cdc;
 
@@ -895,7 +828,7 @@ body {
 
 
 /* =========================================
-   19. 總價輸入框
+   總價輸入
    ========================================= */
 
 .total-price-input-field {
@@ -936,9 +869,6 @@ body {
         background-color 0.25s ease;
 }
 
-
-/* 總價 focus */
-
 .total-price-input-field:focus {
     border-color: #8e8cdc;
 
@@ -952,9 +882,6 @@ body {
         );
 }
 
-
-/* 隱藏總價上下箭頭 */
-
 .total-price-input-field::-webkit-inner-spin-button,
 .total-price-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -964,7 +891,7 @@ body {
 
 
 /* =========================================
-   20. 均價顯示
+   均價顯示
    ========================================= */
 
 .collection-average-price {
@@ -995,7 +922,7 @@ body {
 
 
 /* =========================================
-   21. 舊版總價顯示區
+   舊版總價
    ========================================= */
 
 .collection-total-price {
@@ -1026,7 +953,7 @@ body {
 
 
 /* =========================================
-   22. 分類
+   分類
    ========================================= */
 
 .category-section {
@@ -1035,7 +962,7 @@ body {
 
 
 /* =========================================
-   23. 設定按鈕
+   設定按鈕
    ========================================= */
 
 .settings-button {
@@ -1085,7 +1012,7 @@ body {
 
 
 /* =========================================
-   24. 設定遮罩
+   設定遮罩
    ========================================= */
 
 .settings-overlay,
@@ -1119,7 +1046,7 @@ body {
 
 
 /* =========================================
-   25. 設定面板
+   設定面板
    ========================================= */
 
 .settings-panel {
@@ -1163,12 +1090,11 @@ body {
             scale(1)
             translateY(0);
     }
-
 }
 
 
 /* =========================================
-   26. 設定標題
+   設定標題
    ========================================= */
 
 .settings-header {
@@ -1212,7 +1138,7 @@ body {
 
 
 /* =========================================
-   27. 設定項目
+   設定項目
    ========================================= */
 
 .settings-item {
@@ -1257,7 +1183,7 @@ body {
 
 
 /* =========================================
-   28. 深色模式按鈕
+   深色模式按鈕
    ========================================= */
 
 .theme-toggle {
@@ -1289,7 +1215,7 @@ body {
 
 
 /* =========================================
-   29. 清除資料
+   清除資料
    ========================================= */
 
 .clear-data-button {
@@ -1321,7 +1247,7 @@ body {
 
 
 /* =========================================
-   30. 確認視窗
+   確認視窗
    ========================================= */
 
 .confirm-panel {
@@ -1414,15 +1340,35 @@ body {
     background:
         #d96873;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 }
 
 
 /* =========================================
-   31. 深色模式
+   深色模式
    ========================================= */
 
-body.dark-mode {
+/*
+ * 重要：
+ *
+ * index.html 裡面的 JavaScript 是：
+ *
+ * document.documentElement.classList.add("dark-mode");
+ *
+ * 所以 class 在 <html>。
+ *
+ * 這裡全部使用：
+ *
+ * html.dark-mode
+ *
+ * 這樣重新整理時才能在最早階段直接套用深色。
+ */
+
+
+/* 頁面 */
+
+html.dark-mode body {
     background-color:
         #1d1b23;
 
@@ -1431,13 +1377,9 @@ body.dark-mode {
 }
 
 
-/*
- * 橫幅現在完全由圖片構成，
- * 所以深色模式不再設定背景色。
- */
+/* 統計 */
 
-
-body.dark-mode .progress-card {
+html.dark-mode .progress-card {
     background-color:
         #292631;
 
@@ -1445,7 +1387,7 @@ body.dark-mode .progress-card {
         #403a4b;
 }
 
-body.dark-mode .progress-card:hover {
+html.dark-mode .progress-card:hover {
     background-color:
         #302c39;
 
@@ -1453,47 +1395,53 @@ body.dark-mode .progress-card:hover {
         #5b536b;
 }
 
-body.dark-mode .progress-card-title {
+html.dark-mode .progress-card-title {
     color:
         #aaa4b5;
 }
 
-body.dark-mode .progress-card-count {
+html.dark-mode .progress-card-count {
     color:
         #eeeeee;
 }
 
-body.dark-mode .progress-card-count span {
+html.dark-mode .progress-card-count span {
     color:
         #aaa6ed;
 }
 
-body.dark-mode .progress-card .unit {
+html.dark-mode .progress-card .unit {
     color:
         #aaa4b5;
 }
 
-body.dark-mode .progress-card-price {
+html.dark-mode .progress-card-price {
     color:
         #aaa6ed;
 }
 
-body.dark-mode .major-title {
+
+/* 分類 */
+
+html.dark-mode .major-title {
     color:
         #aaa6ed;
 }
 
-body.dark-mode .sub-title {
+html.dark-mode .sub-title {
     color:
         #aaa4b5;
 }
 
-body.dark-mode .sub-title::after {
+html.dark-mode .sub-title::after {
     background:
         #403a4b;
 }
 
-body.dark-mode .item {
+
+/* 商品 */
+
+html.dark-mode .item {
     background-color:
         #292631;
 
@@ -1501,7 +1449,7 @@ body.dark-mode .item {
         #403a4b;
 }
 
-body.dark-mode .item:hover {
+html.dark-mode .item:hover {
     border-color:
         #625a73;
 
@@ -1515,19 +1463,22 @@ body.dark-mode .item:hover {
         );
 }
 
-body.dark-mode .item-name {
+html.dark-mode .item-name {
     color:
         #eeeeee;
 }
 
-body.dark-mode .item.selected {
+html.dark-mode .item.selected {
     border-color:
         #aaa6ed;
 }
 
-body.dark-mode .price-input-field,
-body.dark-mode .quantity-input-field,
-body.dark-mode .total-price-input-field {
+
+/* 輸入框 */
+
+html.dark-mode .price-input-field,
+html.dark-mode .quantity-input-field,
+html.dark-mode .total-price-input-field {
     background-color:
         #211f27;
 
@@ -1538,32 +1489,35 @@ body.dark-mode .total-price-input-field {
         #eeeeee;
 }
 
-body.dark-mode .collection-average-price {
+html.dark-mode .collection-average-price {
     color:
         #aaa6e5;
 }
 
-body.dark-mode .collection-input-label {
+html.dark-mode .collection-input-label {
     color:
         #aaa5b5;
 }
 
-body.dark-mode .collection-total-price {
+html.dark-mode .collection-total-price {
     color:
         #aaa5b5;
 }
 
-body.dark-mode .collection-total-price-value {
+html.dark-mode .collection-total-price-value {
     color:
         #aaa6e5;
 }
 
-body.dark-mode .price-input > span {
+html.dark-mode .price-input > span {
     color:
         #aaa5b5;
 }
 
-body.dark-mode .search-box input {
+
+/* 搜尋 */
+
+html.dark-mode .search-box input {
     background-color:
         #292631;
 
@@ -1574,12 +1528,12 @@ body.dark-mode .search-box input {
         #eeeeee;
 }
 
-body.dark-mode .search-box input::placeholder {
+html.dark-mode .search-box input::placeholder {
     color:
         #817b8b;
 }
 
-body.dark-mode .clear-search {
+html.dark-mode .clear-search {
     background-color:
         #403a49;
 
@@ -1587,7 +1541,10 @@ body.dark-mode .clear-search {
         #bbb4c5;
 }
 
-body.dark-mode .filter-button {
+
+/* 篩選 */
+
+html.dark-mode .filter-button {
     background-color:
         #292631;
 
@@ -1598,7 +1555,7 @@ body.dark-mode .filter-button {
         #aaa4b5;
 }
 
-body.dark-mode .filter-button:hover {
+html.dark-mode .filter-button:hover {
     border-color:
         #6b6380;
 
@@ -1606,7 +1563,7 @@ body.dark-mode .filter-button:hover {
         #c0bdf0;
 }
 
-body.dark-mode .filter-button.active {
+html.dark-mode .filter-button.active {
     background-color:
         #8e8cdc;
 
@@ -1617,7 +1574,18 @@ body.dark-mode .filter-button.active {
         #ffffff;
 }
 
-body.dark-mode .settings-button {
+
+/* 搜尋結果 */
+
+html.dark-mode .search-result-message {
+    color:
+        #8f8999;
+}
+
+
+/* 設定按鈕 */
+
+html.dark-mode .settings-button {
     background-color:
         #292631;
 
@@ -1628,23 +1596,26 @@ body.dark-mode .settings-button {
         #aaa6ed;
 }
 
-body.dark-mode .settings-panel,
-body.dark-mode .confirm-panel {
+
+/* 設定視窗 */
+
+html.dark-mode .settings-panel,
+html.dark-mode .confirm-panel {
     background-color:
         #292631;
 }
 
-body.dark-mode .settings-header {
+html.dark-mode .settings-header {
     border-color:
         #403a4b;
 }
 
-body.dark-mode .settings-header h2 {
+html.dark-mode .settings-header h2 {
     color:
         #aaa6ed;
 }
 
-body.dark-mode .close-settings {
+html.dark-mode .close-settings {
     background-color:
         #403a49;
 
@@ -1652,22 +1623,25 @@ body.dark-mode .close-settings {
         #ccc;
 }
 
-body.dark-mode .settings-item {
+html.dark-mode .settings-item {
     border-color:
         #403a4b;
 }
 
-body.dark-mode .settings-item-text strong {
+html.dark-mode .settings-item-text strong {
     color:
         #eeeeee;
 }
 
-body.dark-mode .settings-item-text span {
+html.dark-mode .settings-item-text span {
     color:
         #9992a5;
 }
 
-body.dark-mode .theme-toggle {
+
+/* 主題按鈕 */
+
+html.dark-mode .theme-toggle {
     background-color:
         #35303e;
 
@@ -1678,7 +1652,10 @@ body.dark-mode .theme-toggle {
         #ddd;
 }
 
-body.dark-mode .clear-data-button {
+
+/* 清除資料 */
+
+html.dark-mode .clear-data-button {
     background-color:
         #3a282c;
 
@@ -1689,17 +1666,20 @@ body.dark-mode .clear-data-button {
         #e9959d;
 }
 
-body.dark-mode .confirm-panel h2 {
+
+/* 確認視窗 */
+
+html.dark-mode .confirm-panel h2 {
     color:
         #eeeeee;
 }
 
-body.dark-mode .confirm-panel p {
+html.dark-mode .confirm-panel p {
     color:
         #aaa4b5;
 }
 
-body.dark-mode .cancel-button {
+html.dark-mode .cancel-button {
     background-color:
         #35303e;
 
@@ -1710,14 +1690,9 @@ body.dark-mode .cancel-button {
         #ddd;
 }
 
-body.dark-mode .search-result-message {
-    color:
-        #8f8999;
-}
-
 
 /* =========================================
-   32. 搜尋區與統計格間距
+   搜尋區與統計格間距
    ========================================= */
 
 .search-section {
@@ -1726,26 +1701,20 @@ body.dark-mode .search-result-message {
 
 
 /* =========================================
-   33. 手機版
+   手機版
    ========================================= */
 
 @media (max-width: 600px) {
 
-    /*
-     * 橫幅不設定固定高度，
-     * 讓圖片按照原始比例縮放。
-     */
     .top-banner {
         margin-bottom: 15px;
     }
-
 
     .progress-section {
         padding: 8px;
 
         margin-bottom: 18px;
     }
-
 
     .progress-grid {
         grid-template-columns:
@@ -1754,47 +1723,39 @@ body.dark-mode .search-result-message {
         gap: 8px;
     }
 
-
     .progress-card {
         padding:
             10px 5px;
     }
 
-
     .progress-card-title {
         font-size: 11px;
     }
-
 
     .progress-card-count {
         font-size: 15px;
     }
 
-
     .progress-card-price {
         font-size: 15px;
     }
-
 
     .catalog-tools {
         padding:
             0 8px;
     }
 
-
     .search-box {
         max-width: none;
     }
-
 
     .filter-button {
         padding:
             7px 14px;
     }
 
-
     /*
-     * 手機改成一列 4 隻
+     * 手機一列 4 隻
      */
     .catalog-grid {
         grid-template-columns:
@@ -1807,7 +1768,6 @@ body.dark-mode .search-result-message {
         overflow: visible;
     }
 
-
     .item {
         padding: 5px;
 
@@ -1818,13 +1778,11 @@ body.dark-mode .search-result-message {
         overflow: visible;
     }
 
-
     .item.selected {
         padding: 4px;
 
         overflow: visible;
     }
-
 
     .item-name {
         font-size: 10px;
@@ -1832,17 +1790,11 @@ body.dark-mode .search-result-message {
         line-height: 1.2;
     }
 
-
-    /*
-     * 手機的輸入欄位維持小巧，
-     * 避免把 4 欄商品卡撐壞。
-     */
     .collection-input-row {
         gap: 2px;
 
         margin-top: 3px;
     }
-
 
     .collection-input-label {
         width: 20px;
@@ -1851,7 +1803,6 @@ body.dark-mode .search-result-message {
 
         line-height: 22px;
     }
-
 
     .quantity-input-field,
     .total-price-input-field,
@@ -1870,16 +1821,13 @@ body.dark-mode .search-result-message {
         border-radius: 5px;
     }
 
-
     .price-input {
         gap: 1px;
     }
 
-
     .price-input > span {
         font-size: 7px;
     }
-
 
     .collection-average-price {
         width: 42px;
@@ -1891,11 +1839,6 @@ body.dark-mode .search-result-message {
         font-size: 8px;
     }
 
-
-    /*
-     * 手機收藏勾勾稍微縮小，
-     * 但仍然完整浮在卡片外。
-     */
     .item.selected::after {
         top: -8px;
 
@@ -1908,7 +1851,6 @@ body.dark-mode .search-result-message {
         font-size: 10px;
     }
 
-
     .settings-button {
         right: 14px;
 
@@ -1918,23 +1860,18 @@ body.dark-mode .search-result-message {
         height: 44px;
     }
 
-
     .settings-panel {
         max-width: 100%;
     }
-
 }
 
 
 /* =========================================
-   34. 更小手機
+   更小手機
    ========================================= */
 
 @media (max-width: 380px) {
 
-    /*
-     * 仍然維持一列 4 隻
-     */
     .catalog-grid {
         grid-template-columns:
             repeat(4, minmax(0, 1fr));
@@ -1946,7 +1883,6 @@ body.dark-mode .search-result-message {
         overflow: visible;
     }
 
-
     .item {
         padding: 4px;
 
@@ -1955,24 +1891,20 @@ body.dark-mode .search-result-message {
         overflow: visible;
     }
 
-
     .item.selected {
         padding: 3px;
 
         overflow: visible;
     }
 
-
     .item-name {
         font-size: 9px;
     }
-
 
     .progress-card-count,
     .progress-card-price {
         font-size: 14px;
     }
-
 
     .filter-button {
         padding:
@@ -1981,24 +1913,20 @@ body.dark-mode .search-result-message {
         font-size: 12px;
     }
 
-
     .settings-item {
         padding:
             15px;
     }
 
-
     .collection-input-row {
         gap: 1px;
     }
-
 
     .collection-input-label {
         width: 18px;
 
         font-size: 7px;
     }
-
 
     .quantity-input-field,
     .total-price-input-field,
@@ -2012,7 +1940,6 @@ body.dark-mode .search-result-message {
         font-size: 9px;
     }
 
-
     .collection-average-price {
         width: 38px;
 
@@ -2023,11 +1950,9 @@ body.dark-mode .search-result-message {
         font-size: 7px;
     }
 
-
     .price-input > span {
         font-size: 6px;
     }
-
 
     .item.selected::after {
         top: -7px;
@@ -2040,5 +1965,4 @@ body.dark-mode .search-result-message {
 
         font-size: 9px;
     }
-
 }

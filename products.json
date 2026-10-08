@@ -653,7 +653,7 @@
     {
         "id": "cn1",
         "name": "小腳",
-        "image": "image/5.cn/cn1.JPG",
+        "image": "image/5.cn/cn1.jpg",
         "category": "娃娃",
         "subcategory": "中國"
     },
@@ -674,14 +674,56 @@
     {
         "id": "cn5",
         "name": "搪膠睡衣",
-        "image": "image/5.cn/cn5.JPG",
+        "image": "image/5.cn/cn5.jpg",
         "category": "娃娃",
         "subcategory": "中國"
     },
     {
         "id": "cn2",
         "name": "泳圈",
-        "image": "image/5.cn/cn2.JPG",
+        "image": "image/5.cn/cn2.jpg",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn6",
+        "name": "萬聖節",
+        "image": "image/5.cn/cn6.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn7",
+        "name": "毛茸茸",
+        "image": "image/5.cn/cn7.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn8",
+        "name": "熊熊徽章",
+        "image": "image/5.cn/cn8.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn9",
+        "name": "熊熊",
+        "image": "image/5.cn/cn9.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn10",
+        "name": "熊熊包",
+        "image": "image/5.cn/cn10.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn11",
+        "name": "熊熊保暖毯",
+        "image": "image/5.cn/cn11.JPG",
         "category": "娃娃",
         "subcategory": "中國"
     },

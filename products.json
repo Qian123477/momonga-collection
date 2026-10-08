@@ -595,6 +595,41 @@
         "subcategory": "S娃"
     },
     {
+        "id": "pl16",
+        "name": "飯糰1",
+        "image": "image/2.pl/pl16.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl17",
+        "name": "飯糰2",
+        "image": "image/2.pl/pl17.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl18",
+        "name": "potetama",
+        "image": "image/2.pl/pl18.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl19",
+        "name": "早期飯糰",
+        "image": "image/2.pl/pl19.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl20",
+        "name": "聖誕",
+        "image": "image/2.pl/pl20.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
         "id": "pr1",
         "name": "超BIG魔法少女",
         "image": "image/3.pr/pr1.JPG",

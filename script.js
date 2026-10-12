@@ -1124,6 +1124,91 @@ document.addEventListener(
 
                 }
 
+                // -------------------------------------------------
+                // 第一次收藏時自動帶入原價
+                //
+                // 只有尚未儲存總價的商品才會自動帶入，
+                // 使用者手動修改的價格不會被覆蓋。
+                // -------------------------------------------------
+
+                const savedTotalPrice =
+                    localStorage.getItem(
+                        getTotalPriceKey(
+                            product.id
+                        )
+                    );
+
+
+                const originalPrice =
+                    Number(
+                        product.originalPrice
+                    );
+
+
+                const hasOriginalPrice =
+                    product.originalPrice !==
+                        undefined &&
+
+                    product.originalPrice !==
+                        null &&
+
+                    product.originalPrice !==
+                        "" &&
+
+                    Number.isFinite(
+                        originalPrice
+                    ) &&
+
+                    originalPrice >= 0;
+
+
+                if (
+                    savedTotalPrice ===
+                        null &&
+
+                    totalPriceField.value ===
+                        "" &&
+
+                    hasOriginalPrice
+                ) {
+
+                    const quantity =
+                        Math.floor(
+                            Number(
+                                quantityField.value
+                            )
+                        );
+
+
+                    const initialTotalPrice =
+                        originalPrice *
+                        quantity;
+
+
+                    totalPriceField.value =
+                        String(
+                            initialTotalPrice
+                        );
+
+
+                    saveTotalPrice(
+                        product.id,
+                        totalPriceField.value
+                    );
+
+                }
+
+                saveQuantity(
+                    product.id,
+                    quantityField.value
+                );
+
+
+                updateAveragePrice(
+                    quantityField,
+                    totalPriceField,
+                    averagePriceValue
+                );
 
                 saveQuantity(
                     product.id,

@@ -924,7 +924,7 @@
         "subcategory": "其他"
     },
     {
-        "id": "ot14",
+        "id": "ot13",
         "name": "迷你頭套",
         "image": "image/4.ot/ot13.JPG",
         "category": "娃娃",
@@ -1015,7 +1015,7 @@
         "subcategory": "其他"
     },
     {
-        "id": "ot28",
+        "id": "ot27",
         "name": "口金包",
         "image": "image/4.ot/ot27.JPG",
         "category": "娃娃",
@@ -1844,13 +1844,6 @@
         "id": "kc2",
         "name": "",
         "image": "image/12.kc/kc2.JPG",
-        "category": "其他周邊",
-        "subcategory": "鑰匙圈"
-    },
-    {
-        "id": "kc3",
-        "name": "",
-        "image": "image/12.kc/kc3.JPG",
         "category": "其他周邊",
         "subcategory": "鑰匙圈"
     },
@@ -3477,13 +3470,6 @@
         "image": "image/17.jw/jw17.JPG",
         "category": "其他周邊",
         "subcategory": "飾品"
-    },
-    {
-        "id": "hm1",
-        "name": "",
-        "image": "image/18.hm/hm18.JPG",
-        "category": "其他周邊",
-        "subcategory": "生活用品"
     },
     {
         "id": "hm1",

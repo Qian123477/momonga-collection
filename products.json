@@ -560,6 +560,41 @@
         "subcategory": "吊飾"
     },
     {
+        "id": "ac84",
+        "name": "磁吸坐姿",
+        "image": "image/1.ac/ac84.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac86",
+        "name": "牛奶",
+        "image": "image/1.ac/ac86.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac87",
+        "name": "扭蛋坐姿",
+        "image": "image/1.ac/ac87.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac88",
+        "name": "扭蛋坐姿 part2",
+        "image": "image/1.ac/ac88.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac89",
+        "name": "扭蛋趴娃",
+        "image": "image/1.ac/ac89.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
         "id": "pl1",
         "name": "可動姿勢",
         "image": "image/2.pl/pl1.JPG",
@@ -700,6 +735,27 @@
         "subcategory": "S娃"
     },
     {
+        "id": "pl21",
+        "name": "酷洛米二代",
+        "image": "image/2.pl/pl21.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl22",
+        "name": "牛奶",
+        "image": "image/2.pl/pl22.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl23",
+        "name": "抱抱",
+        "image": "image/2.pl/pl23.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
         "id": "pr1",
         "name": "超BIG魔法少女",
         "image": "image/3.pr/pr1.JPG",
@@ -731,6 +787,55 @@
         "id": "pr5",
         "name": "C賞 微笑",
         "image": "image/3.pr/pr5.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr6",
+        "name": "大頭抱枕",
+        "image": "image/3.pr/pr6.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr7",
+        "name": 酷洛米",
+        "image": "image/3.pr/pr7.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr8",
+        "name": "38cm大趴趴",
+        "image": "image/3.pr/pr8.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr9",
+        "name": "手捧",
+        "image": "image/3.pr/pr9.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr10",
+        "name": "比耶",
+        "image": "image/3.pr/pr10.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr11",
+        "name": "襁褓",
+        "image": "image/3.pr/pr11.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr12",
+        "name": "搖屁股",
+        "image": "image/3.pr/pr12.JPG",
         "category": "娃娃",
         "subcategory": "大娃/抱枕"
     },
@@ -780,6 +885,139 @@
         "id": "ot7",
         "name": "大強翻轉包",
         "image": "image/4.ot/ot7.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot8",
+        "name": "酷洛米側背包",
+        "image": "image/4.ot/ot8.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot9",
+        "name": "毛絨卡套",
+        "image": "image/4.ot/ot9.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot10",
+        "name": "哭哭毛絨卡套",
+        "image": "image/4.ot/ot10.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot11",
+        "name": "指環",
+        "image": "image/4.ot/ot11.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot12",
+        "name": "零錢包",
+        "image": "image/4.ot/ot12.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot14",
+        "name": "迷你頭套",
+        "image": "image/4.ot/ot13.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot14",
+        "name": "伸縮卡套",
+        "image": "image/4.ot/ot14.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot15",
+        "name": "大頭鏡子",
+        "image": "image/4.ot/ot15.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot16",
+        "name": "抱抱抓夾",
+        "image": "image/4.ot/ot16.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot17",
+        "name": "樂園髮箍",
+        "image": "image/4.ot/ot17.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot18",
+        "name": "毛茸茸側背包",
+        "image": "image/4.ot/ot18.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot19",
+        "name": "扭蛋迷你臉型束口袋",
+        "image": "image/4.ot/ot19.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot20",
+        "name": "樂園臉型束口袋",
+        "image": "image/4.ot/ot20.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot21",
+        "name": "臉型束口袋 part1",
+        "image": "image/4.ot/ot21.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot22",
+        "name": "臉型束口袋 part2",
+        "image": "image/4.ot/ot22.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot23",
+        "name": "樂園雙面貝雷帽",
+        "image": "image/4.ot/ot23.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot24",
+        "name": "迷你手提包",
+        "image": "image/4.ot/ot24.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot25",
+        "name": "毛茸茸頭套",
+        "image": "image/4.ot/ot25.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot28",
+        "name": "口金包",
+        "image": "image/4.ot/ot27.JPG",
         "category": "娃娃",
         "subcategory": "其他"
     },
@@ -999,6 +1237,27 @@
         "image": "image/6.hk/hk3.JPG",
         "category": "娃娃",
         "subcategory": "香港"
+    },
+    {
+        "id": "tw1",
+        "name": "芋園",
+        "image": "image/7.tw/tw1.JPG",
+        "category": "娃娃",
+        "subcategory": "台灣"
+    },
+    {
+        "id": "tw2",
+        "name": "芋園S",
+        "image": "image/7.tw/tw2.JPG",
+        "category": "娃娃",
+        "subcategory": "台灣"
+    },
+    {
+        "id": "tw3",
+        "name": "BIG芋園 50cm",
+        "image": "image/7.tw/tw3.JPG",
+        "category": "娃娃",
+        "subcategory": "台灣"
     },
     {
         "id": "hk4",
@@ -1545,6 +1804,356 @@
         "image": "image/11.fg/fg6.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
+    },
+    {
+        "id": "fg7",
+        "name": "",
+        "image": "image/11.fg/fg7.JPG",
+        "category": "其他周邊",
+        "subcategory": "公仔"
+    },
+    {
+        "id": "fg8",
+        "name": "",
+        "image": "image/11.fg/fg8.JPG",
+        "category": "其他周邊",
+        "subcategory": "公仔"
+    },
+    {
+        "id": "fg9",
+        "name": "珠寶盒",
+        "image": "image/11.fg/fg9.JPG",
+        "category": "其他周邊",
+        "subcategory": "公仔"
+    },
+    {
+        "id": "fg10",
+        "name": "糖果包",
+        "image": "image/11.fg/fg10.JPG",
+        "category": "其他周邊",
+        "subcategory": "公仔"
+    },
+    {
+        "id": "kc1",
+        "name": "",
+        "image": "image/12.kc/kc1.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc2",
+        "name": "",
+        "image": "image/12.kc/kc2.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc3",
+        "name": "",
+        "image": "image/12.kc/kc3.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc3",
+        "name": "",
+        "image": "image/12.kc/kc3.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc4",
+        "name": "",
+        "image": "image/12.kc/kc4.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc5",
+        "name": "",
+        "image": "image/12.kc/kc5.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc6",
+        "name": "",
+        "image": "image/12.kc/kc6.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc7",
+        "name": "",
+        "image": "image/12.kc/kc7.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc8",
+        "name": "",
+        "image": "image/12.kc/kc8.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc9",
+        "name": "",
+        "image": "image/12.kc/kc9.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc10",
+        "name": "",
+        "image": "image/12.kc/kc10.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc11",
+        "name": "",
+        "image": "image/12.kc/kc11.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc12",
+        "name": "",
+        "image": "image/12.kc/kc12.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc13",
+        "name": "",
+        "image": "image/12.kc/kc13.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc14",
+        "name": "",
+        "image": "image/12.kc/kc14.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "kc4",
+        "name": "",
+        "image": "image/12.kc/kc4.JPG",
+        "category": "其他周邊",
+        "subcategory": "鑰匙圈"
+    },
+    {
+        "id": "mg1",
+        "name": "",
+        "image": "image/13.mg/mg1.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg2",
+        "name": "",
+        "image": "image/13.mg/mg2.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg3",
+        "name": "",
+        "image": "image/13.mg/mg3.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg4",
+        "name": "",
+        "image": "image/13.mg/mg4.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg5",
+        "name": "",
+        "image": "image/13.mg/mg5.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg6",
+        "name": "",
+        "image": "image/13.mg/mg6.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg7",
+        "name": "",
+        "image": "image/13.mg/mg7.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg8",
+        "name": "",
+        "image": "image/13.mg/mg8.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg9",
+        "name": "",
+        "image": "image/13.mg/mg9.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg10",
+        "name": "",
+        "image": "image/13.mg/mg10.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg11",
+        "name": "",
+        "image": "image/13.mg/mg11.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg12",
+        "name": "",
+        "image": "image/13.mg/mg12.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg13",
+        "name": "",
+        "image": "image/13.mg/mg13.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg14",
+        "name": "",
+        "image": "image/13.mg/mg14.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg15",
+        "name": "",
+        "image": "image/13.mg/mg15.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg16",
+        "name": "",
+        "image": "image/13.mg/mg16.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg17",
+        "name": "",
+        "image": "image/13.mg/mg17.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg18",
+        "name": "",
+        "image": "image/13.mg/mg18.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg19",
+        "name": "",
+        "image": "image/13.mg/mg19.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg20",
+        "name": "",
+        "image": "image/13.mg/mg20.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg21",
+        "name": "",
+        "image": "image/13.mg/mg21.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg22",
+        "name": "",
+        "image": "image/13.mg/mg22.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg23",
+        "name": "",
+        "image": "image/13.mg/mg23.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg24",
+        "name": "",
+        "image": "image/13.mg/mg24.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg25",
+        "name": "",
+        "image": "image/13.mg/mg25.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg26",
+        "name": "",
+        "image": "image/13.mg/mg26.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg27",
+        "name": "",
+        "image": "image/13.mg/mg27.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg28",
+        "name": "",
+        "image": "image/13.mg/mg28.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg29",
+        "name": "",
+        "image": "image/13.mg/mg29.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
+    },
+    {
+        "id": "mg30",
+        "name": "",
+        "image": "image/13.mg/mg30.JPG",
+        "category": "其他周邊",
+        "subcategory": "磁鐵"
     },
     {
         "id": "bg1",
@@ -2226,6 +2835,27 @@
         "subcategory": "包包"
     },
     {
+        "id": "bg98",
+        "name": "",
+        "image": "image/14.bg/bg98.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包"
+    },
+    {
+        "id": "bg99",
+        "name": "",
+        "image": "image/14.bg/bg99.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包"
+    },
+    {
+        "id": "bg100",
+        "name": "",
+        "image": "image/14.bg/bg100.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包"
+    },
+    {
         "id": "hn1",
         "name": "",
         "image": "image/16.hn/hn1.JPG",
@@ -2728,5 +3358,130 @@
         "image": "image/16.hn/hn72.JPG",
         "category": "其他周邊",
         "subcategory": "手帕/布"
-    }
+    },
+    {
+        "id": "jw1",
+        "name": "",
+        "image": "image/17.jw/jw1.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw2",
+        "name": "",
+        "image": "image/17.jw/jw2.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw3",
+        "name": "",
+        "image": "image/17.jw/jw3.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw4",
+        "name": "",
+        "image": "image/17.jw/jw4.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw5",
+        "name": "",
+        "image": "image/17.jw/jw5.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw6",
+        "name": "",
+        "image": "image/17.jw/jw6.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw7",
+        "name": "",
+        "image": "image/17.jw/jw7.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw8",
+        "name": "",
+        "image": "image/17.jw/jw8.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw9",
+        "name": "",
+        "image": "image/17.jw/jw9.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw10",
+        "name": "",
+        "image": "image/17.jw/jw10.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw11",
+        "name": "",
+        "image": "image/17.jw/jw11.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw12",
+        "name": "",
+        "image": "image/17.jw/jw12.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw13",
+        "name": "",
+        "image": "image/17.jw/jw13.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw14",
+        "name": "",
+        "image": "image/17.jw/jw14.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw15",
+        "name": "",
+        "image": "image/17.jw/jw15.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw16",
+        "name": "",
+        "image": "image/17.jw/jw16.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "jw17",
+        "name": "",
+        "image": "image/17.jw/jw17.JPG",
+        "category": "其他周邊",
+        "subcategory": "飾品"
+    },
+    {
+        "id": "hm1",
+        "name": "",
+        "image": "image/18.hm/hm18.JPG",
+        "category": "其他周邊",
+        "subcategory": "生活用品"
 ]

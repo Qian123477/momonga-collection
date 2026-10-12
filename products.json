@@ -12,7 +12,7 @@
         "name": "肉包",
         "image": "image/1.ac/ac2.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -20,7 +20,7 @@
         "name": "麵包店員",
         "image": "image/1.ac/ac3.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 440
     },
     {
@@ -28,7 +28,7 @@
         "name": "草裙",
         "image": "image/1.ac/ac4.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -36,7 +36,7 @@
         "name": "蝙蝠",
         "image": "image/1.ac/ac5.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -44,7 +44,7 @@
         "name": "搪膠寶寶",
         "image": "image/1.ac/ac6.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -52,7 +52,7 @@
         "name": "樂園毛絨",
         "image": "image/1.ac/ac7.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 330
     },
     {
@@ -60,7 +60,7 @@
         "name": "圓軟小腳",
         "image": "image/1.ac/ac8.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -68,7 +68,7 @@
         "name": "寶寶趴娃",
         "image": "image/1.ac/ac9.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -76,7 +76,7 @@
         "name": "快遞",
         "image": "image/1.ac/ac10.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 352
     },
     {
@@ -84,7 +84,7 @@
         "name": "搪膠酷洛米",
         "image": "image/1.ac/ac11.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 484
     },
     {
@@ -92,7 +92,7 @@
         "name": "搪膠泰迪熊",
         "image": "image/1.ac/ac12.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 484
     },
     {
@@ -100,7 +100,7 @@
         "name": "應援電腦掛",
         "image": "image/1.ac/ac13.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -108,7 +108,7 @@
         "name": "手卷",
         "image": "image/1.ac/ac15.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -116,7 +116,7 @@
         "name": "魔法少女 亞種",
         "image": "image/1.ac/ac16.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -124,7 +124,7 @@
         "name": "披薩",
         "image": "image/1.ac/ac18.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -132,7 +132,7 @@
         "name": "棒球",
         "image": "image/1.ac/ac19.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -140,7 +140,7 @@
         "name": "趴趴",
         "image": "image/1.ac/ac20.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -148,7 +148,7 @@
         "name": "蓬鬆尾巴",
         "image": "image/1.ac/ac21.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -156,7 +156,7 @@
         "name": "寶寶",
         "image": "image/1.ac/ac22.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -164,7 +164,7 @@
         "name": "星星",
         "image": "image/1.ac/ac23.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -172,7 +172,7 @@
         "name": "魔法趴娃",
         "image": "image/1.ac/ac24.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -180,7 +180,7 @@
         "name": "哭哭",
         "image": "image/1.ac/ac25.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -188,7 +188,7 @@
         "name": "麵包",
         "image": "image/1.ac/ac26.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -203,7 +203,7 @@
         "name": "餐廳",
         "image": "image/1.ac/ac28.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -211,7 +211,7 @@
         "name": "寄生",
         "image": "image/1.ac/ac29.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 242
     },
     {
@@ -219,7 +219,7 @@
         "name": "飛天",
         "image": "image/1.ac/ac30.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -227,7 +227,7 @@
         "name": "手捧",
         "image": "image/1.ac/ac31.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 352
     },
     {
@@ -235,7 +235,7 @@
         "name": "南瓜",
         "image": "image/1.ac/ac32.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -243,7 +243,7 @@
         "name": "糖果",
         "image": "image/1.ac/ac33.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -251,7 +251,7 @@
         "name": "魔法二代",
         "image": "image/1.ac/ac34.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 352
     },
     {
@@ -259,7 +259,7 @@
         "name": "版急",
         "image": "image/1.ac/ac35.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -267,7 +267,7 @@
         "name": "沙包",
         "image": "image/1.ac/ac36.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 220
     },
     {
@@ -275,7 +275,7 @@
         "name": "螃蟹",
         "image": "image/1.ac/ac37.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 264
     },
     {
@@ -283,7 +283,7 @@
         "name": "手牽手磁吸",
         "image": "image/1.ac/ac38.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -291,7 +291,7 @@
         "name": "襁褓",
         "image": "image/1.ac/ac39.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 330
     },
     {
@@ -299,7 +299,7 @@
         "name": "惡",
         "image": "image/1.ac/ac40.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -307,7 +307,7 @@
         "name": "海天使",
         "image": "image/1.ac/ac41.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 330
     },
     {
@@ -315,7 +315,7 @@
         "name": "菠羅電腦掛",
         "image": "image/1.ac/ac42.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 396
     },
     {
@@ -323,7 +323,7 @@
         "name": "睡衣",
         "image": "image/1.ac/ac43.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 308
     },
     {
@@ -331,7 +331,7 @@
         "name": "惡魔",
         "image": "image/1.ac/ac44.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 330
     },
     {
@@ -339,7 +339,7 @@
         "name": "酷洛米電腦掛",
         "image": "image/1.ac/ac45.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 374
     },
     {
@@ -347,7 +347,7 @@
         "name": "小腳",
         "image": "image/1.ac/ac46.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 264
     },
     {
@@ -355,7 +355,7 @@
         "name": "來來",
         "image": "image/1.ac/ac47.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -363,7 +363,7 @@
         "name": "魔法一代",
         "image": "image/1.ac/ac48.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 330
     },
     {
@@ -371,7 +371,7 @@
         "name": "酷洛米初代",
         "image": "image/1.ac/ac49.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -379,7 +379,7 @@
         "name": "初代鈴鐺",
         "image": "image/1.ac/ac50.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 132
     },
     {
@@ -387,7 +387,7 @@
         "name": "樂園",
         "image": "image/1.ac/ac51.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 286
     },
     {
@@ -647,7 +647,7 @@
         "name": "可動姿勢",
         "image": "image/2.pl/pl1.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 440
     },
     {
@@ -655,7 +655,7 @@
         "name": "樂園毛茸茸",
         "image": "image/2.pl/pl2.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 484
     },
     {
@@ -663,7 +663,7 @@
         "name": "圓滾蓬鬆坐姿",
         "image": "image/2.pl/pl3.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 506
     },
     {
@@ -671,7 +671,7 @@
         "name": "委屈",
         "image": "image/2.pl/pl4.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 440
     },
     {
@@ -679,7 +679,7 @@
         "name": "貝雷帽",
         "image": "image/2.pl/pl5.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 440
     },
     {
@@ -687,7 +687,7 @@
         "name": "毛茸茸",
         "image": "image/2.pl/pl6.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 462
     },
     {
@@ -695,7 +695,7 @@
         "name": "惡魔",
         "image": "image/2.pl/pl7.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 550
     },
     {
@@ -703,7 +703,7 @@
         "name": "魔法",
         "image": "image/2.pl/pl8.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
         "originalPrice": 704
     },
     {
@@ -816,7 +816,7 @@
         "name": "超BIG魔法少女",
         "image": "image/3.pr/pr1.JPG",
         "category": "娃娃",
-        "subcategory": "大娃/抱枕"
+        "subcategory": "大娃/抱枕",
         "originalPrice": 3740
     },
     {

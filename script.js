@@ -1210,18 +1210,6 @@ document.addEventListener(
                     averagePriceValue
                 );
 
-                saveQuantity(
-                    product.id,
-                    quantityField.value
-                );
-
-
-                updateAveragePrice(
-                    quantityField,
-                    totalPriceField,
-                    averagePriceValue
-                );
-
 
                 setTimeout(
                     () => {

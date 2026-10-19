@@ -643,6 +643,20 @@
         "subcategory": "吊飾"
     },
     {
+        "id": "ac90",
+        "name": "鏡餅",
+        "image": "image/1.ac/ac90.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
+        "id": "ac91",
+        "name": "ANA聯名",
+        "image": "image/1.ac/ac91.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
         "id": "pl1",
         "name": "可動姿勢",
         "image": "image/2.pl/pl1.JPG",

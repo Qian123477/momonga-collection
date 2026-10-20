@@ -1564,45 +1564,46 @@ document.addEventListener(
                 )
                 {
 
-                    // -------------------------------------------------
-                    // 將商品原價換算成目前顯示幣別
-                    // -------------------------------------------------
+                // -------------------------------------------------
+                // 將商品原價換算成目前顯示幣別
+                // -------------------------------------------------
 
-                    const originalCurrency =
-                        currencyNames[
-                            product.originalCurrency
-                        ]
-                            ? product.originalCurrency
-                            : "TWD";
-
-
-                    const convertedOriginalPrice =
-                        convertCurrency(
-                            originalPrice,
-                            originalCurrency,
-                            displayCurrency
-                        );
+                const originalCurrency =
+                    currencyNames[
+                        product.originalCurrency
+                    ]
+                        ? product.originalCurrency
+                        : "TWD";
 
 
-                    const initialTotalPrice =
-                        convertedOriginalPrice *
-                        quantity;
-
-
-                    totalPriceField.value =
-                        String(
-                            Math.round(
-                                initialTotalPrice * 100
-                            ) / 100
-                        );
-
-
-                    saveTotalPriceWithCurrency(
-                        product.id,
-                        totalPriceField.value
+                const convertedOriginalPrice =
+                    convertCurrency(
+                        originalPrice,
+                        originalCurrency,
+                        displayCurrency
                     );
-                }
 
+
+                const initialTotalPrice =
+                    convertedOriginalPrice *
+                    Number(
+                        quantityField.value
+                    );
+
+
+                totalPriceField.value =
+                    String(
+                        Math.round(
+                            initialTotalPrice * 100
+                        ) / 100
+                    );
+
+
+                saveTotalPriceWithCurrency(
+                    product.id,
+                    totalPriceField.value
+                );
+                    
                 saveQuantity(
                     product.id,
                     quantityField.value
@@ -2083,6 +2084,7 @@ document.addEventListener(
         }
 
 
+
         // =========================================================
         // 14. 收藏總花費
         // =========================================================
@@ -2113,7 +2115,10 @@ document.addEventListener(
                         );
 
 
+                    // -------------------------------------------------
                     // 新版總價
+                    // -------------------------------------------------
+
                     if (
                         savedTotalPrice !==
                         null
@@ -2130,26 +2135,27 @@ document.addEventListener(
                                 totalPrice
                             ) &&
                             totalPrice >= 0
-                        )
-                        {
-                        // -------------------------------------------------
-                        // 換算成目前顯示幣別
-                        // -------------------------------------------------
+                        ) {
 
-                        const storedCurrency =
-                            localStorage.getItem(
-                                getStoredCurrencyKey(
-                                    product.id
-                                )
-                            ) || "TWD";
+                            // -------------------------------------------------
+                            // 換算成目前顯示幣別
+                            // -------------------------------------------------
+
+                            const storedCurrency =
+                                localStorage.getItem(
+                                    getStoredCurrencyKey(
+                                        product.id
+                                    )
+                                ) || "TWD";
 
 
-                        totalSpent +=
-                            convertCurrency(
-                                totalPrice,
-                                storedCurrency,
-                                displayCurrency
-                            );
+                            totalSpent +=
+                                convertCurrency(
+                                    totalPrice,
+                                    storedCurrency,
+                                    displayCurrency
+                                );
+
                         }
 
 
@@ -2157,7 +2163,10 @@ document.addEventListener(
                     }
 
 
+                    // -------------------------------------------------
                     // 舊版均價 × 數量
+                    // -------------------------------------------------
+
                     const oldPrice =
                         localStorage.getItem(
                             getPriceKey(
@@ -2231,6 +2240,7 @@ document.addEventListener(
 
                     }
 
+
                     // -------------------------------------------------
                     // 舊版均價以台幣儲存
                     // -------------------------------------------------
@@ -2243,30 +2253,32 @@ document.addEventListener(
                             displayCurrency
                         );
 
+                }
+            );
+
+
+            // -------------------------------------------------
+            // 更新收藏總花費
+            // -------------------------------------------------
+
             const element =
                 document.getElementById(
                     "total-spent"
                 );
 
 
-            if (element) {
+            if (
+                element
+            ) {
+
                 element.textContent =
                     formatMoney(
                         totalSpent
                     );
+
             }
+
         }
-
-
-        function updateAllStatistics() {
-
-            updateCategoryStatistics();
-
-            updateTotalCollected();
-
-            updateTotalSpent();
-        }
-
 
         // =========================================================
         // 15. 搜尋與篩選
@@ -2685,11 +2697,8 @@ document.addEventListener(
 
         function loadTheme() {
 
-            const savedTheme =
-                localStorage.getItem(
-                    "momo_theme"
-                );
-
+        const theme =
+                    localStorage.getItem("momo_theme");
 
             if (
                 savedTheme ===

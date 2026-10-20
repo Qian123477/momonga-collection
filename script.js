@@ -2521,17 +2521,3 @@ document.addEventListener(
 
   }
 );
-
-    if (confirmOverlay) {
-
-      confirmOverlay.addEventListener(
-        "click",
-        event => {
-          if (event.target === confirmOverlay) {
-            confirmOverlay.classList.remove("show");
-          }
-        }
-      );
-
-    }
-

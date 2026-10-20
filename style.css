@@ -1966,3 +1966,57 @@ html.dark-mode .cancel-button {
         font-size: 9px;
     }
 }
+
+/* 幣別設定 */
+.settings-section {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.settings-section h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+}
+
+.settings-section label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 14px;
+}
+
+.settings-section select,
+.settings-section input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font: inherit;
+}
+
+.settings-section [hidden] {
+    display: none !important;
+}
+
+.settings-hint {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+body.dark-mode .settings-section {
+    border-top-color: #444;
+}
+
+body.dark-mode .settings-section select,
+body.dark-mode .settings-section input {
+    background: #292929;
+    color: #f5f5f5;
+    border-color: #555;
+}
+

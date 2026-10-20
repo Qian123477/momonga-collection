@@ -154,9 +154,11 @@ document.addEventListener(
       };
     }
 
+
     function refreshCurrencyDisplays() {
       // 從儲存值重新渲染，避免重複換算
       renderCatalog();
+      refreshPurchasePriceFields();
       applyFilters();
       updateAllStatistics();
     }

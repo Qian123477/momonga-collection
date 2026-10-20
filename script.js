@@ -3042,16 +3042,14 @@ document.addEventListener(
             }
         );
 
-
         // =========================================================
         // 22. 啟動
         // =========================================================
 
         loadTheme();
 
+        initializeCurrencySettings();
+
         renderCatalog();
 
         applyFilters();
-
-    }
-);

@@ -785,7 +785,7 @@
     },
     {
         "id": "pl18",
-        "name": "potetama",
+        "name": "早期potetama",
         "image": "image/2.pl/pl18.JPG",
         "category": "娃娃",
         "subcategory": "S娃"
@@ -822,6 +822,20 @@
         "id": "pl23",
         "name": "抱抱",
         "image": "image/2.pl/pl23.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl24",
+        "name": "說話景品",
+        "image": "image/2.pl/pl24.JPG",
+        "category": "娃娃",
+        "subcategory": "S娃"
+    },
+    {
+        "id": "pl25",
+        "name": "potetama",
+        "image": "image/2.pl/pl25.JPG",
         "category": "娃娃",
         "subcategory": "S娃"
     },
@@ -911,6 +925,20 @@
         "subcategory": "大娃/抱枕"
     },
     {
+        "id": "pr13",
+        "name": "45cm",
+        "image": "image/3.pr/pr13.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr14",
+        "name": "睡衣",
+        "image": "image/3.pr/pr14.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
         "id": "ot1",
         "name": "大頭購物袋",
         "image": "image/4.ot/ot1.JPG",
@@ -990,7 +1018,7 @@
     },
     {
         "id": "ot12",
-        "name": "零錢包",
+        "name": "盲抽零錢包",
         "image": "image/4.ot/ot12.JPG",
         "category": "娃娃",
         "subcategory": "其他"
@@ -1032,7 +1060,7 @@
     },
     {
         "id": "ot18",
-        "name": "毛茸茸側背包",
+        "name": "毛茸茸大頭側背包",
         "image": "image/4.ot/ot18.JPG",
         "category": "娃娃",
         "subcategory": "其他"
@@ -1081,7 +1109,7 @@
     },
     {
         "id": "ot25",
-        "name": "毛茸茸頭套",
+        "name": "樂園毛茸茸頭套",
         "image": "image/4.ot/ot25.JPG",
         "category": "娃娃",
         "subcategory": "其他"
@@ -1090,6 +1118,48 @@
         "id": "ot27",
         "name": "口金包",
         "image": "image/4.ot/ot27.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot28",
+        "name": "毛茸茸零錢包",
+        "image": "image/4.ot/ot28.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot29",
+        "name": "D賞 圓滾滾零錢包",
+        "image": "image/4.ot/ot29.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot30",
+        "name": "造型頭套",
+        "image": "image/4.ot/ot30.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot31",
+        "name": "造型帆布手提袋",
+        "image": "image/4.ot/ot31.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot32",
+        "name": "零食手提袋",
+        "image": "image/4.ot/ot32.JPG",
+        "category": "娃娃",
+        "subcategory": "其他"
+    },
+    {
+        "id": "ot33",
+        "name": "盲抽零錢包 好朋友篇",
+        "image": "image/4.ot/ot33.JPG",
         "category": "娃娃",
         "subcategory": "其他"
     },
@@ -1290,6 +1360,20 @@
         "subcategory": "中國"
     },
     {
+        "id": "cn29",
+        "name": "南京-鴨鴨",
+        "image": "image/5.cn/cn29.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
+        "id": "cn30",
+        "name": "娃島-情人節",
+        "image": "image/5.cn/cn30.JPG",
+        "category": "娃娃",
+        "subcategory": "中國"
+    },
+    {
         "id": "hk1",
         "name": "珍珠雞",
         "image": "image/6.hk/hk1.JPG",
@@ -1368,267 +1452,274 @@
     },
     {
         "id": "st1",
-        "name": "",
+        "name": "好朋友",
         "image": "image/9.st/st1.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st2",
-        "name": "",
+        "name": "東京-霓虹燈",
         "image": "image/9.st/st2.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st3",
-        "name": "",
+        "name": "讀賣巨人",
         "image": "image/9.st/st3.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st4",
-        "name": "",
+        "name": "魔法少女-下回預告",
         "image": "image/9.st/st4.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st5",
-        "name": "",
+        "name": "魔法少女-眼球翻白了",
         "image": "image/9.st/st5.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st6",
-        "name": "",
+        "name": "魔法少女-超魔法大家",
         "image": "image/9.st/st6.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st7",
-        "name": "",
+        "name": "魔法少女-大家",
         "image": "image/9.st/st7.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st8",
-        "name": "",
+        "name": "老虎機",
         "image": "image/9.st/st8.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st9",
-        "name": "",
+        "name": "餐廳場景",
         "image": "image/9.st/st9.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st10",
-        "name": "",
+        "name": "我英",
         "image": "image/9.st/st10.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st11",
-        "name": "",
+        "name": "版急",
         "image": "image/9.st/st11.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st12",
-        "name": "",
+        "name": "版急-GO!GO!",
         "image": "image/9.st/st12.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st13",
-        "name": "",
+        "name": "樂園特別寫真",
         "image": "image/9.st/st13.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st14",
-        "name": "",
+        "name": "樂園特別寫真 大家",
         "image": "image/9.st/st14.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st15",
-        "name": "",
+        "name": "交換-開心美味",
         "image": "image/9.st/st15.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st16",
-        "name": "",
+        "name": "天使惡魔-召喚",
         "image": "image/9.st/st16.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st17",
-        "name": "",
+        "name": "天使惡魔-心型",
         "image": "image/9.st/st17.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st18",
-        "name": "",
+        "name": "2Way-天使與惡魔",
         "image": "image/9.st/st18.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st19",
-        "name": "",
+        "name": "2Way-不要吃蘑菇!",
         "image": "image/9.st/st19.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st20",
-        "name": "",
+        "name": "2Way-頂起來!",
         "image": "image/9.st/st20.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st21",
-        "name": "",
+        "name": "2Way-日常",
         "image": "image/9.st/st21.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st22",
-        "name": "",
+        "name": "海天使",
         "image": "image/9.st/st22.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st23",
-        "name": "",
+        "name": "委屈",
         "image": "image/9.st/st23.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st24",
-        "name": "",
+        "name": "交換-更快樂的每一天",
         "image": "image/9.st/st24.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st25",
-        "name": "",
+        "name": "魔法少女-黑魔法 心型",
         "image": "image/9.st/st25.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st26",
-        "name": "",
+        "name": "魔法少女-超魔法",
         "image": "image/9.st/st26.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st27",
-        "name": "",
+        "name": "草裙",
         "image": "image/9.st/st27.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st28",
-        "name": "",
+        "name": "咖啡廳",
         "image": "image/9.st/st28.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st29",
-        "name": "",
+        "name": "三麗鷗",
         "image": "image/9.st/st29.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st30",
-        "name": "",
+        "name": "我英-鑰匙圈立牌",
         "image": "image/9.st/st30.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st31",
-        "name": "",
+        "name": "快安慰我",
         "image": "image/9.st/st31.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st32",
-        "name": "",
+        "name": "Nagano展-兔兔小桃",
         "image": "image/9.st/st32.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st33",
-        "name": "",
+        "name": "滾動西瓜",
         "image": "image/9.st/st33.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st34",
-        "name": "",
+        "name": "鬼怪之森",
         "image": "image/9.st/st34.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st35",
-        "name": "",
+        "name": "魔法少女-黑魔法",
         "image": "image/9.st/st35.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st36",
-        "name": "",
+        "name": "寶寶",
         "image": "image/9.st/st36.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st37",
-        "name": "",
+        "name": "Nagano展 大家集合",
         "image": "image/9.st/st37.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
     {
         "id": "st38",
-        "name": "",
+        "name": "魔法少女-彩繪玻璃",
         "image": "image/9.st/st38.JPG",
+        "category": "其他周邊",
+        "subcategory": "立牌"
+    },
+    {
+        "id": "st39",
+        "name": "拍照 拍照 多拍一點！",
+        "image": "image/9.st/st39.JPG",
         "category": "其他周邊",
         "subcategory": "立牌"
     },
@@ -1837,56 +1928,56 @@
     },
     {
         "id": "fg1",
-        "name": "",
+        "name": "裝可愛",
         "image": "image/11.fg/fg1.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg2",
-        "name": "",
+        "name": "裹著棉被",
         "image": "image/11.fg/fg2.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg3",
-        "name": "",
+        "name": "用尾巴把自己捲起來",
         "image": "image/11.fg/fg3.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg4",
-        "name": "",
+        "name": "純潔無辜的大眼睛",
         "image": "image/11.fg/fg4.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg5",
-        "name": "",
+        "name": "正在吃甜食",
         "image": "image/11.fg/fg5.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg6",
-        "name": "",
+        "name": "泡泡",
         "image": "image/11.fg/fg6.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg7",
-        "name": "",
+        "name": "迷你場景",
         "image": "image/11.fg/fg7.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"
     },
     {
         "id": "fg8",
-        "name": "",
+        "name": "吃什麼好呢",
         "image": "image/11.fg/fg8.JPG",
         "category": "其他周邊",
         "subcategory": "公仔"

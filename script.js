@@ -719,6 +719,7 @@ function createProductCard(product) {
       averagePriceValue.textContent = formatMoney(average);
     }
 
+
     // =========================================================
     // 10. 收藏數量統計
     // =========================================================
@@ -727,10 +728,33 @@ function createProductCard(product) {
       let totalQuantity = 0;
       let collectedTypes = 0;
 
+      let plushTotal = 0;
+      let plushCollected = 0;
+
+      let otherTotal = 0;
+      let otherCollected = 0;
+
       products.forEach(product => {
-        if (isCollected(product.id)) {
+        const category = product.category || "";
+        const collected = isCollected(product.id);
+
+        if (collected) {
           collectedTypes++;
           totalQuantity += getSavedQuantity(product.id);
+        }
+
+        if (category === "娃娃") {
+          plushTotal++;
+
+          if (collected) {
+            plushCollected++;
+          }
+        } else if (category === "其他周邊") {
+          otherTotal++;
+
+          if (collected) {
+            otherCollected++;
+          }
         }
       });
 
@@ -738,15 +762,62 @@ function createProductCard(product) {
         document.getElementById("total-collected");
 
       if (totalCollectedElement) {
-        totalCollectedElement.textContent =
-          `${totalQuantity} / ${products.length}`;
+        totalCollectedElement.textContent = collectedTypes;
       }
 
-      const collectedCountElement =
-        document.getElementById("collected-count");
+      const totalItemsElement =
+        document.getElementById("total-items");
 
-      if (collectedCountElement) {
-        collectedCountElement.textContent = collectedTypes;
+      if (totalItemsElement) {
+        totalItemsElement.textContent = totalQuantity;
+      }
+
+      const plushCollectedElement =
+        document.getElementById("plush-collected");
+
+      const plushTotalElement =
+        document.getElementById("plush-total");
+
+      const plushPercentageElement =
+        document.getElementById("plush-percentage");
+
+      if (plushCollectedElement) {
+        plushCollectedElement.textContent = plushCollected;
+      }
+
+      if (plushTotalElement) {
+        plushTotalElement.textContent = plushTotal;
+      }
+
+      if (plushPercentageElement) {
+        plushPercentageElement.textContent =
+          (plushTotal > 0
+            ? Math.round(plushCollected / plushTotal * 100)
+            : 0) + "%";
+      }
+
+      const otherCollectedElement =
+        document.getElementById("other-collected");
+
+      const otherTotalElement =
+        document.getElementById("other-total");
+
+      const otherPercentageElement =
+        document.getElementById("other-percentage");
+
+      if (otherCollectedElement) {
+        otherCollectedElement.textContent = otherCollected;
+      }
+
+      if (otherTotalElement) {
+        otherTotalElement.textContent = otherTotal;
+      }
+
+      if (otherPercentageElement) {
+        otherPercentageElement.textContent =
+          (otherTotal > 0
+            ? Math.round(otherCollected / otherTotal * 100)
+            : 0) + "%";
       }
     }
 

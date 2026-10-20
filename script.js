@@ -1471,189 +1471,103 @@ document.addEventListener(
         // 8. 收藏狀態
         // =========================================================
 
-        function handleCollectionChange(
-            product,
-            item,
-            checkbox,
-            priceArea,
-            totalPriceField,
-            quantityField,
-            averagePriceValue
+
+function handleCollectionChange(
+    product,
+    item,
+    checkbox,
+    priceArea,
+    totalPriceField,
+    quantityField,
+    averagePriceValue
+) {
+    if (checkbox.checked) {
+        localStorage.setItem(
+            getCollectionKey(product.id),
+            "true"
+        );
+
+        item.classList.add("selected");
+        priceArea.classList.add("show");
+
+        if (
+            !quantityField.value ||
+            Number(quantityField.value) < 1
         ) {
-
-            if (
-                checkbox.checked
-            ) {
-
-                localStorage.setItem(
-                    getCollectionKey(
-                        product.id
-                    ),
-                    "true"
-                );
-
-
-                item.classList.add(
-                    "selected"
-                );
-
-
-                priceArea.classList.add(
-                    "show"
-                );
-
-
-                // 沒有數量時預設 1
-                if (
-                    !quantityField.value ||
-                    Number(
-                        quantityField.value
-                    ) < 1
-                ) {
-
-                    quantityField.value =
-                        "1";
-
-                }
-
-                // -------------------------------------------------
-                // 第一次收藏時自動帶入原價
-                // 只有尚未儲存總價的商品才會自動帶入，
-                // 使用者手動修改的價格不會被覆蓋。
-                // -------------------------------------------------
-
-                const savedTotalPrice =
-                    localStorage.getItem(
-                        getTotalPriceKey(
-                            product.id
-                        )
-                    );
-
-
-                const originalPrice =
-                    Number(
-                        product.originalPrice
-                    );
-
-
-                const hasOriginalPrice =
-                    product.originalPrice !==
-                        undefined &&
-
-                    product.originalPrice !==
-                        null &&
-
-                    product.originalPrice !==
-                        "" &&
-
-                    Number.isFinite(
-                        originalPrice
-                    ) &&
-
-                    originalPrice >= 0;
-
-
-                if (
-                    savedTotalPrice ===
-                        null &&
-
-                    totalPriceField.value ===
-                        "" &&
-
-                    hasOriginalPrice
-                )
-                {
-
-                // -------------------------------------------------
-                // 將商品原價換算成目前顯示幣別
-                // -------------------------------------------------
-
-                const originalCurrency =
-                    currencyNames[
-                        product.originalCurrency
-                    ]
-                        ? product.originalCurrency
-                        : "TWD";
-
-
-                const convertedOriginalPrice =
-                    convertCurrency(
-                        originalPrice,
-                        originalCurrency,
-                        displayCurrency
-                    );
-
-
-                const initialTotalPrice =
-                    convertedOriginalPrice *
-                    Number(
-                        quantityField.value
-                    );
-
-
-                totalPriceField.value =
-                    String(
-                        Math.round(
-                            initialTotalPrice * 100
-                        ) / 100
-                    );
-
-
-                saveTotalPriceWithCurrency(
-                    product.id,
-                    totalPriceField.value
-                );
-                    
-                saveQuantity(
-                    product.id,
-                    quantityField.value
-                );
-
-
-                updateAveragePrice(
-                    quantityField,
-                    totalPriceField,
-                    averagePriceValue
-                );
-
-
-                setTimeout(
-                    () => {
-
-                        totalPriceField.focus();
-
-                    },
-                    50
-                );
-
-            } else {
-
-                localStorage.removeItem(
-                    getCollectionKey(
-                        product.id
-                    )
-                );
-
-
-                item.classList.remove(
-                    "selected"
-                );
-
-
-                priceArea.classList.remove(
-                    "show"
-                );
-
-                // 取消收藏不刪除總價與數量
-
-            }
-
-
-            updateAllStatistics();
-
-            applyFilters();
+            quantityField.value = "1";
         }
 
+        const savedTotalPrice = localStorage.getItem(
+            getTotalPriceKey(product.id)
+        );
+
+        const originalPrice = Number(product.originalPrice);
+
+        const hasOriginalPrice =
+            product.originalPrice !== undefined &&
+            product.originalPrice !== null &&
+            product.originalPrice !== "" &&
+            Number.isFinite(originalPrice) &&
+            originalPrice >= 0;
+
+        if (
+            savedTotalPrice === null &&
+            totalPriceField.value === "" &&
+            hasOriginalPrice
+        ) {
+            const originalCurrency =
+                currencyNames[product.originalCurrency]
+                    ? product.originalCurrency
+                    : "TWD";
+
+            const convertedOriginalPrice = convertCurrency(
+                originalPrice,
+                originalCurrency,
+                displayCurrency
+            );
+
+            const initialTotalPrice =
+                convertedOriginalPrice *
+                Number(quantityField.value);
+
+            totalPriceField.value = String(
+                Math.round(initialTotalPrice * 100) / 100
+            );
+
+            saveTotalPriceWithCurrency(
+                product.id,
+                totalPriceField.value
+            );
+
+            saveQuantity(
+                product.id,
+                quantityField.value
+            );
+
+            updateAveragePrice(
+                quantityField,
+                totalPriceField,
+                averagePriceValue
+            );
+
+            setTimeout(() => {
+                totalPriceField.focus();
+            }, 50);
+        }
+    } else {
+        localStorage.removeItem(
+            getCollectionKey(product.id)
+        );
+
+        item.classList.remove("selected");
+        priceArea.classList.remove("show");
+
+        // 取消收藏不刪除總價與數量
+    }
+
+    updateAllStatistics();
+    applyFilters();
+}
 
         // =========================================================
         // 9. 儲存總價
@@ -2695,31 +2609,19 @@ document.addEventListener(
         }
 
 
-        function loadTheme() {
+        
+function loadTheme() {
+    const savedTheme =
+        localStorage.getItem("momo_theme");
 
-        const theme =
-                    localStorage.getItem("momo_theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
 
-            if (
-                savedTheme ===
-                "dark"
-            ) {
-
-                document.body.classList.add(
-                    "dark-mode"
-                );
-
-            } else {
-
-                document.body.classList.remove(
-                    "dark-mode"
-                );
-            }
-
-
-            updateThemeButton();
-        }
-
+    updateThemeButton();
+}
 
         if (themeToggle) {
 

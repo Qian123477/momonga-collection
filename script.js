@@ -117,6 +117,389 @@ document.addEventListener(
             ]
         };
 
+        
+        // =========================================================
+        // 3.5 幣別與匯率設定
+        // =========================================================
+
+        const CURRENCY_KEY = "momo_display_currency";
+        const EXCHANGE_MODE_KEY = "momo_exchange_mode";
+
+        const currencyNames = {
+            TWD: "台幣",
+            JPY: "日幣",
+            HKD: "港幣",
+            CNY: "人民幣"
+        };
+
+        // rates 代表「1 單位該幣別 = 多少台幣」
+        let currencyRates = {
+            TWD: 1,
+            JPY: 0.22,
+            HKD: 4.1,
+            CNY: 4.4
+        };
+
+        let exchangeRateDate = "";
+
+        let displayCurrency =
+            localStorage.getItem(CURRENCY_KEY) || "TWD";
+
+        let exchangeMode =
+            localStorage.getItem(EXCHANGE_MODE_KEY) || "live";
+
+        if (!currencyNames[displayCurrency]) {
+            displayCurrency = "TWD";
+        }
+
+        if (!["live", "fixed"].includes(exchangeMode)) {
+            exchangeMode = "live";
+        }
+
+        function getCurrencySymbol(currency) {
+            return {
+                TWD: "NT$",
+                JPY: "¥",
+                HKD: "HK$",
+                CNY: "CN¥"
+            }[currency] || currency;
+        }
+
+        function formatMoney(amount, currency = displayCurrency) {
+            if (!Number.isFinite(amount)) {
+                amount = 0;
+            }
+
+            return new Intl.NumberFormat("zh-TW", {
+                style: "currency",
+                currency,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        // 先換算成台幣，再換成目標幣別
+        function convertCurrency(amount, from, to) {
+            if (!Number.isFinite(amount)) {
+                return 0;
+            }
+
+            if (from === to) {
+                return amount;
+            }
+
+            const fromRate = currencyRates[from];
+            const toRate = currencyRates[to];
+
+            if (
+                !Number.isFinite(fromRate) ||
+                !Number.isFinite(toRate) ||
+                fromRate <= 0 ||
+                toRate <= 0
+            ) {
+                return amount;
+            }
+
+            return amount * fromRate / toRate;
+        }
+
+        function getStoredCurrencyKey(id) {
+            return "momo_total_currency_" + id;
+        }
+
+        function getSavedTotalInDisplayCurrency(id) {
+            const saved = localStorage.getItem(
+                getTotalPriceKey(id)
+            );
+
+            if (saved === null) {
+                return null;
+            }
+
+            const amount = Number(saved);
+
+            if (!Number.isFinite(amount) || amount < 0) {
+                return null;
+            }
+
+            // 舊資料沒有幣別記錄時，沿用舊版台幣的解讀方式
+            const storedCurrency =
+                localStorage.getItem(getStoredCurrencyKey(id)) || "TWD";
+
+            return convertCurrency(
+                amount,
+                storedCurrency,
+                displayCurrency
+            );
+        }
+
+        function saveTotalPriceWithCurrency(id, value) {
+            saveTotalPrice(id, value);
+
+            if (value === "" || value === null || value === undefined) {
+                localStorage.removeItem(getStoredCurrencyKey(id));
+                return;
+            }
+
+            const amount = Number(value);
+
+            if (Number.isFinite(amount) && amount >= 0) {
+                localStorage.setItem(
+                    getStoredCurrencyKey(id),
+                    displayCurrency
+                );
+            }
+        }
+
+        function getFixedRate(currency) {
+            if (currency === "TWD") {
+                return 1;
+            }
+
+            const input = document.getElementById({
+                JPY: "rate-jpy",
+                HKD: "rate-hkd",
+                CNY: "rate-cny"
+            }[currency]);
+
+            const value = Number(input?.value);
+
+            return Number.isFinite(value) && value > 0
+                ? value
+                : NaN;
+        }
+
+        function loadFixedRates() {
+            for (const currency of ["JPY", "HKD", "CNY"]) {
+                const input = document.getElementById({
+                    JPY: "rate-jpy",
+                    HKD: "rate-hkd",
+                    CNY: "rate-cny"
+                }[currency]);
+
+                const saved = localStorage.getItem(
+                    "momo_fixed_rate_" + currency
+                );
+
+                if (input && saved !== null) {
+                    input.value = saved;
+                }
+            }
+        }
+
+        function applyFixedRates() {
+            currencyRates.TWD = 1;
+
+            for (const currency of ["JPY", "HKD", "CNY"]) {
+                const rate = getFixedRate(currency);
+
+                if (Number.isFinite(rate)) {
+                    currencyRates[currency] = rate;
+                }
+            }
+        }
+
+        async function loadLiveRates() {
+            const status = document.getElementById(
+                "exchange-rate-status"
+            );
+
+            if (status) {
+                status.textContent = "正在取得最新參考匯率…";
+            }
+
+            try {
+                const response = await fetch(
+                    "https://api.frankfurter.dev/v2/rates?base=TWD&quotes=JPY,HKD,CNY"
+                );
+
+                if (!response.ok) {
+                    throw new Error("匯率 API 回應失敗");
+                }
+
+                const rows = await response.json();
+
+                const newRates = { TWD: 1 };
+
+                for (const row of rows) {
+                    if (
+                        ["JPY", "HKD", "CNY"].includes(row.quote) &&
+                        Number.isFinite(row.rate) &&
+                        row.rate > 0
+                    ) {
+                        // API 回傳的是 1 TWD 可換多少外幣
+                        // 反轉後就是 1 外幣等於多少 TWD
+                        newRates[row.quote] = 1 / row.rate;
+                    }
+                }
+
+                for (const currency of ["JPY", "HKD", "CNY"]) {
+                    if (!Number.isFinite(newRates[currency])) {
+                        throw new Error(
+                            "匯率資料缺少 " + currency
+                        );
+                    }
+                }
+
+                currencyRates = newRates;
+                exchangeRateDate = rows[0]?.date || "";
+
+                if (status) {
+                    status.textContent =
+                        "參考匯率日期：" +
+                        (exchangeRateDate || "API 最新資料");
+                }
+
+                refreshAllPriceDisplays();
+
+            } catch (error) {
+                console.error("取得匯率失敗：", error);
+
+                if (status) {
+                    status.textContent =
+                        "無法取得匯率，請檢查網路。可切換固定匯率。";
+                }
+
+                // 失敗時保留目前匯率，不假裝是最新匯率
+                refreshAllPriceDisplays();
+            }
+        }
+
+        function refreshAllPriceDisplays() {
+            document.querySelectorAll(".item").forEach(item => {
+                const id = item.dataset.id;
+
+                const quantityField = item.querySelector(
+                    ".quantity-input-field"
+                );
+
+                const totalPriceField = item.querySelector(
+                    ".total-price-input-field"
+                );
+
+                const averagePriceValue = item.querySelector(
+                    ".collection-average-price"
+                );
+
+                if (!id || !totalPriceField || !quantityField) {
+                    return;
+                }
+
+                const converted = getSavedTotalInDisplayCurrency(id);
+
+                totalPriceField.value =
+                    converted === null ? "" : String(
+                        Math.round(converted * 100) / 100
+                    );
+
+                updateAveragePrice(
+                    quantityField,
+                    totalPriceField,
+                    averagePriceValue
+                );
+            });
+
+            updateTotalSpent();
+        }
+
+        function initializeCurrencySettings() {
+            const currencySelect = document.getElementById(
+                "display-currency"
+            );
+
+            const modeSelect = document.getElementById(
+                "exchange-mode"
+            );
+
+            const fixedSettings = document.getElementById(
+                "fixed-rate-settings"
+            );
+
+            loadFixedRates();
+
+            if (currencySelect) {
+                currencySelect.value = displayCurrency;
+
+                currencySelect.addEventListener("change", () => {
+                    displayCurrency = currencySelect.value;
+
+                    localStorage.setItem(
+                        CURRENCY_KEY,
+                        displayCurrency
+                    );
+
+                    refreshAllPriceDisplays();
+                    updateAllStatistics();
+                });
+            }
+
+            function updateExchangeMode() {
+                exchangeMode = modeSelect?.value || "live";
+
+                localStorage.setItem(
+                    EXCHANGE_MODE_KEY,
+                    exchangeMode
+                );
+
+                if (fixedSettings) {
+                    fixedSettings.hidden = exchangeMode !== "fixed";
+                }
+
+                if (exchangeMode === "fixed") {
+                    applyFixedRates();
+
+                    const status = document.getElementById(
+                        "exchange-rate-status"
+                    );
+
+                    if (status) {
+                        status.textContent =
+                            "目前使用自行設定的固定匯率";
+                    }
+
+                    refreshAllPriceDisplays();
+                } else {
+                    loadLiveRates();
+                }
+
+                updateAllStatistics();
+            }
+
+            if (modeSelect) {
+                modeSelect.value = exchangeMode;
+
+                modeSelect.addEventListener(
+                    "change",
+                    updateExchangeMode
+                );
+            }
+
+            for (const currency of ["JPY", "HKD", "CNY"]) {
+                const input = document.getElementById({
+                    JPY: "rate-jpy",
+                    HKD: "rate-hkd",
+                    CNY: "rate-cny"
+                }[currency]);
+
+                if (input) {
+                    input.addEventListener("input", () => {
+                        localStorage.setItem(
+                            "momo_fixed_rate_" + currency,
+                            input.value
+                        );
+
+                        if (exchangeMode === "fixed") {
+                            applyFixedRates();
+                            refreshAllPriceDisplays();
+                            updateAllStatistics();
+                        }
+                    });
+                }
+            }
+
+            updateExchangeMode();
+        }
+
+
 
         // =========================================================
         // 4. LocalStorage
@@ -524,7 +907,7 @@ document.addEventListener(
                 "input",
                 () => {
 
-                    saveTotalPrice(
+                    saveTotalPriceWithCurrency(
                         product.id,
                         totalPriceField.value
                     );
@@ -969,7 +1352,6 @@ document.addEventListener(
 
                     }
 
-
                     // -------------------------------------------------
                     // 顯示總價
                     // -------------------------------------------------
@@ -979,12 +1361,22 @@ document.addEventListener(
                         null
                     ) {
 
+                        const convertedTotal =
+                            getSavedTotalInDisplayCurrency(
+                                id
+                            );
+
+
                         totalPriceField.value =
-                            savedTotalPrice;
+                            convertedTotal === null
+                                ? savedTotalPrice
+                                : String(
+                                    Math.round(
+                                        convertedTotal * 100
+                                    ) / 100
+                                );
 
                     }
-
-
                     // -------------------------------------------------
                     // 讀取數量
                     // -------------------------------------------------
@@ -1126,7 +1518,6 @@ document.addEventListener(
 
                 // -------------------------------------------------
                 // 第一次收藏時自動帶入原價
-                //
                 // 只有尚未儲存總價的商品才會自動帶入，
                 // 使用者手動修改的價格不會被覆蓋。
                 // -------------------------------------------------
@@ -1170,32 +1561,46 @@ document.addEventListener(
                         "" &&
 
                     hasOriginalPrice
-                ) {
+                )
+                {
 
-                    const quantity =
-                        Math.floor(
-                            Number(
-                                quantityField.value
-                            )
+                    // -------------------------------------------------
+                    // 將商品原價換算成目前顯示幣別
+                    // -------------------------------------------------
+
+                    const originalCurrency =
+                        currencyNames[
+                            product.originalCurrency
+                        ]
+                            ? product.originalCurrency
+                            : "TWD";
+
+
+                    const convertedOriginalPrice =
+                        convertCurrency(
+                            originalPrice,
+                            originalCurrency,
+                            displayCurrency
                         );
 
 
                     const initialTotalPrice =
-                        originalPrice *
+                        convertedOriginalPrice *
                         quantity;
 
 
                     totalPriceField.value =
                         String(
-                            initialTotalPrice
+                            Math.round(
+                                initialTotalPrice * 100
+                            ) / 100
                         );
 
 
-                    saveTotalPrice(
+                    saveTotalPriceWithCurrency(
                         product.id,
                         totalPriceField.value
                     );
-
                 }
 
                 saveQuantity(
@@ -1378,7 +1783,9 @@ document.addEventListener(
             ) {
 
                 averagePriceValue.textContent =
-                    "NT$ 0";
+                    formatMoney(
+                        0
+                    );
 
                 return;
             }
@@ -1392,8 +1799,9 @@ document.addEventListener(
             ) {
 
                 averagePriceValue.textContent =
-                    "NT$ 0";
-
+                    formatMoney(
+                        0
+                    );
                 return;
             }
 
@@ -1404,14 +1812,9 @@ document.addEventListener(
                     quantity
                 );
 
-
             averagePriceValue.textContent =
-                "NT$ " +
-                average.toLocaleString(
-                    "zh-TW",
-                    {
-                        maximumFractionDigits: 2
-                    }
+                formatMoney(
+                    average
                 );
         }
 
@@ -1727,10 +2130,26 @@ document.addEventListener(
                                 totalPrice
                             ) &&
                             totalPrice >= 0
-                        ) {
+                        )
+                        {
+                        // -------------------------------------------------
+                        // 換算成目前顯示幣別
+                        // -------------------------------------------------
 
-                            totalSpent +=
-                                totalPrice;
+                        const storedCurrency =
+                            localStorage.getItem(
+                                getStoredCurrencyKey(
+                                    product.id
+                                )
+                            ) || "TWD";
+
+
+                        totalSpent +=
+                            convertCurrency(
+                                totalPrice,
+                                storedCurrency,
+                                displayCurrency
+                            );
                         }
 
 
@@ -1812,14 +2231,17 @@ document.addEventListener(
 
                     }
 
+                    // -------------------------------------------------
+                    // 舊版均價以台幣儲存
+                    // -------------------------------------------------
 
                     totalSpent +=
-                        price *
-                        quantity;
-
-                }
-            );
-
+                        convertCurrency(
+                            price *
+                            quantity,
+                            "TWD",
+                            displayCurrency
+                        );
 
             const element =
                 document.getElementById(
@@ -1828,11 +2250,9 @@ document.addEventListener(
 
 
             if (element) {
-
                 element.textContent =
-                    "NT$ " +
-                    totalSpent.toLocaleString(
-                        "zh-TW"
+                    formatMoney(
+                        totalSpent
                     );
             }
         }

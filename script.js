@@ -2086,44 +2086,54 @@ document.addEventListener(
             // =====================================================
             // 顯示結果
             // =====================================================
-
+          
             if (
-                searchText !== ""
+                searchResultMessage
             ) {
 
-                searchResultMessage.textContent =
-                    `找到 ${visibleCount} 件商品`;
+                if (
+                    searchText !== ""
+                ) {
 
-            } else if (
-                currentFilter ===
-                "collected"
-            ) {
+                    searchResultMessage.textContent =
+                        `找到 ${visibleCount} 件商品`;
 
-                searchResultMessage.textContent =
-                    `已收藏 ${visibleCount} 件`;
+                } else if (
+                    currentFilter ===
+                    "collected"
+                ) {
 
-            } else if (
-                currentFilter ===
-                "uncollected"
-            ) {
+                    searchResultMessage.textContent =
+                        `已收藏 ${visibleCount} 件`;
 
-                searchResultMessage.textContent =
-                    `尚未收藏 ${visibleCount} 件`;
+                } else if (
+                    currentFilter ===
+                    "uncollected"
+                ) {
 
-            } else {
+                    searchResultMessage.textContent =
+                        `尚未收藏 ${visibleCount} 件`;
 
-                searchResultMessage.textContent =
-                    "";
+                } else {
+
+                    searchResultMessage.textContent =
+                        "";
+
+                }
+
             }
 
 
-            clearSearchButton.style.display =
-                searchText !== ""
-                    ? "flex"
-                    : "none";
-        }
+            if (
+                clearSearchButton
+            ) {
 
+                clearSearchButton.style.display =
+                    searchText !== ""
+                        ? "flex"
+                        : "none";
 
+            }
         // =========================================================
         // 16. 搜尋事件
         // =========================================================

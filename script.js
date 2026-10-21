@@ -50,6 +50,7 @@ document.addEventListener(
     function formatMoney(amount, code = currencySettings.displayCurrency) {
       return currencySymbol(code) + " " +
       Number(amount || 0).toLocaleString("zh-TW", {
+      minimumFractionDigits: 0,
       maximumFractionDigits: 1
     });
     }
@@ -645,12 +646,14 @@ function createProductCard(product) {
 
         totalPriceField.value = totalInTWD === 0
           ? ""
-          : convertCurrency(
-              totalInTWD,
-              "TWD",
-              currencySettings.displayCurrency
-            ).toFixed(1);
-
+          : Number(
+              convertCurrency(
+                totalInTWD,
+                "TWD",
+                currencySettings.displayCurrency
+              ).toFixed(1)
+            ).toString();
+        
         updateAveragePrice(
           quantityField,
           totalPriceField,
@@ -717,16 +720,13 @@ function createProductCard(product) {
           );
 
           // 依照目前選擇的幣別顯示金額
-          totalPriceField.value = convertCurrency(
-            originalPriceTWD,
-            "TWD",
-            currencySettings.displayCurrency
-          ).toFixed(
-            currencySettings.displayCurrency === "TWD" ||
-            currencySettings.displayCurrency === "JPY"
-              ? 0
-              : 2
-          );
+          totalPriceField.value = Number(
+            convertCurrency(
+              originalPriceTWD,
+              "TWD",
+              currencySettings.displayCurrency
+            ).toFixed(1)
+          ).toString();
         }
       }
 
@@ -1223,11 +1223,13 @@ function createProductCard(product) {
 
 
         totalPriceField.value = savedTotalTWD
-          ? convertCurrency(
-              savedTotalTWD,
-              "TWD",
-              currencySettings.displayCurrency
-            ).toFixed(1)
+          ? Number(
+              convertCurrency(
+                savedTotalTWD,
+                "TWD",
+                currencySettings.displayCurrency
+              ).toFixed(1)
+            ).toString()
           : "";
 
         updateAveragePrice(

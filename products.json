@@ -5,7 +5,8 @@
         "image": "image/1.ac/ac1.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 462
+        "originalPrice": 2500,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac2",
@@ -13,7 +14,8 @@
         "image": "image/1.ac/ac2.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac3",
@@ -21,7 +23,8 @@
         "image": "image/1.ac/ac3.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 440
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac4",
@@ -29,7 +32,8 @@
         "image": "image/1.ac/ac4.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac5",
@@ -37,7 +41,9 @@
         "image": "image/1.ac/ac5.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+
     },
     {
         "id": "ac6",
@@ -45,7 +51,8 @@
         "image": "image/1.ac/ac6.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac7",
@@ -53,7 +60,8 @@
         "image": "image/1.ac/ac7.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 330
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac8",
@@ -61,7 +69,8 @@
         "image": "image/1.ac/ac8.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac9",
@@ -69,7 +78,8 @@
         "image": "image/1.ac/ac9.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac10",
@@ -77,7 +87,8 @@
         "image": "image/1.ac/ac10.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 352
+        "originalPrice": 1760,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac11",
@@ -85,7 +96,8 @@
         "image": "image/1.ac/ac11.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 484
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac12",
@@ -93,7 +105,8 @@
         "image": "image/1.ac/ac12.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 484
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac13",
@@ -101,7 +114,8 @@
         "image": "image/1.ac/ac13.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac15",
@@ -109,7 +123,8 @@
         "image": "image/1.ac/ac15.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac16",
@@ -117,7 +132,8 @@
         "image": "image/1.ac/ac16.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac18",
@@ -125,7 +141,8 @@
         "image": "image/1.ac/ac18.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac19",
@@ -133,7 +150,8 @@
         "image": "image/1.ac/ac19.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac20",
@@ -141,7 +159,8 @@
         "image": "image/1.ac/ac20.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac21",
@@ -149,7 +168,8 @@
         "image": "image/1.ac/ac21.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac22",
@@ -157,7 +177,8 @@
         "image": "image/1.ac/ac22.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac23",
@@ -165,7 +186,8 @@
         "image": "image/1.ac/ac23.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac24",
@@ -173,7 +195,8 @@
         "image": "image/1.ac/ac24.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac25",
@@ -181,7 +204,8 @@
         "image": "image/1.ac/ac25.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac26",
@@ -189,14 +213,17 @@
         "image": "image/1.ac/ac26.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac27",
         "name": "手機支架",
         "image": "image/1.ac/ac27.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac28",
@@ -204,7 +231,8 @@
         "image": "image/1.ac/ac28.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac29",
@@ -212,7 +240,8 @@
         "image": "image/1.ac/ac29.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 242
+        "originalPrice": 1210,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac30",
@@ -220,7 +249,8 @@
         "image": "image/1.ac/ac30.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac31",
@@ -228,7 +258,8 @@
         "image": "image/1.ac/ac31.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 352
+        "originalPrice": 1760,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac32",
@@ -236,7 +267,8 @@
         "image": "image/1.ac/ac32.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac33",
@@ -244,7 +276,8 @@
         "image": "image/1.ac/ac33.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac34",
@@ -252,7 +285,8 @@
         "image": "image/1.ac/ac34.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 352
+        "originalPrice": 1760,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac35",
@@ -260,7 +294,8 @@
         "image": "image/1.ac/ac35.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac36",
@@ -268,7 +303,8 @@
         "image": "image/1.ac/ac36.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 220
+        "originalPrice": 1100,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac37",
@@ -276,7 +312,8 @@
         "image": "image/1.ac/ac37.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 264
+        "originalPrice": 1320,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac38",
@@ -284,7 +321,8 @@
         "image": "image/1.ac/ac38.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac39",
@@ -292,7 +330,8 @@
         "image": "image/1.ac/ac39.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 330
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac40",
@@ -300,7 +339,8 @@
         "image": "image/1.ac/ac40.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac41",
@@ -308,7 +348,8 @@
         "image": "image/1.ac/ac41.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 330
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac42",
@@ -316,7 +357,8 @@
         "image": "image/1.ac/ac42.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 396
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac43",
@@ -324,7 +366,8 @@
         "image": "image/1.ac/ac43.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 308
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac44",
@@ -332,7 +375,8 @@
         "image": "image/1.ac/ac44.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 330
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac45",
@@ -340,7 +384,8 @@
         "image": "image/1.ac/ac45.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 374
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac46",
@@ -348,7 +393,8 @@
         "image": "image/1.ac/ac46.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 264
+        "originalPrice": 1320,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac47",
@@ -356,7 +402,8 @@
         "image": "image/1.ac/ac47.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac48",
@@ -364,7 +411,8 @@
         "image": "image/1.ac/ac48.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 330
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac49",
@@ -372,7 +420,8 @@
         "image": "image/1.ac/ac49.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac50",
@@ -380,7 +429,8 @@
         "image": "image/1.ac/ac50.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 132
+        "originalPrice": 660,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac51",
@@ -388,77 +438,98 @@
         "image": "image/1.ac/ac51.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
-        "originalPrice": 286
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac52",
         "name": "初代站姿",
         "image": "image/1.ac/ac52.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1320,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac53",
         "name": "樂園迷你",
         "image": "image/1.ac/ac53.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac54",
         "name": "黑魔法",
         "image": "image/1.ac/ac54.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac55",
         "name": "飯糰",
         "image": "image/1.ac/ac55.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac56",
         "name": "犬張子",
         "image": "image/1.ac/ac56.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac57",
         "name": "稻荷",
         "image": "image/1.ac/ac57.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac58",
         "name": "野餐",
         "image": "image/1.ac/ac58.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac59",
         "name": "恐龍",
         "image": "image/1.ac/ac59.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac60",
         "name": "葡萄",
         "image": "image/1.ac/ac60.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac62",
         "name": "江戶",
         "image": "image/1.ac/ac62.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac63",
@@ -524,39 +595,40 @@
         "subcategory": "吊飾"
     },
     {
-        "id": "ac72",
-        "name": "豹紋",
-        "image": "image/1.ac/ac72.JPG",
-        "category": "娃娃",
-        "subcategory": "吊飾"
-    },
-    {
         "id": "ac73",
         "name": "豹紋 唐吉 ",
         "image": "image/1.ac/ac73.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac74",
         "name": "海盜",
         "image": "image/1.ac/ac74.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac75",
         "name": "2025萬聖節",
         "image": "image/1.ac/ac75.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac76",
         "name": "幽靈",
         "image": "image/1.ac/ac76.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac77",
@@ -577,14 +649,18 @@
         "name": "小樽",
         "image": "image/1.ac/ac79.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac80",
         "name": "鑰匙套",
         "image": "image/1.ac/ac80.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1870,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac81",
@@ -598,7 +674,9 @@
         "name": "9090辣妹",
         "image": "image/1.ac/ac82.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2900,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac83",
@@ -612,7 +690,9 @@
         "name": "磁吸坐姿",
         "image": "image/1.ac/ac84.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac86",
@@ -647,14 +727,18 @@
         "name": "鏡餅",
         "image": "image/1.ac/ac90.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac91",
         "name": "ANA聯名",
         "image": "image/1.ac/ac91.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
+        "originalPrice": 2310,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl1",
@@ -662,7 +746,8 @@
         "image": "image/2.pl/pl1.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 440
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl2",
@@ -670,7 +755,8 @@
         "image": "image/2.pl/pl2.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 484
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl3",
@@ -678,7 +764,8 @@
         "image": "image/2.pl/pl3.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 506
+        "originalPrice": 2530,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl4",
@@ -686,7 +773,8 @@
         "image": "image/2.pl/pl4.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 440
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl5",
@@ -694,7 +782,8 @@
         "image": "image/2.pl/pl5.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 440
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl6",
@@ -702,7 +791,8 @@
         "image": "image/2.pl/pl6.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 462
+        "originalPrice": 2310,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl7",
@@ -710,7 +800,8 @@
         "image": "image/2.pl/pl7.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 550
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl8",
@@ -718,14 +809,17 @@
         "image": "image/2.pl/pl8.JPG",
         "category": "娃娃",
         "subcategory": "S娃",
-        "originalPrice": 704
+        "originalPrice": 3520,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl9",
         "name": "小腳",
         "image": "image/2.pl/pl9.JPG",
         "category": "娃娃",
-        "subcategory": "S娃"
+        "subcategory": "S娃",
+        "originalPrice": 2090,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pl10",
@@ -845,7 +939,8 @@
         "image": "image/3.pr/pr1.JPG",
         "category": "娃娃",
         "subcategory": "大娃/抱枕",
-        "originalPrice": 3740
+        "originalPrice": 18700,
+        "originalCurrency": "JPY"
     },
     {
         "id": "pr2",
@@ -944,7 +1039,8 @@
         "image": "image/4.ot/ot1.JPG",
         "category": "娃娃",
         "subcategory": "其他",
-        "originalPrice": 484
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ot2",
@@ -1168,210 +1264,279 @@
         "name": "小腳",
         "image": "image/5.cn/cn1.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn3",
         "name": "睡衣",
         "image": "image/5.cn/cn3.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn4",
         "name": "睡衣S",
         "image": "image/5.cn/cn4.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn5",
         "name": "搪膠睡衣",
         "image": "image/5.cn/cn5.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn2",
         "name": "泳圈",
         "image": "image/5.cn/cn2.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn6",
         "name": "萬聖節",
         "image": "image/5.cn/cn6.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn7",
-        "name": "毛茸茸",
+        "name": "冬日毛茸茸",
         "image": "image/5.cn/cn7.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn8",
         "name": "熊熊徽章",
         "image": "image/5.cn/cn8.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 19.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn9",
         "name": "熊熊",
         "image": "image/5.cn/cn9.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn10",
         "name": "熊熊包",
         "image": "image/5.cn/cn10.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn11",
         "name": "熊熊保暖毯",
         "image": "image/5.cn/cn11.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 99,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn12",
         "name": "水果",
         "image": "image/5.cn/cn12.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn13",
         "name": "水果店員",
         "image": "image/5.cn/cn13.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn14",
         "name": "大櫻桃",
         "image": "image/5.cn/cn14.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn15",
         "name": "櫻花徽章",
         "image": "image/5.cn/cn15.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 19.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn16",
         "name": "櫻花零錢包",
         "image": "image/5.cn/cn16.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 29.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn17",
         "name": "櫻花大福",
         "image": "image/5.cn/cn17.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn18",
         "name": "新年",
         "image": "image/5.cn/cn18.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn19",
         "name": "新年S",
         "image": "image/5.cn/cn19.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn20",
         "name": "飛天",
         "image": "image/5.cn/cn20.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn21",
         "name": "站姿S",
         "image": "image/5.cn/cn21.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn22",
         "name": "大趴娃",
         "image": "image/5.cn/cn22.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn23",
         "name": "手捧",
         "image": "image/5.cn/cn23.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn24",
         "name": "長億豆豆眼",
         "image": "image/5.cn/cn24.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn25",
         "name": "三麗鷗",
         "image": "image/5.cn/cn25.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn26",
         "name": "三麗鷗草莓車車",
         "image": "image/5.cn/cn26.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn27",
         "name": "三麗鷗抱枕",
         "image": "image/5.cn/cn27.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn28",
         "name": "小腳S",
         "image": "image/5.cn/cn28.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn29",
         "name": "南京-鴨鴨",
         "image": "image/5.cn/cn29.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 58,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn30",
         "name": "娃島-情人節",
         "image": "image/5.cn/cn30.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
+    },
+    {
+        "id": "cn31",
+        "name": "豹紋",
+        "image": "image/5.cn/cn31.JPG",
+        "category": "娃娃",
+        "subcategory": "中國",
+        "originalPrice": 108,
+        "originalCurrency": "CNY"
     },
     {
         "id": "hk1",
@@ -1395,32 +1560,38 @@
         "subcategory": "香港"
     },
     {
+        "id": "hk4",
+        "name": "豆豆眼",
+        "image": "image/6.hk/hk4.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
         "id": "tw1",
         "name": "芋園",
         "image": "image/7.tw/tw1.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
+        "subcategory": "台灣",
+        "originalPrice": 690,
+        "originalCurrency": "NTD"
     },
     {
         "id": "tw2",
         "name": "芋園S",
         "image": "image/7.tw/tw2.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
+        "subcategory": "台灣",
+        "originalPrice": 830,
+        "originalCurrency": "NTD"
     },
     {
         "id": "tw3",
         "name": "BIG芋園 50cm",
         "image": "image/7.tw/tw3.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
-    },
-    {
-        "id": "hk4",
-        "name": "豆豆眼",
-        "image": "image/6.hk/hk4.JPG",
-        "category": "娃娃",
-        "subcategory": "香港"
+        "subcategory": "台灣",
+        "originalPrice": 3000,
+        "originalCurrency": "NTD"
     },
     {
         "id": "ov1",

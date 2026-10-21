@@ -100,10 +100,16 @@ document.addEventListener(
       }
     }
 
-    function applyFixedRates() {
-      if (currencySettings.mode !== "fixed") return;
-      exchangeRatesToTWD = { TWD: 1, ...currencySettings.fixedRates };
-    }
+function applyFixedRates() {
+  if (currencySettings.mode !== "fixed") return;
+
+  exchangeRatesToTWD = {
+    TWD: 1,
+    JPY: Number(currencySettings.fixedRates.JPY),
+    HKD: Number(currencySettings.fixedRates.HKD),
+    CNY: Number(currencySettings.fixedRates.CNY)
+  };
+}
 
     function refreshCurrencyDisplays() {
       // 重新渲染卡片會從 TWD 儲存值換算，避免重複換算/覆蓋原始資料

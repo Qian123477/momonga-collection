@@ -595,18 +595,13 @@
         "subcategory": "吊飾"
     },
     {
-        "id": "ac72",
-        "name": "豹紋",
-        "image": "image/1.ac/ac72.JPG",
-        "category": "娃娃",
-        "subcategory": "吊飾"
-    },
-    {
         "id": "ac73",
         "name": "豹紋 唐吉 ",
         "image": "image/1.ac/ac73.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
     },
     {
         "id": "ac74",
@@ -1269,210 +1264,278 @@
         "name": "小腳",
         "image": "image/5.cn/cn1.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn3",
         "name": "睡衣",
         "image": "image/5.cn/cn3.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn4",
         "name": "睡衣S",
         "image": "image/5.cn/cn4.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn5",
         "name": "搪膠睡衣",
         "image": "image/5.cn/cn5.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn2",
         "name": "泳圈",
         "image": "image/5.cn/cn2.jpg",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn6",
         "name": "萬聖節",
         "image": "image/5.cn/cn6.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn7",
-        "name": "毛茸茸",
+        "name": "冬日毛茸茸",
         "image": "image/5.cn/cn7.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn8",
         "name": "熊熊徽章",
         "image": "image/5.cn/cn8.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 19.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn9",
         "name": "熊熊",
         "image": "image/5.cn/cn9.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn10",
         "name": "熊熊包",
         "image": "image/5.cn/cn10.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn11",
         "name": "熊熊保暖毯",
         "image": "image/5.cn/cn11.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 99,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn12",
         "name": "水果",
         "image": "image/5.cn/cn12.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn13",
         "name": "水果店員",
         "image": "image/5.cn/cn13.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn14",
         "name": "大櫻桃",
         "image": "image/5.cn/cn14.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn15",
         "name": "櫻花徽章",
         "image": "image/5.cn/cn15.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 19.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn16",
         "name": "櫻花零錢包",
         "image": "image/5.cn/cn16.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 29.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn17",
         "name": "櫻花大福",
         "image": "image/5.cn/cn17.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn18",
         "name": "新年",
         "image": "image/5.cn/cn18.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn19",
         "name": "新年S",
         "image": "image/5.cn/cn19.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn20",
         "name": "飛天",
         "image": "image/5.cn/cn20.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn21",
         "name": "站姿S",
         "image": "image/5.cn/cn21.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 49.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn22",
         "name": "大趴娃",
         "image": "image/5.cn/cn22.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 69.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn23",
         "name": "手捧",
         "image": "image/5.cn/cn23.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn24",
         "name": "長億豆豆眼",
         "image": "image/5.cn/cn24.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn25",
         "name": "三麗鷗",
         "image": "image/5.cn/cn25.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn26",
         "name": "三麗鷗草莓車車",
         "image": "image/5.cn/cn26.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn27",
         "name": "三麗鷗抱枕",
         "image": "image/5.cn/cn27.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn28",
         "name": "小腳S",
         "image": "image/5.cn/cn28.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 59.9,
+        "originalCurrency": "CNY"
     },
     {
         "id": "cn29",
         "name": "南京-鴨鴨",
         "image": "image/5.cn/cn29.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
-    },
+        "subcategory": "中國",
+        "originalPrice": 58,
+        "originalCurrency": "CNY"    },
     {
         "id": "cn30",
         "name": "娃島-情人節",
         "image": "image/5.cn/cn30.JPG",
         "category": "娃娃",
-        "subcategory": "中國"
+        "subcategory": "中國",
+        "originalPrice": 39.9,
+        "originalCurrency": "CNY"
+    },
+    {
+        "id": "cn31",
+        "name": "豹紋",
+        "image": "image/5.cn/cn31.JPG",
+        "category": "娃娃",
+        "subcategory": "中國",
+        "originalPrice": 108,
+        "originalCurrency": "CNY"
     },
     {
         "id": "hk1",
@@ -1496,32 +1559,38 @@
         "subcategory": "香港"
     },
     {
+        "id": "hk4",
+        "name": "豆豆眼",
+        "image": "image/6.hk/hk4.JPG",
+        "category": "娃娃",
+        "subcategory": "香港"
+    },
+    {
         "id": "tw1",
         "name": "芋園",
         "image": "image/7.tw/tw1.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
+        "subcategory": "台灣",
+        "originalPrice": 690,
+        "originalCurrency": "NTD"
     },
     {
         "id": "tw2",
         "name": "芋園S",
         "image": "image/7.tw/tw2.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
+        "subcategory": "台灣",
+        "originalPrice": 830,
+        "originalCurrency": "NTD"
     },
     {
         "id": "tw3",
         "name": "BIG芋園 50cm",
         "image": "image/7.tw/tw3.JPG",
         "category": "娃娃",
-        "subcategory": "台灣"
-    },
-    {
-        "id": "hk4",
-        "name": "豆豆眼",
-        "image": "image/6.hk/hk4.JPG",
-        "category": "娃娃",
-        "subcategory": "香港"
+        "subcategory": "台灣",
+        "originalPrice": 3000,
+        "originalCurrency": "NTD"
     },
     {
         "id": "ov1",

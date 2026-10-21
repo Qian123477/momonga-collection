@@ -500,7 +500,7 @@
         "name": "野餐",
         "image": "image/1.ac/ac58.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 1980,
         "originalCurrency": "JPY"
     },
@@ -509,7 +509,7 @@
         "name": "恐龍",
         "image": "image/1.ac/ac59.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 2200,
         "originalCurrency": "JPY"
     },
@@ -518,7 +518,7 @@
         "name": "葡萄",
         "image": "image/1.ac/ac60.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 1980,
         "originalCurrency": "JPY"
     },
@@ -527,7 +527,7 @@
         "name": "江戶",
         "image": "image/1.ac/ac62.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾"
+        "subcategory": "吊飾",
         "originalPrice": 1980,
         "originalCurrency": "JPY"
     },

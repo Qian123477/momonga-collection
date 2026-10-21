@@ -1573,7 +1573,7 @@
         "category": "娃娃",
         "subcategory": "台灣",
         "originalPrice": 690,
-        "originalCurrency": "NTD"
+        "originalCurrency": "TWD"
     },
     {
         "id": "tw2",
@@ -1582,7 +1582,7 @@
         "category": "娃娃",
         "subcategory": "台灣",
         "originalPrice": 830,
-        "originalCurrency": "NTD"
+        "originalCurrency": "TWD"
     },
     {
         "id": "tw3",
@@ -1591,7 +1591,7 @@
         "category": "娃娃",
         "subcategory": "台灣",
         "originalPrice": 3000,
-        "originalCurrency": "NTD"
+        "originalCurrency": "TWD"
     },
     {
         "id": "ov1",

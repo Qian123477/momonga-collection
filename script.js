@@ -649,10 +649,7 @@ function createProductCard(product) {
               totalInTWD,
               "TWD",
               currencySettings.displayCurrency
-            ).toFixed(
-              currencySettings.displayCurrency === "TWD" ||
-              currencySettings.displayCurrency === "JPY" ? 0 : 2
-            );
+            ).toFixed(1);
 
         updateAveragePrice(
           quantityField,
@@ -1224,15 +1221,13 @@ function createProductCard(product) {
 
         const savedTotalTWD = getSavedTotalPrice(id);
 
+
         totalPriceField.value = savedTotalTWD
           ? convertCurrency(
               savedTotalTWD,
               "TWD",
               currencySettings.displayCurrency
-            ).toFixed(
-              currencySettings.displayCurrency === "TWD" ||
-              currencySettings.displayCurrency === "JPY" ? 0 : 2
-            )
+            ).toFixed(1)
           : "";
 
         updateAveragePrice(

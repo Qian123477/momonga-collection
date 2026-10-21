@@ -99,7 +99,7 @@ document.addEventListener(
       }
     }
 
-function applyFixedRates() {
+   function applyFixedRates() {
   if (currencySettings.mode !== "fixed") return;
 
   exchangeRatesToTWD = {
@@ -228,160 +228,161 @@ function applyFixedRates() {
                請確認 products.json 是否存在。
              </p>
         `;
-
-    }
-
-    return;
-}
+     }
+      return;
+   }
 
 
-// =========================================================
-// 2. DOM
-// =========================================================
 
-const catalogContainer =
-  document.getElementById(
-     "catalog-container"
-  );
+      // =========================================================
+      // 2. DOM
+      // =========================================================
 
-if (!catalogContainer) {
+      const catalogContainer =
+        document.getElementById(
+           "catalog-container"
+        );
 
-    console.error(
-       "找不到 catalog-container"
-    );
+      if (!catalogContainer) {
 
-    return;
-}
+        console.error(
+           "找不到 catalog-container"
+        );
 
+        return;
+      }
 
-// =========================================================
-// 3. 分類順序
-// =========================================================
+      // =========================================================
+      // 3. 分類順序
+      // =========================================================
 
-const categoryOrder = [
-   "娃娃",
-   "其他周邊"
-];
+      const categoryOrder = [
+         "娃娃",
+         "其他周邊"
+      ];
 
-const subcategoryOrder = {
+      const subcategoryOrder = {
 
-    "娃娃": [
-       "吊飾",
-       "S娃",
-       "大娃/抱枕",
-       "其他",
-       "中國",
-       "香港",
-       "台灣",
-       "其他海外"
-     ],
+        "娃娃": [
+           "吊飾",
+           "S娃",
+           "大娃/抱枕",
+           "其他",
+           "中國",
+           "香港",
+           "台灣",
+           "其他海外"
+        ],
 
-     "其他周邊": [
-       "立牌",
-       "徽章",
-       "公仔",
-       "鑰匙圈",
-       "磁鐵",
-       "包包",
-       "穿戴",
-       "手帕/布",
-       "飾品",
-       "生活用品",
-       "其他"
-     ]
-};
+        "其他周邊": [
+           "立牌",
+           "徽章",
+           "公仔",
+           "鑰匙圈",
+           "磁鐵",
+           "包包",
+           "穿戴",
+           "手帕/布",
+           "飾品",
+           "生活用品",
+           "其他"
+        ]
+      };
 
+      // =========================================================
+      // 4. LocalStorage
+      // =========================================================
 
-// =========================================================
-// 4. LocalStorage
-// =========================================================
+      function getCollectionKey(id) {
 
-function getCollectionKey(id) {
-
-     return (
-        "momo_collection_" +
-        id
-     );
-}
-
-
-function getTotalPriceKey(id) {
-
-     return (
-        "momo_total_price_" +
-        id
-     );
-}
-    function getPriceModeKey(id) {
-
-     return (
-        "momo_price_mode_" +
-        id
-     );
-}
+        return (
+           "momo_collection_" +
+           id
+        );
+      }
 
 
-// 舊版均價資料
-function getPriceKey(id) {
+      function getTotalPriceKey(id) {
 
-    return (
-       "momo_price_" +
-       id
-    );
-}
-
-
-function getQuantityKey(id) {
-
-    return (
-       "momo_quantity_" +
-       id
-    );
-}
+        return (
+           "momo_total_price_" +
+           id
+        );
+      }
 
 
-function isCollected(id) {
+      function getPriceModeKey(id) {
 
-    return (
-       localStorage.getItem(
-          getCollectionKey(id)
-       ) === "true"
-    );
-}
+        return (
+           "momo_price_mode_" +
+           id
+        );
+      }
 
 
-// =========================================================
-// 5. 建立商品卡片
-// =========================================================
+      // 舊版均價資料
+      function getPriceKey(id) {
 
-function createProductCard(product) {
+        return (
+           "momo_price_" +
+           id
+        );
+      }
 
-    const item =
-      document.createElement(
-         "div"
-      );
 
-    item.className =
-       "item";
+      function getQuantityKey(id) {
 
-    item.dataset.id =
-       product.id;
+        return (
+           "momo_quantity_" +
+           id
+        );
+      }
 
-    item.dataset.category =
-       product.category || "";
 
-    item.dataset.subcategory =
-       product.subcategory || "";
+      function isCollected(id) {
+
+        return (
+           localStorage.getItem(
+              getCollectionKey(id)
+           ) === "true"
+        );
+      }
+
+
+      // =========================================================
+      // 5. 建立商品卡片
+      // =========================================================
+
+      function createProductCard(product) {
+
+        const item =
+          document.createElement(
+             "div"
+          );
+
+        item.className =
+           "item";
+
+        item.dataset.id =
+           product.id;
+
+        item.dataset.category =
+           product.category || "";
+
+        item.dataset.subcategory =
+           product.subcategory || "";
+
 
       // -----------------------------------------------------
       // 商品圖片
       // -----------------------------------------------------
 
-      const image = document.createElement("img");
-      image.src = product.image;
-      image.alt = product.name;
-      image.loading = "lazy";
-      item.appendChild(image);
+        const image = document.createElement("img");
+        image.src = product.image;
+        image.alt = product.name;
+        image.loading = "lazy";
+        item.appendChild(image);
+
 
       // -----------------------------------------------------
       // 商品名稱
@@ -509,13 +510,13 @@ function createProductCard(product) {
           "manual"
         );
 
-        // 輸入期間保留原始內容，避免小數尚未輸入完成就被修改
+        // 輸入期間保留小數，儲存時先四捨五入到個位數
         if (enteredValue !== "" && Number.isFinite(Number(enteredValue))) {
           saveTotalPrice(
             product.id,
             String(
               convertCurrency(
-                Number(enteredValue),
+                roundMoney(enteredValue),
                 currencySettings.displayCurrency,
                 "TWD"
               )
@@ -533,7 +534,6 @@ function createProductCard(product) {
 
         updateTotalSpent();
       });
-
 
       // 離開輸入欄位時，自動四捨五入到個位數
       totalPriceField.addEventListener("blur", () => {

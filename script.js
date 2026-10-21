@@ -294,6 +294,13 @@ function getTotalPriceKey(id) {
         id
      );
 }
+    function getPriceModeKey(id) {
+
+     return (
+        "momo_price_mode_" +
+        id
+     );
+}
 
 
 // 舊版均價資料
@@ -468,13 +475,21 @@ function createProductCard(product) {
         checkbox.dispatchEvent(new Event("change"));
       });
 
+
       // -----------------------------------------------------
       // 儲存總價
-      // 紀錄統一以 TWD 儲存，畫面才依顯示幣別換算
+      // 預設價格會依數量變動；手動輸入後固定總價
+      // 所有金額統一以 TWD 儲存
       // -----------------------------------------------------
 
       totalPriceField.addEventListener("input", () => {
         const enteredValue = totalPriceField.value;
+
+        // 使用者手動修改總價後，切換為手動模式
+        localStorage.setItem(
+          getPriceModeKey(product.id),
+          "manual"
+        );
 
         saveTotalPrice(
           product.id,
@@ -502,9 +517,45 @@ function createProductCard(product) {
         event.stopPropagation();
       });
 
+      // -----------------------------------------------------
       // 數量
+      // -----------------------------------------------------
+
       quantityField.addEventListener("input", () => {
         saveQuantity(product.id, quantityField.value);
+
+        const priceMode = localStorage.getItem(
+          getPriceModeKey(product.id)
+        );
+
+        // 只有自動價格模式才會隨數量重新計算總價
+        if (priceMode !== "manual") {
+          const quantity = Math.max(
+            1,
+            Number(quantityField.value) || 1
+          );
+
+          const originalPriceTWD = convertCurrency(
+            Number(product.originalPrice) || 0,
+            getProductCurrency(product),
+            "TWD"
+          );
+
+          const totalTWD = originalPriceTWD * quantity;
+
+          saveTotalPrice(
+            product.id,
+            String(totalTWD)
+          );
+
+          totalPriceField.value = Number(
+            convertCurrency(
+              totalTWD,
+              "TWD",
+              currencySettings.displayCurrency
+            ).toFixed(1)
+          ).toString();
+        }
 
         updateAveragePrice(
           quantityField,
@@ -521,7 +572,7 @@ function createProductCard(product) {
       });
 
       return item;
-    }
+      }
 
     // =========================================================
     // 6. 產生整個圖鑑
@@ -664,7 +715,6 @@ function createProductCard(product) {
       updateAllStatistics();
     }
 
-
     // =========================================================
     // 8. 收藏切換
     // =========================================================
@@ -702,18 +752,30 @@ function createProductCard(product) {
           getTotalPriceKey(product.id)
         );
 
-        // 只有尚未儲存購入總價時，才自動帶入商品原價
+        // 只有尚未儲存購入總價時，才帶入商品原價
         if (
           (savedTotal === null || savedTotal === "") &&
           Number(product.originalPrice) > 0
         ) {
-          // 將商品原價換算成 TWD 儲存
+          const quantity = Math.max(
+            1,
+            Number(quantityField.value) || 1
+          );
+
+          // 將商品原價換算成 TWD，再乘上數量
           const originalPriceTWD = convertCurrency(
             Number(product.originalPrice),
             getProductCurrency(product),
             "TWD"
+          ) * quantity;
+
+          // 設定為自動價格模式
+          localStorage.setItem(
+            getPriceModeKey(product.id),
+            "auto"
           );
 
+          // 儲存購入總價
           saveTotalPrice(
             product.id,
             String(originalPriceTWD)
@@ -1184,6 +1246,7 @@ function createProductCard(product) {
         products.forEach(product => {
           localStorage.removeItem(getCollectionKey(product.id));
           localStorage.removeItem(getTotalPriceKey(product.id));
+          localStorage.removeItem(getPriceModeKey(product.id));
           localStorage.removeItem(getQuantityKey(product.id));
           localStorage.removeItem(getPriceKey(product.id));
         });

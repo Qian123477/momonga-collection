@@ -59,13 +59,12 @@ document.addEventListener(
       return Math.round(value);
     }
 
-
     function formatMoney(amount, code = currencySettings.displayCurrency) {
       return currencySymbol(code) + " " +
-      roundMoney(amount).toLocaleString("zh-TW", {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    });
+        roundMoney(amount).toLocaleString("zh-TW", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        });
     }
 
     function convertCurrency(amount, from, to) {
@@ -495,7 +494,6 @@ function createProductCard(product) {
       });
 
 
-
       // -----------------------------------------------------
       // 儲存總價
       // 預設價格會依數量變動；手動輸入後固定總價
@@ -536,26 +534,40 @@ function createProductCard(product) {
         updateTotalSpent();
       });
 
+
       // 離開輸入欄位時，自動四捨五入到個位數
       totalPriceField.addEventListener("blur", () => {
-        if (totalPriceField.value === "") return;
+        if (totalPriceField.value === "") {
+          saveTotalPrice(product.id, "");
 
+          updateAveragePrice(
+            quantityField,
+            totalPriceField,
+            averagePriceValue
+          );
+
+          updateTotalSpent();
+          return;
+        }
+
+        // 將輸入金額四捨五入至個位數
         const roundedValue = roundMoney(
           totalPriceField.value
         );
 
+        // 畫面顯示整數
         totalPriceField.value = String(roundedValue);
 
         // 將取整數後的輸入金額換算成 TWD 儲存
+        const totalTWD = convertCurrency(
+          roundedValue,
+          currencySettings.displayCurrency,
+          "TWD"
+        );
+
         saveTotalPrice(
           product.id,
-          String(
-            convertCurrency(
-              roundedValue,
-              currencySettings.displayCurrency,
-              "TWD"
-            )
-          )
+          String(totalTWD)
         );
 
         updateAveragePrice(

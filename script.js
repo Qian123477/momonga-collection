@@ -662,6 +662,7 @@ function createProductCard(product) {
       updateAllStatistics();
     }
 
+
     // =========================================================
     // 8. 收藏切換
     // =========================================================
@@ -677,27 +678,67 @@ function createProductCard(product) {
     ) {
       const selected = checkbox.checked;
 
+      // 儲存收藏狀態
       localStorage.setItem(
         getCollectionKey(product.id),
         selected ? "true" : "false"
       );
 
+      // 更新商品卡片外觀
       item.classList.toggle("selected", selected);
       priceArea.classList.toggle("show", selected);
 
       if (selected) {
+        // 如果數量是空的，預設為 1
         if (!quantityField.value) {
           quantityField.value = "1";
           saveQuantity(product.id, "1");
         }
+
+        // 讀取之前儲存的購入總價
+        const savedTotal = localStorage.getItem(
+          getTotalPriceKey(product.id)
+        );
+
+        // 只有尚未儲存購入總價時，才自動帶入商品原價
+        if (
+          (savedTotal === null || savedTotal === "") &&
+          Number(product.originalPrice) > 0
+        ) {
+          // 將商品原價換算成 TWD 儲存
+          const originalPriceTWD = convertCurrency(
+            Number(product.originalPrice),
+            getProductCurrency(product),
+            "TWD"
+          );
+
+          saveTotalPrice(
+            product.id,
+            String(originalPriceTWD)
+          );
+
+          // 依照目前選擇的幣別顯示金額
+          totalPriceField.value = convertCurrency(
+            originalPriceTWD,
+            "TWD",
+            currencySettings.displayCurrency
+          ).toFixed(
+            currencySettings.displayCurrency === "TWD" ||
+            currencySettings.displayCurrency === "JPY"
+              ? 0
+              : 2
+          );
+        }
       }
 
+      // 更新均價
       updateAveragePrice(
         quantityField,
         totalPriceField,
         averagePriceValue
       );
 
+      // 更新收藏數量與金額統計
       updateAllStatistics();
     }
 
@@ -717,7 +758,6 @@ function createProductCard(product) {
 
       averagePriceValue.textContent = formatMoney(average);
     }
-
 
     // =========================================================
     // 10. 收藏數量統計

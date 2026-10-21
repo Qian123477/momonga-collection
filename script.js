@@ -48,8 +48,10 @@ document.addEventListener(
     }
 
     function formatMoney(amount, code = currencySettings.displayCurrency) {
-      const digits = code === "JPY" || code === "TWD" ? 0 : 2;
-      return currencySymbol(code) + " " + Number(amount || 0).toLocaleString("zh-TW", { maximumFractionDigits: digits });
+      return currencySymbol(code) + " " +
+      Number(amount || 0).toLocaleString("zh-TW", {
+      maximumFractionDigits: 1
+    });
     }
 
     function convertCurrency(amount, from, to) {

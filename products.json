@@ -732,6 +732,13 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "ac91",
+        "name": "ANA聯名",
+        "image": "image/1.ac/ac91.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾"
+    },
+    {
         "id": "ac92",
         "name": "景品-酷洛米",
         "image": "image/1.ac/ac92.JPG",
@@ -739,13 +746,6 @@
         "subcategory": "吊飾",
         "originalPrice": 2310,
         "originalCurrency": "JPY"
-    },
-    {
-        "id": "ac91",
-        "name": "景品",
-        "image": "image/1.ac/ac91.JPG",
-        "category": "娃娃",
-        "subcategory": "吊飾"
     },
     {
         "id": "pl1",

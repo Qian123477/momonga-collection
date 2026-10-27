@@ -644,6 +644,7 @@ document.addEventListener(
 
 
 
+
     // =========================================================
     // 6. 產生整個圖鑑
     // =========================================================
@@ -661,17 +662,16 @@ document.addEventListener(
         `;
 
         initializeCollectionState();
-        updateAllStatistics();
         return;
       }
 
-      // 依照既定分類順序產生圖鑑
+      // 依照既定的大分類順序產生圖鑑
       categoryOrder.forEach(category => {
         const categoryProducts = products.filter(
           product => product.category === category
         );
 
-        // 沒有商品的分類不顯示
+        // 沒有商品的大分類不顯示
         if (categoryProducts.length === 0) return;
 
         // 建立大分類區塊
@@ -685,32 +685,50 @@ document.addEventListener(
         majorTitle.textContent = category;
         section.appendChild(majorTitle);
 
-        // 取得目前分類的子分類順序
-        const subcategories = subcategoryOrder[category] || [];
+        // 取得預設子分類順序
+        const orderedSubcategories = subcategoryOrder[category] || [];
 
-        subcategories.forEach(subcategory => {
-          const subProducts = products.filter(
+        // 收集商品實際使用的子分類
+        const actualSubcategories = [
+          ...new Set(
+            categoryProducts.map(product =>
+              product.subcategory || "其他"
+            )
+          )
+        ];
+
+        // 預設分類優先，未列出的分類自動接在後面
+        const allSubcategories = [
+          ...orderedSubcategories.filter(subcategory =>
+            actualSubcategories.includes(subcategory)
+          ),
+          ...actualSubcategories.filter(subcategory =>
+            !orderedSubcategories.includes(subcategory)
+          )
+        ];
+
+        // 建立每個子分類
+        allSubcategories.forEach(subcategory => {
+          const subProducts = categoryProducts.filter(
             product =>
-              product.category === category &&
-              product.subcategory === subcategory
+              (product.subcategory || "其他") === subcategory
           );
 
-          // 沒有商品的子分類不顯示
           if (subProducts.length === 0) return;
 
-          // 建立子分類標題
+          // 子分類標題
           const subTitle = document.createElement("h3");
           subTitle.className = "sub-title";
           subTitle.textContent = subcategory;
           section.appendChild(subTitle);
 
-          // 建立商品網格
+          // 商品網格
           const grid = document.createElement("div");
           grid.className = "catalog-grid";
           grid.dataset.category = category;
           grid.dataset.subcategory = subcategory;
 
-          // 產生商品卡片
+          // 建立商品卡片
           subProducts.forEach(product => {
             grid.appendChild(createProductCard(product));
           });
@@ -721,11 +739,45 @@ document.addEventListener(
         catalogContainer.appendChild(section);
       });
 
+      // 顯示未列在 categoryOrder 中的大分類
+      const unlistedCategories = [
+        ...new Set(
+          products
+            .map(product => product.category || "其他")
+            .filter(category => !categoryOrder.includes(category))
+        )
+      ];
+
+      unlistedCategories.forEach(category => {
+        const categoryProducts = products.filter(
+          product => (product.category || "其他") === category
+        );
+
+        if (categoryProducts.length === 0) return;
+
+        const section = document.createElement("section");
+        section.className = "category-section";
+        section.dataset.category = category;
+
+        const majorTitle = document.createElement("h2");
+        majorTitle.className = "major-title";
+        majorTitle.textContent = category;
+        section.appendChild(majorTitle);
+
+        const grid = document.createElement("div");
+        grid.className = "catalog-grid";
+        grid.dataset.category = category;
+
+        categoryProducts.forEach(product => {
+          grid.appendChild(createProductCard(product));
+        });
+
+        section.appendChild(grid);
+        catalogContainer.appendChild(section);
+      });
+
       // 還原收藏狀態、數量、購入價格及均價
       initializeCollectionState();
-
-      // 更新所有統計資料
-      updateAllStatistics();
     }
 
     // =========================================================

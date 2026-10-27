@@ -79,25 +79,72 @@ document.addEventListener(
       return CURRENCY_META[product.originalCurrency] ? product.originalCurrency : "TWD";
     }
 
-    async function loadLiveExchangeRates() {
-      if (currencySettings.mode !== "live") return;
-      try {
-        const response = await fetch("https://api.frankfurter.dev/v1/latest?base=TWD&symbols=JPY,HKD,CNY", { cache: "no-store" });
-        if (!response.ok) throw new Error("匯率服務暫時無法使用");
-        const data = await response.json();
-        if (data.rates?.JPY && data.rates?.HKD && data.rates?.CNY) {
-          exchangeRatesToTWD = {
-            TWD: 1,
-            JPY: 1 / data.rates.JPY,
-            HKD: 1 / data.rates.HKD,
-            CNY: 1 / data.rates.CNY
-          };
-          liveRatesReady = true;
-        }
-      } catch (error) {
-        console.warn("即時匯率讀取失敗，暫用預設匯率：", error);
-      }
+async function loadLiveExchangeRates() {
+  if (currencySettings.mode !== "live") return;
+
+  const status = document.getElementById("exchange-rate-status");
+
+  try {
+    const url =
+      "https://api.frankfurter.dev/v2/rates?base=TWD&quotes=JPY,HKD,CNY";
+
+    const response = await fetch(url, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(`匯率 API 請求失敗：HTTP ${response.status}`);
     }
+
+    const data = await response.json();
+
+    // v2 回傳的是陣列，需要依幣別整理匯率
+    const rates = {};
+
+    if (Array.isArray(data)) {
+      data.forEach(item => {
+        if (item && item.quote && Number(item.rate) > 0) {
+          rates[item.quote] = Number(item.rate);
+        }
+      });
+    }
+
+    // 確認三種幣別都有有效匯率
+    if (
+      !(rates.JPY > 0) ||
+      !(rates.HKD > 0) ||
+      !(rates.CNY > 0)
+    ) {
+      throw new Error("匯率資料不完整或格式不符");
+    }
+
+    // 保留原本的換算邏輯：每單位外幣相當於多少 TWD
+    exchangeRatesToTWD = {
+      TWD: 1,
+      JPY: 1 / rates.JPY,
+      HKD: 1 / rates.HKD,
+      CNY: 1 / rates.CNY
+    };
+
+    liveRatesReady = true;
+
+    if (status) {
+      status.textContent = "即時匯率已更新。";
+    }
+
+  } catch (error) {
+    // 讀取失敗時保留既有匯率，不讓網站中斷
+    console.warn(
+      "即時匯率讀取失敗，暫用預設匯率：",
+      error
+    );
+
+    if (status) {
+      status.textContent =
+        "即時匯率暫時無法讀取，使用預設匯率。";
+    }
+  }
+}
 
    function applyFixedRates() {
   if (currencySettings.mode !== "fixed") return;
@@ -231,8 +278,6 @@ document.addEventListener(
      }
       return;
    }
-
-
 
       // =========================================================
       // 2. DOM

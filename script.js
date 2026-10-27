@@ -641,8 +641,9 @@ document.addEventListener(
       return item;
       }
 
+
     // =========================================================
-    // 6. 產生整個圖鑑
+    // 6. 產生整個圖鑑（小分類可收合）
     // =========================================================
 
     function renderCatalog() {
@@ -668,6 +669,7 @@ document.addEventListener(
 
         if (categoryProducts.length === 0) return;
 
+        // 大分類維持固定顯示
         const section = document.createElement("section");
         section.className = "category-section";
         section.dataset.category = category;
@@ -688,20 +690,69 @@ document.addEventListener(
 
           if (subProducts.length === 0) return;
 
-          const subTitle = document.createElement("h3");
-          subTitle.className = "sub-title";
-          subTitle.textContent = subcategory;
-          section.appendChild(subTitle);
+          // 小分類容器
+          const subSection = document.createElement("div");
+          subSection.className = "subcategory-section";
+          subSection.dataset.expanded = "false";
 
+          // 小分類標題按鈕
+          const subTitle = document.createElement("button");
+          subTitle.type = "button";
+          subTitle.className = "sub-title subcategory-toggle";
+          subTitle.setAttribute("aria-expanded", "false");
+
+          const titleText = document.createElement("span");
+          titleText.className = "subcategory-title-text";
+          titleText.textContent = subcategory;
+
+          const count = document.createElement("span");
+          count.className = "subcategory-count";
+          count.textContent = `${subProducts.length} 款`;
+
+          const arrow = document.createElement("span");
+          arrow.className = "subcategory-arrow";
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = "＋";
+
+          subTitle.append(titleText, count, arrow);
+
+          // 商品網格：預設收合
           const grid = document.createElement("div");
           grid.className = "catalog-grid";
           grid.dataset.category = category;
+          grid.dataset.subcategory = subcategory;
+          grid.hidden = true;
 
           subProducts.forEach(product => {
             grid.appendChild(createProductCard(product));
           });
 
-          section.appendChild(grid);
+          // 點擊小分類標題展開或收合
+          subTitle.addEventListener("click", () => {
+            const isExpanded =
+              subSection.dataset.expanded === "true";
+
+            const nextExpanded = !isExpanded;
+
+            subSection.dataset.expanded =
+              String(nextExpanded);
+
+            subTitle.setAttribute(
+              "aria-expanded",
+              String(nextExpanded)
+            );
+
+            subSection.classList.toggle(
+              "is-expanded",
+              nextExpanded
+            );
+
+            grid.hidden = !nextExpanded;
+            arrow.textContent = nextExpanded ? "－" : "＋";
+          });
+
+          subSection.append(subTitle, grid);
+          section.appendChild(subSection);
         });
 
         catalogContainer.appendChild(section);
@@ -710,7 +761,7 @@ document.addEventListener(
       initializeCollectionState();
       updateAllStatistics();
     }
-
+    
     // =========================================================
     // 7. 收藏資料讀取與儲存
     // =========================================================
@@ -1061,53 +1112,10 @@ document.addEventListener(
       updateOriginalPriceStatistics();
     }
 
+
     // =========================================================
     // 14. 搜尋與篩選
     // =========================================================
-
-    function setupSearchAndFilters() {
-      const searchInput =
-        document.getElementById("search-input");
-
-      const clearSearchButton =
-        document.querySelector(".clear-search");
-
-      const filterButtons =
-        document.querySelectorAll(".filter-button");
-
-      if (searchInput) {
-        searchInput.addEventListener("input", () => {
-          applyFilters();
-
-          if (clearSearchButton) {
-            clearSearchButton.style.display =
-              searchInput.value ? "flex" : "none";
-          }
-        });
-      }
-
-      if (clearSearchButton) {
-        clearSearchButton.addEventListener("click", () => {
-          if (searchInput) {
-            searchInput.value = "";
-            searchInput.dispatchEvent(new Event("input"));
-          }
-
-          clearSearchButton.style.display = "none";
-        });
-      }
-
-      filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-          filterButtons.forEach(item => {
-            item.classList.remove("active");
-          });
-
-          button.classList.add("active");
-          applyFilters();
-        });
-      });
-    }
 
     function applyFilters() {
       const searchInput =
@@ -1125,10 +1133,15 @@ document.addEventListener(
           activeFilter.textContent.trim()
         : "all";
 
+      const hasActiveCriteria =
+        searchText !== "" || filterValue !== "all";
+
       let visibleCount = 0;
 
+      // 篩選每一件商品
       document.querySelectorAll(".item").forEach(item => {
-        const nameElement = item.querySelector(".item-name");
+        const nameElement =
+          item.querySelector(".item-name");
 
         const productName = nameElement
           ? nameElement.textContent.toLowerCase()
@@ -1168,44 +1181,81 @@ document.addEventListener(
 
         item.classList.toggle("filter-hidden", !visible);
 
-        if (visible) visibleCount++;
+        if (visible) {
+          visibleCount++;
+        }
       });
 
-      document.querySelectorAll(".category-section").forEach(section => {
-        let hasVisibleItem = false;
+      // 更新小分類顯示狀態
+      document.querySelectorAll(".subcategory-section").forEach(
+        subSection => {
+          const title =
+            subSection.querySelector(".subcategory-toggle");
 
-        section.querySelectorAll(".catalog-grid").forEach(grid => {
+          const grid =
+            subSection.querySelector(".catalog-grid");
+
+          const arrow =
+            subSection.querySelector(".subcategory-arrow");
+
+          if (!title || !grid) return;
+
           const visibleItems = grid.querySelectorAll(
             ".item:not(.filter-hidden)"
           );
 
-          const hasItems = visibleItems.length > 0;
+          const hasVisibleItems = visibleItems.length > 0;
 
-          grid.style.display = hasItems ? "grid" : "none";
+          // 有搜尋或篩選時，暫時展開符合條件的小分類。
+          // 沒有搜尋或篩選時，還原使用者手動設定的狀態。
+          const manuallyExpanded =
+            subSection.dataset.expanded === "true";
 
-          const previousTitle = grid.previousElementSibling;
+          const expanded = hasActiveCriteria
+            ? hasVisibleItems
+            : manuallyExpanded;
 
-          if (
-            previousTitle &&
-            previousTitle.classList.contains("sub-title")
-          ) {
-            previousTitle.style.display = hasItems ? "flex" : "none";
+          title.style.display =
+            hasVisibleItems ? "flex" : "none";
+
+          title.setAttribute(
+            "aria-expanded",
+            String(expanded)
+          );
+
+          subSection.classList.toggle(
+            "is-expanded",
+            expanded
+          );
+
+          grid.hidden = !expanded;
+
+          if (arrow) {
+            arrow.textContent = expanded ? "－" : "＋";
           }
+        }
+      );
 
-          if (hasItems) hasVisibleItem = true;
-        });
+      // 大分類只在沒有符合條件的商品時隱藏
+      document.querySelectorAll(".category-section").forEach(
+        section => {
+          const visibleItems = section.querySelectorAll(
+            ".item:not(.filter-hidden)"
+          );
 
-        section.style.display = hasVisibleItem ? "block" : "none";
-      });
+          section.style.display =
+            visibleItems.length > 0 ? "block" : "none";
+        }
+      );
 
+      // 搜尋結果文字
       const resultMessage =
         document.querySelector(".search-result-message");
 
       if (resultMessage) {
-        resultMessage.textContent =
-          searchText || filterValue !== "all"
-            ? `找到 ${visibleCount} 件商品`
-            : "";
+        resultMessage.textContent = hasActiveCriteria
+          ? `找到 ${visibleCount} 件商品`
+          : "";
       }
     }
 

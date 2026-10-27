@@ -1,28 +1,27 @@
+/* =========================================
+   01. 全域設定
+   ========================================= */
+
 * {
     box-sizing: border-box;
 }
-
 
 html {
     min-height: 100%;
     background-color: #faf8fc;
 }
 
-
 html.dark-mode {
     background-color: #1d1b23;
 }
-
 
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
 
-
     background-color: #faf8fc;
     color: #333;
-
 
     font-family:
         -apple-system,
@@ -31,105 +30,63 @@ body {
         "Microsoft JhengHei",
         sans-serif;
 
-
     transition:
         background-color 0.25s ease,
         color 0.25s ease;
 }
 
 
-
-
 /* =========================================
-   checkbox
+   02. Checkbox 收藏勾選框
    ========================================= */
-
 
 .collect-checkbox {
     display: none !important;
 }
 
 
-
-
 /* =========================================
-   頂部橫幅
+   03. 頂部橫幅
    ========================================= */
-
 
 .top-banner {
     width: 100vw;
-
-
-    margin-left:
-        calc(-50vw + 50%);
-
-
+    margin-left: calc(-50vw + 50%);
     overflow: hidden;
-
-
     margin-bottom: 20px;
 }
 
-
 .top-banner img {
     display: block;
-
-
     width: 100%;
     height: auto;
 }
 
 
-
-
 /* =========================================
-   收藏統計
+   04. 收藏統計
    ========================================= */
-
 
 .progress-section {
     width: 100%;
     max-width: 1200px;
-
-
     margin: 0 auto 25px;
-
-
     padding: 10px;
 }
 
-
 .progress-grid {
     display: grid;
-
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-
-
     width: 100%;
 }
 
-
 .progress-card {
     background: #ffffff;
-
-
     border: 1px solid #e4dff0;
-
-
     border-radius: 10px;
-
-
     padding: 13px 8px;
-
-
     text-align: center;
-
 
     transition:
         background-color 0.25s ease,
@@ -137,166 +94,86 @@ body {
         transform 0.15s ease;
 }
 
-
 .progress-card:hover {
     border-color: #b7b4e5;
-
-
     background-color: #fdfbff;
-
-
     transform: translateY(-1px);
 }
 
-
 .progress-card-title {
     font-size: 12px;
-
-
     color: #777;
-
-
     margin-bottom: 6px;
-
-
     letter-spacing: 0.5px;
 }
 
-
 .progress-card-count {
     font-size: 17px;
-
-
     font-weight: bold;
-
-
     color: #555;
-
-
     line-height: 1.3;
 }
-
 
 .progress-card-count span {
     color: #6f6bb5;
 }
 
-
 .progress-card-percentage {
     margin-top: 4px;
-
-
     font-size: 11px;
-
-
     color: #9a97ca;
-
-
     line-height: 1.2;
 }
 
-
 .progress-card-price {
     font-size: 17px;
-
-
     font-weight: bold;
-
-
     color: #6f6bb5;
-
-
     white-space: nowrap;
-
-
     line-height: 1.3;
 }
 
-
 .progress-card .unit {
     font-size: 12px;
-
-
     color: #777;
-
-
     font-weight: normal;
 }
 
-
-.progress-card:has(
-    .progress-card-count .unit
-)
+.progress-card:has(.progress-card-count .unit)
 .progress-card-percentage,
-
-
-.progress-card:has(
-    .progress-card-price
-)
+.progress-card:has(.progress-card-price)
 .progress-card-percentage {
     display: none;
 }
 
-
-
-
 /* =========================================
-   搜尋與篩選
+   05. 搜尋與篩選
    ========================================= */
-
 
 .catalog-tools {
     width: 100%;
     max-width: 1200px;
-
-
     margin: 0 auto 18px;
-
-
     padding: 0 10px;
 }
 
-
 .search-box {
     position: relative;
-
-
     width: 100%;
     max-width: 520px;
-
-
     margin: 0 auto 12px;
 }
 
-
 .search-box input {
     width: 100%;
-
-
     height: 42px;
-
-
     padding: 0 42px;
-
-
-    border:
-        1px solid #ddd6e8;
-
-
+    border: 1px solid #ddd6e8;
     border-radius: 21px;
-
-
     background: #ffffff;
-
-
     color: #333;
-
-
     font-size: 14px;
-
-
     outline: none;
-
 
     transition:
         border-color 0.2s ease,
@@ -305,128 +182,63 @@ body {
         color 0.25s ease;
 }
 
-
 .search-box input::placeholder {
     color: #aaa5b5;
 }
 
-
 .search-box input:focus {
     border-color: #8e8cdc;
-
-
-    box-shadow:
-        0 0 0 3px
-        rgba(142, 140, 220, 0.12);
+    box-shadow: 0 0 0 3px rgba(142, 140, 220, 0.12);
 }
-
 
 .search-icon {
     position: absolute;
-
-
     left: 15px;
     top: 50%;
-
-
-    transform:
-        translateY(-50%);
-
-
+    transform: translateY(-50%);
     font-size: 16px;
-
-
     pointer-events: none;
 }
 
-
 .clear-search {
     position: absolute;
-
-
     right: 10px;
     top: 50%;
-
-
-    transform:
-        translateY(-50%);
-
-
+    transform: translateY(-50%);
     width: 25px;
     height: 25px;
-
-
     border: none;
-
-
     border-radius: 50%;
-
-
     background: #eeeaf3;
-
-
     color: #777;
-
-
     cursor: pointer;
-
-
     font-size: 17px;
-
-
     line-height: 1;
-
-
     display: none;
-
-
     align-items: center;
     justify-content: center;
 }
-
 
 .clear-search:hover {
     background: #e1dced;
 }
 
-
 .filter-buttons {
     display: flex;
-
-
     justify-content: center;
     align-items: center;
-
-
     gap: 7px;
-
-
     flex-wrap: wrap;
 }
 
-
 .filter-button {
-    border:
-        1px solid #ddd6e8;
-
-
+    border: 1px solid #ddd6e8;
     background: #ffffff;
-
-
     color: #777;
-
-
     border-radius: 18px;
-
-
     padding: 7px 17px;
-
-
     font-size: 13px;
-
-
     cursor: pointer;
-
 
     transition:
         background-color 0.2s ease,
@@ -435,211 +247,101 @@ body {
         transform 0.15s ease;
 }
 
-
 .filter-button:hover {
     border-color: #aaa6d5;
-
-
     color: #6f6bb5;
 }
-
 
 .filter-button:active {
     transform: scale(0.97);
 }
 
-
 .filter-button.active {
     background: #8e8cdc;
-
-
     border-color: #8e8cdc;
-
-
     color: #ffffff;
 }
 
-
 .search-result-message {
     min-height: 18px;
-
-
     margin-top: 8px;
-
-
     text-align: center;
-
-
     color: #999;
-
-
     font-size: 12px;
 }
 
 
-
-
 /* =========================================
-   大分類
+   06. 大分類標題
    ========================================= */
-
 
 .major-title {
     max-width: 1200px;
-
-
-    margin:
-        30px auto 14px;
-
-
-    padding:
-        0 10px;
-
-
+    margin: 30px auto 14px;
+    padding: 0 10px;
     color: #6f6bb5;
-
-
     font-size: 20px;
-
-
     font-weight: bold;
-
-
     letter-spacing: 0.5px;
 }
 
 
-
-
 /* =========================================
-   小分類
+   07. 小分類標題
    ========================================= */
-
 
 .sub-title {
     max-width: 1200px;
-
-
-    margin:
-        22px auto 7px;
-
-
-    padding:
-        0 10px;
-
-
+    margin: 22px auto 7px;
+    padding: 0 10px;
     color: #777;
-
-
     font-size: 15px;
-
-
     font-weight: bold;
-
-
     display: flex;
-
-
     align-items: center;
-
-
     gap: 9px;
 }
 
-
 .sub-title::after {
     content: "";
-
-
     flex: 1;
-
-
     height: 1px;
-
-
     background: #e8e3f1;
 }
 
 
-
-
 /* =========================================
-   商品網格
+   08. 商品網格
    ========================================= */
-
 
 .catalog-grid {
     display: grid;
-
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(130px, 1fr)
-        );
-
-
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 12px;
-
-
     width: 100%;
-
-
     max-width: 1200px;
-
-
     margin: 0 auto;
-
-
     padding: 10px;
-
-
     overflow: visible;
 }
 
-
-
-
 /* =========================================
-   商品卡片
+   09. 商品卡片
    ========================================= */
-
 
 .item {
     background: #ffffff;
-
-
     width: 100%;
     min-width: 0;
-
-
     padding: 8px;
-
-
     border-radius: 8px;
-
-
-    border:
-        1px solid #e1e1e1;
-
-
+    border: 1px solid #e1e1e1;
     display: flex;
-
-
     flex-direction: column;
-
-
     align-items: center;
-
-
     position: relative;
-
-
     cursor: pointer;
-
-
     box-shadow: none;
-
 
     transition:
         transform 0.15s ease,
@@ -647,338 +349,155 @@ body {
         background-color 0.25s ease,
         box-shadow 0.15s ease;
 
-
     text-align: center;
-
-
     overflow: visible;
 }
 
-
 .item:hover {
-    transform:
-        translateY(-2px);
-
-
-    border-color:
-        #d4d1e7;
-
-
-    box-shadow:
-        0 3px 10px
-        rgba(
-            120,
-            110,
-            150,
-            0.08
-        );
+    transform: translateY(-2px);
+    border-color: #d4d1e7;
+    box-shadow: 0 3px 10px rgba(120, 110, 150, 0.08);
 }
 
 
-
-
 /* =========================================
-   商品圖片
+   10. 商品圖片
    ========================================= */
-
 
 .item img {
     display: block;
-
-
     width: 100%;
-
-
     aspect-ratio: 1 / 1;
-
-
     height: auto;
-
-
     object-fit: contain;
-
-
     margin-bottom: 5px;
-
-
     flex-shrink: 0;
 }
 
 
-
-
 /* =========================================
-   商品名稱
+   11. 商品名稱
    ========================================= */
-
 
 .item-name {
     font-size: 12px;
-
-
     color: #333;
-
-
     cursor: pointer;
-
-
     width: 100%;
-
-
     min-width: 0;
-
-
     line-height: 1.2;
-
-
     text-align: center;
-
-
-    transition:
-        color 0.25s ease;
-
-
+    transition: color 0.25s ease;
     overflow-wrap: anywhere;
 }
 
 
-
-
 /* =========================================
-   收藏
+   12. 收藏狀態與勾選標記
    ========================================= */
 
-
 .item.selected {
-    border:
-        2px solid #8e8cdc;
-
-
+    border: 2px solid #8e8cdc;
     padding: 7px;
-
-
-    box-shadow:
-        0 2px 8px
-        rgba(
-            142,
-            140,
-            220,
-            0.08
-        );
-
-
+    box-shadow: 0 2px 8px rgba(142, 140, 220, 0.08);
     overflow: visible;
 }
 
-
 .item.selected:hover {
-    transform:
-        translateY(-2px);
-
-
-    border-color:
-        #8e8cdc;
+    transform: translateY(-2px);
+    border-color: #8e8cdc;
 }
-
 
 .item.selected::after {
     content: "✔";
-
-
     position: absolute;
-
-
     top: -9px;
     right: -9px;
-
-
-    background-color:
-        #8e8cdc;
-
-
+    background-color: #8e8cdc;
     color: #ffffff;
-
-
     width: 22px;
     height: 22px;
-
-
     border-radius: 50%;
-
-
     font-size: 12px;
-
-
     display: flex;
-
-
     align-items: center;
     justify-content: center;
-
-
     z-index: 20;
-
-
-    box-shadow:
-        0 2px 6px
-        rgba(
-            100,
-            95,
-            160,
-            0.22
-        );
-
-
+    box-shadow: 0 2px 6px rgba(100, 95, 160, 0.22);
     pointer-events: none;
 }
-
 
 .item.filter-hidden {
     display: none !important;
 }
 
 
-
-
 /* =========================================
-   價格區域
+   13. 價格區域
    ========================================= */
-
 
 .price-area {
     width: 100%;
-
-
     box-sizing: border-box;
-
-
     margin-top: 7px;
-
-
     font-size: 11px;
-
-
     color: #777;
-
-
     display: none;
 }
-
 
 .price-area.show {
     display: block;
 }
-
 
 .price-area > span {
     display: none;
 }
 
 
-
-
 /* =========================================
-   數量 / 總價 / 均價
+   14. 數量、總價、均價輸入列
    ========================================= */
-
 
 .collection-input-row {
     display: flex;
-
-
     align-items: center;
-
-
     justify-content: center;
-
-
     gap: 4px;
-
-
     width: 100%;
-
-
     margin-top: 4px;
-
-
     box-sizing: border-box;
-
-
     min-width: 0;
 }
 
-
 .collection-input-label {
     width: 28px;
-
-
     flex-shrink: 0;
-
-
     color: #888;
-
-
     font-size: 10px;
-
-
     line-height: 25px;
-
-
     text-align: right;
 }
 
-
-
-
 /* =========================================
-   數量
+   15. 數量輸入框
    ========================================= */
-
 
 .quantity-input-field {
     display: block !important;
-
-
     width: 48px;
     height: 25px;
-
-
     flex: 0 0 48px;
-
-
     padding: 2px 5px;
-
-
     box-sizing: border-box;
-
-
-    border:
-        1px solid #d6cde0;
-
-
+    border: 1px solid #d6cde0;
     border-radius: 6px;
-
-
     background: #fff;
-
-
     color: #333;
-
-
     font-size: 11px;
-
-
     text-align: center;
-
-
     outline: none;
-
-
     appearance: textfield;
-
-
     -moz-appearance: textfield;
-
 
     transition:
         border-color 0.2s ease,
@@ -986,192 +505,89 @@ body {
         background-color 0.2s ease;
 }
 
-
 .quantity-input-field::-webkit-inner-spin-button,
 .quantity-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
-
-
     margin: 0;
 }
 
-
 .quantity-input-field:focus {
     border-color: #8e8cdc;
-
-
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
+    box-shadow: 0 0 0 2px rgba(142, 140, 220, 0.15);
 }
-
-
 
 
 /* =========================================
-   總價外框
+   16. 總價外框與標籤
    ========================================= */
-
 
 .price-input {
     display: flex;
-
-
     align-items: center;
-
-
     justify-content: center;
-
-
     gap: 2px;
-
-
     min-width: 0;
 }
 
-
 .price-input > span {
     flex-shrink: 0;
-
-
     font-size: 9px;
-
-
     color: #888;
 }
 
 
-
-
 /* =========================================
-   均價欄位
+   17. 均價輸入欄位
    ========================================= */
-
 
 .price-input-field {
     width: 48px;
-
-
     height: 25px;
-
-
     flex: 0 0 48px;
-
-
     padding: 2px 5px;
-
-
     box-sizing: border-box;
-
-
-    border:
-        1px solid #d6cde0;
-
-
+    border: 1px solid #d6cde0;
     border-radius: 6px;
-
-
     background: #ffffff;
-
-
     color: #333;
-
-
     font-size: 11px;
-
-
     text-align: center;
-
-
     outline: none;
-
-
     appearance: textfield;
-
-
     -moz-appearance: textfield;
-
 
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
         background-color 0.25s ease;
 }
-
 
 .price-input-field:focus {
     border-color: #8e8cdc;
-
-
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
+    box-shadow: 0 0 0 2px rgba(142, 140, 220, 0.15);
 }
 
 
-
-
 /* =========================================
-   總價輸入
+   18. 總價輸入欄位
    ========================================= */
-
 
 .total-price-input-field {
     display: block !important;
-
-
     width: 48px;
-
-
     height: 25px;
-
-
     flex: 0 0 48px;
-
-
     padding: 2px 5px;
-
-
     box-sizing: border-box;
-
-
-    border:
-        1px solid #d6cde0;
-
-
+    border: 1px solid #d6cde0;
     border-radius: 6px;
-
-
     background: #fff;
-
-
     color: #333;
-
-
     font-size: 11px;
-
-
     text-align: center;
-
-
     outline: none;
-
-
     appearance: textfield;
-
-
     -moz-appearance: textfield;
-
 
     transition:
         border-color 0.2s ease,
@@ -1179,183 +595,86 @@ body {
         background-color 0.25s ease;
 }
 
-
 .total-price-input-field:focus {
     border-color: #8e8cdc;
-
-
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            142,
-            140,
-            220,
-            0.15
-        );
+    box-shadow: 0 0 0 2px rgba(142, 140, 220, 0.15);
 }
-
 
 .total-price-input-field::-webkit-inner-spin-button,
 .total-price-input-field::-webkit-outer-spin-button {
     -webkit-appearance: none;
-
-
     margin: 0;
 }
 
 
-
-
 /* =========================================
-   均價顯示
+   19. 均價顯示
    ========================================= */
-
 
 .collection-average-price {
     min-width: 48px;
-
-
     width: 48px;
-
-
     height: 25px;
-
-
     display: flex;
-
-
     align-items: center;
-
-
     justify-content: center;
-
-
     flex: 0 0 48px;
-
-
     color: #6f6bb5;
-
-
     font-size: 10px;
-
-
     font-weight: 600;
-
-
     white-space: nowrap;
-
-
     overflow: hidden;
 }
 
 
-
-
 /* =========================================
-   舊版總價
+   20. 舊版總價顯示
    ========================================= */
-
 
 .collection-total-price {
     display: flex;
-
-
     align-items: center;
-
-
     justify-content: center;
-
-
     gap: 5px;
-
-
     width: 100%;
-
-
     margin-top: 5px;
-
-
     color: #999;
-
-
     font-size: 10px;
 }
 
-
 .collection-total-price-value {
     color: #6f6bb5;
-
-
     font-size: 11px;
-
-
     font-weight: 600;
 }
 
 
-
-
 /* =========================================
-   分類
+   21. 分類區塊
    ========================================= */
-
 
 .category-section {
     width: 100%;
 }
 
-
-
-
 /* =========================================
-   設定按鈕
+   22. 設定按鈕
    ========================================= */
-
 
 .settings-button {
     position: fixed;
-
-
     right: 18px;
     bottom: 18px;
-
-
     width: 48px;
     height: 48px;
-
-
-    border:
-        1px solid #ddd6e8;
-
-
+    border: 1px solid #ddd6e8;
     border-radius: 50%;
-
-
-    background:
-        rgba(255, 255, 255, 0.95);
-
-
+    background: rgba(255, 255, 255, 0.95);
     color: #6f6bb5;
-
-
-    box-shadow:
-        0 4px 14px
-        rgba(
-            80,
-            70,
-            110,
-            0.15
-        );
-
-
+    box-shadow: 0 4px 14px rgba(80, 70, 110, 0.15);
     font-size: 21px;
-
-
     cursor: pointer;
-
-
     z-index: 1000;
-
 
     transition:
         transform 0.2s ease,
@@ -1363,50 +682,26 @@ body {
         border-color 0.25s ease;
 }
 
-
 .settings-button:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 }
 
 
-
-
 /* =========================================
-   設定遮罩
+   23. 設定與確認視窗遮罩
    ========================================= */
-
 
 .settings-overlay,
 .confirm-overlay {
     position: fixed;
-
-
     inset: 0;
-
-
-    background:
-        rgba(
-            30,
-            25,
-            45,
-            0.38
-        );
-
-
+    background: rgba(30, 25, 45, 0.38);
     display: none;
-
-
     align-items: center;
     justify-content: center;
-
-
     padding: 20px;
-
-
     z-index: 2000;
 }
-
 
 .settings-overlay.show,
 .confirm-overlay.show {
@@ -1414,414 +709,204 @@ body {
 }
 
 
-
-
 /* =========================================
-   設定面板
+   24. 設定面板
    ========================================= */
-
 
 .settings-panel {
     width: 100%;
-
-
     max-width: 430px;
-
-
     background: #ffffff;
-
-
     border-radius: 18px;
-
-
-    box-shadow:
-        0 12px 40px
-        rgba(
-            50,
-            40,
-            70,
-            0.2
-        );
-
-
+    box-shadow: 0 12px 40px rgba(50, 40, 70, 0.2);
     overflow: hidden;
-
-
-    animation:
-        panel-in 0.18s ease;
+    animation: panel-in 0.18s ease;
 }
-
-
-@keyframes panel-in {
-
-
-    from {
-        opacity: 0;
-
-
-        transform:
-            scale(0.96)
-            translateY(8px);
-    }
-
-
-    to {
-        opacity: 1;
-
-
-        transform:
-            scale(1)
-            translateY(0);
-    }
-}
-
-
 
 
 /* =========================================
-   設定標題
+   25. 面板進場動畫
    ========================================= */
 
+@keyframes panel-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* =========================================
+   26. 設定標題與關閉按鈕
+   ========================================= */
 
 .settings-header {
     display: flex;
-
-
     align-items: center;
     justify-content: space-between;
-
-
-    padding:
-        17px 18px;
-
-
-    border-bottom:
-        1px solid #eeeaf3;
+    padding: 17px 18px;
+    border-bottom: 1px solid #eeeaf3;
 }
-
 
 .settings-header h2 {
     margin: 0;
-
-
     color: #6f6bb5;
-
-
     font-size: 18px;
 }
-
 
 .close-settings {
     width: 32px;
     height: 32px;
-
-
     border: none;
-
-
     border-radius: 50%;
-
-
-    background:
-        #f3f0f6;
-
-
+    background: #f3f0f6;
     color: #777;
-
-
     font-size: 21px;
-
-
     cursor: pointer;
 }
 
 
-
-
 /* =========================================
-   設定項目
+   27. 設定項目
    ========================================= */
-
 
 .settings-item {
     display: flex;
-
-
     align-items: center;
     justify-content: space-between;
-
-
     gap: 15px;
-
-
     padding: 18px;
-
-
-    border-bottom:
-        1px solid #f0edf4;
+    border-bottom: 1px solid #f0edf4;
 }
-
 
 .settings-item:last-child {
     border-bottom: none;
 }
 
-
 .settings-item-text {
     display: flex;
-
-
     flex-direction: column;
-
-
     gap: 4px;
-
-
     min-width: 0;
 }
 
-
 .settings-item-text strong {
     color: #444;
-
-
     font-size: 14px;
 }
 
-
 .settings-item-text span {
     color: #999;
-
-
     font-size: 11px;
 }
 
 
-
-
 /* =========================================
-   深色模式按鈕
+   28. 深色模式切換按鈕
    ========================================= */
-
 
 .theme-toggle {
     display: flex;
-
-
     align-items: center;
-
-
     gap: 5px;
-
-
-    border:
-        1px solid #d9d3e3;
-
-
+    border: 1px solid #d9d3e3;
     border-radius: 16px;
-
-
-    padding:
-        6px 11px;
-
-
-    background:
-        #f8f6fa;
-
-
+    padding: 6px 11px;
+    background: #f8f6fa;
     color: #666;
-
-
     font-size: 12px;
-
-
     cursor: pointer;
-
-
     white-space: nowrap;
 }
 
 
-
-
 /* =========================================
-   清除資料
+   29. 清除資料按鈕
    ========================================= */
-
 
 .clear-data-button {
-    border:
-        1px solid #e6b7bd;
-
-
+    border: 1px solid #e6b7bd;
     border-radius: 16px;
-
-
-    padding:
-        6px 12px;
-
-
-    background:
-        #fff5f6;
-
-
-    color:
-        #c35e68;
-
-
+    padding: 6px 12px;
+    background: #fff5f6;
+    color: #c35e68;
     font-size: 12px;
-
-
     cursor: pointer;
-
-
     white-space: nowrap;
 }
 
-
 .clear-data-button:hover {
-    background:
-        #ffe9eb;
+    background: #ffe9eb;
 }
 
 
-
-
 /* =========================================
-   確認視窗
+   30. 清除資料確認視窗
    ========================================= */
-
 
 .confirm-panel {
     width: 100%;
-
-
     max-width: 360px;
-
-
-    padding:
-        25px 20px;
-
-
-    background:
-        #ffffff;
-
-
+    padding: 25px 20px;
+    background: #ffffff;
     border-radius: 18px;
-
-
     text-align: center;
-
-
-    box-shadow:
-        0 12px 40px
-        rgba(
-            50,
-            40,
-            70,
-            0.2
-        );
-
-
-    animation:
-        panel-in 0.18s ease;
+    box-shadow: 0 12px 40px rgba(50, 40, 70, 0.2);
+    animation: panel-in 0.18s ease;
 }
-
 
 .confirm-icon {
     font-size: 32px;
-
-
     margin-bottom: 8px;
 }
 
-
 .confirm-panel h2 {
-    margin:
-        0 0 9px;
-
-
+    margin: 0 0 9px;
     color: #444;
-
-
     font-size: 18px;
 }
 
-
 .confirm-panel p {
-    margin:
-        0 0 20px;
-
-
+    margin: 0 0 20px;
     color: #888;
-
-
     font-size: 12px;
-
-
     line-height: 1.7;
 }
 
-
 .confirm-buttons {
     display: flex;
-
-
     gap: 8px;
 }
-
 
 .cancel-button,
 .confirm-clear-button {
     flex: 1;
-
-
     height: 38px;
-
-
     border-radius: 19px;
-
-
     cursor: pointer;
-
-
     font-size: 13px;
 }
 
-
 .cancel-button {
-    border:
-        1px solid #ddd6e8;
-
-
-    background:
-        #ffffff;
-
-
+    border: 1px solid #ddd6e8;
+    background: #ffffff;
     color: #777;
 }
 
-
 .confirm-clear-button {
-    border:
-        1px solid #d96873;
-
-
-    background:
-        #d96873;
-
-
-    color:
-        #ffffff;
+    border: 1px solid #d96873;
+    background: #d96873;
+    color: #ffffff;
 }
 
-
-
-
 /* =========================================
-   深色模式
+   31. 深色模式
    ========================================= */
-
 
 /*
  * 重要：
@@ -1832,654 +917,399 @@ body {
  *
  * 所以 class 在 <html>。
  *
- * 這裡全部使用：
- *
- * html.dark-mode
- *
- * 這樣重新整理時才能在最早階段直接套用深色。
+ * 這裡全部使用 html.dark-mode，
+ * 讓重新整理時也能套用深色模式。
  */
 
 
-
-
-/* 頁面 */
-
+/* -----------------------------------------
+   31-1. 頁面
+   ----------------------------------------- */
 
 html.dark-mode body {
-    background-color:
-        #1d1b23;
-
-
-    color:
-        #eeeeee;
+    background-color: #1d1b23;
+    color: #eeeeee;
 }
 
 
-
-
-/* 統計 */
-
+/* -----------------------------------------
+   31-2. 收藏統計
+   ----------------------------------------- */
 
 html.dark-mode .progress-card {
-    background-color:
-        #292631;
-
-
-    border-color:
-        #403a4b;
+    background-color: #292631;
+    border-color: #403a4b;
 }
-
 
 html.dark-mode .progress-card:hover {
-    background-color:
-        #302c39;
-
-
-    border-color:
-        #5b536b;
+    background-color: #302c39;
+    border-color: #5b536b;
 }
-
 
 html.dark-mode .progress-card-title {
-    color:
-        #aaa4b5;
+    color: #aaa4b5;
 }
-
 
 html.dark-mode .progress-card-count {
-    color:
-        #eeeeee;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .progress-card-count span {
-    color:
-        #aaa6ed;
+    color: #aaa6ed;
 }
-
 
 html.dark-mode .progress-card .unit {
-    color:
-        #aaa4b5;
+    color: #aaa4b5;
 }
-
 
 html.dark-mode .progress-card-price {
-    color:
-        #aaa6ed;
+    color: #aaa6ed;
 }
 
 
-
-
-/* 分類 */
-
+/* -----------------------------------------
+   31-3. 分類
+   ----------------------------------------- */
 
 html.dark-mode .major-title {
-    color:
-        #aaa6ed;
+    color: #aaa6ed;
 }
-
 
 html.dark-mode .sub-title {
-    color:
-        #aaa4b5;
+    color: #aaa4b5;
 }
-
 
 html.dark-mode .sub-title::after {
-    background:
-        #403a4b;
+    background: #403a4b;
 }
 
 
-
-
-/* 商品 */
-
+/* -----------------------------------------
+   31-4. 商品卡片
+   ----------------------------------------- */
 
 html.dark-mode .item {
-    background-color:
-        #292631;
-
-
-    border-color:
-        #403a4b;
+    background-color: #292631;
+    border-color: #403a4b;
 }
-
 
 html.dark-mode .item:hover {
-    border-color:
-        #625a73;
-
-
-    box-shadow:
-        0 3px 12px
-        rgba(
-            0,
-            0,
-            0,
-            0.25
-        );
+    border-color: #625a73;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
 }
-
 
 html.dark-mode .item-name {
-    color:
-        #eeeeee;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .item.selected {
-    border-color:
-        #aaa6ed;
+    border-color: #aaa6ed;
 }
 
 
-
-
-/* 輸入框 */
-
+/* -----------------------------------------
+   31-5. 輸入框
+   ----------------------------------------- */
 
 html.dark-mode .price-input-field,
 html.dark-mode .quantity-input-field,
 html.dark-mode .total-price-input-field {
-    background-color:
-        #211f27;
-
-
-    border-color:
-        #51495e;
-
-
-    color:
-        #eeeeee;
+    background-color: #211f27;
+    border-color: #51495e;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .collection-average-price {
-    color:
-        #aaa6e5;
+    color: #aaa6e5;
 }
-
 
 html.dark-mode .collection-input-label {
-    color:
-        #aaa5b5;
+    color: #aaa5b5;
 }
-
 
 html.dark-mode .collection-total-price {
-    color:
-        #aaa5b5;
+    color: #aaa5b5;
 }
-
 
 html.dark-mode .collection-total-price-value {
-    color:
-        #aaa6e5;
+    color: #aaa6e5;
 }
-
 
 html.dark-mode .price-input > span {
-    color:
-        #aaa5b5;
+    color: #aaa5b5;
 }
 
 
-
-
-/* 搜尋 */
-
+/* -----------------------------------------
+   31-6. 搜尋
+   ----------------------------------------- */
 
 html.dark-mode .search-box input {
-    background-color:
-        #292631;
-
-
-    border-color:
-        #4a4355;
-
-
-    color:
-        #eeeeee;
+    background-color: #292631;
+    border-color: #4a4355;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .search-box input::placeholder {
-    color:
-        #817b8b;
+    color: #817b8b;
 }
-
 
 html.dark-mode .clear-search {
-    background-color:
-        #403a49;
-
-
-    color:
-        #bbb4c5;
+    background-color: #403a49;
+    color: #bbb4c5;
 }
 
 
-
-
-/* 篩選 */
-
+/* -----------------------------------------
+   31-7. 篩選按鈕
+   ----------------------------------------- */
 
 html.dark-mode .filter-button {
-    background-color:
-        #292631;
-
-
-    border-color:
-        #4a4355;
-
-
-    color:
-        #aaa4b5;
+    background-color: #292631;
+    border-color: #4a4355;
+    color: #aaa4b5;
 }
-
 
 html.dark-mode .filter-button:hover {
-    border-color:
-        #6b6380;
-
-
-    color:
-        #c0bdf0;
+    border-color: #6b6380;
+    color: #c0bdf0;
 }
-
 
 html.dark-mode .filter-button.active {
-    background-color:
-        #8e8cdc;
-
-
-    border-color:
-        #8e8cdc;
-
-
-    color:
-        #ffffff;
+    background-color: #8e8cdc;
+    border-color: #8e8cdc;
+    color: #ffffff;
 }
 
 
-
-
-/* 搜尋結果 */
-
+/* -----------------------------------------
+   31-8. 搜尋結果
+   ----------------------------------------- */
 
 html.dark-mode .search-result-message {
-    color:
-        #8f8999;
+    color: #8f8999;
 }
 
 
-
-
-/* 設定按鈕 */
-
+/* -----------------------------------------
+   31-9. 設定按鈕
+   ----------------------------------------- */
 
 html.dark-mode .settings-button {
-    background-color:
-        #292631;
-
-
-    border-color:
-        #4a4355;
-
-
-    color:
-        #aaa6ed;
+    background-color: #292631;
+    border-color: #4a4355;
+    color: #aaa6ed;
 }
 
 
-
-
-/* 設定視窗 */
-
+/* -----------------------------------------
+   31-10. 設定視窗
+   ----------------------------------------- */
 
 html.dark-mode .settings-panel,
 html.dark-mode .confirm-panel {
-    background-color:
-        #292631;
+    background-color: #292631;
 }
-
 
 html.dark-mode .settings-header {
-    border-color:
-        #403a4b;
+    border-color: #403a4b;
 }
-
 
 html.dark-mode .settings-header h2 {
-    color:
-        #aaa6ed;
+    color: #aaa6ed;
 }
-
 
 html.dark-mode .close-settings {
-    background-color:
-        #403a49;
-
-
-    color:
-        #ccc;
+    background-color: #403a49;
+    color: #ccc;
 }
-
 
 html.dark-mode .settings-item {
-    border-color:
-        #403a4b;
+    border-color: #403a4b;
 }
-
 
 html.dark-mode .settings-item-text strong {
-    color:
-        #eeeeee;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .settings-item-text span {
-    color:
-        #9992a5;
+    color: #9992a5;
 }
 
 
-
-
-/* 主題按鈕 */
-
+/* -----------------------------------------
+   31-11. 主題按鈕
+   ----------------------------------------- */
 
 html.dark-mode .theme-toggle {
-    background-color:
-        #35303e;
-
-
-    border-color:
-        #51495e;
-
-
-    color:
-        #ddd;
+    background-color: #35303e;
+    border-color: #51495e;
+    color: #ddd;
 }
 
 
-
-
-/* 清除資料 */
-
+/* -----------------------------------------
+   31-12. 清除資料按鈕
+   ----------------------------------------- */
 
 html.dark-mode .clear-data-button {
-    background-color:
-        #3a282c;
-
-
-    border-color:
-        #70444a;
-
-
-    color:
-        #e9959d;
+    background-color: #3a282c;
+    border-color: #70444a;
+    color: #e9959d;
 }
 
 
-
-
-/* 確認視窗 */
-
+/* -----------------------------------------
+   31-13. 確認視窗
+   ----------------------------------------- */
 
 html.dark-mode .confirm-panel h2 {
-    color:
-        #eeeeee;
+    color: #eeeeee;
 }
-
 
 html.dark-mode .confirm-panel p {
-    color:
-        #aaa4b5;
+    color: #aaa4b5;
 }
-
 
 html.dark-mode .cancel-button {
-    background-color:
-        #35303e;
-
-
-    border-color:
-        #51495e;
-
-
-    color:
-        #ddd;
+    background-color: #35303e;
+    border-color: #51495e;
+    color: #ddd;
 }
 
-
-
-
 /* =========================================
-   搜尋區與統計格間距
+   32. 搜尋區與統計格間距
    ========================================= */
-
 
 .search-section {
     margin-top: 24px;
 }
 
 
-
-
 /* =========================================
-   手機版
+   33. 手機版（寬度不超過 600px）
    ========================================= */
 
-
 @media (max-width: 600px) {
-
-
     .top-banner {
         margin-bottom: 15px;
     }
 
-
     .progress-section {
         padding: 8px;
-
-
         margin-bottom: 18px;
     }
 
-
     .progress-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
 
-
     .progress-card {
-        padding:
-            10px 5px;
+        padding: 10px 5px;
     }
-
 
     .progress-card-title {
         font-size: 11px;
     }
 
-
     .progress-card-count {
         font-size: 15px;
     }
-
 
     .progress-card-price {
         font-size: 15px;
     }
 
-
     .catalog-tools {
-        padding:
-            0 8px;
+        padding: 0 8px;
     }
-
 
     .search-box {
         max-width: none;
     }
 
-
     .filter-button {
-        padding:
-            7px 14px;
+        padding: 7px 14px;
     }
 
+    /* 手機一列 4 隻 */
 
-    /*
-     * 手機一列 4 隻
-     */
     .catalog-grid {
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
-
-
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 7px;
-
-
         padding: 8px;
-
-
         overflow: visible;
     }
-
 
     .item {
         padding: 5px;
-
-
         border-radius: 8px;
-
-
         min-width: 0;
-
-
         overflow: visible;
     }
-
 
     .item.selected {
         padding: 4px;
-
-
         overflow: visible;
     }
 
-
     .item-name {
         font-size: 10px;
-
-
         line-height: 1.2;
     }
 
-
     .collection-input-row {
         gap: 2px;
-
-
         margin-top: 3px;
     }
 
-
     .collection-input-label {
         width: 20px;
-
-
         font-size: 8px;
-
-
         line-height: 22px;
     }
-
 
     .quantity-input-field,
     .total-price-input-field,
     .price-input-field {
         width: 42px;
-
-
         flex-basis: 42px;
-
-
         height: 22px;
-
-
-        padding:
-            2px 3px;
-
-
+        padding: 2px 3px;
         font-size: 10px;
-
-
         border-radius: 5px;
     }
-
 
     .price-input {
         gap: 1px;
     }
 
-
     .price-input > span {
         font-size: 7px;
     }
 
-
     .collection-average-price {
         width: 42px;
-
-
         flex-basis: 42px;
-
-
         height: 22px;
-
-
         font-size: 8px;
     }
 
-
     .item.selected::after {
         top: -8px;
-
-
         right: -8px;
-
-
         width: 19px;
-
-
         height: 19px;
-
-
         font-size: 10px;
     }
 
-
     .settings-button {
         right: 14px;
-
-
         bottom: 14px;
-
-
         width: 44px;
         height: 44px;
     }
-
 
     .settings-panel {
         max-width: 100%;
@@ -2487,143 +1317,89 @@ html.dark-mode .cancel-button {
 }
 
 
-
-
 /* =========================================
-   更小手機
+   34. 更小手機（寬度不超過 380px）
    ========================================= */
 
-
 @media (max-width: 380px) {
-
-
     .catalog-grid {
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
-
-
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 5px;
-
-
         padding: 6px;
-
-
         overflow: visible;
     }
-
 
     .item {
         padding: 4px;
-
-
         min-width: 0;
-
-
         overflow: visible;
     }
-
 
     .item.selected {
         padding: 3px;
-
-
         overflow: visible;
     }
-
 
     .item-name {
         font-size: 9px;
     }
-
 
     .progress-card-count,
     .progress-card-price {
         font-size: 14px;
     }
 
-
     .filter-button {
-        padding:
-            6px 11px;
-
-
+        padding: 6px 11px;
         font-size: 12px;
     }
 
-
     .settings-item {
-        padding:
-            15px;
+        padding: 15px;
     }
-
 
     .collection-input-row {
         gap: 1px;
     }
 
-
     .collection-input-label {
         width: 18px;
-
-
         font-size: 7px;
     }
-
 
     .quantity-input-field,
     .total-price-input-field,
     .price-input-field {
         width: 38px;
-
-
         flex-basis: 38px;
-
-
         height: 21px;
-
-
         font-size: 9px;
     }
 
-
     .collection-average-price {
         width: 38px;
-
-
         flex-basis: 38px;
-
-
         height: 21px;
-
-
         font-size: 7px;
     }
-
 
     .price-input > span {
         font-size: 6px;
     }
 
-
     .item.selected::after {
         top: -7px;
-
-
         right: -7px;
-
-
         width: 18px;
-
-
         height: 18px;
-
-
         font-size: 9px;
     }
 }
+
 /* =========================================
-   幣別與匯率設定
+   35. 幣別與匯率設定
    ========================================= */
+
 .currency-settings-section {
     padding: 16px 18px;
     border-bottom: 1px solid #f0edf4;
@@ -2697,6 +1473,11 @@ html.dark-mode .cancel-button {
     line-height: 1.5;
 }
 
+
+/* =========================================
+   36. 深色模式：幣別與匯率設定
+   ========================================= */
+
 html.dark-mode .currency-settings-section {
     border-color: #403a4b;
 }
@@ -2720,101 +1501,3 @@ html.dark-mode .fixed-rate-fields label,
 html.dark-mode .exchange-rate-status {
     color: #aaa4b5;
 }
-
-
-/* =========================================================
-   小桃圖鑑：小分類收合功能
-   ========================================================= */
-
-.subcategory-section {
-  margin-bottom: 12px;
-}
-
-/* 小分類標題 */
-.subcategory-toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* 小分類名稱 */
-.subcategory-title-text {
-  flex: 1;
-  min-width: 0;
-}
-
-/* 商品款數 */
-.subcategory-count {
-  flex-shrink: 0;
-  font-size: 0.82em;
-  font-weight: normal;
-  opacity: 0.7;
-}
-
-/* 展開與收合符號 */
-.subcategory-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  font-size: 18px;
-  line-height: 1;
-  transition: background-color 0.2s ease;
-}
-
-.subcategory-toggle:hover .subcategory-arrow {
-  background-color: rgba(128, 128, 128, 0.12);
-}
-
-/* 鍵盤操作的焦點提示 */
-.subcategory-toggle:focus-visible {
-  outline: 2px solid #d98ba7;
-  outline-offset: 3px;
-}
-
-/* 收合時確實隱藏商品 */
-.subcategory-section .catalog-grid[hidden] {
-  display: none !important;
-}
-
-/* 展開時的商品間距 */
-.subcategory-section .catalog-grid:not([hidden]) {
-  margin-top: 12px;
-  animation: subcategory-open 0.2s ease;
-}
-
-@keyframes subcategory-open {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 深色模式焦點提示 */
-.dark-mode .subcategory-toggle:focus-visible {
-  outline-color: #e6a5bd;
-}
-
-/* 尊重使用者減少動態效果的偏好 */
-@media (prefers-reduced-motion: reduce) {
-  .subcategory-arrow,
-  .subcategory-section .catalog-grid:not([hidden]) {
-    animation: none;
-    transition: none;
-  }
-}
-

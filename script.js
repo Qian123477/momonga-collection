@@ -650,227 +650,205 @@ document.addEventListener(
     // 6. 產生整個圖鑑（只有小分類可以開合）
     // =========================================================
 
-    function renderCatalog() {
-      catalogContainer.innerHTML = "";
 
-      if (products.length === 0) {
-        catalogContainer.innerHTML = `
-          <div style="text-align:center;color:#999;padding:60px 20px;">
-            <div style="font-size:40px;margin-bottom:12px;">📦</div>
-            <div style="font-size:16px;">目前沒有商品</div>
-          </div>
-        `;
+function renderCatalog() {
+  catalogContainer.innerHTML = "";
 
-        initializeCollectionState();
-        return;
+  if (products.length === 0) {
+    catalogContainer.innerHTML = `
+      <div style="text-align:center;color:#999;padding:60px 20px;">
+        <div style="font-size:40px;margin-bottom:12px;">📦</div>
+        <div style="font-size:16px;">目前沒有商品</div>
+      </div>
+    `;
+    initializeCollectionState();
+    return;
+  }
+
+  // 建立小分類區塊
+  function createSubcategorySection(category, subcategory, subProducts) {
+    const subSection = document.createElement("div");
+    subSection.className = "subcategory-section";
+    subSection.dataset.category = category;
+    subSection.dataset.subcategory = subcategory;
+
+    const storageKey =
+      `momo_subcategory_expanded_${category}_${subcategory}`;
+
+    const savedExpanded = localStorage.getItem(storageKey);
+    const expanded = savedExpanded === null
+      ? true
+      : savedExpanded === "true";
+
+    subSection.dataset.expanded = String(expanded);
+
+    // 小分類標題
+    const title = document.createElement("button");
+    title.type = "button";
+    title.className = "subcategory-toggle";
+    title.setAttribute("aria-expanded", String(expanded));
+
+    const titleText = document.createElement("span");
+    titleText.className = "subcategory-title-text";
+    titleText.textContent = subcategory;
+
+    const arrow = document.createElement("span");
+    arrow.className = "subcategory-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+
+    title.appendChild(titleText);
+    title.appendChild(arrow);
+
+    // 商品網格
+    const grid = document.createElement("div");
+    grid.className = "catalog-grid";
+    grid.dataset.category = category;
+    grid.dataset.subcategory = subcategory;
+
+    subProducts.forEach(product => {
+      grid.appendChild(createProductCard(product));
+    });
+
+    // 統一管理展開與收合
+    function setExpanded(value, save = true) {
+      subSection.dataset.expanded = String(value);
+
+      if (save) {
+        localStorage.setItem(storageKey, String(value));
       }
 
-      // 建立小分類區塊
-      function createSubcategorySection(
-        category,
-        subcategory,
-        subProducts
-      ) {
-        const subSection = document.createElement("div");
-        subSection.className = "subcategory-section";
-        subSection.dataset.category = category;
-        subSection.dataset.subcategory = subcategory;
-
-        // 記住使用者的開合狀態；第一次建立時預設展開
-        const storageKey =
-          `momo_subcategory_expanded_${category}_${subcategory}`;
-
-        const savedExpanded = localStorage.getItem(storageKey);
-        const expanded = savedExpanded === null
-          ? true
-          : savedExpanded === "true";
-
-        subSection.dataset.expanded = String(expanded);
-
-        // 小分類標題按鈕
-        const title = document.createElement("button");
-        title.type = "button";
-        title.className = "subcategory-toggle";
-        title.setAttribute("aria-expanded", String(expanded));
-
-        title.style.display = "flex";
-        title.style.alignItems = "center";
-        title.style.justifyContent = "space-between";
-        title.style.width = "100%";
-        title.style.cursor = "pointer";
-
-        const titleText = document.createElement("span");
-        titleText.textContent = subcategory;
-
-        const arrow = document.createElement("span");
-        arrow.className = "subcategory-arrow";
-        arrow.textContent = expanded ? "－" : "＋";
-        arrow.setAttribute("aria-hidden", "true");
-
-        title.appendChild(titleText);
-        title.appendChild(arrow);
-
-        // 商品網格
-        const grid = document.createElement("div");
-        grid.className = "catalog-grid";
-        grid.dataset.category = category;
-        grid.dataset.subcategory = subcategory;
-        grid.hidden = !expanded;
-
-        subProducts.forEach(product => {
-          grid.appendChild(createProductCard(product));
-        });
-
-        // 點擊小分類標題即可開合
-        title.addEventListener("click", () => {
-          const isExpanded =
-            subSection.dataset.expanded === "true";
-
-          const nextExpanded = !isExpanded;
-
-          subSection.dataset.expanded = String(nextExpanded);
-          localStorage.setItem(
-            storageKey,
-            String(nextExpanded)
-          );
-
-          subSection.classList.toggle(
-            "is-expanded",
-            nextExpanded
-          );
-
-          title.setAttribute(
-            "aria-expanded",
-            String(nextExpanded)
-          );
-
-          grid.hidden = !nextExpanded;
-          arrow.textContent = nextExpanded ? "－" : "＋";
-        });
-
-        subSection.classList.toggle("is-expanded", expanded);
-        subSection.appendChild(title);
-        subSection.appendChild(grid);
-
-        return subSection;
-      }
-
-      // 固定大分類順序
-      categoryOrder.forEach(category => {
-        const categoryProducts = products.filter(
-          product => product.category === category
-        );
-
-        if (categoryProducts.length === 0) return;
-
-        const section = document.createElement("section");
-        section.className = "category-section";
-        section.dataset.category = category;
-
-        const majorTitle = document.createElement("h2");
-        majorTitle.className = "major-title";
-        majorTitle.textContent = category;
-        section.appendChild(majorTitle);
-
-        const orderedSubcategories =
-          subcategoryOrder[category] || [];
-
-        const actualSubcategories = [
-          ...new Set(
-            categoryProducts.map(
-              product => product.subcategory || "其他"
-            )
-          )
-        ];
-
-        const allSubcategories = [
-          ...orderedSubcategories.filter(
-            subcategory =>
-              actualSubcategories.includes(subcategory)
-          ),
-          ...actualSubcategories.filter(
-            subcategory =>
-              !orderedSubcategories.includes(subcategory)
-          )
-        ];
-
-        allSubcategories.forEach(subcategory => {
-          const subProducts = categoryProducts.filter(
-            product =>
-              (product.subcategory || "其他") === subcategory
-          );
-
-          if (subProducts.length === 0) return;
-
-          section.appendChild(
-            createSubcategorySection(
-              category,
-              subcategory,
-              subProducts
-            )
-          );
-        });
-
-        catalogContainer.appendChild(section);
-      });
-
-      // 顯示資料中存在、但未列在 categoryOrder 的大分類
-      const unlistedCategories = [
-        ...new Set(
-          products
-            .map(product => product.category || "其他")
-            .filter(
-              category => !categoryOrder.includes(category)
-            )
-        )
-      ];
-
-      unlistedCategories.forEach(category => {
-        const categoryProducts = products.filter(
-          product =>
-            (product.category || "其他") === category
-        );
-
-        if (categoryProducts.length === 0) return;
-
-        const section = document.createElement("section");
-        section.className = "category-section";
-        section.dataset.category = category;
-
-        const majorTitle = document.createElement("h2");
-        majorTitle.className = "major-title";
-        majorTitle.textContent = category;
-        section.appendChild(majorTitle);
-
-        // 未知大分類也使用相同的小分類開合功能
-        const actualSubcategories = [
-          ...new Set(
-            categoryProducts.map(
-              product => product.subcategory || "其他"
-            )
-          )
-        ];
-
-        actualSubcategories.forEach(subcategory => {
-          const subProducts = categoryProducts.filter(
-            product =>
-              (product.subcategory || "其他") === subcategory
-          );
-
-          section.appendChild(
-            createSubcategorySection(
-              category,
-              subcategory,
-              subProducts
-            )
-          );
-        });
-
-        catalogContainer.appendChild(section);
-      });
-
-      initializeCollectionState();
+      subSection.classList.toggle("is-expanded", value);
+      title.setAttribute("aria-expanded", String(value));
+      grid.hidden = !value;
+      arrow.textContent = value ? "−" : "+";
     }
+
+    // 初始化狀態
+    setExpanded(expanded, false);
+
+    // 點擊標題切換
+    title.addEventListener("click", () => {
+      const current =
+        subSection.dataset.expanded === "true";
+
+      setExpanded(!current);
+    });
+
+    subSection.appendChild(title);
+    subSection.appendChild(grid);
+
+    return subSection;
+  }
+
+  // 固定大分類順序
+  categoryOrder.forEach(category => {
+    const categoryProducts = products.filter(
+      product => product.category === category
+    );
+
+    if (categoryProducts.length === 0) return;
+
+    const section = document.createElement("section");
+    section.className = "category-section";
+    section.dataset.category = category;
+
+    const majorTitle = document.createElement("h2");
+    majorTitle.className = "major-title";
+    majorTitle.textContent = category;
+    section.appendChild(majorTitle);
+
+    const orderedSubcategories = subcategoryOrder[category] || [];
+
+    const actualSubcategories = [
+      ...new Set(
+        categoryProducts.map(
+          product => product.subcategory || "其他"
+        )
+      )
+    ];
+
+    const allSubcategories = [
+      ...orderedSubcategories.filter(
+        subcategory => actualSubcategories.includes(subcategory)
+      ),
+      ...actualSubcategories.filter(
+        subcategory => !orderedSubcategories.includes(subcategory)
+      )
+    ];
+
+    allSubcategories.forEach(subcategory => {
+      const subProducts = categoryProducts.filter(
+        product => (product.subcategory || "其他") === subcategory
+      );
+
+      if (subProducts.length === 0) return;
+
+      section.appendChild(
+        createSubcategorySection(
+          category,
+          subcategory,
+          subProducts
+        )
+      );
+    });
+
+    catalogContainer.appendChild(section);
+  });
+
+  // 顯示資料中存在、但未列在 categoryOrder 的大分類
+  const unlistedCategories = [
+    ...new Set(
+      products
+        .map(product => product.category || "其他")
+        .filter(category => !categoryOrder.includes(category))
+    )
+  ];
+
+  unlistedCategories.forEach(category => {
+    const categoryProducts = products.filter(
+      product => (product.category || "其他") === category
+    );
+
+    if (categoryProducts.length === 0) return;
+
+    const section = document.createElement("section");
+    section.className = "category-section";
+    section.dataset.category = category;
+
+    const majorTitle = document.createElement("h2");
+    majorTitle.className = "major-title";
+    majorTitle.textContent = category;
+    section.appendChild(majorTitle);
+
+    const actualSubcategories = [
+      ...new Set(
+        categoryProducts.map(
+          product => product.subcategory || "其他"
+        )
+      )
+    ];
+
+    actualSubcategories.forEach(subcategory => {
+      const subProducts = categoryProducts.filter(
+        product => (product.subcategory || "其他") === subcategory
+      );
+
+      if (subProducts.length === 0) return;
+
+      section.appendChild(
+        createSubcategorySection(
+          category,
+          subcategory,
+          subProducts
+        )
+      );
+    });
+
+    catalogContainer.appendChild(section);
+  });
+
+  initializeCollectionState();
+}
 
     // =========================================================
     // 7. 收藏資料讀取與儲存

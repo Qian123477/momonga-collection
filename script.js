@@ -254,38 +254,39 @@ document.addEventListener(
 
       // =========================================================
       // 3. 分類順序
+      // 大分類固定顯示，小分類依商品資料自動建立
+      // 避免新增小分類後，商品沒有顯示
       // =========================================================
 
       const categoryOrder = [
-         "娃娃",
-         "其他周邊"
+        "娃娃",
+        "其他周邊"
       ];
 
       const subcategoryOrder = {
-
         "娃娃": [
-           "吊飾",
-           "S娃",
-           "大娃/抱枕",
-           "其他",
-           "中國",
-           "香港",
-           "台灣",
-           "其他海外"
+          "吊飾",
+          "S娃",
+          "大娃/抱枕",
+          "其他",
+          "中國",
+          "香港",
+          "台灣",
+          "其他海外"
         ],
 
         "其他周邊": [
-           "立牌",
-           "徽章",
-           "公仔",
-           "鑰匙圈",
-           "磁鐵",
-           "包包",
-           "穿戴",
-           "手帕/布",
-           "飾品",
-           "生活用品",
-           "其他"
+          "立牌",
+          "徽章",
+          "公仔",
+          "鑰匙圈",
+          "磁鐵",
+          "包包",
+          "穿戴",
+          "手帕/布",
+          "飾品",
+          "生活用品",
+          "其他"
         ]
       };
 
@@ -642,13 +643,15 @@ document.addEventListener(
       }
 
 
+
     // =========================================================
-    // 6. 產生整個圖鑑（小分類可收合）
+    // 6. 產生整個圖鑑
     // =========================================================
 
     function renderCatalog() {
       catalogContainer.innerHTML = "";
 
+      // 沒有商品時顯示提示
       if (products.length === 0) {
         catalogContainer.innerHTML = `
           <div style="text-align:center;color:#999;padding:60px 20px;">
@@ -662,23 +665,27 @@ document.addEventListener(
         return;
       }
 
+      // 依照既定分類順序產生圖鑑
       categoryOrder.forEach(category => {
         const categoryProducts = products.filter(
           product => product.category === category
         );
 
+        // 沒有商品的分類不顯示
         if (categoryProducts.length === 0) return;
 
-        // 大分類維持固定顯示
+        // 建立大分類區塊
         const section = document.createElement("section");
         section.className = "category-section";
         section.dataset.category = category;
 
+        // 大分類標題
         const majorTitle = document.createElement("h2");
         majorTitle.className = "major-title";
         majorTitle.textContent = category;
         section.appendChild(majorTitle);
 
+        // 取得目前分類的子分類順序
         const subcategories = subcategoryOrder[category] || [];
 
         subcategories.forEach(subcategory => {
@@ -688,80 +695,39 @@ document.addEventListener(
               product.subcategory === subcategory
           );
 
+          // 沒有商品的子分類不顯示
           if (subProducts.length === 0) return;
 
-          // 小分類容器
-          const subSection = document.createElement("div");
-          subSection.className = "subcategory-section";
-          subSection.dataset.expanded = "false";
+          // 建立子分類標題
+          const subTitle = document.createElement("h3");
+          subTitle.className = "sub-title";
+          subTitle.textContent = subcategory;
+          section.appendChild(subTitle);
 
-          // 小分類標題按鈕
-          const subTitle = document.createElement("button");
-          subTitle.type = "button";
-          subTitle.className = "sub-title subcategory-toggle";
-          subTitle.setAttribute("aria-expanded", "false");
-
-          const titleText = document.createElement("span");
-          titleText.className = "subcategory-title-text";
-          titleText.textContent = subcategory;
-
-          const count = document.createElement("span");
-          count.className = "subcategory-count";
-          count.textContent = `${subProducts.length} 款`;
-
-          const arrow = document.createElement("span");
-          arrow.className = "subcategory-arrow";
-          arrow.setAttribute("aria-hidden", "true");
-          arrow.textContent = "＋";
-
-          subTitle.append(titleText, count, arrow);
-
-          // 商品網格：預設收合
+          // 建立商品網格
           const grid = document.createElement("div");
           grid.className = "catalog-grid";
           grid.dataset.category = category;
           grid.dataset.subcategory = subcategory;
-          grid.hidden = true;
 
+          // 產生商品卡片
           subProducts.forEach(product => {
             grid.appendChild(createProductCard(product));
           });
 
-          // 點擊小分類標題展開或收合
-          subTitle.addEventListener("click", () => {
-            const isExpanded =
-              subSection.dataset.expanded === "true";
-
-            const nextExpanded = !isExpanded;
-
-            subSection.dataset.expanded =
-              String(nextExpanded);
-
-            subTitle.setAttribute(
-              "aria-expanded",
-              String(nextExpanded)
-            );
-
-            subSection.classList.toggle(
-              "is-expanded",
-              nextExpanded
-            );
-
-            grid.hidden = !nextExpanded;
-            arrow.textContent = nextExpanded ? "－" : "＋";
-          });
-
-          subSection.append(subTitle, grid);
-          section.appendChild(subSection);
+          section.appendChild(grid);
         });
 
         catalogContainer.appendChild(section);
       });
 
+      // 還原收藏狀態、數量、購入價格及均價
       initializeCollectionState();
+
+      // 更新所有統計資料
       updateAllStatistics();
     }
-    
+
     // =========================================================
     // 7. 收藏資料讀取與儲存
     // =========================================================

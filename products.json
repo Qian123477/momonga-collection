@@ -128,7 +128,7 @@
     },
     {
         "id": "ac16",
-        "name": "魔法少女 亞種",
+        "name": "魔法亞種",
         "image": "image/1.ac/ac16.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
@@ -281,7 +281,7 @@
     },
     {
         "id": "ac34",
-        "name": "魔法二代",
+        "name": "超魔法",
         "image": "image/1.ac/ac34.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
@@ -407,7 +407,7 @@
     },
     {
         "id": "ac48",
-        "name": "魔法一代",
+        "name": "魔法",
         "image": "image/1.ac/ac48.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
@@ -416,7 +416,7 @@
     },
     {
         "id": "ac49",
-        "name": "酷洛米初代",
+        "name": "初代-酷洛米",
         "image": "image/1.ac/ac49.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
@@ -582,14 +582,14 @@
     },
     {
         "id": "ac71",
-        "name": "酷洛米二代",
+        "name": "二代-酷洛米",
         "image": "image/1.ac/ac71.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
     },
     {
         "id": "ac70",
-        "name": "酷洛米四代",
+        "name": "四代-酷洛米",
         "image": "image/1.ac/ac70.JPG",
         "category": "娃娃",
         "subcategory": "吊飾"
@@ -732,8 +732,17 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "ac92",
+        "name": "景品-酷洛米",
+        "image": "image/1.ac/ac92.JPG",
+        "category": "娃娃",
+        "subcategory": "吊飾",
+        "originalPrice": 2310,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "ac91",
-        "name": "ANA聯名",
+        "name": "景品",
         "image": "image/1.ac/ac91.JPG",
         "category": "娃娃",
         "subcategory": "吊飾",
@@ -1030,6 +1039,27 @@
         "id": "pr14",
         "name": "睡衣",
         "image": "image/3.pr/pr14.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr15",
+        "name": "亞種魔法,
+        "image": "image/3.pr/pr15.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr16",
+        "name": "黑魔法",
+        "image": "image/3.pr/pr16.JPG",
+        "category": "娃娃",
+        "subcategory": "大娃/抱枕"
+    },
+    {
+        "id": "pr18",
+        "name": "南瓜",
+        "image": "image/3.pr/pr18.JPG",
         "category": "娃娃",
         "subcategory": "大娃/抱枕"
     },

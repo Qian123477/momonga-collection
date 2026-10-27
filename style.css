@@ -1680,3 +1680,40 @@ html.dark-mode .exchange-rate-status {
     padding: 9px;
   }
 }
+
+
+/* =========================================
+   37. 電腦版小分類對齊大分類
+   大標題維持原樣，手機版維持原樣
+========================================= */
+
+@media (min-width: 601px) {
+    #catalog-container .category-section {
+        width: 100%;
+    }
+
+    #catalog-container .category-section > .major-title {
+        /* 大標題完全沿用原本設定 */
+        max-width: 1200px;
+    }
+
+    #catalog-container .category-section > .subcategory-section {
+        /* 小分類與大標題使用相同的最大寬度 */
+        width: calc(100% - 20px);
+        max-width: 1180px;
+        margin: 12px auto;
+        box-sizing: border-box;
+    }
+
+    #catalog-container .category-section > .subcategory-section > .subcategory-toggle {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #catalog-container .category-section > .subcategory-section > .catalog-grid {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}

@@ -2720,3 +2720,101 @@ html.dark-mode .fixed-rate-fields label,
 html.dark-mode .exchange-rate-status {
     color: #aaa4b5;
 }
+
+
+/* =========================================================
+   小桃圖鑑：小分類收合功能
+   ========================================================= */
+
+.subcategory-section {
+  margin-bottom: 12px;
+}
+
+/* 小分類標題 */
+.subcategory-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 小分類名稱 */
+.subcategory-title-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 商品款數 */
+.subcategory-count {
+  flex-shrink: 0;
+  font-size: 0.82em;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+/* 展開與收合符號 */
+.subcategory-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+}
+
+.subcategory-toggle:hover .subcategory-arrow {
+  background-color: rgba(128, 128, 128, 0.12);
+}
+
+/* 鍵盤操作的焦點提示 */
+.subcategory-toggle:focus-visible {
+  outline: 2px solid #d98ba7;
+  outline-offset: 3px;
+}
+
+/* 收合時確實隱藏商品 */
+.subcategory-section .catalog-grid[hidden] {
+  display: none !important;
+}
+
+/* 展開時的商品間距 */
+.subcategory-section .catalog-grid:not([hidden]) {
+  margin-top: 12px;
+  animation: subcategory-open 0.2s ease;
+}
+
+@keyframes subcategory-open {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 深色模式焦點提示 */
+.dark-mode .subcategory-toggle:focus-visible {
+  outline-color: #e6a5bd;
+}
+
+/* 尊重使用者減少動態效果的偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .subcategory-arrow,
+  .subcategory-section .catalog-grid:not([hidden]) {
+    animation: none;
+    transition: none;
+  }
+}
+

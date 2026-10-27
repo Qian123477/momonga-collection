@@ -1425,6 +1425,7 @@ document.addEventListener(
       });
     }
 
+
     // =========================================================
     // 19. 初始化
     // =========================================================
@@ -1437,6 +1438,44 @@ document.addEventListener(
       await loadLiveExchangeRates();
     }
 
+    // 搜尋與篩選
+    function setupSearchAndFilters() {
+      const searchInput = document.getElementById("search-input");
+      const clearSearchButton = document.querySelector(".clear-search");
+      const filterButtons = document.querySelectorAll(".filter-button");
+
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          applyFilters();
+
+          if (clearSearchButton) {
+            clearSearchButton.style.display =
+              searchInput.value ? "flex" : "none";
+          }
+        });
+      }
+
+      if (clearSearchButton && searchInput) {
+        clearSearchButton.addEventListener("click", () => {
+          searchInput.value = "";
+          clearSearchButton.style.display = "none";
+          applyFilters();
+          searchInput.focus();
+        });
+      }
+
+      filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach(item => {
+            item.classList.remove("active");
+          });
+
+          button.classList.add("active");
+          applyFilters();
+        });
+      });
+    }
+
     setupSearchAndFilters();
     setupThemeToggle();
     setupSettingsPanel();
@@ -1447,6 +1486,3 @@ document.addEventListener(
     refreshPurchasePriceFields();
     applyFilters();
     updateAllStatistics();
-
-  }
-);

@@ -286,8 +286,9 @@ body {
 }
 
 
+
 /* =========================================
-   07. 小分類標題
+   07. 小分類標題（可開合）
    ========================================= */
 
 .sub-title {
@@ -300,8 +301,13 @@ body {
     display: flex;
     align-items: center;
     gap: 9px;
+
+    /* 小分類開合 */
+    cursor: pointer;
+    user-select: none;
 }
 
+/* 小分類右側分隔線 */
 .sub-title::after {
     content: "";
     flex: 1;
@@ -309,6 +315,37 @@ body {
     background: #e8e3f1;
 }
 
+/* 開合箭頭 */
+.sub-title::before {
+    content: "▾";
+    display: inline-block;
+    font-size: 13px;
+    color: #8e8cdc;
+    transition: transform 0.2s ease;
+}
+
+/* 收合時，箭頭朝右 */
+.sub-title.collapsed::before {
+    transform: rotate(-90deg);
+}
+
+/* 小分類收合時隱藏商品網格 */
+.sub-title.collapsed + .catalog-grid {
+    display: none !important;
+}
+
+/* 深色模式 */
+html.dark-mode .sub-title {
+    color: #aaa4b5;
+}
+
+html.dark-mode .sub-title::after {
+    background: #403a4b;
+}
+
+html.dark-mode .sub-title::before {
+    color: #aaa6ed;
+}
 
 /* =========================================
    08. 商品網格

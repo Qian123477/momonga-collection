@@ -745,9 +745,7 @@
         "name": "景品",
         "image": "image/1.ac/ac91.JPG",
         "category": "娃娃",
-        "subcategory": "吊飾",
-        "originalPrice": 2310,
-        "originalCurrency": "JPY"
+        "subcategory": "吊飾"
     },
     {
         "id": "pl1",
@@ -1044,7 +1042,7 @@
     },
     {
         "id": "pr15",
-        "name": "亞種魔法,
+        "name": "亞種魔法",
         "image": "image/3.pr/pr15.JPG",
         "category": "娃娃",
         "subcategory": "大娃/抱枕"

@@ -331,6 +331,7 @@ async function loadLiveExchangeRates() {
           "手帕/布",
           "飾品",
           "生活用品",
+          "餐具",
           "其他"
         ]
       };

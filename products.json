@@ -2626,6 +2626,87 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "bg2-1",
+        "name": "天使蓬鬆單肩包",
+        "image": "image/14.bg/1/bg2-1.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 6050,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-2",
+        "name": "星空飲料瓶背帶袋",
+        "image": "image/14.bg/1/bg2-2.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1430,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-3",
+        "name": "星空單肩包",
+        "image": "image/14.bg/1/bg2-3.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-4",
+        "name": "魔法星星單肩包",
+        "image": "image/14.bg/1/bg2-4.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-5",
+        "name": "魔法愛心單肩包",
+        "image": "image/14.bg/1/bg2-5.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-6",
+        "name": "螺旋麵包三人組帆布包",
+        "image": "image/14.bg/1/bg2-6.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-7",
+        "name": "波浪荷葉邊束口單肩包",
+        "image": "image/14.bg/1/bg2-7.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2860,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-8",
+        "name": "滿版印花半月包",
+        "image": "image/14.bg/1/bg2-8.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3080,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg2-9",
+        "name": "GU 刺繡毛絨小方包",
+        "image": "image/14.bg/1/bg2-9.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1990,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "hn1",
         "name": "防水布巾 市松紋樣",
         "image": "image/16.hn/hn1.JPG",

@@ -2563,7 +2563,7 @@
         "originalCurrency": "JPY"
     },
     {
-        "id": "bg1-6",
+        "id": "bg1-7",
         "name": "筆袋 R.BOSTON OD 藍",
         "image": "image/14.bg/1/bg1-6.JPG",
         "category": "其他周邊",
@@ -2572,30 +2572,48 @@
         "originalCurrency": "JPY"
     },
     {
-        "id": "bg1-6",
-        "name": "筆袋 R.BOSTON OD 藍",
-        "image": "image/14.bg/1/bg1-6.JPG",
+        "id": "bg1-8",
+        "name": "筆袋 BACKPACK OD 棕",
+        "image": "image/14.bg/1/bg1-8.JPG",
         "category": "其他周邊",
         "subcategory": "包包",
         "originalPrice": 2420,
         "originalCurrency": "JPY"
     },
     {
-        "id": "bg1-6",
-        "name": "筆袋 R.BOSTON OD 棕",
-        "image": "image/14.bg/1/bg1-6.JPG",
+        "id": "bg1-9",
+        "name": "筆袋 R.BOSTON OD 藍",
+        "image": "image/14.bg/1/bg1-9.JPG",
         "category": "其他周邊",
         "subcategory": "包包",
         "originalPrice": 2420,
         "originalCurrency": "JPY"
     },
     {
-        "id": "bg1-7",
-        "name": "筆袋 R.BOSTON OD 藍",
-        "image": "image/14.bg/1/bg1-7.JPG",
+        "id": "bg1-10",
+        "name": "模切造型零錢包",
+        "image": "image/14.bg/1/bg1-10.JPG",
         "category": "其他周邊",
         "subcategory": "包包",
-        "originalPrice": 2420,
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg1-11",
+        "name": "日常收納盒",
+        "image": "image/14.bg/1/bg1-11.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg1-12",
+        "name": "附肩帶多功能口袋",
+        "image": "image/14.bg/1/bg1-12.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1340,
         "originalCurrency": "JPY"
     },
     {

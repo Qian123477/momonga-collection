@@ -2707,6 +2707,123 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "bg3-1",
+        "name": "繁星天空樹環保袋",
+        "image": "image/14.bg/3/bg3-1.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-2",
+        "name": "樂園環保袋",
+        "image": "image/14.bg/3/bg3-2.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-3",
+        "name": "麵包房環保袋",
+        "image": "image/14.bg/3/bg3-3.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2090,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-4",
+        "name": "歐根纱蝴蝶結環保袋",
+        "image": "image/14.bg/3/bg3-4.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-5",
+        "name": "滿版環保袋",
+        "image": "image/14.bg/3/bg3-5.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-6",
+        "name": "電影版熱帶風情環保袋",
+        "image": "image/14.bg/3/bg3-6.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-7",
+        "name": "天使惡魔環保袋",
+        "image": "image/14.bg/3/bg3-7.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1650,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-8",
+        "name": "寶寶環保袋 藍",
+        "image": "image/14.bg/3/bg3-8.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-9",
+        "name": "寶寶環保袋 粉",
+        "image": "image/14.bg/3/bg3-9.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-10",
+        "name": "三麗鷗超市環保袋 紅",
+        "image": "image/14.bg/3/bg3-10.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-11",
+        "name": "三麗鷗超市環保袋 藍",
+        "image": "image/14.bg/3/bg3-11.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-12",
+        "name": "字母環保袋",
+        "image": "image/14.bg/3/bg3-12.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg3-13",
+        "name": "筆記本環保袋",
+        "image": "image/14.bg/3/bg3-13.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "hn1",
         "name": "防水布巾 市松紋樣",
         "image": "image/16.hn/hn1.JPG",

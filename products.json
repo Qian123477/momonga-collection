@@ -2968,6 +2968,204 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "bg4-17",
+        "name": "保溫午餐袋 圓點",
+        "image": "image/14.bg/4/bg4-17.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-18",
+        "name": "保溫午餐袋 大頭",
+        "image": "image/14.bg/4/bg4-18.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-19",
+        "name": "保溫托特包 圓點",
+        "image": "image/14.bg/4/bg4-19.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-20",
+        "name": "保溫托特包 大頭",
+        "image": "image/14.bg/4/bg4-20.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2420,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-21",
+        "name": "格紋托特包",
+        "image": "image/14.bg/4/bg4-21.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3630,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-22",
+        "name": "多功能托特包",
+        "image": "image/14.bg/4/bg4-22.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-23",
+        "name": "黑魔法托特包 黑",
+        "image": "image/14.bg/4/bg4-23.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 4180,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-24",
+        "name": "黑魔法托特包 紫",
+        "image": "image/14.bg/4/bg4-24.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 4180,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-25",
+        "name": "東京霓虹托特包",
+        "image": "image/14.bg/4/bg4-25.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3300,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-26",
+        "name": "刺繡迷你包",
+        "image": "image/14.bg/4/bg4-26.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2200,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-27",
+        "name": "刺繡波士頓包",
+        "image": "image/14.bg/4/bg4-27.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 7700,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-28",
+        "name": "校園包",
+        "image": "image/14.bg/4/bg4-28.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 7480,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-29",
+        "name": "防水洗漱包",
+        "image": "image/14.bg/4/bg4-29.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-30",
+        "name": "美式餐廳手提袋",
+        "image": "image/14.bg/4/bg4-30.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1210,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-31",
+        "name": "夏日雙層底沙灘包",
+        "image": "image/14.bg/4/bg4-31.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-32",
+        "name": "刺繡托特包",
+        "image": "image/14.bg/4/bg4-32.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3850,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-33",
+        "name": "不可思議王國托特包",
+        "image": "image/14.bg/4/bg4-33.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2640,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-34",
+        "name": "下午茶托特包",
+        "image": "image/14.bg/4/bg4-34.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2640,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-35",
+        "name": "2way束口包",
+        "image": "image/14.bg/4/bg4-35.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2860,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-36",
+        "name": "拉麵托特包",
+        "image": "image/14.bg/4/bg4-36.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-37",
+        "name": "麵包店托特包",
+        "image": "image/14.bg/4/bg4-37.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2860,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-33",
+        "name": "多功能托特包",
+        "image": "image/14.bg/4/bg4-33.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "hn1",
         "name": "防水布巾 市松紋樣",
         "image": "image/16.hn/hn1.JPG",

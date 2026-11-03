@@ -3157,6 +3157,78 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "bg4-37",
+        "name": "麵包店托特包",
+        "image": "image/14.bg/4/bg4-37.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2860,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-38",
+        "name": "毛呢刺繡托特包",
+        "image": "image/14.bg/4/bg4-38.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3630,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-39",
+        "name": "好朋友餐廳托特包",
+        "image": "image/14.bg/4/bg4-39.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2640,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-40",
+        "name": "讀賣巨人托特包 選手名鑑",
+        "image": "image/14.bg/4/bg4-40.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-41",
+        "name": "讀賣巨人托特包 小小的臉",
+        "image": "image/14.bg/4/bg4-41.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-42",
+        "name": "大家一起Eye Catch托特包",
+        "image": "image/14.bg/4/bg4-42.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-43",
+        "name": "東京伴手禮托特包",
+        "image": "image/14.bg/4/bg4-43.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1980,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-44",
+        "name": "魔法抽繩托特包",
+        "image": "image/14.bg/4/bg4-44.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2530,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "hn1",
         "name": "防水布巾 市松紋樣",
         "image": "image/16.hn/hn1.JPG",

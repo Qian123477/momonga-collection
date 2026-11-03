@@ -2824,6 +2824,150 @@
         "originalCurrency": "JPY"
     },
     {
+        "id": "bg4-1",
+        "name": "電影托特包 藍",
+        "image": "image/14.bg/4/bg4-1.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-1",
+        "name": "電影托特包 米白",
+        "image": "image/14.bg/4/bg4-2.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2750,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-3",
+        "name": "魔法少女托特包",
+        "image": "image/14.bg/4/bg4-3.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3850,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-4",
+        "name": "魔法少女閃亮托特包",
+        "image": "image/14.bg/4/bg4-4.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3850,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-5",
+        "name": "NAGUSAMERO托特包",
+        "image": "image/14.bg/4/bg4-5.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 4620,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-6",
+        "name": "專賣店限定痛包 黑",
+        "image": "image/14.bg/4/bg4-6.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 4950,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-7",
+        "name": "專賣店限定痛包 銀",
+        "image": "image/14.bg/4/bg4-7.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 4950,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-8",
+        "name": "動畫版雙層底沙灘包 藍",
+        "image": "image/14.bg/4/bg4-8.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-9",
+        "name": "動畫版雙層底沙灘包 粉",
+        "image": "image/14.bg/4/bg4-9.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-10",
+        "name": "星空雙層底沙灘包",
+        "image": "image/14.bg/4/bg4-10.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-11",
+        "name": "星空托特包",
+        "image": "image/14.bg/4/bg4-11.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1540,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-12",
+        "name": "星空水桶型沙灘包",
+        "image": "image/14.bg/4/bg4-12.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 1320,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-13",
+        "name": "字母托特包",
+        "image": "image/14.bg/4/bg4-13.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3520,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-14",
+        "name": "光柵托特包",
+        "image": "image/14.bg/4/bg4-14.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3850,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-15",
+        "name": "繁星天空樹托特包",
+        "image": "image/14.bg/4/bg4-15.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 2970,
+        "originalCurrency": "JPY"
+    },
+    {
+        "id": "bg4-16",
+        "name": "樂園托特包",
+        "image": "image/14.bg/4/bg4-16.JPG",
+        "category": "其他周邊",
+        "subcategory": "包包",
+        "originalPrice": 3190,
+        "originalCurrency": "JPY"
+    },
+    {
         "id": "hn1",
         "name": "防水布巾 市松紋樣",
         "image": "image/16.hn/hn1.JPG",
